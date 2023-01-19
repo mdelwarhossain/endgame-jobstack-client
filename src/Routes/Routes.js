@@ -11,11 +11,13 @@ import Notification from "../Pages/Notification/Notification";
 import Network from "../Pages/Network/Network";
 import MyConnections from "../Pages/Network/MyConnections/MyConnections";
 import Jobs from '../Pages/Jobs/Jobs'
+import ErrorPage from '../Shared/ErrorPage/ErrorPage'
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",

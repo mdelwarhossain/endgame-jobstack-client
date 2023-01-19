@@ -1,21 +1,54 @@
-import React from 'react';
+import { useQuery } from '@tanstack/react-query';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../../contexts/AuthProvider';
+import Loading from '../../../Shared/LoadingPage/LoadingPage';
 
 const MyConnectionsCard = () => {
+
+    const {user} = useContext(AuthContext); 
+
+    const { data: friends, isLoading } = useQuery({
+        queryKey: ['friends'],
+        queryFn: async () => {
+            try {
+                const res = await fetch(`http://localhost:5000/friends/${user?.email}`, {
+                    headers: {
+                        authorization: `bearer ${localStorage.getItem('accessToken')}`
+                    }
+                });
+                const data = await res.json();
+                return data;
+            }
+            catch (error) {
+
+            }
+        }
+    });
+    console.log(friends);
+
+    if (isLoading) {
+        return <Loading></Loading>
+    }
+
     return (
         <div>
-            <div className='grid grid-cols-8'>
-            <div className="avatar col-span-1">
-                <div className="w-16 rounded-full">
-                    <img src="https://placeimg.com/192/192/people" alt=''/>
+            {
+                friends?.map(friend => <div>
+                    <div key={friend._id} className='grid grid-cols-8'>
+                    <div className="avatar col-span-1">
+                        <div className="w-16 rounded-full">
+                            <img src={friend?.url} alt=''/>
+                        </div>
+                    </div>
+                    <div className='col-span-6'>
+                        <p>{friend?.name}</p>
+                        <p>Mern Stack Coders</p>
+                    </div>
+                    <button><p className='col-span-1'>Message</p></button>
                 </div>
-            </div>
-            <div className='col-span-6'>
-                <p>PH Warriors</p>
-                <p>Mern Stack Coders</p>
-            </div>
-            <button><p className='col-span-1'>Message</p></button>
-        </div>
-            <div className="divider"></div>
+                    <div className="divider"></div>
+                </div>)
+            }
         </div>
     );
 };
