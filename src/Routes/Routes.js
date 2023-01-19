@@ -12,10 +12,12 @@ import MyConnections from "../Pages/Network/MyConnections/MyConnections";
 import Jobs from "../Pages/Jobs/Jobs";
 import UserProfile from "../Pages/UserProfile/UserProfile";
 
+
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
