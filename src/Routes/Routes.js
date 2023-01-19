@@ -7,6 +7,7 @@ import SignUp from "../Pages/SignUp/SignUp";
 
 import NewsFeed from "../Pages/NewsFeed/NewsFeed";
 import Notification from "../Pages/Notification/Notification";
+import Jobs from "../Pages/Jobs/Jobs";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
       {
         path: "/newsfeed",
         element: <NewsFeed></NewsFeed>,
+      },
+      {
+        path: "/jobs",
+        element: <Jobs></Jobs>,
       },
       {
         path: '/login',
