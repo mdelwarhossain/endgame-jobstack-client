@@ -70,12 +70,12 @@ const Navbar = () => {
             </li>
             <li>
               <a
-                href="/"
-                aria-label="About us"
-                title="About us"
+                href="/network"
+                aria-label="network"
+                title="network"
                 className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
               >
-                About us
+                Network
               </a>
             </li>
             <li>

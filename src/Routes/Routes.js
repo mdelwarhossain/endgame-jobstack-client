@@ -7,7 +7,9 @@ import SignUp from "../Pages/SignUp/SignUp";
 
 import NewsFeed from "../Pages/NewsFeed/NewsFeed";
 import Notification from "../Pages/Notification/Notification";
-import Jobs from "../Pages/Jobs/Jobs";
+
+import Network from "../Pages/Network/Network";
+import MyConnections from "../Pages/Network/MyConnections/MyConnections";
 
 const router = createBrowserRouter([
   {
@@ -35,8 +37,16 @@ const router = createBrowserRouter([
         element: <SignUp></SignUp>
       },
       {
+        path: '/network',
+        element: <Network></Network>
+      },
+      {
         path: '/notification',
         element: <Notification></Notification>
+      },
+      {
+        path: '/myconnections',
+        element: <MyConnections></MyConnections>
       },
     ],
   },

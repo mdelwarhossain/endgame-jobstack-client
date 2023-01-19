@@ -3,6 +3,7 @@ import Statistics from "../Statistics/Statistics";
 import About from "./AboutUs/About";
 import Banner from "./Banner/Banner";
 import OurTeam from "./OurTeam/OurTeam";
+// kkkk
 
 const Home = () => {
   return (
