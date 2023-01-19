@@ -10,6 +10,7 @@ import Notification from "../Pages/Notification/Notification";
 
 import Network from "../Pages/Network/Network";
 import MyConnections from "../Pages/Network/MyConnections/MyConnections";
+import Jobs from '../Pages/Jobs/Jobs'
 
 const router = createBrowserRouter([
   {
