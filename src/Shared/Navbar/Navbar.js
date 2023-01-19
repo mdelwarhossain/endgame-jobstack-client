@@ -40,12 +40,12 @@ const Navbar = () => {
             </li>
             <li>
               <a
-                href="/newsfeed"
+                href="/jobs"
                 aria-label="Our product"
                 title="Our product"
                 className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
               >
-                Videos
+                Jobs
               </a>
             </li>
             <li>
@@ -178,12 +178,12 @@ const Navbar = () => {
                       </li>
                       <li>
                         <a
-                          href="/"
+                          href="/jobs"
                           aria-label="Our product"
                           title="Our product"
                           className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                         >
-                          Videos
+                          Jobs
                         </a>
                       </li>
                       <li>
