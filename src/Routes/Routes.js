@@ -9,13 +9,16 @@ import Notification from "../Pages/Notification/Notification";
 
 import Network from "../Pages/Network/Network";
 import MyConnections from "../Pages/Network/MyConnections/MyConnections";
+import ErrorPage from "../Shared/ErrorPage/ErrorPage";
 import Jobs from "../Pages/Jobs/Jobs";
 import UserProfile from "../Pages/UserProfile/UserProfile";
+
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
