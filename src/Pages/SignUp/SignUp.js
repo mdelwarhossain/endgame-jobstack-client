@@ -24,7 +24,7 @@ const SignUp = () => {
         const user = result.user;
         console.log(user);
 
-        updateUser({ displayName: data.name })
+        updateUser({ displayName: data.name, photoURL:data.image })
           .then(() => {})
           .catch((err) => {
             console.log(err);
@@ -116,7 +116,7 @@ const SignUp = () => {
               <span className="label-text">Number</span>
             </label>
             <input
-              type="number"
+              type="text"
               {...register("number", {
                 required: true,
               })}

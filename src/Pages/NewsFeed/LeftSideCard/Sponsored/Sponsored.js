@@ -5,15 +5,15 @@ import amazon from '../../../../assest/images/amazon.jpg'
 import { RiUserSettingsFill } from 'react-icons/ri';
 const Sponsored = () => {
   return (
-    <div className="my-8">
+    <div className="my-8 shadow-xl">
       <h3 className="text-xl font-extrabold my-5">Sponsored <RiUserSettingsFill className="inline"/></h3>
-      <div  className="mb-5 shadow-xl">
+      <div  className="mb-5">
          <a href="https://www.amazon.com/" target="_blank" rel="noopener noreferrer"><img alt="" src={amazon} onClick="https://www.amazon.com/" /></a>
       </div>
-      <div  className="mb-5 shadow-xl">
+      <div  className="mb-5">
          <a href="https://www.programming-hero.com/" target="_blank" rel="noopener noreferrer"><img alt="" src={ph} onClick="https://www.programming-hero.com/" /></a>
       </div>
-      <div  className="mb-5 shadow-xl">
+      <div  className="mb-5">
          <a href="https://internshala.com/" target="_blank" rel="noopener noreferrer"><img alt="" src={intern} onClick="https://internshala.com/" /></a>
       </div>
     </div>
