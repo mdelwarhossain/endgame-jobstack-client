@@ -2,9 +2,25 @@ import React from "react";
 import { FaImages } from "react-icons/fa";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
+import { useContext } from "react";
+import { AuthContext } from "../../../contexts/AuthProvider";
+import { useQuery } from "@tanstack/react-query";
 
 const CreatePost = () => {
+  const { user } = useContext(AuthContext);
+  console.log(user?.email);
   const imageHostKey = "c8246134e51fb0e0cbdc4f35b003ee74";
+
+  const url = `http://localhost:5000/userimg?email=${user?.email}`;
+
+  const { data: img = [], refetch } = useQuery({
+    queryKey: ["img", user?.email],
+    queryFn: async () => {
+      const res = await fetch(url);
+      const data = await res.json();
+      return data;
+    },
+  });
 
   const {
     register,
@@ -54,7 +70,7 @@ const CreatePost = () => {
         <img
           alt=""
           className="hidden md:block w-12 h-12 mr-3 rounded-full ring-2 ring-offset-4 dark:bg-gray-500 ring-violet-400 ring-offset-gray-800"
-          src="https://source.unsplash.com/40x40/?portrait?1"
+          src="https://i.ibb.co/dgCyQGV/photo-1499996860823-5214fcc65f8f-crop-faces-edges-cs-tinysrgb-fit-crop-fm-jpg-ixid-Mnwx-Mj-A3f-DB8-M.jpg"
         />
         <input
           type="text"
@@ -74,7 +90,11 @@ const CreatePost = () => {
           type="file"
           style={{ display: "none" }}
         />
-        <input type="submit" value="submit" className="btn btn-primary btn-sm md:btn-md ml-1" />
+        <input
+          type="submit"
+          value="submit"
+          className="btn btn-primary btn-sm md:btn-md ml-1"
+        />
       </form>
     </div>
   );
