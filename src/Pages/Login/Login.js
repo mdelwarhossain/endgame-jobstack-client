@@ -15,7 +15,7 @@ const Login = () => {
   const [loginError, setLoginError] = useState("");
   const location = useLocation();
   const navigate = useNavigate();
-
+  // navigate
   const from = location.state?.from?.pathname || "/";
 
   const handleLogin = (data) => {
