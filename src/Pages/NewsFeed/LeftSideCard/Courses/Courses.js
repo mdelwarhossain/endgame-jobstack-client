@@ -6,7 +6,7 @@ import { GiCandlebright } from 'react-icons/gi';
 const Courses = () => {
   return (
     <div className="mt-5 shadow-xl">
-        <p className="font-extrabold text-xl mb-3">Popular Courses <GiCandlebright className="inline"/></p>
+        <p className="font-extrabold text-xl ml-5">Popular Courses <GiCandlebright className="inline"/></p>
       <div className="mb-5 p-5">
             <img src={js} alt="" />
             <p className="font-bold mt-2">Javascript Online Video Course <span className="badge badge-warning font-extrabold">Free</span></p>

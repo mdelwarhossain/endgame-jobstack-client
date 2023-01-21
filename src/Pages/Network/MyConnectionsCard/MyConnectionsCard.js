@@ -5,7 +5,7 @@ import Loading from '../../../Shared/LoadingPage/LoadingPage';
 
 const MyConnectionsCard = () => {
 
-    const {user} = useContext(AuthContext); 
+    const { user } = useContext(AuthContext);
 
     const { data: friends, isLoading } = useQuery({
         queryKey: ['friends'],
@@ -33,19 +33,19 @@ const MyConnectionsCard = () => {
     return (
         <div>
             {
-                friends?.map(friend => <div>
-                    <div key={friend._id} className='grid grid-cols-8'>
-                    <div className="avatar col-span-1">
-                        <div className="w-16 rounded-full">
-                            <img src={friend?.url} alt=''/>
+                friends?.map(friend => <div key={friend._id}>
+                    <div className='grid grid-cols-8'>
+                        <div className="avatar col-span-1">
+                            <div className="w-16 rounded-full">
+                                <img src={friend?.url} alt='' />
+                            </div>
                         </div>
+                        <div className='col-span-6'>
+                            <p>{friend?.name}</p>
+                            <p>Mern Stack Coders</p>
+                        </div>
+                        <button><p className='col-span-1'>Message</p></button>
                     </div>
-                    <div className='col-span-6'>
-                        <p>{friend?.name}</p>
-                        <p>Mern Stack Coders</p>
-                    </div>
-                    <button><p className='col-span-1'>Message</p></button>
-                </div>
                     <div className="divider"></div>
                 </div>)
             }
