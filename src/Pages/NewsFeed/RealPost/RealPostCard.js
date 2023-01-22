@@ -74,7 +74,7 @@ const RealPostCard = ({ post }) => {
 
   return (
     <div>
-      <div className="rounded-md shadow-md max-w-full mx-2 bg-gray-900 text-gray-100 my-5 mx-20">
+      <div className="rounded-md shadow-md max-w-full bg-gray-900 text-gray-100 my-5 mx-12">
         <div className="flex items-center justify-between p-3">
           <div className="flex items-center space-x-2">
             {/* will work on it next later */}

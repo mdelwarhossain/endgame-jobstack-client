@@ -65,7 +65,7 @@ const CreatePost = () => {
       });
   };
   return (
-    <div className="mx-2 my-6">
+    <div className="mx-6 my-6">
       <form className="flex items-center" onSubmit={handleSubmit(handleSub)}>
         <img
           alt=""
