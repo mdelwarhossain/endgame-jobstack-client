@@ -1,6 +1,13 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
+import { RiHomeHeartFill } from "react-icons/ri";
+import { BsFillBagPlusFill } from "react-icons/bs";
+import { FaBlog } from "react-icons/fa";
+import { MdGroups } from "react-icons/md";
+import { BiNetworkChart } from "react-icons/bi";
+import { MdNotificationsActive } from "react-icons/md";
+
 
 const Navbar = () => {
   const { logOut, user } = useContext(AuthContext);
@@ -8,7 +15,7 @@ const Navbar = () => {
 
   const handleSignout = () => {
     logOut()
-      .then(() => {})
+      .then(() => { })
       .catch((error) => console.log(error));
   };
   return (
@@ -35,6 +42,7 @@ const Navbar = () => {
                 title="Our product"
                 className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
               >
+                <RiHomeHeartFill className="mx-auto " />
                 NewsFeed
               </a>
             </li>
@@ -44,7 +52,7 @@ const Navbar = () => {
                 aria-label="Our product"
                 title="Our product"
                 className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
-              >
+              ><BsFillBagPlusFill className="mx-auto align-items-center" />
                 Jobs
               </a>
             </li>
@@ -54,7 +62,7 @@ const Navbar = () => {
                 aria-label="Product pricing"
                 title="Product pricing"
                 className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
-              >
+              ><FaBlog className="mx-auto align-items-center" />
                 Blogs
               </a>
             </li>
@@ -64,7 +72,7 @@ const Navbar = () => {
                 aria-label="About us"
                 title="About us"
                 className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
-              >
+              ><MdGroups className="mx-auto align-items-center" />
                 About us
               </a>
             </li>
@@ -74,7 +82,7 @@ const Navbar = () => {
                 aria-label="network"
                 title="network"
                 className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
-              >
+              ><BiNetworkChart className="mx-auto align-items-center" />
                 Network
               </a>
             </li>
@@ -84,7 +92,7 @@ const Navbar = () => {
                 aria-label="notification"
                 title="notification"
                 className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
-              >
+              ><MdNotificationsActive className="mx-auto align-items-center" />
                 Notification
               </a>
             </li>
@@ -101,7 +109,7 @@ const Navbar = () => {
               </a> */}
             </li>
             {user?.email ? (
-              <button className="btn btn-white" onClick={handleSignout}>
+              <button className="btn btn-white" onClick={handleSignout} >
                 SignOut
               </button>
             ) : (
@@ -236,7 +244,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 
