@@ -11,6 +11,8 @@ import Network from "../Pages/Network/Network";
 import MyConnections from "../Pages/Network/MyConnections/MyConnections";
 import ErrorPage from "../Shared/ErrorPage/ErrorPage";
 import Jobs from "../Pages/Jobs/Jobs";
+import JobDetails from "../Pages/Jobs/JobDetails/JobDetails";
+import Hire from "../Pages/Hire/Hire";
 import UserProfile from "../Pages/UserProfile/UserProfile";
 
 
@@ -31,6 +33,15 @@ const router = createBrowserRouter([
       {
         path: "/jobs",
         element: <Jobs></Jobs>,
+      },
+      {
+        path: "/job/:id",
+        element: <JobDetails></JobDetails>,
+        loader: ({params}) => fetch(`http://localhost:5000/job/${params.id}`)
+      },
+      {
+        path: "/hire",
+        element: <Hire></Hire>,
       },
       {
         path: "/userprofile",
