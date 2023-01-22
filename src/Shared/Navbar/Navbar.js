@@ -12,7 +12,7 @@ const Navbar = () => {
       .catch((error) => console.log(error));
   };
   return (
-    <div className="bg-gray-900  ">
+    <div className="bg-gray-400">
       <div className="mx-auto px-4 py-4 sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
         <div className="relative flex items-center justify-between">
           <a
