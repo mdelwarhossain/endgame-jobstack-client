@@ -56,9 +56,8 @@ const SignUp = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log("save user", data);
-        // navigate('/');
         toast.success("please login with email and password");
-        navigate("/login");
+        navigate('/userProfile');
       });
   };
   const googleProvider = new GoogleAuthProvider();
@@ -70,7 +69,7 @@ const SignUp = () => {
       })
       .catch((error) => console.error(error));
     toast.success("please login with google");
-    navigate("/login");
+    navigate("/userProfile");
   };
 
   return (
