@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
 import { RiHomeHeartFill } from "react-icons/ri";
 import { BsFillBagPlusFill } from "react-icons/bs";
-import { FaBlog } from "react-icons/fa";
+import { FaBlog, FaSearch } from "react-icons/fa";
 import { MdGroups } from "react-icons/md";
 import { BiNetworkChart } from "react-icons/bi";
 import { MdNotificationsActive } from "react-icons/md"
@@ -58,7 +58,18 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Get started</a>
+        <div class="mt-3 w-60 mr-auto ml-auto  hidden sm:block">
+          <div class="pl-2 flex items-center border-1 bg-white border shadow-md rounded-full">
+            <input class="rounded-l-sm w-full  px-6 text-gray-700 leading-tight focus:outline-none" id="search"
+              type="text" placeholder="Search" />
+            <div class="">
+              <button
+                class="text-white btn-sm rounded-full bg-blue-400 focus:outline-none w-10 h-10 flex items-center justify-end">
+                <FaSearch className="mx-auto"/>
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
