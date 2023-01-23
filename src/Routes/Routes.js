@@ -18,6 +18,7 @@ import UserProfile from "../Pages/UserProfile/UserProfile";
 import MyJobPost from "../Pages/Hire/MyJobPost/MyJobPost";
 
 
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -77,6 +78,18 @@ const router = createBrowserRouter([
       {
         path: "/myconnections",
         element: <MyConnections></MyConnections>,
+      },
+      {
+        path: "/*",
+        element: <Pictures></Pictures>
+      },
+      {
+        path: '/animation',
+        element: <Animation></Animation>
+      },
+      {
+        path: '/photo',
+        element: <Photo></Photo>
       },
     ],
   },
