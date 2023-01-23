@@ -9,11 +9,11 @@ import RightSideCard from "./RightSideCard/RightSideCard";
 
 const NewsFeed = () => {
   return (
-    <div className="newsFeed px-4 grid grid-cols-1 md:grid-cols-8 gap-2">
+    <div className="newsFeed px-4 grid grid-cols-1 md:grid-cols-8 gap-4">
       <div className="hidden  md:block col-span-2">
         <LeftSideCard></LeftSideCard>
-        <Courses></Courses>
-        <Sponsored></Sponsored>
+        {/* <Courses></Courses>
+        <Sponsored></Sponsored> */}
       </div>
       <div className="col-span-4 shadow-2xl">
         <CreatePost></CreatePost>

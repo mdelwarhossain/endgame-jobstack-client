@@ -21,6 +21,7 @@ import Pictures from "../Pictures/Pictures";
 import Photo from "../Pages/SignUp/Animation/Photo/Photo";
 
 
+
 const router = createBrowserRouter([
   {
     path: "/",
