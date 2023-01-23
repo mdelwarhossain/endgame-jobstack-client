@@ -11,7 +11,7 @@ const Network = () => {
         <LeftSide></LeftSide>
         <div className="divider"></div>
         <Sponsored></Sponsored>
-        <Link to="/jobs" className='text-center text-green-600 btn btn-outline btn-primary ml-5'>See Who Is Hiring</Link>
+        <Link to="/jobs" className='text-center text-green-600 btn btn-outline btn-primary ml-5 mb-5'>See Who Is Hiring</Link>
       </div>
       <div className="col-span-6">
         <NetworkCard></NetworkCard>

@@ -20,7 +20,7 @@ const LeftSide = ({currentUser}) => {
         <div className="">
             <div className='flex gap-4 ml-2 mt-2'>
                 <img className='h-10 w-10 rounded-full' src={currentUser?.image} alt="" />
-                <span className='flex gap-2 mt-2'> {currentUser?.name}</span>
+                <span className='flex gap-2 mt-2'> {user?.displayName}</span>
             </div>
             <div className='flex flex-col justify-center'>
                 <button className='flex gap-4 btn-ghost px-4 py-2'><FaUserFriends></FaUserFriends><Link to='/myconnections'>Connections</Link></button>

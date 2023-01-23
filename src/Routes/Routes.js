@@ -15,10 +15,10 @@ import JobDetails from "../Pages/Jobs/JobDetails/JobDetails";
 import Hire from "../Pages/Hire/Hire";
 import AddJob from "../Pages/Hire/AddJob/AddJob";
 import UserProfile from "../Pages/UserProfile/UserProfile";
-import MyJobPost from "../Pages/Hire/MyJobPost/MyJobPost";
 import Animation from "../Pages/SignUp/Animation/Animation";
 import Pictures from "../Pictures/Pictures";
 import Photo from "../Pages/SignUp/Animation/Photo/Photo";
+import MyJobPost from "../Pages/Hire/MyJobPost/MyJobPost";
 
 
 
@@ -46,9 +46,8 @@ const router = createBrowserRouter([
         loader: ({params}) => fetch(`http://localhost:5000/job/${params.id}`)
       },
       {
-        path: "/job/:email",
+        path: "/jobs/:email",
         element: <MyJobPost></MyJobPost>,
-        loader: ({params}) => fetch(`http://localhost:5000/job/${params.email}`)
       },
       {
         path: "/hire",
