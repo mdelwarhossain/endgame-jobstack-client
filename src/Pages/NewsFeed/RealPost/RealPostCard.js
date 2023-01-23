@@ -10,28 +10,33 @@ const RealPostCard = ({ post }) => {
   const { user } = useContext(AuthContext);
   const [like, setlike] = useState(post.likes);
   const [isActive, setIsActive] = useState(false);
-  console.log(user?.name);
+  
+  // console.log(user?.name);
   const handleLike = () => {
     setlike(isActive ? like - 1 : like + 1);
     setIsActive(!isActive);
   };
-  //   const likeObject = {
-  //     like,
-  //   };
-  //   fetch(`http://localhost:5000/updatelike/${post._id}`, {
-  //     method: "PUT",
-  //     headers: {
-  //       "content-type": "application/json",
-  //     },
-  //     body: JSON.stringify(likeObject),
-  //   })
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       console.log(data);
-  //       if (data.modifiedCount > 0) {
-  //         toast(`${user?.displayName} thanks for your reaction`);
-  //       }
-  //     });
+
+  //like counting
+
+
+    const likeObject = {
+      like,
+    };
+    fetch(`http://localhost:5000/updatelike/${post._id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(likeObject),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.modifiedCount > 0) {
+          toast(`${user?.displayName} thanks for your reaction`);
+        }
+      });
 
   const handleSubmit = (event) => {
     event.preventDefault();

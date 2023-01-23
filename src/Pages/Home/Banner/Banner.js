@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { TypeAnimation } from 'react-type-animation';
+import { 
+  TypeAnimation } from 'react-type-animation';
 import Lottie from "lottie-react";
 import groovyWalkAnimation from "./banner.json";
 import banner from '../../../assest/images/Banner.jpg'

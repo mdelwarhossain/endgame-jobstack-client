@@ -16,6 +16,9 @@ import Hire from "../Pages/Hire/Hire";
 import AddJob from "../Pages/Hire/AddJob/AddJob";
 import UserProfile from "../Pages/UserProfile/UserProfile";
 import MyJobPost from "../Pages/Hire/MyJobPost/MyJobPost";
+import Pictures from "../Pictures/Pictures";
+import Animation from "../Pages/SignUp/Animation/Animation";
+import Photo from "../Pages/SignUp/Animation/Photo/Photo";
 
 
 
