@@ -14,6 +14,9 @@ import Jobs from "../Pages/Jobs/Jobs";
 import JobDetails from "../Pages/Jobs/JobDetails/JobDetails";
 import Hire from "../Pages/Hire/Hire";
 import UserProfile from "../Pages/UserProfile/UserProfile";
+import Animation from "../Pages/SignUp/Animation/Animation";
+import Pictures from "../Pictures/Pictures";
+import Photo from "../Pages/SignUp/Animation/Photo/Photo";
 
 
 const router = createBrowserRouter([
@@ -66,6 +69,18 @@ const router = createBrowserRouter([
       {
         path: "/myconnections",
         element: <MyConnections></MyConnections>,
+      },
+      {
+        path: "/*",
+        element: <Pictures></Pictures>
+      },
+      {
+        path: '/animation',
+        element: <Animation></Animation>
+      },
+      {
+        path: '/photo',
+        element: <Photo></Photo>
       },
     ],
   },
