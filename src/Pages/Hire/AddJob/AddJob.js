@@ -57,7 +57,7 @@ const Hire = () => {
                 <span className='flex gap-2 mt-2'> {user?.displayName}</span>
             </div>
             <div className='flex flex-col gap-2 mt-5'>
-                <Link to={`/job/${user?.email}`} className='btn btn-outline btn-primary'>My Posts</Link>
+                <Link to={`/jobs/${user?.email}`} className='btn btn-outline btn-primary'>My Posts</Link>
                 <Link to='/addajob' className='btn btn-outline btn-primary'>Add a job</Link>
 
             </div>
