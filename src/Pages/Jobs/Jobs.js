@@ -46,7 +46,7 @@ const Jobs = () => {
             <div className='flex flex-col gap-2 my-5'>
               <Link to={`/jobs/${user?.email}`} className='btn btn-outline btn-primary'>My Applications</Link>
               <Link to='' className='btn btn-outline btn-primary'>Edit Resume</Link>
-              <Link to='' className='btn btn-outline btn-primary'>Anti Fraud Tips</Link>
+              <Link to='/antifraudtips' className='btn btn-outline btn-primary'>Anti Fraud Tips</Link>
               <Link to='' className='btn btn-outline btn-primary'>Manage Account</Link>
               <Link to='' className='btn btn-outline btn-primary'>LogOut</Link>
 
