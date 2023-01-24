@@ -6,7 +6,7 @@ import ProfileEditModal from "./ProfileEditModal/ProfileEditModal";
 const UserProfileInfo = () => {
   return (
     <div className='my-5 py-10'>
-      <div className="max-w-full rounded-md dark:bg-gray-900 dark:text-gray-100 relative">
+      <div className="max-w-full rounded-md bg-gray-200 relative">
 
         <div className="relative">
           <img src="https://source.unsplash.com/random/300x300/?2" alt="" className="object-cover object-center w-full rounded-t-md h-48 dark:bg-gray-500 cursor-pointer" />
