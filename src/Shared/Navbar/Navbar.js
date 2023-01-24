@@ -32,7 +32,7 @@ const Navbar = () => {
         </>
         :
         <>
-          <span className=""><FaUser className="mx-auto  hidden lg:block text-white" /><li className="font-bold lg:text-white"><Link to='/login'><FaUser className="lg:hidden -mr-2" />Login</Link></li></span>
+          <span className=""><FaUser className="mx-auto -mb-4 hidden lg:block text-white" /><li className="font-bold lg:text-white"><Link to='/login'><FaUser className="lg:hidden -mr-2" />Login</Link></li></span>
         </>
     }
 
