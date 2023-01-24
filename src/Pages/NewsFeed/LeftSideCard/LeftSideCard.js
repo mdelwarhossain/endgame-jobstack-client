@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const LeftSideCard = () => {
   return (
     <div className='my-5 py-10'>
-      <div className="max-w-xs rounded-md shadow-md dark:bg-gray-900 dark:text-gray-100 relative">
+      <div className="max-w-xs rounded-md shadow-md bg-gray-900 text-gray-100 relative">
         <img src="https://source.unsplash.com/random/300x300/?2" alt="" className="object-cover object-center w-full rounded-t-md h-20 dark:bg-gray-500" />
         <div className="flex flex-col justify-between p-6 space-y-8">
           <img alt="Profile" className="absolute top-11 left-2/4 -ml-8  w-16 h-16 rounded-full ring-2 ring-offset-4 bg-gray-500 ring-violet-400 ring-offset-gray-800" src="https://source.unsplash.com/40x40/?portrait?1" />
@@ -27,8 +27,6 @@ const LeftSideCard = () => {
           <div>
             <p className='text-sm'>Access exclusive tools & insights</p>
           </div>
-          <hr />
-          <button type="button" className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md dark:bg-violet-400 dark:text-gray-900">Read more</button>
         </div>
       </div>
     </div>
