@@ -79,7 +79,7 @@ const RealPostCard = ({ post }) => {
 
   return (
     <div>
-      <div className="rounded-md shadow-md max-w-full bg-gray-900 text-gray-100 my-5 mx-12">
+      <div className="rounded-md shadow-md max-w-full bg-gray-200  my-5 mx-12">
         <div className="flex items-center justify-between p-3">
           <div className="flex items-center space-x-2">
             {/* will work on it next later */}
@@ -200,7 +200,7 @@ const RealPostCard = ({ post }) => {
               <p className="text-sm">
                 <span
                   key={index}
-                  className="text-base font-semibold mr-1 text-yellow-400"
+                  className="text-base font-semibold mr-1"
                 >
                   {comment.name}
                 </span>
@@ -212,7 +212,7 @@ const RealPostCard = ({ post }) => {
                 type="text"
                 name="comment"
                 placeholder="Add a comment..."
-                className="w-full py-0.5 bg-transparent border-none rounded text-sm pl-0 text-gray-100 mt-2"
+                className="w-full py-0.5 bg-transparent border border-indigo-400  rounded text-sm pl-0 mt-2"
               />
               {/* <input
                 className=" btn  border bg-[#c77dff] text-white hover:bg-[#e0aaff]"

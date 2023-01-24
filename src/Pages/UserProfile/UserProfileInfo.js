@@ -1,15 +1,52 @@
 import React from "react";
-import { FaEdit } from "react-icons/fa";
+import { FaEdit, FaPen } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import ProfileEditModal from "./ProfileEditModal/ProfileEditModal";
 
 const UserProfileInfo = () => {
   return (
     <div className='my-5 py-10'>
-      <div className="max-w-full rounded-md relative">
-        <img src="https://source.unsplash.com/random/300x300/?2" alt="" className="object-cover object-center w-full rounded-t-md h-36 dark:bg-gray-500 cursor-pointer" />
+      <div className="max-w-full rounded-md dark:bg-gray-900 dark:text-gray-100 relative">
+
+        <div className="relative">
+          <img src="https://source.unsplash.com/random/300x300/?2" alt="" className="object-cover object-center w-full rounded-t-md h-48 dark:bg-gray-500 cursor-pointer" />
+          {/* User Backgroud Modal */}
+          <label htmlFor="my-modal-4" className="">
+            <span className="absolute top-5 right-5 text-indigo-600 bg-slate-100 rounded-full p-1 cursor-pointer">
+              <FaPen />
+            </span>
+          </label>
+
+          {/* basic modal user background */}
+          <input type="checkbox" id="my-modal-4" className="modal-toggle" />
+          <div className="modal">
+            <div className="modal-box relative">
+              <label htmlFor="my-modal-4" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+              <h3 className="text-lg font-bold">Congratulations random Internet user!</h3>
+              <p className="py-4">You've been selected for a chance to get one year of subscription to use Wikipedia for free!</p>
+            </div>
+          </div>
+
+        </div>
+
+
         <div className="flex flex-col justify-between p-6 space-y-8">
-          <img alt="Profile" className="absolute top-24 left-2/4 -ml-8  w-20 h-20 rounded-full ring-2 ring-offset-4 bg-gray-500 ring-violet-400 ring-offset-gray-800 cursor-pointer" src="https://source.unsplash.com/40x40/?portrait?1" />
+          {/* User Profile Modal */}
+          <label htmlFor="my-modal-5" className="">
+            <img alt="Profile" className="absolute top-32 left-20 -ml-8  w-32 h-32 rounded-full ring-2 ring-offset-4 bg-gray-500 ring-violet-400 ring-offset-gray-800 cursor-pointer" src="https://source.unsplash.com/40x40/?portrait?1" />
+          </label>
+
+          {/* basic modal user profile */}
+          <input type="checkbox" id="my-modal-5" className="modal-toggle" />
+          <div className="modal">
+            <div className="modal-box relative">
+              <label htmlFor="my-modal-5" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+              <h3 className="text-lg font-bold">Congratulations random Internet user!</h3>
+              <p className="py-4">You've been selected for a chance to get one year of subscription to use Wikipedia for free!</p>
+            </div>
+          </div>
+
+
 
           <div className="shadow-lg p-6">
             <div className="space-y-2">
@@ -21,7 +58,7 @@ const UserProfileInfo = () => {
               </div>
               <p className="text-md">Web Developer || Mern Stack Developer || Full Stack Developer || Back End Developer</p>
             </div>
-            <hr className="mt-4"/>
+            <hr className="mt-4" />
             <div className=' hover:bg-gray-200'>
               <Link to='#'>
                 <div className="my-6">
