@@ -14,6 +14,7 @@ import Jobs from "../Pages/Jobs/Jobs";
 import JobDetails from "../Pages/Jobs/JobDetails/JobDetails";
 import Hire from "../Pages/Hire/Hire";
 import AddJob from "../Pages/Hire/AddJob/AddJob";
+import AntiFraudTips from "../Pages/Jobs/AntiFraudTips/AntiFraudTips";
 import UserProfile from "../Pages/UserProfile/UserProfile";
 import Animation from "../Pages/SignUp/Animation/Animation";
 import Pictures from "../Pictures/Pictures";
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
       {
         path: "/jobs/:email",
         element: <MyJobPost></MyJobPost>,
+      },
+      {
+        path: "/antifraudtips",
+        element: <AntiFraudTips></AntiFraudTips>,
       },
       {
         path: "/hire",
