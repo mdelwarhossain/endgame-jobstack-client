@@ -11,7 +11,16 @@ import Network from "../Pages/Network/Network";
 import MyConnections from "../Pages/Network/MyConnections/MyConnections";
 import ErrorPage from "../Shared/ErrorPage/ErrorPage";
 import Jobs from "../Pages/Jobs/Jobs";
+import JobDetails from "../Pages/Jobs/JobDetails/JobDetails";
+import Hire from "../Pages/Hire/Hire";
+import AddJob from "../Pages/Hire/AddJob/AddJob";
+import AntiFraudTips from "../Pages/Jobs/AntiFraudTips/AntiFraudTips";
 import UserProfile from "../Pages/UserProfile/UserProfile";
+import Animation from "../Pages/SignUp/Animation/Animation";
+import Pictures from "../Pictures/Pictures";
+import Photo from "../Pages/SignUp/Animation/Photo/Photo";
+import MyJobPost from "../Pages/Hire/MyJobPost/MyJobPost";
+
 
 
 const router = createBrowserRouter([
@@ -31,6 +40,27 @@ const router = createBrowserRouter([
       {
         path: "/jobs",
         element: <Jobs></Jobs>,
+      },
+      {
+        path: "/job/:id",
+        element: <JobDetails></JobDetails>,
+        loader: ({params}) => fetch(`http://localhost:5000/job/${params.id}`)
+      },
+      {
+        path: "/jobs/:email",
+        element: <MyJobPost></MyJobPost>,
+      },
+      {
+        path: "/antifraudtips",
+        element: <AntiFraudTips></AntiFraudTips>,
+      },
+      {
+        path: "/hire",
+        element: <Hire></Hire>,
+      },
+      {
+        path: "/addajob",
+        element: <AddJob></AddJob>,
       },
       {
         path: "/userprofile",
@@ -55,6 +85,18 @@ const router = createBrowserRouter([
       {
         path: "/myconnections",
         element: <MyConnections></MyConnections>,
+      },
+      {
+        path: "/*",
+        element: <Pictures></Pictures>
+      },
+      {
+        path: '/animation',
+        element: <Animation></Animation>
+      },
+      {
+        path: '/photo',
+        element: <Photo></Photo>
       },
     ],
   },

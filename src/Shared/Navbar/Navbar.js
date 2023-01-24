@@ -21,6 +21,7 @@ const Navbar = () => {
   const menuItems = <React.Fragment>
     <span className=""><RiHomeHeartFill className="mx-auto -mb-4 hidden lg:block text-white" /><li className="font-bold lg:text-white"><Link to='/newsfeed'><RiHomeHeartFill className="lg:hidden -mr-2" />Newsfeed</Link></li></span>
     <span className=""><BsFillBagPlusFill className="mx-auto -mb-4 hidden lg:block text-white" /><li className="font-bold lg:text-white"><Link to='/jobs'><BsFillBagPlusFill className="lg:hidden -mr-2" />Jobs</Link></li></span>
+    <span className=""><BsFillBagPlusFill className="mx-auto -mb-4 hidden lg:block text-white" /><li className="font-bold lg:text-white"><Link to='/hire'><BsFillBagPlusFill className="lg:hidden -mr-2" />Hire</Link></li></span>
     <span className=""><FaBlog className="mx-auto -mb-4 hidden lg:block text-white" /><li className="font-bold lg:text-white"><Link to='/'><FaBlog className="lg:hidden -mr-2" />Blogs</Link></li></span>
     <span className=""><BiNetworkChart className="mx-auto -mb-4 hidden lg:block text-white" /><li className="font-bold lg:text-white"><Link to='/network'><BiNetworkChart className="lg:hidden -mr-2" />Network</Link></li></span>
     <span className=""><MdNotificationsActive className="mx-auto -mb-4 hidden lg:block text-white" /><li className="font-bold lg:text-white"><Link to='/notification'><MdNotificationsActive className="lg:hidden -mr-2" />Notification</Link></li></span>
