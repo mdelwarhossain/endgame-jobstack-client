@@ -1,6 +1,7 @@
 import React from "react";
 import { FaEdit, FaPen } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import ProfileEditModal from "./ProfileEditModal/ProfileEditModal";
 
 const UserProfileInfo = () => {
   return (
@@ -51,9 +52,11 @@ const UserProfileInfo = () => {
             <div className="space-y-2">
               <div className="flex items-center justify-between mb-4">
                 <h2 className="text-2xl font-bold tracking-wide">Md Mohsin</h2>
-                <label htmlFor="my-modal-3" className=""><FaEdit className="text-2xl cursor-pointer" /></label>
+                <label htmlFor="my-modal-3"><FaEdit className="text-2xl cursor-pointer" /></label>
+                <ProfileEditModal></ProfileEditModal>
+                {/* <label htmlFor="my-modal-3" className=""><FaEdit className="text-2xl cursor-pointer" /></label> */}
               </div>
-              <p className="dark:text-gray-100 text-md">Web Developer || Mern Stack Developer || Full Stack Developer || Back End Developer</p>
+              <p className="text-md">Web Developer || Mern Stack Developer || Full Stack Developer || Back End Developer</p>
             </div>
             <hr className="mt-4" />
             <div className=' hover:bg-gray-200'>
@@ -104,17 +107,6 @@ const UserProfileInfo = () => {
             <h2 className="text-2xl font-bold mb-2">Projects</h2>
             <p className="mt-3 font-semibold">Web Developer</p>
           </div>
-
-        </div>
-      </div>
-
-
-      <input type="checkbox" id="my-modal-3" className="modal-toggle" />
-      <div className="modal">
-        <div className="modal-box relative">
-          <label htmlFor="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-          <h3 className="text-lg font-bold">Congratulations random Internet user!</h3>
-          <p className="py-4">You've been selected for a chance to get one year of subscription to use Wikipedia for free!</p>
         </div>
       </div>
     </div>

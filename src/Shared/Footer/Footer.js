@@ -5,183 +5,176 @@ const Footer = () => {
   return (
 
     // eslint-disable-next-line react/style-prop-object
-    <div className='bgfooter'>
+    <div className=''>
 
-      <div className="bg-gray-900">
-        <div className="px-4 pt-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+      <div className="bg-gray-400 mt-">
+        <div className="px-4 pt-8 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
           <div className="grid row-gap-10 mb-8 lg:grid-cols-6">
             <div className="grid grid-cols-2 gap-5 row-gap-8 lg:col-span-4 md:grid-cols-4">
               <div>
-                <p className="font-medium tracking-wide text-gray-300">
-                  Category
+                <p className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400 text-xl">
+                  Features
                 </p>
                 <ul className="mt-2 space-y-2">
                   <li>
                     <a
                       href="/"
-                      className="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-200"
+                      className=" transition-colors duration-300 hover:text-deep-purple-accent-200"
                     >
-                      News
+                      Profile
                     </a>
                   </li>
                   <li>
                     <a
                       href="/"
-                      className="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-200"
+                      className=" transition-colors duration-300 hover:text-deep-purple-accent-200"
                     >
-                      World
+                      Add resume
                     </a>
                   </li>
                   <li>
                     <a
                       href="/"
-                      className="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-200"
+                      className=" transition-colors duration-300 hover:text-deep-purple-accent-200"
                     >
-                      Games
+                      Email & password
                     </a>
                   </li>
                   <li>
                     <a
                       href="/"
-                      className="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-200"
+                      className=" transition-colors duration-300 hover:text-deep-purple-accent-200"
                     >
-                      References
+                      Add post
                     </a>
                   </li>
                 </ul>
               </div>
               <div>
-                <p className="font-medium tracking-wide text-gray-300">Apples</p>
+                <p className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400 text-xl">Technology</p>
                 <ul className="mt-2 space-y-2">
                   <li>
                     <a
                       href="/"
-                      className="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-200"
+                      className=" transition-colors duration-300 hover:text-deep-purple-accent-200"
                     >
-                      Web
+                      Next Js
                     </a>
                   </li>
                   <li>
                     <a
                       href="/"
-                      className="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-200"
+                      className=" transition-colors duration-300 hover:text-deep-purple-accent-200"
                     >
-                      eCommerce
+                      Tailwind
                     </a>
                   </li>
                   <li>
                     <a
                       href="/"
-                      className="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-200"
+                      className=" transition-colors duration-300 hover:text-deep-purple-accent-200"
                     >
-                      Business
+                      Node js
                     </a>
                   </li>
                   <li>
                     <a
                       href="/"
-                      className="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-200"
+                      className=" transition-colors duration-300 hover:text-deep-purple-accent-200"
                     >
-                      Entertainment
+                      MongoDB
                     </a>
                   </li>
-                  <li>
-                    <a
-                      href="/"
-                      className="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-200"
-                    >
-                      Portfolio
-                    </a>
-                  </li>
+
                 </ul>
               </div>
               <div>
-                <p className="font-medium tracking-wide text-gray-300">Cherry</p>
+                <p className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400 text-xl">Jobs</p>
                 <ul className="mt-2 space-y-2">
                   <li>
                     <a
                       href="/"
-                      className="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-200"
+                      className=" transition-colors duration-300 hover:text-deep-purple-accent-200"
                     >
-                      Media
+                      Skills
                     </a>
                   </li>
                   <li>
                     <a
                       href="/"
-                      className="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-200"
+                      className=" transition-colors duration-300 hover:text-deep-purple-accent-200"
                     >
-                      Brochure
+                      Experience
                     </a>
                   </li>
                   <li>
                     <a
                       href="/"
-                      className="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-200"
+                      className=" transition-colors duration-300 hover:text-deep-purple-accent-200"
                     >
-                      Nonprofit
+                      Messaging
                     </a>
                   </li>
                   <li>
                     <a
                       href="/"
-                      className="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-200"
+                      className=" transition-colors duration-300 hover:text-deep-purple-accent-200"
                     >
-                      Educational
+                      Apply jobs
                     </a>
                   </li>
                   <li>
                     <a
                       href="/"
-                      className="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-200"
+                      className=" transition-colors duration-300 hover:text-deep-purple-accent-200"
                     >
-                      Projects
+                      Finding right jobs
                     </a>
                   </li>
                 </ul>
               </div>
               <div>
-                <p className="font-medium tracking-wide text-gray-300">
-                  Business
+                <p className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400 text-xl">
+                  Update
                 </p>
                 <ul className="mt-2 space-y-2">
                   <li>
                     <a
                       href="/"
-                      className="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-200"
+                      className=" transition-colors duration-300 hover:text-deep-purple-accent-200"
                     >
-                      Infopreneur
+                      profile
                     </a>
                   </li>
                   <li>
                     <a
                       href="/"
-                      className="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-200"
+                      className=" transition-colors duration-300 hover:text-deep-purple-accent-200"
                     >
-                      Personal
+                      post
                     </a>
                   </li>
                   <li>
                     <a
                       href="/"
-                      className="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-200"
+                      className=" transition-colors duration-300 hover:text-deep-purple-accent-200"
                     >
-                      Wiki
+                      Delete own post
                     </a>
                   </li>
                   <li>
                     <a
                       href="/"
-                      className="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-200"
+                      className=" transition-colors duration-300 hover:text-deep-purple-accent-200"
                     >
-                      Forum
+                      Add or delete friends
                     </a>
                   </li>
                 </ul>
               </div>
             </div>
             <div className="md:max-w-md lg:col-span-2">
-              <span className="text-base font-medium tracking-wide text-gray-300">
+              <span className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400 text-xl">
                 Subscribe for updates
               </span>
               <form className="flex flex-col mt-4 md:flex-row">
@@ -198,14 +191,13 @@ const Footer = () => {
                   Subscribe
                 </button>
               </form>
-              <p className="mt-4 text-sm text-gray-500">
-                Bacon ipsum dolor amet short ribs pig sausage prosciuto chicken
-                spare ribs salami.
+              <p className="mt-4 text-sm text-black-100">
+                If you subscribe to something, you sign up to receive it regularly. If you subscribe to the New York Times, it's delivered to your door every morning or you ..
               </p>
             </div>
           </div>
-          <div className="flex flex-col justify-between pt-5 pb-10 border-t border-gray-800 sm:flex-row">
-            <p className="text-sm text-gray-500">
+          <div className="flex flex-col justify-between pt-5 pb-10 border-t border-gray-800 sm:flex-row ">
+            <p className="text-sm text-black-500">
               © Copyright 2023 company name All rights reserved Team PH-Warriors.
             </p>
             <div className="flex items-center mt-4 space-x-4 sm:mt-0">

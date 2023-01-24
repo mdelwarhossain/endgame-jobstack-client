@@ -53,15 +53,15 @@ const NetworkCard = () => {
     }
 
     return (
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4'>
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mr-5'>
             {
-                data?.map(dbuser => <div key={dbuser?._id} className="card card-compact my-5 bg-base-100 shadow-xl">
-                <figure><img src={dbuser?.image} alt="Shoes" /></figure>
-                <div className="card-body text-center">
+                data?.map(dbuser => <div key={dbuser?._id} className="my-5 bg-base-100 shadow-xl">
+                <figure><img className='w-full h-32' src={dbuser?.image} alt="Shoes" /></figure>
+                <div className="p-2 m-2">
                     <h2 className="text-xl font-semibold">{dbuser?.name}</h2>
                     <p>Mern Stack Developer</p>
                     <p className='text-green-600'>2 mutual connections</p>
-                    <button onClick={() => handleConnect(dbuser)} className="btn btn-outline btn-primary">Connect</button>
+                    <button onClick={() => handleConnect(dbuser)} className="btn btn-outline btn-primary w-full">Connect</button>
                 </div>
             </div>)
             }
