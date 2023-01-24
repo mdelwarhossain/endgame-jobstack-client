@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
 
 const Jobs = () => {
-  const {user} = useContext(AuthContext); 
+  const { user, logOut } = useContext(AuthContext);
   const { data: jobs, isLoading } = useQuery({
     queryKey: ['jobs'],
     queryFn: async () => {
@@ -35,24 +35,30 @@ const Jobs = () => {
   if (isLoading) {
     return <Loading></Loading>
   }
+
+  const handleSignout = () => {
+    logOut()
+      .then(() => { })
+      .catch((error) => console.log(error));
+  };
+
   return (
     <div className="px-4 grid grid-cols-1 md:grid-cols-8 gap-4">
       <div className="col-span-2 mt-5">
-          <div className="">
-            <div className='flex gap-4 ml-2 mt-2'>
-              <img className='h-10 w-10 rounded-full' src={user?.image} alt="" />
-              <span className='flex gap-2 mt-2'> {user?.displayName}</span>
-            </div>
-            <div className='flex flex-col gap-2 my-5'>
-              <Link to={`/jobs/${user?.email}`} className='btn btn-outline btn-primary'>My Applications</Link>
-              <Link to='' className='btn btn-outline btn-primary'>Edit Resume</Link>
-              <Link to='/antifraudtips' className='btn btn-outline btn-primary'>Anti Fraud Tips</Link>
-              <Link to='' className='btn btn-outline btn-primary'>Manage Account</Link>
-              <Link to='' className='btn btn-outline btn-primary'>LogOut</Link>
+        <div className="">
+          <div className='flex gap-4 ml-2 mt-2'>
+            <img className='h-10 w-10 rounded-full' src={user?.image} alt="" />
+            <span className='flex gap-2 mt-2'> {user?.displayName}</span>
+          </div>
+          <div className='flex flex-col gap-2 my-5'>
+            <Link to={`/jobs/${user?.email}`} className='btn btn-outline btn-primary'>My Applications</Link>
+            <Link to='' className='btn btn-outline btn-primary'>My Resume</Link>
+            <Link to='/antifraudtips' className='btn btn-outline btn-primary'>Anti Fraud Tips</Link>
+            <Link onClick={handleSignout} to='' className='btn btn-outline btn-primary'>LogOut</Link>
 
-            </div>
           </div>
         </div>
+      </div>
       <div className="col-span-4 shadow-2xl my-5">
         {
           jobs?.map(job => <JobCard
