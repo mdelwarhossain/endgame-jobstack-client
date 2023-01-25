@@ -23,6 +23,7 @@ import MyJobPost from "../Pages/Hire/MyJobPost/MyJobPost";
 
 
 
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -44,7 +45,7 @@ const router = createBrowserRouter([
       {
         path: "/job/:id",
         element: <JobDetails></JobDetails>,
-        loader: ({params}) => fetch(`http://localhost:5000/job/${params.id}`)
+        loader: ({ params }) => fetch(`http://localhost:5000/job/${params.id}`)
       },
       {
         path: "/jobs/:email",
