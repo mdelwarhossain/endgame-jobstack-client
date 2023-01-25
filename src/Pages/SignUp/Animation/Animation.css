@@ -1,4 +1,4 @@
-.image-box {
+/* .image-box {
     width: 500px;
     height: 450px;
 
@@ -20,5 +20,37 @@
 
     100% {
         filter: hue-rotate(360deg);
+    }
+} */
+.col-1 {
+    flex-basis: 40%;
+    min-width: 400px;
+    min-height: 400px;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.col-1 img {
+    width: 100%;
+}
+
+.elements {
+    position: absolute;
+    margin-top: -420px;
+    margin-left: 20px;
+    animation: move 2.5s linear infinite;
+}
+
+@keyframes move {
+    0% {
+        transform: translate(-15px, 0px);
+    }
+
+    50% {
+        transform: translate(0px, -15px);
+    }
+
+    100% {
+        transform: translate(-15px, 0px);
     }
 }

@@ -20,9 +20,9 @@ import Animation from "../Pages/SignUp/Animation/Animation";
 import Pictures from "../Pictures/Pictures";
 import Photo from "../Pages/SignUp/Animation/Photo/Photo";
 import MyJobPost from "../Pages/Hire/MyJobPost/MyJobPost";
-import Pictures from "../Pictures/Pictures";
-import Animation from "../Pages/SignUp/Animation/Animation";
-import Photo from "../Pages/SignUp/Animation/Photo/Photo";
+// import Pictures from "../Pictures/Pictures";
+// import Animation from "../Pages/SignUp/Animation/Animation";
+// import Photo from "../Pages/SignUp/Animation/Photo/Photo";
 
 
 
@@ -47,7 +47,7 @@ const router = createBrowserRouter([
       {
         path: "/job/:id",
         element: <JobDetails></JobDetails>,
-        loader: ({params}) => fetch(`http://localhost:5000/job/${params.id}`)
+        loader: ({ params }) => fetch(`http://localhost:5000/job/${params.id}`)
       },
       {
         path: "/jobs/:email",
