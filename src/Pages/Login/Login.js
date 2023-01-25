@@ -43,8 +43,8 @@ const Login = () => {
         console.log(user);
       })
       .catch((error) => console.error(error));
-    toast.success("please login");
-    navigate("/");
+      toast.success("please login");
+      navigate("/");
   };
 
   return (

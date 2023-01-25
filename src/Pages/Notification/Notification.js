@@ -26,7 +26,7 @@ const Notification = () => {
       <div className="col-span-4 mt-5 card w-full bg-base-100 shadow-xl p-5">
         <div className="grid grid-cols-6 gap-2 my-2">
           <div className="avatar col-span-1">
-            <div className="w-16 rounded">
+            <div className="w-16 h-16 rounded">
               <img src={logo1} alt="" />
             </div>
           </div>
