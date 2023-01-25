@@ -14,7 +14,7 @@ import { FaExclamation } from 'react-icons/fa';
 
 const RightSideCard = () => {
     return (
-        <div className='shadow-xl my-5 px-2 py-10'>
+        <div className='shadow-xl my-5 px-2 py-10 bg-gray-200'>
             <div className='flex items-center justify-between'>
                 <h2 className='ml-2'>Add to your feed</h2>
                 <FaExclamation className='text-sm' />
@@ -28,7 +28,7 @@ const RightSideCard = () => {
                             <h3 className='text-sm'>Hr Professional</h3>
                         </Link>
                         <Link to='#'>
-                            <button className='btn btn-sm btn-outline-info mt-2'>
+                            <button className='btn btn-outline btn-error btn-sm mt-2'>
                                 + Fllow
                             </button>
                         </Link>
@@ -42,7 +42,7 @@ const RightSideCard = () => {
                             <h3 className='text-sm'>Coach Professional</h3>
                         </Link>
                         <Link to='#'>
-                            <button className='btn btn-sm btn-outline-info mt-2'>
+                            <button className='btn btn-outline btn-error btn-sm mt-2'>
                                 + Fllow
                             </button>
                         </Link>
@@ -56,7 +56,7 @@ const RightSideCard = () => {
                             <h3 className='text-sm'>Football Professional</h3>
                         </Link>
                         <Link to='#'>
-                            <button className='btn btn-sm btn-outline-info mt-2'>
+                            <button className='btn btn-outline btn-error btn-sm mt-2'>
                                 + Fllow
                             </button>
                         </Link>
@@ -64,7 +64,7 @@ const RightSideCard = () => {
                 </div>
 
             </div>
-            <Link to='#'>
+            <Link to='/myconnections'>
                 <h3 className='ml-3 underline mt-4'>View All recommendations <span className='font-bold'> &#8594; </span></h3>
             </Link>
         </div>

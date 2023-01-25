@@ -1,15 +1,15 @@
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
-import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider';
-const Hire = () => {
+const Hire = ({ myPost, setMyPost }) => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const { user } = useContext(AuthContext);
-
-    const handleAddJob = data => {
+    const {title, location, jobType, category, homeOffice, availability, skills, aboutUs, task, profile, offer, vacancy, url, salary} = myPost; 
+    const handleEditJob = data => {
 
         const jobPost = {
+            id: myPost._id,
             name: user.name,
             logo: user.logo,
             email: user.email,
@@ -29,11 +29,11 @@ const Hire = () => {
             salary: data.salary,
             postedOn: new Date()
         }
-        console.log(jobPost);
+        console.log(data);
 
-        // save product to the database
-        fetch('http://localhost:5000/addajob', {
-            method: 'POST',
+        // edit post to the database
+        fetch('http://localhost:5000/editajob', {
+            method: 'PUT',
             headers: {
                 'content-type': 'application/json',
                 authorization: `bearer ${localStorage.getItem('accessToken')}`
@@ -43,43 +43,36 @@ const Hire = () => {
             .then(res => res.json())
             .then(result => {
                 console.log(result);
-                toast.success(`${data.title} is added successfully`);
+                toast.success(`${data.title} is updated successfully`);
                 // navigate('/dashboard/books/:email')
+                setMyPost(null)
             })
     }
 
     return (
-        <div className="px-4 grid grid-cols-1 md:grid-cols-8 gap-4">
-            <div className="col-span-2 mt-5">
-            <div className="">
-            <div className='flex gap-4 ml-2 mt-2'>
-                <img className='h-10 w-10 rounded-full' src={user?.image} alt="" />
-                <span className='flex gap-2 mt-2'> {user?.displayName}</span>
-            </div>
-            <div className='flex flex-col gap-2 mt-5'>
-                <Link to={`/jobs/${user?.email}`} className='btn btn-outline btn-primary'>My Posts</Link>
-                <Link to='/addajob' className='btn btn-outline btn-primary'>Add a job</Link>
-
-            </div>
-        </div>
-            </div>
-            <div className="col-span-6">
-                <div className='p-7'>
-                    <h2 className="text-4xl my-10 bg-gray-200 p-2">Looking for qualified candidate?</h2>
-                    <p className='text-4xl font-bold mb-10 text-primary'>Simply Post Your Job</p>
-                    <form onSubmit={handleSubmit(handleAddJob)}>
+        <div>
+            <input type="checkbox" id="edit-job-modal" className="modal-toggle" />
+            <div className="modal">
+                <div className="modal-box relative">
+                    <label htmlFor="edit-job-modal" className="btn btn-sm btn-circle absolute right-2 top-2"
+                        onClick={() => setMyPost(null)}>✕</label>
+                    <h3 className="text-lg font-bold">{ }</h3>
+                    <div>
+                        <p className='text-4xl font-bold text-center my-10'>Edit Your Job Post</p>
+                    </div>
+                    <form onSubmit={handleSubmit(handleEditJob)}>
                         <div className="md:flex w-full gap-4">
                             <div>
                                 <div className="form-control w-full ">
                                     <label className="label w-full  "> <span className="label-text">Title</span></label>
-                                    <input type="text" {...register("title", {
+                                    <input placeholder={title} type="text" {...register("title", {
                                         required: "Name is Required"
                                     })} className="input input-bordered w-full " />
                                     {errors.title && <p className='text-red-500'>{errors.title.message}</p>}
                                 </div>
                                 <div className="form-control w-full ">
                                     <label className="label"> <span className="label-text">Location</span></label>
-                                    <input type="text" {...register("location", {
+                                    <input placeholder={location} type="text" {...register("location", {
                                         required: "Name is Required"
                                     })} className="input input-bordered w-full " />
                                     {errors.location && <p className='text-red-500'>{errors.title.message}</p>}
@@ -89,6 +82,7 @@ const Hire = () => {
                                     <select type="text" {...register("jobType", {
                                         required: true
                                     })} className="input input-bordered w-full ">
+                                        <option>{jobType}</option>
                                         <option>Full-time</option>
                                         <option>Part-time</option>
                                         <option>Intership</option>
@@ -96,7 +90,7 @@ const Hire = () => {
                                 </div>
                                 <div className="form-control w-full ">
                                     <label className="label"> <span className="label-text">Category</span></label>
-                                    <input type="text" {...register("category", {
+                                    <input placeholder={category} type="text" {...register("category", {
                                         required: "Name is Required"
                                     })} className="input input-bordered w-full " />
                                     {errors.category && <p className='text-red-500'>{errors.category.message}</p>}
@@ -107,6 +101,7 @@ const Hire = () => {
                                     <select type="text" {...register("homeOffice", {
                                         required: true
                                     })} className="input input-bordered w-full ">
+                                        <option>{homeOffice}</option>
                                         <option>Yes</option>
                                         <option>No</option>
                                     </select>
@@ -114,14 +109,14 @@ const Hire = () => {
 
                                 <div className="form-control w-full ">
                                     <label className="label"> <span className="label-text">Availability</span></label>
-                                    <input type="text" {...register("availability", {
+                                    <input placeholder={availability} type="text" {...register("availability", {
                                         required: true
                                     })} className="input input-bordered w-full " />
                                     {errors.availability && <p className='text-red-500'>{errors.availability.message}</p>}
                                 </div>
                                 <div className="form-control w-full ">
                                     <label className="label"> <span className="label-text">Job URL</span></label>
-                                    <input type="text" {...register("url", {
+                                    <input placeholder={url} type="text" {...register("url", {
                                         required: true
                                     })} className="input input-bordered w-full " />
                                     {errors.url && <p className='text-red-500'>{errors.url.message}</p>}
@@ -130,21 +125,21 @@ const Hire = () => {
                             <div>
                                 <div className="form-control w-full ">
                                     <label className="label"> <span className="label-text">Vacancy</span></label>
-                                    <input type="number" {...register("vacancy", {
+                                    <input placeholder={vacancy} type="number" {...register("vacancy", {
                                         required: true
                                     })} className="input input-bordered w-full " />
                                     {errors.vacancy && <p className='text-red-500'>{errors.vacancy.message}</p>}
                                 </div>
                                 <div className="form-control w-full ">
                                     <label className="label"> <span className="label-text">Salary</span></label>
-                                    <input type="text" {...register("salary", {
+                                    <input placeholder={salary} type="text" {...register("salary", {
                                         required: true
                                     })} className="input input-bordered w-full " />
                                     {errors.salary && <p className='text-red-500'>{errors.salary.message}</p>}
                                 </div>
                                 <div className="form-control w-full ">
                                     <label className="label"> <span className="label-text">Skills</span></label>
-                                    <input type="text" {...register("skills", {
+                                    <input placeholder={skills} type="text" {...register("skills", {
                                         required: true
                                     })} className="input input-bordered w-full " />
                                     {errors.skills && <p className='text-red-500'>{errors.skills.message}</p>}
@@ -152,7 +147,7 @@ const Hire = () => {
 
                                 <div className="form-control w-full ">
                                     <label className="label"> <span className="label-text">About Us</span></label>
-                                    <input type="text" {...register("aboutUs", {
+                                    <input placeholder={aboutUs} type="text" {...register("aboutUs", {
                                         required: true
                                     })} className="input input-bordered w-full " />
                                     {errors.aboutUs && <p className='text-red-500'>{errors.aboutUs.message}</p>}
@@ -160,7 +155,7 @@ const Hire = () => {
 
                                 <div className="form-control w-full ">
                                     <label className="label"> <span className="label-text">Task</span></label>
-                                    <input type="text" {...register("task", {
+                                    <input placeholder={task} type="text" {...register("task", {
                                         required: true
                                     })} className="input input-bordered w-full " />
                                     {errors.task && <p className='text-red-500'>{errors.task.message}</p>}
@@ -168,7 +163,7 @@ const Hire = () => {
 
                                 <div className="form-control w-full ">
                                     <label className="label"> <span className="label-text">Profile</span></label>
-                                    <input type="text" {...register("profile", {
+                                    <input placeholder={profile} type="text" {...register("profile", {
                                         required: true
                                     })} className="input input-bordered w-full " />
                                     {errors.profile && <p className='text-red-500'>{errors.profile.message}</p>}
@@ -176,18 +171,19 @@ const Hire = () => {
 
                                 <div className="form-control w-full ">
                                     <label className="label"> <span className="label-text">offer</span></label>
-                                    <input type="text" {...register("offer", {
+                                    <input placeholder={offer} type="text" {...register("offer", {
                                         required: "offer is Required"
                                     })} className="input input-bordered w-full " />
                                     {errors.offer && <p className='text-red-500'>{errors.offer.message}</p>}
                                 </div>
                             </div>
                         </div>
-                        <input className='btn btn-primary w-1/2 mt-4' value="Post" type="submit" />
+                        <input className='btn btn-primary w-full mt-4' value="Post" type="submit" />
                     </form>
                 </div>
             </div>
         </div>
+
     );
 };
 
