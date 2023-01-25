@@ -8,7 +8,7 @@ import { useQuery } from "@tanstack/react-query";
 
 const CreatePost = () => {
   const { user } = useContext(AuthContext);
-  console.log(user?.email);
+
   const imageHostKey = "c8246134e51fb0e0cbdc4f35b003ee74";
 
   const url = `http://localhost:5000/userimg?email=${user?.email}`;
