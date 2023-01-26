@@ -21,7 +21,7 @@ import Pictures from "../Pictures/Pictures";
 import Photo from "../Pages/SignUp/Animation/Photo/Photo";
 import MyJobPost from "../Pages/Hire/MyJobPost/MyJobPost";
 import CandidateProfile from "../Pages/Hire/CandidateProfile/CandidateProfile";
-
+import PrivateRoute from "./PrivateRoute";
 
 
 
