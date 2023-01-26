@@ -223,7 +223,7 @@ const SignUp = () => {
           </div>
         </div>
       </div>
-    </div>
+    
   );
 };
 
