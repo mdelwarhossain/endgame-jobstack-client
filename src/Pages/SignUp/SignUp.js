@@ -80,44 +80,45 @@ const SignUp = () => {
         <Animation></Animation>
       </div>
       {/* form */}
-      <div className="border-solid border-sky-100 ... rounded-md shadow-2xl shadow-slate-400 max-h-100 my-16">
-        <div className="h-[600px] flex mt-6">
-          <div className="w-96 p-7 ">
-            <h2 className="text-xl text-center">Sign Up</h2>
-            <form onSubmit={handleSubmit(handleSignUp)}>
-              <div className="form-control w-full max-w-xs">
-                <label className="label">
-                  {" "}
-                  <span className="label-text">Name</span>
-                </label>
-                <input
-                  type="text"
-                  {...register("name", {
-                    required: "Name is Required",
-                  })}
-                  className="input input-bordered w-full max-w-xs"
-                />
-                {errors.name && (
-                  <p className="text-red-500">{errors.name.message}</p>
-                )}
-              </div>
-              <div className="form-control w-full max-w-xs">
-                <label className="label">
-                  {" "}
-                  <span className="label-text">Email</span>
-                </label>
-                <input
-                  type="email"
-                  {...register("email", {
-                    required: true,
-                  })}
-                  className="input input-bordered w-full max-w-xs"
-                />
-                {errors.email && (
-                  <p className="text-red-500">{errors.email.message}</p>
-                )}
-              </div>
-              {/* <div className="form-control w-full max-w-xs">
+      <div className="h-[800px] flex mt-10">
+        <div className="w-96 p-7 ">
+          <h2 className="text-xl text-center">Sign Up</h2>
+          <form onSubmit={handleSubmit(handleSignUp)}>
+            <div className="form-control w-full max-w-xs">
+              <label className="label">
+                {" "}
+                <span className="label-text">Name</span>
+              </label>
+              <input
+              placeholder="Full Name"
+                type="text"
+                {...register("name", {
+                  required: "Name is Required",
+                })}
+                className="input input-bordered w-full max-w-xs"
+              />
+              {errors.name && (
+                <p className="text-red-500">{errors.name.message}</p>
+              )}
+            </div>
+            <div className="form-control w-full max-w-xs">
+              <label className="label">
+                {" "}
+                <span className="label-text">Email</span>
+              </label>
+              <input
+                type="email"
+                {...register("email", {
+                  required: true,
+                })}
+                className="input input-bordered w-full max-w-xs"
+              />
+              {errors.email && (
+                <p className="text-red-500">{errors.email.message}</p>
+              )}
+            </div>
+            {/* <div className="form-control w-full max-w-xs">
+
             <label className="label">
               {" "}
               <span className="label-text">Number</span>
