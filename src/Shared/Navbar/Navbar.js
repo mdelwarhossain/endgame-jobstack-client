@@ -11,26 +11,29 @@ import { FaSignOutAlt, FaUser } from "react-icons/fa";
 import { useQuery } from "@tanstack/react-query";
 import { useEffect } from "react";
 import pp from '../../assest/images/pp.jpg'
+import DisplayAvatar from "./DisplayAvatar/DisplayAvatar";
 
 const Navbar = () => {
   const { logOut, user } = useContext(AuthContext);
   // const [isMenuOpen, setIsMenuOpen] = useState(false);
   
-  const [currentUserDetails, setCurrentUserDetails] = useState()
-  const waitTime = 1000;
+  // const [currentUserDetails, setCurrentUserDetails] = useState()
+  // const waitTime = 1000;
 
-  useEffect(() =>{
-    const id = setInterval(() => {
+  // useEffect(() =>{
+  //   const id = setInterval(() => {
 
-      fetch(`http://localhost:5000/usersQueryEmail?email=${user?.email}`)
-      .then(res => res.json())
-      .then(data => setCurrentUserDetails(data))
-      .catch(err =>{
-        console.log(err)
-      })
-    }, waitTime);
-    return () => clearInterval(id);
-  },[user?.email]);
+  //     fetch(`http://localhost:5000/usersQueryEmail?email=${user?.email}`)
+  //     .then(res => res.json())
+  //     .then(data => {
+  //       console.log(data)
+  //     })
+  //     .catch(err =>{
+  //       console.log(err)
+  //     })
+  //   }, waitTime);
+  //   return () => clearInterval(id);
+  // },[user?.email]);
 
 
   const handleSignout = () => {
@@ -179,18 +182,15 @@ const Navbar = () => {
             </div>
           </div> */}
         </div>
-        
         {
-          user?.uid && <Link to="userProfile" className="mr-6 mt-3">
-
-<div className="relative flex-shrink-0">
-			<span className="absolute bottom-0 right-0 w-4 h-4 dark:bg-green-600 border rounded-full dark:text-gray-100 dark:border-gray-900"></span>
-			<img src={(currentUserDetails[0]?.profileImage)} alt="" className="w-12 h-12 border rounded-full dark:bg-gray-500 dark:border-gray-700" />
-		</div>
-        </Link> 
+          user?.uid && <Link to='/userProfile'><img alt="" className="w-12 h-12 rounded-full ring-2 ring-offset-4 dark:bg-gray-500 ring-violet-400 ring-offset-gray-800" src="https://source.unsplash.com/40x40/?portrait?1" /></Link>
+          
         }
       </div>
     </div>
+
+
+
 
     // <div className="bg-gray-400">
     //   <div className="mx-auto px-4 py-4 sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
