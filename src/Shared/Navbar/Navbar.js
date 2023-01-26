@@ -8,10 +8,30 @@ import { MdGroups } from "react-icons/md";
 import { BiNetworkChart } from "react-icons/bi";
 import { MdNotificationsActive } from "react-icons/md";
 import { FaSignOutAlt, FaUser } from "react-icons/fa";
+import { useQuery } from "@tanstack/react-query";
+import { useEffect } from "react";
+import pp from '../../assest/images/pp.jpg'
 
 const Navbar = () => {
   const { logOut, user } = useContext(AuthContext);
   // const [isMenuOpen, setIsMenuOpen] = useState(false);
+  
+  const [currentUserDetails, setCurrentUserDetails] = useState()
+  const waitTime = 1000;
+
+  useEffect(() =>{
+    const id = setInterval(() => {
+
+      fetch(`http://localhost:5000/usersQueryEmail?email=${user?.email}`)
+      .then(res => res.json())
+      .then(data => setCurrentUserDetails(data))
+      .catch(err =>{
+        console.log(err)
+      })
+    }, waitTime);
+    return () => clearInterval(id);
+  },[user?.email]);
+
 
   const handleSignout = () => {
     logOut()
@@ -159,13 +179,14 @@ const Navbar = () => {
             </div>
           </div> */}
         </div>
+        
         {
           user?.uid && <Link to="userProfile" className="mr-6 mt-3">
-          <img
-            alt=""
-            className="w-10 h-10 rounded-full ring-2 ring-offset-4 dark:bg-gray-500 ring-violet-400 ring-offset-gray-800"
-            src="https://source.unsplash.com/40x40/?portrait?1"
-          />
+
+<div className="relative flex-shrink-0">
+			<span className="absolute bottom-0 right-0 w-4 h-4 dark:bg-green-600 border rounded-full dark:text-gray-100 dark:border-gray-900"></span>
+			<img src={(currentUserDetails[0]?.profileImage)} alt="" className="w-12 h-12 border rounded-full dark:bg-gray-500 dark:border-gray-700" />
+		</div>
         </Link> 
         }
       </div>
