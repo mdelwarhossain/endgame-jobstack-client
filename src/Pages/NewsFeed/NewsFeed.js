@@ -16,7 +16,7 @@ const NewsFeed = () => {
         <Sponsored></Sponsored> */}
       </div>
       <div className="col-span-4 shadow-2xl">
-        <CreatePost></CreatePost>
+        {/* <CreatePost></CreatePost> */}
         <RealPost></RealPost>
       </div>
       <div className="hidden p-1  md:block col-span-2">

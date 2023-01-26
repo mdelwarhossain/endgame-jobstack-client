@@ -10,9 +10,9 @@ const UserProfile = () => {
   return (
     <div className="newsFeed px-4 grid grid-cols-1 md:grid-cols-8 gap-2">
       <div className="hidden shadow-xl md:block col-span-2">
-        <LeftSideCard></LeftSideCard>
+        {/* <LeftSideCard></LeftSideCard>
         <Courses></Courses>
-        <Sponsored></Sponsored>
+        <Sponsored></Sponsored> */}
       </div>
       <div className="col-span-4">
         <UserProfileInfo></UserProfileInfo>
