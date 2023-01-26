@@ -89,6 +89,7 @@ const SignUp = () => {
                 <span className="label-text">Name</span>
               </label>
               <input
+              placeholder="Full Name"
                 type="text"
                 {...register("name", {
                   required: "Name is Required",

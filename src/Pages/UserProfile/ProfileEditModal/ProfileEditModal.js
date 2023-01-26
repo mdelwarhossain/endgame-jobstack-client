@@ -1,50 +1,47 @@
 import React, { useContext } from "react";
+import { useForm } from "react-hook-form";
+import { toast } from "react-hot-toast";
 import { AuthContext } from "../../../contexts/AuthProvider";
 
-const ProfileEditModal = () => {
-    const {user} = useContext(AuthContext)
+const ProfileEditModal = ({ userDetails, userData, isLoading, refetch }) => {
+  console.log(userData)
+  const userEmail = userData[0]?.email;
     // console.log(user)
 
     //modal submit button
-    const handleBooking = event =>{
-        event.preventDefault();
-        const form = event.target;
-        const name = form.name.value;
-        const email = form.email.value;
-        const item = form.bookingItemName.value;
-        const price = form.price.value;
-        const number = form.number.value;
-        const location = form.location.value;
 
-        // const booking = {
+    const {
+      register,
+      handleSubmit,
+      reset,
+      formState: { errors },
+    } = useForm();
 
-        //   userName:name,
-        //   email,
-        //   bookingItem:item,
-        //   bookingItemImage:bookingItem.image,
-        //   productPrice:price,
-        //   userNumber:number,
-        //   userLocation:location
-        // }
+    const handleInfoUpdate = (data) =>{
 
-        //sending booking data to db
+     const updatedInfo = {
+      name:data.name,
+      headline: data.headline,
+     }
+     console.log(updatedInfo)
 
-        // fetch('https://resale-server-side-seven.vercel.app/bookings', {
-        //   method:'POST',
-        //   headers:{
-        //     'content-type':'application/json'
-        //   },
-        //   body: JSON.stringify(booking)
-        // })
+     fetch(`http://localhost:5000/usersQueryEmail?email=${userEmail}`, {
+            method: "PUT",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(updatedInfo),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              if (data.modifiedCount) {
+                refetch();
+                reset();
+                toast.success("Profile Updated");
+              }
+            });
+        
 
-        // .then(res => res.json())
-        // .then(data => {
-        //   console.log(data);
-        //   setBookingItem(null)
-        //   toast.success("Booking Confirmed")
-          
-    
-        // })
     }
   return (
     <>
@@ -60,25 +57,46 @@ const ProfileEditModal = () => {
           <h3 className="text-lg font-bold">
            Edit Your Profile
           </h3>
-          <form onSubmit={handleBooking} className="grid grid-cols-1 gap-4 mt-10">
-            <label className="font-bold" htmlFor="name">First Name</label>
-         <input type="text" name="fName" defaultValue={user?.displayName}  className="input input-bordered input-info w-full" />
-            <label className="font-bold" htmlFor="name">Last Name</label>
-         <input type="text" name="LName" defaultValue={user?.displayName}  className="input input-bordered input-info w-full" />
-         <label className="font-bold" htmlFor="location">Location</label>
-         <input type="text" name="locationCity" placeholder="city/state" className="input input-bordered input-info w-full" />
-         <label className="font-bold" htmlFor="location">Country</label>
-         <input type="text" name="country" className="input input-bordered input-info w-full" />
-         <label className="font-bold" htmlFor="location">School/College</label>
-         <input type="text" name="school" className="input input-bordered input-info w-full" />
-         <label className="font-bold" htmlFor="location">University</label>
-         <input type="text" name="university" className="input input-bordered input-info w-full" />
-         <label className="font-bold" htmlFor="location">About</label>
-         <input type="text" name="about" className="input input-bordered input-info w-full" />
-         <input type="file" name="about" className="input input-bordered input-info w-full" />
-         <input type="file" name="about" className="input input-bordered input-info w-full" />
-         <input type="submit" value="Submit" className="btn btn-accent w-full" />
-         </form>
+          {
+            userDetails?.map((details) =>
+            <form onSubmit={handleSubmit(handleInfoUpdate)}>
+            <label className="label">
+                  {" "}
+                  <span className="label-text font-extrabold">Full Name</span>
+                </label>
+                <input
+                defaultValue={details.firstName}
+                  type="text"
+                  {...register("name", {
+                  })}
+                  className="input input-bordered w-full "
+                />
+            {/* <label className="label">
+                  {" "}
+                  <span className="label-text font-extrabold">Last Name</span>
+                </label>
+                <input
+                defaultValue={details.lastName}
+                  type="text"
+                  {...register("lastName", {
+                  })}
+                  className="input input-bordered w-full"
+                /> */}
+            <label className="label">
+                  {" "}
+                  <span className="label-text font-extrabold">Headline</span>
+                </label>
+                <input
+                defaultValue={details.headline}
+                  type="text"
+                  {...register("headline", {
+                  })}
+                  className="input input-bordered w-full"
+                />
+                <input type="submit" className="btn btn-outline btn-info w-full mt-5" value="Update" />
+            </form>)
+          }
+          
         </div>
       </div>
     </>
