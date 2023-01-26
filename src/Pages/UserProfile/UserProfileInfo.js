@@ -45,11 +45,11 @@ const UserProfileInfo = () => {
 
 
   return (
-    <div className="my-5 py-10">
+    <div className="mt-5">
       {userDetails?.map((currentDetails) => (
         <div
           key={currentDetails._id}
-          className="max-w-full rounded-md bg-gray-200 relative"
+          className="max-w-full rounded-md relative"
         >
           <div className="relative">
             {currentDetails?.bannerImage ? (
@@ -81,7 +81,7 @@ const UserProfileInfo = () => {
             {/* basic modal user background */}
           </div>
 
-          <div className="flex flex-col justify-between p-6 space-y-8">
+          <div className="flex flex-col justify-between  space-y-8">
 
             <label htmlFor="pro-img-modal">
               {
