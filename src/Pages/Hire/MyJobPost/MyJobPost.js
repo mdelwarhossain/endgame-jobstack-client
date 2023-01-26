@@ -90,6 +90,7 @@ const MyJobPost = () => {
                 <EditJobModal
                   myPost={myPost}
                   setMyPost={setMyPost}
+                  refetch={refetch}
                 ></EditJobModal>
               }
             </div>
