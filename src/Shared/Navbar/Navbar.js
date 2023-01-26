@@ -6,7 +6,7 @@ import { BsFillBagPlusFill } from "react-icons/bs";
 import { FaBlog, FaSearch } from "react-icons/fa";
 import { MdGroups } from "react-icons/md";
 import { BiNetworkChart } from "react-icons/bi";
-import { MdNotificationsActive } from "react-icons/md"
+import { MdNotificationsActive } from "react-icons/md";
 import { FaSignOutAlt, FaUser } from "react-icons/fa";
 
 const Navbar = () => {
@@ -15,61 +15,159 @@ const Navbar = () => {
 
   const handleSignout = () => {
     logOut()
-      .then(() => { })
+      .then(() => {})
       .catch((error) => console.log(error));
   };
-  const menuItems = <React.Fragment>
-    <span className=""><RiHomeHeartFill className="mx-auto -mb-4 hidden lg:block text-white" /><li className="font-bold lg:text-white"><Link to='/newsfeed'><RiHomeHeartFill className="lg:hidden -mr-2" />Newsfeed</Link></li></span>
-    <span className=""><BsFillBagPlusFill className="mx-auto -mb-4 hidden lg:block text-white" /><li className="font-bold lg:text-white"><Link to='/jobs'><BsFillBagPlusFill className="lg:hidden -mr-2" />Jobs</Link></li></span>
-    <span className=""><BsFillBagPlusFill className="mx-auto -mb-4 hidden lg:block text-white" /><li className="font-bold lg:text-white"><Link to='/hire'><BsFillBagPlusFill className="lg:hidden -mr-2" />Hire</Link></li></span>
-    <span className=""><FaBlog className="mx-auto -mb-4 hidden lg:block text-white" /><li className="font-bold lg:text-white"><Link to='/'><FaBlog className="lg:hidden -mr-2" />Blogs</Link></li></span>
-    <span className=""><BiNetworkChart className="mx-auto -mb-4 hidden lg:block text-white" /><li className="font-bold lg:text-white"><Link to='/network'><BiNetworkChart className="lg:hidden -mr-2" />Network</Link></li></span>
-    <span className=""><MdNotificationsActive className="mx-auto -mb-4 hidden lg:block text-white" /><li className="font-bold lg:text-white"><Link to='/notification'><MdNotificationsActive className="lg:hidden -mr-2" />Notification</Link></li></span>
-
-    {
-      user?.uid ?
+  const menuItems = (
+    <React.Fragment>
+      {user?.uid ? (
         <>
-          <span className=""><FaSignOutAlt className="mx-auto -mb-4 hidden lg:block text-white" /><li className="font-bold lg:text-white"><button onClick={handleSignout}><FaSignOutAlt className="lg:hidden -mr-2" />Sign Out</button></li></span>
+          <span className="">
+            <RiHomeHeartFill className="mx-auto -mb-4 hidden lg:block text-white" />
+            <li className="font-bold lg:text-white">
+              <Link to="/newsfeed">
+                <RiHomeHeartFill className="lg:hidden -mr-2" />
+                Newsfeed
+              </Link>
+            </li>
+          </span>
+          <span className="">
+            <BsFillBagPlusFill className="mx-auto -mb-4 hidden lg:block text-white" />
+            <li className="font-bold lg:text-white">
+              <Link to="/jobs">
+                <BsFillBagPlusFill className="lg:hidden -mr-2" />
+                Jobs
+              </Link>
+            </li>
+          </span>
+          <span className="">
+            <BsFillBagPlusFill className="mx-auto -mb-4 hidden lg:block text-white" />
+            <li className="font-bold lg:text-white">
+              <Link to="/hire">
+                <BsFillBagPlusFill className="lg:hidden -mr-2" />
+                Hire
+              </Link>
+            </li>
+          </span>
+          <span className="">
+            <FaBlog className="mx-auto -mb-4 hidden lg:block text-white" />
+            <li className="font-bold lg:text-white">
+              <Link to="/">
+                <FaBlog className="lg:hidden -mr-2" />
+                Blogs
+              </Link>
+            </li>
+          </span>
+          <span className="">
+            <BiNetworkChart className="mx-auto -mb-4 hidden lg:block text-white" />
+            <li className="font-bold lg:text-white">
+              <Link to="/network">
+                <BiNetworkChart className="lg:hidden -mr-2" />
+                Network
+              </Link>
+            </li>
+          </span>
+          <span className="">
+            <MdNotificationsActive className="mx-auto -mb-4 hidden lg:block text-white" />
+            <li className="font-bold lg:text-white">
+              <Link to="/notification">
+                <MdNotificationsActive className="lg:hidden -mr-2" />
+                Notification
+              </Link>
+            </li>
+          </span>
+          <span className="">
+            <FaSignOutAlt className="mx-auto -mb-4 hidden lg:block text-white" />
+            <li className="font-bold lg:text-white">
+              <button onClick={handleSignout}>
+                <FaSignOutAlt className="lg:hidden -mr-2" />
+                Sign Out
+              </button>
+            </li>
+          </span>
         </>
-        :
+      ) : (
         <>
-          <span className=""><FaUser className="mx-auto -mb-4 hidden lg:block text-white" /><li className="font-bold lg:text-white"><Link to='/login'><FaUser className="lg:hidden -mr-2" />Login</Link></li></span>
+          <span>
+            <FaUser className="mx-auto -mb-4 hidden lg:block text-white" />
+            <li className="font-bold lg:text-white">
+              <Link to="/login">
+                <FaUser className="lg:hidden -mr-2" />
+                Login
+              </Link>
+            </li>
+          </span>
         </>
-    }
-
-  </React.Fragment >
+      )}
+    </React.Fragment>
+  );
   return (
     <div className="navbar py-4 bg-gray-400 flex items-center">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h8m-8 6h16"
+              />
+            </svg>
           </label>
-          <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+          <ul
+            tabIndex={0}
+            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+          >
             {menuItems}
           </ul>
         </div>
-        <Link to='/' className="btn btn-ghost normal-case text-xl font-bold text-white">Jobstack</Link>
+        <Link
+          to="/"
+          className="btn btn-ghost normal-case text-xl font-bold text-white"
+        >
+          Jobstack
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex mt-4">
-        <ul className="menu menu-horizontal px-1">
-          {menuItems}
-        </ul>
+        <ul className="menu menu-horizontal px-1">{menuItems}</ul>
       </div>
       <div className="navbar-end flex items-center">
         <div class="mt-3 w-48 mr-5 ml-auto  hidden sm:block">
-          <div class="pl-2 flex items-center border-1 bg-white border shadow-md rounded-full">
-            <input class="rounded-l-sm w-full  px-6 text-gray-700 leading-tight focus:outline-none" id="search"
-              type="text" placeholder="Search" />
+
+          {/* search disabled */}
+
+
+
+          {/* <div class="pl-2 flex items-center border-1 bg-white border shadow-md rounded-full">
+            <input
+              class="rounded-l-sm w-full  px-6 text-gray-700 leading-tight focus:outline-none"
+              id="search"
+              type="text"
+              placeholder="Search"
+            />
             <div class="">
-              <button
-                class="text-white btn-sm rounded-full bg-blue-400 focus:outline-none w-10 h-10 flex items-center justify-end">
+              <button class="text-white btn-sm rounded-full bg-blue-400 focus:outline-none w-10 h-10 flex items-center justify-end">
                 <FaSearch className="mx-auto" />
               </button>
             </div>
-          </div>
+          </div> */}
         </div>
-        <Link to='userProfile' className="mr-6 mt-3"><img alt="" className="w-10 h-10 rounded-full ring-2 ring-offset-4 dark:bg-gray-500 ring-violet-400 ring-offset-gray-800" src="https://source.unsplash.com/40x40/?portrait?1" /></Link>
+        {
+          user?.uid && <Link to="userProfile" className="mr-6 mt-3">
+          <img
+            alt=""
+            className="w-10 h-10 rounded-full ring-2 ring-offset-4 dark:bg-gray-500 ring-violet-400 ring-offset-gray-800"
+            src="https://source.unsplash.com/40x40/?portrait?1"
+          />
+        </Link> 
+        }
       </div>
     </div>
 
