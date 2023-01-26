@@ -83,7 +83,7 @@ const RealPost = () => {
       const res = await fetch("http://localhost:5000/allposts");
       const data = await res.json();
       setpost(data);
-      console.log(data);
+      // console.log(data);
       return data;
     },
   });
