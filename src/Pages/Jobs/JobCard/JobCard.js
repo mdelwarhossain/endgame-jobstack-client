@@ -1,7 +1,5 @@
-import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Loading from '../../../Shared/LoadingPage/LoadingPage';
 
 const JobCard = ({job}) => {
   
@@ -17,7 +15,7 @@ const JobCard = ({job}) => {
               <p className="text-xl font font-semibold">{job?.title}</p>
               <p>Coders Solutions Pvt. Ltd. {job?.name}</p>
               <p>{job?.location}</p>
-              <p className="text-green-600">2 Applicants</p>
+              <p className="text-green-600">{job.vacancy} {job?.vacancy > 1 ? 'vacant positions' : 'vacant position'}</p>
             </div>
             <div className='col-span-2 my-10'>
             <Link className='btn btn-outline btn-primary' to={`/job/${job._id}`}><button>See Details</button></Link>

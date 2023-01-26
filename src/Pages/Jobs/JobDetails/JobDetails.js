@@ -18,8 +18,8 @@ const JobDetails = () => {
                         <p>Coders Solutions Pvt. Ltd. {data?.name}</p>
                         <p>{data?.location}</p>
                         <div className='flex justify-between'>
-                        <p className="text-green-600">2 Applicants {data?.vacancy}</p>
-                        <Link className='btn btn-outline btn-primary'>Apply Now</Link>
+                        <p className="text-green-600">{data.vacancy} {data?.vacancy > 1 ? 'vacant positions' : 'vacant position'}</p>
+                        <a className='btn btn-outline btn-primary' href={data.url} target='_blank' rel="noreferrer">Apply Now</a>
                         </div>
                     </div>
                 </div>
@@ -41,6 +41,7 @@ const JobDetails = () => {
                 <h1 className='text-2xl font-semibold p-2 bg-gray-200'>What benefits await you</h1>
                 <p className='p-2'>{data?.offer}</p>
             </div>
+            <Link className='btn btn-outline btn-primary mx-auto my-10' to='/jobs'>Back to Jobs</Link>
         </div>
     );
 };

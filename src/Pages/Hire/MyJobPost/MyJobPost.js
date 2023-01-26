@@ -1,12 +1,16 @@
 import { useQuery } from '@tanstack/react-query';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { FaEdit } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider';
 import Loading from '../../../Shared/LoadingPage/LoadingPage';
+import EditJobModal from '../EditJobModal/EditJobModal';
+import JobPostCard from '../JobPostCart/JobPostCard';
 
 const MyJobPost = () => {
+  const [myPost, setMyPost] = useState(null); 
+  const [id, setId] = useState(null); 
   const { user } = useContext(AuthContext);
   const { data, isLoading, refetch } = useQuery({
     queryKey: ['myjobpost'],
@@ -28,7 +32,7 @@ const MyJobPost = () => {
   console.log(data);
 
 
-  const handleDelete = id => {
+  const handleDelete = (id) => {
     // save connections to the database
     fetch(`http://localhost:5000/post/${id}`, {
       method: 'Delete',
@@ -70,28 +74,25 @@ const MyJobPost = () => {
             </div>
       <div className="col-span-6">
         {
-          data?.map(post => <div>
-            <div className='grid grid-cols-8'>
-              <div className="avatar col-span-1 m-2 mt-4">
-                <div className="w-16 h-16 rounded">
-                  <img src="" alt='' />
-                </div>
-              </div>
-              <div className='col-span-5 mt-4'>
-                <p className="text-xl font font-semibold">{post?.title}</p>
-                <p>Coders Solutions Pvt. Ltd. {post?.name}</p>
-                <p>{post?.location}</p>
-                <p className="text-green-600">2 Applicants</p>
-              </div>
-              <div className='col-span-2 my-10'>
-                <button onClick={() => handleDelete(post?._id)} className='text-2xl font-semibold btn btn-outline btn-error'>X</button>
-                <button onClick={() => handleEdit(post)} className='text-2xl font-semibold btn btn-outline btn-primary ml-2'><Link to='/editjobpost'><FaEdit></FaEdit></Link></button>
-              </div>
-            </div>
-            <div className="divider"></div>
-          </div>)
+          data?.map(post => <JobPostCard
+            key={post._id}
+            post={post}
+            setMyPost={setMyPost}
+            setId={setId}
+            handleDelete={handleDelete}
+          ></JobPostCard>)
         }
       </div>
+      
+      <div>
+              {
+                myPost && 
+                <EditJobModal
+                  myPost={myPost}
+                  setMyPost={setMyPost}
+                ></EditJobModal>
+              }
+            </div>
     </div>
   );
 };

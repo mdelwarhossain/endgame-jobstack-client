@@ -5,12 +5,13 @@ import { useContext } from "react";
 import { AuthContext } from "../../../contexts/AuthProvider";
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
+import CreatePost from "../CreatePost/CreatePost";
 
 const RealPostCard = ({ post }) => {
   const { user } = useContext(AuthContext);
   const [like, setlike] = useState(post.likes);
   const [isActive, setIsActive] = useState(false);
-  
+
   // console.log(user?.name);
   const handleLike = () => {
     setlike(isActive ? like - 1 : like + 1);
@@ -19,24 +20,23 @@ const RealPostCard = ({ post }) => {
 
   //like counting
 
-
-    const likeObject = {
-      like,
-    };
-    fetch(`http://localhost:5000/updatelike/${post._id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(likeObject),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if (data.modifiedCount > 0) {
-          toast(`${user?.displayName} thanks for your reaction`);
-        }
-      });
+  const likeObject = {
+    like,
+  };
+  fetch(`http://localhost:5000/updatelike/${post._id}`, {
+    method: "PUT",
+    headers: {
+      "content-type": "application/json",
+    },
+    body: JSON.stringify(likeObject),
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+      if (data.modifiedCount > 0) {
+        toast(`${user?.displayName} thanks for your reaction`);
+      }
+    });
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -198,10 +198,7 @@ const RealPostCard = ({ post }) => {
             </p>
             {comments.map((comment, index) => (
               <p className="text-sm">
-                <span
-                  key={index}
-                  className="text-base font-semibold mr-1"
-                >
+                <span key={index} className="text-base font-semibold mr-1">
                   {comment.name}
                 </span>
                 {comment.comment}

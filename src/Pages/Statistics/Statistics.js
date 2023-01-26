@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import CountUp from 'react-countup';
-import ScrollTrigger from 'react-scroll-trigger';
+// import ScrollTrigger from 'react-scroll-trigger';
 import { BsFillCloudDownloadFill,BsFillFilePostFill } from 'react-icons/bs';
 import { HiUsers } from 'react-icons/hi';
 import { MdEmojiPeople } from 'react-icons/md';
@@ -10,18 +10,13 @@ const Statistics = () => {
   return (
     
     
-    <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+    <div className="overflow-hidden px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
       <h1 className='mt-8 mb-12 font-bold text-5xl text-center underline'>Our Statistics</h1>
       <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-        <div className="text-center bg-green-300 m-5 p-5 rounded">
 
-           
-            
+        <div className="text-center bg-green-300 m-5 p-5 rounded" data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
           <div className=" flex items-center justify-center w-10 h-10 mx-auto mb-3 rounded-full bg-teal-accent-400 sm:w-12 sm:h-12 ">
-            
             <BsFillCloudDownloadFill size={40}/>
-
-            
           </div>
           <h1 className='text-4xl'>
           <CountUp className="text-4xl font-bold text-deep-purple-accent-400" start={0}
@@ -36,7 +31,8 @@ const Statistics = () => {
             in mind.
           </p>
         </div>
-        <div className="text-center bg-purple-300 m-5 p-5 rounded">
+
+        <div className="text-center bg-purple-300 m-5 p-5 rounded"data-aos="zoom-in-up" data-aos-offset="300" data-aos-easing="ease-in-sine">
           <div className="flex items-center justify-center w-10 h-10 mx-auto mb-3 rounded-full bg-teal-accent-400 sm:w-12 sm:h-12">
             <MdEmojiPeople size={40}/>
           </div>
@@ -52,7 +48,8 @@ const Statistics = () => {
             it only changes them.
           </p>
         </div>
-        <div className="text-center bg-blue-300 m-5 p-5 rounded">
+
+        <div className="text-center bg-blue-300 m-5 p-5 rounded"data-aos="zoom-in-up" data-aos-offset="300" data-aos-easing="ease-in-sine">
           <div className="flex items-center justify-center w-10 h-10 mx-auto mb-3 rounded-full bg-teal-accent-400 sm:w-12 sm:h-12">
             <HiUsers size={40}/>
           </div>
@@ -69,7 +66,8 @@ const Statistics = () => {
             today, in this moment.
           </p>
         </div>
-        <div className="text-center bg-cyan-300 m-5 p-4 rounded">
+
+        <div className="text-center bg-cyan-300 m-5 p-4 rounded" data-aos="fade-left" data-aos-offset="300" data-aos-easing="ease-in-sine">
           <div className="flex items-center justify-center w-10 h-10 mx-auto mb-3 rounded-full bg-teal-accent-400 sm:w-12 sm:h-12">
             <BsFillFilePostFill size={40}/>
           </div>

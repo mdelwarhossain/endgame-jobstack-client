@@ -74,6 +74,7 @@ const SignUp = () => {
   };
 
   return (
+
     <div className="flex justify-around bg-pink-50">
       <div className="mt-20 ">
         <Animation></Animation>
@@ -117,6 +118,7 @@ const SignUp = () => {
               )}
             </div>
             {/* <div className="form-control w-full max-w-xs">
+
             <label className="label">
               {" "}
               <span className="label-text">Number</span>
@@ -164,60 +166,61 @@ const SignUp = () => {
               <p className="text-red-500">{errors.image.message}</p>
             )}
           </div> */}
-            <div className="form-control w-full max-w-xs">
-              <label className="label">
-                {" "}
-                <span className="label-text">Password</span>
-              </label>
-              <input
-                type="password"
-                {...register("password", {
-                  required: "Password is required",
-                  minLength: {
-                    value: 6,
-                    message: "Password must be 6 characters long",
-                  },
-                  pattern: {
-                    value: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])/,
-                    message:
-                      "Password must have uppercase, number and special characters",
-                  },
-                })}
-                className="input input-bordered w-full max-w-xs"
-              />
-              {errors.password && (
-                <p className="text-red-500">{errors.password.message}</p>
-              )}
-            </div>
-            <div className="form-control w-full max-w-xs">
-              <label className="label">
-                <span className="label-text">Role</span>
-              </label>
-              <select {...register("role")} className="select select-bordered  w-full max-w-xs">
-                {/* <option disabled selected>
+              <div className="form-control w-full max-w-xs">
+                <label className="label">
+                  {" "}
+                  <span className="label-text">Password</span>
+                </label>
+                <input
+                  type="password"
+                  {...register("password", {
+                    required: "Password is required",
+                    minLength: {
+                      value: 6,
+                      message: "Password must be 6 characters long",
+                    },
+                    pattern: {
+                      value: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])/,
+                      message:
+                        "Password must have uppercase, number and special characters",
+                    },
+                  })}
+                  className="input input-bordered w-full max-w-xs"
+                />
+                {errors.password && (
+                  <p className="text-red-500">{errors.password.message}</p>
+                )}
+              </div>
+              <div className="form-control w-full max-w-xs">
+                <label className="label">
+                  <span className="label-text">Role</span>
+                </label>
+                <select {...register("role")} className="select select-bordered  w-full max-w-xs">
+                  {/* <option disabled selected>
                 Pick your Role
               </option> */}
-                <option>JobSeeker</option>
-                <option>Recruiter</option>
-              </select>
-            </div>
-            <input
-              className="btn btn-accent w-full mt-4"
-              value="Sign Up"
-              type="submit"
-            />
-            {signUpError && <p className="text-red-600">{signUpError}</p>}
-          </form>
-          <p>
-            Already have an account{" "}
-            <Link className="text-orange-500" to="/login">
-              Please Login
-            </Link>
-          </p>
-          <div className="divider">OR</div>
-          <button onClick={handleGoogleSignIn} className="btn btn-outline btn-success w-full">
-            CONTINUE WITH GOOGLE
-          </button>
+                  <option>JobSeeker</option>
+                  <option>Recruiter</option>
+                </select>
+              </div>
+              <input
+                className="btn btn-accent w-full mt-4"
+                value="Sign Up"
+                type="submit"
+              />
+              {signUpError && <p className="text-red-600">{signUpError}</p>}
+            </form>
+            <p>
+              Already have an account{" "}
+              <Link className="text-orange-500" to="/login">
+                Please Login
+              </Link>
+            </p>
+            <div className="divider">OR</div>
+            <button onClick={handleGoogleSignIn} className="btn btn-outline btn-success w-full">
+              CONTINUE WITH GOOGLE
+            </button>
+          </div>
         </div>
       </div>
     </div>
