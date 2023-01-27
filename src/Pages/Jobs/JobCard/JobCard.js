@@ -5,13 +5,13 @@ const JobCard = ({job}) => {
   
     return (
         <div>
-          <div className='grid grid-cols-8'>
-            <div className="avatar col-span-1 m-2 mt-4">
+          <div className='grid grid-cols-10'>
+            <div className="avatar col-span-2 m-2 mt-4 ml-4">
               <div className="w-16 h-16 rounded">
-                <img src="" alt='' />
+                <img src={job?.logo} alt='' />
               </div>
             </div>
-            <div className='col-span-5 mt-4'>
+            <div className='col-span-6 mt-4'>
               <p className="text-xl font font-semibold">{job?.title}</p>
               <p>Coders Solutions Pvt. Ltd. {job?.name}</p>
               <p>{job?.location}</p>

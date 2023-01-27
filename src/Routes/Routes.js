@@ -25,11 +25,11 @@ import Courses from "../Pages/Courses/Courses";
 
 
 
+
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
-    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
@@ -37,28 +37,33 @@ const router = createBrowserRouter([
       },
       {
         path: "/newsfeed",
-        element: <NewsFeed></NewsFeed>,
+        element:<PrivateRoute><NewsFeed></NewsFeed></PrivateRoute>,
       },
       {
         path: "/jobs",
-        element: <Jobs></Jobs>,
+        element: <PrivateRoute><Jobs></Jobs></PrivateRoute>,
       },
       {
         path: "/job/:id",
-        element: <JobDetails></JobDetails>,
+        element: <PrivateRoute><JobDetails></JobDetails></PrivateRoute>,
         loader: ({ params }) => fetch(`http://localhost:5000/job/${params.id}`)
       },
       {
         path: "/jobs/:email",
-        element: <MyJobPost></MyJobPost>,
+        element: <PrivateRoute><MyJobPost></MyJobPost></PrivateRoute>,
       },
       {
         path: "/antifraudtips",
-        element: <AntiFraudTips></AntiFraudTips>,
+        element: <PrivateRoute><AntiFraudTips></AntiFraudTips></PrivateRoute>,
       },
       {
         path: "/hire",
-        element: <Hire></Hire>,
+        element: <PrivateRoute><Hire></Hire></PrivateRoute>,
+      },
+      {
+        path: "/candidate/:id",
+        element: <CandidateProfile></CandidateProfile>,
+        loader: ({ params }) => fetch(`http://localhost:5000/candidate/${params.id}`)
       },
       {
         path: "/courses",
@@ -66,11 +71,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/addajob",
-        element: <AddJob></AddJob>,
+        element: <PrivateRoute><AddJob></AddJob></PrivateRoute>,
       },
       {
         path: "/userprofile",
-        element: <UserProfile></UserProfile>,
+        element: <PrivateRoute><UserProfile></UserProfile></PrivateRoute>,
       },
       {
         path: "/login",
@@ -82,20 +87,20 @@ const router = createBrowserRouter([
       },
       {
         path: "/network",
-        element: <Network></Network>,
+        element: <PrivateRoute><Network></Network></PrivateRoute>,
       },
       {
         path: "/notification",
-        element: <Notification></Notification>,
+        element: <PrivateRoute><Notification></Notification></PrivateRoute>,
       },
       {
         path: "/myconnections",
-        element: <MyConnections></MyConnections>,
+        element: <PrivateRoute><MyConnections></MyConnections></PrivateRoute>,
       },
-      {
-        path: "/*",
-        element: <Pictures></Pictures>
-      },
+      // {
+      //   path: "/*",
+      //   element: <Pictures></Pictures>
+      // },
       {
         path: '/animation',
         element: <Animation></Animation>
@@ -106,5 +111,9 @@ const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path:"*",
+    element:<ErrorPage></ErrorPage>
+  }
 ]);
 export default router;

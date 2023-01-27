@@ -28,7 +28,7 @@ const Login = () => {
         console.log(user);
         // navigate(from, { replace: true });
         toast.success("successfully login");
-        navigate("/");
+        navigate("/newsfeed");
       })
       .catch((error) => {
         console.log(error.message);
@@ -44,7 +44,7 @@ const Login = () => {
       })
       .catch((error) => console.error(error));
       toast.success("please login");
-      navigate("/");
+      navigate("/newsfeed");
   };
 
   return (
