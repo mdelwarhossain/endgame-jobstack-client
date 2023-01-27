@@ -21,6 +21,9 @@ import Loading from "../../Shared/LoadingPage/LoadingPage";
 const UserProfileInfo = () => {
   const [userDetails, setUserDetails] = useState();
   // const [projects, setProjects] = useState()
+  // const [projects, setProjects] = useState()
+  // const [projects, setProjects] = useState()
+  // const [projects, setProjects] = useState()
   
 
   const { user } = useContext(AuthContext);
