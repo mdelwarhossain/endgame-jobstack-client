@@ -20,8 +20,8 @@ import Animation from "../Pages/SignUp/Animation/Animation";
 import Pictures from "../Pictures/Pictures";
 import Photo from "../Pages/SignUp/Animation/Photo/Photo";
 import MyJobPost from "../Pages/Hire/MyJobPost/MyJobPost";
-import CandidateProfile from "../Pages/Hire/CandidateProfile/CandidateProfile";
-import PrivateRoute from "./PrivateRoute";
+import Courses from "../Pages/Courses/Courses";
+
 
 
 
@@ -64,6 +64,10 @@ const router = createBrowserRouter([
         path: "/candidate/:id",
         element: <CandidateProfile></CandidateProfile>,
         loader: ({ params }) => fetch(`http://localhost:5000/candidate/${params.id}`)
+      },
+      {
+        path: "/courses",
+        element: <Courses></Courses>,
       },
       {
         path: "/addajob",
