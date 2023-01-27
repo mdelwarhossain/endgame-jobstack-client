@@ -5,7 +5,7 @@ import { FaExclamation } from 'react-icons/fa';
 
 const RightSideCard = () => {
     return (
-        <div className='shadow-xl my-5 px-2 py-10'>
+        <div className='shadow-xl my-5 px-2 py-5'>
             <div className='flex items-center justify-between'>
                 {/* <h2 className='ml-2 font-bold'>Add to your feed</h2> */}
                 <p className='font-bold mb-2'>Add to Your Feed</p>

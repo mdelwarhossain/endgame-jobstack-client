@@ -14,25 +14,28 @@ import { GiTeacher } from "react-icons/gi";
 
 const Navbar = () => {
   const { logOut, user } = useContext(AuthContext);
-  // const [isMenuOpen, setIsMenuOpen] = useState(false);
-  
-  // const [currentUserDetails, setCurrentUserDetails] = useState()
-  // const waitTime = 1000;
 
-  // useEffect(() =>{
-  //   const id = setInterval(() => {
+  // const [loading,setLoading] = useState(false)
 
-  //     fetch(`http://localhost:5000/usersQueryEmail?email=${user?.email}`)
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       console.log(data)
-  //     })
-  //     .catch(err =>{
-  //       console.log(err)
-  //     })
-  //   }, waitTime);
-  //   return () => clearInterval(id);
-  // },[user?.email]);
+  const [currentUserDetails, setCurrentUserDetails] = useState()
+  const waitTime = 1000;
+
+  useEffect(() =>{
+    // setLoading(true)
+    const id = setInterval(() => {
+
+      fetch(`http://localhost:5000/usersQueryEmail?email=${user?.email}`)
+      .then(res => res.json())
+      .then(data => {
+        setCurrentUserDetails(data[0])
+        // setLoading(false)
+      })
+      .catch(err =>{
+        console.log(err)
+      })
+    }, waitTime);
+    return () => clearInterval(id);
+  },[user?.email]);
 
 
   const handleSignout = () => {
@@ -192,7 +195,7 @@ const Navbar = () => {
           </div> */}
         </div>
         {
-          user?.uid && <Link to='/userProfile'><img alt="" className="w-12 h-12 rounded-full ring-2 ring-offset-4 dark:bg-gray-500 ring-violet-400 ring-offset-gray-800" src="https://source.unsplash.com/40x40/?portrait?1" /></Link>
+          user?.uid && <Link to='/userProfile'><img alt="" className="w-12 h-12 rounded-full ring-2 ring-offset-4 dark:bg-gray-500 ring-violet-400 ring-offset-gray-800" src={currentUserDetails?.profileImage} /></Link>
           
         }
       </div>

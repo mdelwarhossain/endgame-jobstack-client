@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import React, { useContext, useState } from "react";
+import { useEffect } from "react";
 import { toast } from "react-hot-toast";
 import { AuthContext } from "../../../contexts/AuthProvider";
 
@@ -7,47 +8,50 @@ const NetworkCard = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const { user } = useContext(AuthContext);
+  const [usersCollection,setUsersCollection] = useState([])
 
-  const { data, isLoading } = useQuery({
-    queryKey: ["users"],
-    queryFn: async () => {
-      try {
-        const res = await fetch("http://localhost:5000/users", {
-          headers: {
-            authorization: `bearer ${localStorage.getItem("accessToken")}`,
-          },
-        });
-        const data = await res.json();
-        return data;
-      } catch (error) {}
-    },
-  });
+  // const { data, isLoading } = useQuery({
+  //   queryKey: ["users"],
+  //   queryFn: async () => {
+  //     try {
+  //       const res = await fetch("http://localhost:5000/users", {
+  //       });
+  //       const data = await res.json();
+  //       console.log(data)
+  //       return data;
+  //     } catch (error) {}
+  //   },
+  // });
+  useEffect(() =>{
+    fetch('http://localhost:5000/users')
+    .then(res => res.json())
+    .then(data => setUsersCollection(data))
+  },[])
 
-  console.log(data);
 
-  const handleConnect = (dbuser) => {
-    const connection = {
-      name: dbuser?.name,
-      email: user?.email,
-      url: dbuser?.image,
-      connectedOn: new Date(),
-    };
+  // const handleConnect = (dbuser) => {
+  //   const connection = {
+  //     name: dbuser?.name,
+  //     email: user?.email,
+  //     url: dbuser?.image,
+  //     connectedOn: new Date(),
+  //   };
 
-    // save connections to the database
-    fetch("http://localhost:5000/connection", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(connection),
-    })
-      .then((res) => res.json())
-      .then((result) => {
-        console.log(result);
-        toast.success(`Your are following ${user?.name}`);
-        // navigate('/posts')
-      });
-  };
+  //   // save connections to the database
+  //   fetch("http://localhost:5000/connection", {
+  //     method: "POST",
+  //     headers: {
+  //       "content-type": "application/json",
+  //     },
+  //     body: JSON.stringify(connection),
+  //   })
+  //     .then((res) => res.json())
+  //     .then((result) => {
+  //       console.log(result);
+  //       toast.success(`Your are following ${user?.name}`);
+  //       // navigate('/posts')
+  //     });
+  // };
 
   return (
     <div>
@@ -59,7 +63,7 @@ const NetworkCard = () => {
           </span>
         </label>
         <input
-          className="rounded-md  w-3/4  px-6 text-gray-700 leading-tight focus:outline-none px-2 py-5"
+          className="rounded-md input-bordered input-warning  w-3/4  px-6 text-gray-700 leading-tight focus:outline-none px-2 py-5"
           type="text"
           placeholder=""
           onChange={(event) => {
@@ -68,7 +72,7 @@ const NetworkCard = () => {
         />
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mr-5">
-        {data
+        {usersCollection
           .filter((dbuser) => {
             if (searchTerm == "") {
               return dbuser;
@@ -87,12 +91,6 @@ const NetworkCard = () => {
                 <h2 className="text-xl font-semibold">{dbuser?.name}</h2>
                 <p>Mern Stack Developer</p>
                 <p className="text-green-600">2 mutual connections</p>
-                <button
-                  onClick={() => handleConnect(dbuser)}
-                  className="btn btn-outline btn-primary w-full"
-                >
-                  Connect
-                </button>
               </div>
             </div>
           ))}

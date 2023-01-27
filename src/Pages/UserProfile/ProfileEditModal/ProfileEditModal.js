@@ -65,7 +65,7 @@ const ProfileEditModal = ({ userDetails, userData, isLoading, refetch }) => {
                   <span className="label-text font-extrabold">Full Name</span>
                 </label>
                 <input
-                defaultValue={details.firstName}
+                defaultValue={details.name}
                   type="text"
                   {...register("name", {
                   })}
