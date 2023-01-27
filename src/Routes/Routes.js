@@ -45,7 +45,7 @@ const router = createBrowserRouter([
       {
         path: "/job/:id",
         element: <PrivateRoute><JobDetails></JobDetails></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/job/${params.id}`)
+        loader: ({ params }) => fetch(`https://jobstack-server.vercel.app/job/${params.id}`)
       },
       {
         path: "/jobs/:email",

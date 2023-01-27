@@ -11,7 +11,7 @@ const Hire = () => {
         queryKey: ['alluser'],
         queryFn: async () => {
             try {
-                const res = await fetch('http://localhost:5000/alluser', {
+                const res = await fetch('https://jobstack-server.vercel.app/alluser', {
                     headers: {
                         authorization: `bearer ${localStorage.getItem('accessToken')}`
                     }

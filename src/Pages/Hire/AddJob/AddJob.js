@@ -32,7 +32,7 @@ const Hire = () => {
         console.log(jobPost);
 
         // save product to the database
-        fetch('http://localhost:5000/addajob', {
+        fetch('https://jobstack-server.vercel.app/addajob', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

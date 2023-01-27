@@ -47,7 +47,7 @@ const SignUp = () => {
   const saveUser = (name, email, number, country, image, password) => {
     const user = { name, email, number, country, image, password };
 
-    fetch("http://localhost:5000/users", {
+    fetch("https://jobstack-server.vercel.app/users", {
       method: "POST",
       headers: {
         "content-type": "application/json",

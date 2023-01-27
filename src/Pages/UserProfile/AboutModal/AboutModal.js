@@ -20,7 +20,7 @@ const AboutModal = ({ userDetails, userData, isLoading, refetch }) => {
        }
        console.log(updatedInfo)
   
-       fetch(`http://localhost:5000/usersQueryEmail?email=${userEmail}`, {
+       fetch(`https://jobstack-server.vercel.app/usersQueryEmail?email=${userEmail}`, {
               method: "PUT",
               headers: {
                 "content-type": "application/json",
