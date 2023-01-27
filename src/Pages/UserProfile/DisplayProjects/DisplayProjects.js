@@ -20,7 +20,7 @@ const DisplayProjects = () => {
         queryKey: ["projects", user?.email],
         queryFn: async () => {
           const res = await fetch(
-            `http://localhost:5000/projects?email=${user?.email}`
+            `https://jobstack-server.vercel.app/projects?email=${user?.email}`
           );
           const data = await res.json();
           setUserProjects(data)

@@ -14,7 +14,7 @@ const NetworkCard = () => {
   //   queryKey: ["users"],
   //   queryFn: async () => {
   //     try {
-  //       const res = await fetch("http://localhost:5000/users", {
+  //       const res = await fetch("https://jobstack-server.vercel.app/users", {
   //       });
   //       const data = await res.json();
   //       console.log(data)
@@ -23,7 +23,7 @@ const NetworkCard = () => {
   //   },
   // });
   useEffect(() =>{
-    fetch('http://localhost:5000/users')
+    fetch('https://jobstack-server.vercel.app/users')
     .then(res => res.json())
     .then(data => setUsersCollection(data))
   },[])
@@ -38,7 +38,7 @@ const NetworkCard = () => {
   //   };
 
   //   // save connections to the database
-  //   fetch("http://localhost:5000/connection", {
+  //   fetch("https://jobstack-server.vercel.app/connection", {
   //     method: "POST",
   //     headers: {
   //       "content-type": "application/json",

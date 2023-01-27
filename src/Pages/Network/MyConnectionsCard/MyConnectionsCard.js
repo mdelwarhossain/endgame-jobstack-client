@@ -11,7 +11,7 @@ const MyConnectionsCard = () => {
         queryKey: ['friends'],
         queryFn: async () => {
             try {
-                const res = await fetch(`http://localhost:5000/friends/${user?.email}`, {
+                const res = await fetch(`https://jobstack-server.vercel.app/friends/${user?.email}`, {
                     headers: {
                         authorization: `bearer ${localStorage.getItem('accessToken')}`
                     }
