@@ -93,7 +93,7 @@ const router = createBrowserRouter([
       // },
       {
         path: '/animation',
-        element: <Animation></Animation>
+        element: <PrivateRoute><Animation></Animation></PrivateRoute>
       },
       {
         path: '/photo',

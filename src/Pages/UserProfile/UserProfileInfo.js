@@ -16,6 +16,7 @@ import EducationModal from "./EducationModal/EducationModal";
 import SkillsModal from "./SkillsModal/SkillsModal";
 import UserProjects from "./UserProjects/UserProjects";
 import DisplayProjects from "./DisplayProjects/DisplayProjects";
+import Loading from "../../Shared/LoadingPage/LoadingPage";
 
 const UserProfileInfo = () => {
   const [userDetails, setUserDetails] = useState();
@@ -45,7 +46,11 @@ const UserProfileInfo = () => {
 
 
   return (
-    <div className="mt-5">
+    <div className="my-5">
+      {
+        isLoading ? <Loading></Loading> :
+
+        <div>
       {userDetails?.map((currentDetails) => (
         <div
           key={currentDetails._id}
@@ -109,7 +114,7 @@ const UserProfileInfo = () => {
               <div className="space-y-2">
                 <div className="flex items-center justify-between mb-4">
                   <h2 className="text-2xl font-bold tracking-wide">
-                    {currentDetails.name}
+                    {currentDetails?.name}
                   </h2>
                   <label htmlFor="my-modal-3">
                     <FaEdit className="text-2xl cursor-pointer" />
@@ -229,6 +234,8 @@ const UserProfileInfo = () => {
           </div>
         </div>
       ))}
+      </div>
+      }
     </div>
   );
 };
