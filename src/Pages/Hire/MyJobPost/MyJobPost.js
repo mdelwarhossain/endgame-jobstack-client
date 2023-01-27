@@ -9,10 +9,10 @@ import EditJobModal from '../EditJobModal/EditJobModal';
 import JobPostCard from '../JobPostCart/JobPostCard';
 
 const MyJobPost = () => {
-  const [myPost, setMyPost] = useState(null); 
-  const [id, setId] = useState(null); 
+  const [myPost, setMyPost] = useState(null);
+  const [id, setId] = useState(null);
   const { user } = useContext(AuthContext);
-  const { data, isLoading, refetch } = useQuery({
+  const { data = [], isLoading, refetch } = useQuery({
     queryKey: ['myjobpost'],
     queryFn: async () => {
       try {
@@ -33,24 +33,23 @@ const MyJobPost = () => {
 
 
   const handleDelete = (id) => {
+
     // save connections to the database
     fetch(`https://jobstack-server.vercel.app/post/${id}`, {
+
+    
       method: 'Delete',
       headers: {
         authorization: `bearer ${localStorage.getItem('accessToken')}`
       },
-  })
-  .then(res => res.json())
-  .then(data => {
-      if (data.deletedCount > 0) {
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (data.deletedCount > 0) {
           refetch();
           toast.success('Your post has been removed')
-      }
-  })
-  }
-
-  const handleEdit = id => {
-
+        }
+      })
   }
 
   if (isLoading) {
@@ -58,12 +57,12 @@ const MyJobPost = () => {
   }
 
   return (
-    <div className="px-4 grid grid-cols-1 md:grid-cols-8 gap-4">
-      <div className="col-span-2 mt-5">
-                <div className="">
+    <div>
+      {/* <div className="col-span-2 mt-5">
+        <div className="">
                     <div className='flex gap-4 ml-2 mt-2'>
-                        <img className='h-10 w-10 rounded-full' src={user?.image} alt="" />
-                        <span className='flex gap-2 mt-2'> {user?.displayName}</span>
+                        <img className='h-10 w-10 rounded-full' src={user?.profileImage} alt="" />
+                        <span className='flex gap-2 mt-2'> {user?.name}</span>
                     </div>
                     <div className='flex flex-col gap-2 my-5'>
                         <Link to={`/jobs/${user?.email}`} className='btn btn-outline btn-primary'>My Posts</Link>
@@ -71,8 +70,9 @@ const MyJobPost = () => {
 
                     </div>
                 </div>
-            </div>
-      <div className="col-span-6">
+      </div> */}
+      <div className="px-4 grid grid-cols-1 md:w-2/3 mx-auto my-10 gap-4">
+      <div className="">
         {
           data?.map(post => <JobPostCard
             key={post._id}
@@ -83,16 +83,19 @@ const MyJobPost = () => {
           ></JobPostCard>)
         }
       </div>
-      
+      <Link to='/hire' className='btn btn-outline btn-primary mb-5 text-center flex items-center md:w-1/4 mx-auto'>back</Link>
       <div>
-              {
-                myPost && 
-                <EditJobModal
-                  myPost={myPost}
-                  setMyPost={setMyPost}
-                ></EditJobModal>
-              }
-            </div>
+        {
+          myPost &&
+          <EditJobModal
+            myPost={myPost}
+            setMyPost={setMyPost}
+            refetch={refetch}
+          ></EditJobModal>
+        }
+      </div>
+      </div>
+      
     </div>
   );
 };

@@ -8,18 +8,18 @@ const JobDetails = () => {
         <div className='md:w-1/2 mx-auto my-5'>
             <div>
                 <div className='grid grid-cols-8'>
-                    <div className="avatar col-span-1 m-2 mt-4">
+                    <div className="avatar col-span-1 mx-4 mt-4">
                         <div className="w-24 h-24 rounded">
-                            <img src="" alt='' />
+                            <img src={data?.logo} alt='' />
                         </div>
                     </div>
                     <div className='col-span-6 mt-4'>
-                        <p className="text-xl font font-semibold">React Developer {data?.title}</p>
-                        <p>Coders Solutions Pvt. Ltd. {data?.name}</p>
+                        <p className="text-xl font font-semibold">{data?.title}</p>
+                        <p>{data?.name}</p>
                         <p>{data?.location}</p>
                         <div className='flex justify-between'>
-                        <p className="text-green-600">{data.vacancy} {data?.vacancy > 1 ? 'vacant positions' : 'vacant position'}</p>
-                        <a className='btn btn-outline btn-primary' href={data.url} target='_blank' rel="noreferrer">Apply Now</a>
+                            <p className="text-green-600">{data.vacancy} {data?.vacancy > 1 ? 'vacant positions' : 'vacant position'}</p>
+                            <a className='btn btn-outline btn-primary' href={data.url} target='_blank' rel="noreferrer">Apply Now</a>
                         </div>
                     </div>
                 </div>

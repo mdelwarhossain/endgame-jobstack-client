@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../../contexts/AuthProvider';
-const Hire = ({ myPost, setMyPost }) => {
+const Hire = ({ myPost, setMyPost, refetch }) => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const { user } = useContext(AuthContext);
     const {title, location, jobType, category, homeOffice, availability, skills, aboutUs, task, profile, offer, vacancy, url, salary} = myPost; 
@@ -44,6 +44,7 @@ const Hire = ({ myPost, setMyPost }) => {
             .then(result => {
                 console.log(result);
                 toast.success(`${data.title} is updated successfully`);
+                refetch()
                 // navigate('/dashboard/books/:email')
                 setMyPost(null)
             })

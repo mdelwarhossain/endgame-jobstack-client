@@ -30,9 +30,28 @@ const Jobs = () => {
   });
   console.log(jobs);
 
-  if (isLoading) {
-    return <Loading></Loading>;
-  }
+  const { data: singleUser } = useQuery({
+    queryKey: ['user'],
+    queryFn: async () => {
+        try {
+            const res = await fetch(`http://localhost:5000/user/${user?.email}`, {
+                headers: {
+                    authorization: `bearer ${localStorage.getItem('accessToken')}`
+                }
+            });
+            const data = await res.json();
+            return data;
+        }
+        catch (error) {
+
+        }
+    }
+});
+console.log(singleUser);
+
+if (isLoading) {
+    return <Loading></Loading>
+}
 
   const handleSignout = () => {
     logOut()
@@ -44,18 +63,20 @@ const Jobs = () => {
     <div className="px-4 grid grid-cols-1 md:grid-cols-8 gap-4">
       <div className="col-span-2 mt-5">
         <div className="">
-          <div className="flex gap-4 ml-2 mt-2">
-            <img className="h-10 w-10 rounded-full" src={user?.image} alt="" />
-            <span className="flex gap-2 mt-2"> {user?.displayName}</span>
-          </div>
+          {
+            user &&
+            <div className="flex gap-4 ml-2 mt-2">
+            <img className="h-10 w-10 rounded-full" src={singleUser?.profileImage} alt="" />
+            <span className="flex gap-2 mt-2"> {singleUser?.name}</span>
+          </div>}
           <div className="flex flex-col gap-2 my-5">
-            <Link
+            {/* <Link
               to={`/jobs/${user?.email}`}
               className="btn btn-outline btn-primary"
             >
               My Applications
-            </Link>
-            <Link to="" className="btn btn-outline btn-primary">
+            </Link> */}
+            <Link to={`/candidate/${singleUser?._id}`} className="btn btn-outline btn-primary">
               My Resume
             </Link>
             <Link to="/antifraudtips" className="btn btn-outline btn-primary">
