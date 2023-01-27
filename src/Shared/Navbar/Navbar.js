@@ -8,6 +8,7 @@ import { MdGroups } from "react-icons/md";
 import { BiNetworkChart } from "react-icons/bi";
 import { MdNotificationsActive } from "react-icons/md"
 import { FaSignOutAlt, FaUser } from "react-icons/fa";
+import { GiTeacher } from "react-icons/gi";
 
 const Navbar = () => {
   const { logOut, user } = useContext(AuthContext);
@@ -22,6 +23,7 @@ const Navbar = () => {
     <span className=""><RiHomeHeartFill className="mx-auto -mb-4 hidden lg:block text-white" /><li className="font-bold lg:text-white"><Link to='/newsfeed'><RiHomeHeartFill className="lg:hidden -mr-2" />Newsfeed</Link></li></span>
     <span className=""><BsFillBagPlusFill className="mx-auto -mb-4 hidden lg:block text-white" /><li className="font-bold lg:text-white"><Link to='/jobs'><BsFillBagPlusFill className="lg:hidden -mr-2" />Jobs</Link></li></span>
     <span className=""><BsFillBagPlusFill className="mx-auto -mb-4 hidden lg:block text-white" /><li className="font-bold lg:text-white"><Link to='/hire'><BsFillBagPlusFill className="lg:hidden -mr-2" />Hire</Link></li></span>
+    <span className=""><GiTeacher className="mx-auto -mb-4 hidden lg:block text-white" /><li className="font-bold lg:text-white"><Link to='/courses'><GiTeacher className="lg:hidden -mr-2" />Courses</Link></li></span>
     <span className=""><FaBlog className="mx-auto -mb-4 hidden lg:block text-white" /><li className="font-bold lg:text-white"><Link to='/'><FaBlog className="lg:hidden -mr-2" />Blogs</Link></li></span>
     <span className=""><BiNetworkChart className="mx-auto -mb-4 hidden lg:block text-white" /><li className="font-bold lg:text-white"><Link to='/network'><BiNetworkChart className="lg:hidden -mr-2" />Network</Link></li></span>
     <span className=""><MdNotificationsActive className="mx-auto -mb-4 hidden lg:block text-white" /><li className="font-bold lg:text-white"><Link to='/notification'><MdNotificationsActive className="lg:hidden -mr-2" />Notification</Link></li></span>
