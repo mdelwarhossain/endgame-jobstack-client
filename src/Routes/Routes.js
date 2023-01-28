@@ -65,7 +65,7 @@ const router = createBrowserRouter([
       {
         path: "/candidate/:id",
         element: <CandidateProfile></CandidateProfile>,
-        loader: ({ params }) => fetch(`http://localhost:5000/candidate/${params.id}`)
+        loader: ({ params }) => fetch(`https://jobstack-server.vercel.app/candidate/${params.id}`)
       },
       {
         path: "/courses",
