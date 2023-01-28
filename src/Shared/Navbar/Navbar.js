@@ -195,8 +195,18 @@ const Navbar = () => {
           </div> */}
         </div>
         {
+<<<<<<< HEAD
+          user?.uid && <Link to="userProfile" className="mr-6 mt-3">
+
+<div className="relative flex-shrink-0">
+			<span className="absolute bottom-0 right-0 w-4 h-4 dark:bg-green-600 border rounded-full dark:text-gray-100 dark:border-gray-900"></span>
+			<img src="" alt="" className="w-12 h-12 border rounded-full dark:bg-gray-500 dark:border-gray-700" />
+		</div>
+        </Link> 
+=======
           user?.uid && <Link to='/userProfile'><img alt="" className="w-12 h-12 rounded-full ring-2 ring-offset-4 dark:bg-gray-500 ring-violet-400 ring-offset-gray-800" src={currentUserDetails?.profileImage} /></Link>
           
+>>>>>>> d552d972a02773dfa218f26503bc276608e73d1c
         }
       </div>
     </div>

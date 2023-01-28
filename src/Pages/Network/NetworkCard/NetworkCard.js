@@ -55,7 +55,7 @@ const NetworkCard = () => {
 
   return (
     <div>
-      <div className="pt-5 pb-5">
+      {/* <div className="pt-5 pb-5">
         <label className="label">
           {" "}
           <span className="label-text text-xl font-bold text-green-600">
@@ -70,7 +70,7 @@ const NetworkCard = () => {
             setSearchTerm(event.target.value);
           }}
         />
-      </div>
+      </div> */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mr-5">
         {usersCollection
           .filter((dbuser) => {

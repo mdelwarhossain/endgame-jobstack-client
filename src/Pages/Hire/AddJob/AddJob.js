@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider';
-const Hire = () => {
+const AddJob = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const { user } = useContext(AuthContext);
     const imageHostKey = "675b75aac107bbf9360ca2e17bf94edc";
@@ -255,4 +255,4 @@ const Hire = () => {
     );
 };
 
-export default Hire;
+export default AddJob;
