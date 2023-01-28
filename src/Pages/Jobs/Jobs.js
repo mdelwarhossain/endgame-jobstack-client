@@ -34,7 +34,7 @@ const Jobs = () => {
     queryKey: ['user'],
     queryFn: async () => {
         try {
-            const res = await fetch(`http://localhost:5000/user/${user?.email}`, {
+            const res = await fetch(`https://jobstack-server.vercel.app/user/${user?.email}`, {
                 headers: {
                     authorization: `bearer ${localStorage.getItem('accessToken')}`
                 }
