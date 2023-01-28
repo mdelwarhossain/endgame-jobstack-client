@@ -41,7 +41,7 @@ const UserProfileInfo = () => {
     },
   });
 
-
+console.log(userDetails);
 
 
   return (
