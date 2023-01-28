@@ -14,7 +14,7 @@ import { AuthContext } from "../../contexts/AuthProvider";
 const Jobs = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const { user, logOut } = useContext(AuthContext);
-  const { data: jobs, isLoading } = useQuery({
+  const { data: jobs = [], isLoading } = useQuery({
     queryKey: ["jobs"],
     queryFn: async () => {
       try {
