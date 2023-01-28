@@ -8,9 +8,10 @@ import { MdGroups } from "react-icons/md";
 import { BiNetworkChart } from "react-icons/bi";
 import { MdNotificationsActive } from "react-icons/md";
 import { FaSignOutAlt, FaUser } from "react-icons/fa";
-
-import { GiTeacher } from "react-icons/gi";
-
+import { useQuery } from "@tanstack/react-query";
+import { useEffect } from "react";
+import pp from '../../assest/images/pp.jpg'
+import DisplayAvatar from "./DisplayAvatar/DisplayAvatar";
 
 const Navbar = () => {
   const { logOut, user } = useContext(AuthContext);
@@ -43,19 +44,9 @@ const Navbar = () => {
       .then(() => {})
       .catch((error) => console.log(error));
   };
-
-  const menuItems = <React.Fragment>
-    <span className=""><RiHomeHeartFill className="mx-auto -mb-4 hidden lg:block text-white" /><li className="font-bold lg:text-white"><Link to='/newsfeed'><RiHomeHeartFill className="lg:hidden -mr-2" />Newsfeed</Link></li></span>
-    <span className=""><BsFillBagPlusFill className="mx-auto -mb-4 hidden lg:block text-white" /><li className="font-bold lg:text-white"><Link to='/jobs'><BsFillBagPlusFill className="lg:hidden -mr-2" />Jobs</Link></li></span>
-    <span className=""><BsFillBagPlusFill className="mx-auto -mb-4 hidden lg:block text-white" /><li className="font-bold lg:text-white"><Link to='/hire'><BsFillBagPlusFill className="lg:hidden -mr-2" />Hire</Link></li></span>
-    <span className=""><GiTeacher className="mx-auto -mb-4 hidden lg:block text-white" /><li className="font-bold lg:text-white"><Link to='/courses'><GiTeacher className="lg:hidden -mr-2" />Courses</Link></li></span>
-    <span className=""><FaBlog className="mx-auto -mb-4 hidden lg:block text-white" /><li className="font-bold lg:text-white"><Link to='/'><FaBlog className="lg:hidden -mr-2" />Blogs</Link></li></span>
-    <span className=""><BiNetworkChart className="mx-auto -mb-4 hidden lg:block text-white" /><li className="font-bold lg:text-white"><Link to='/network'><BiNetworkChart className="lg:hidden -mr-2" />Network</Link></li></span>
-    <span className=""><MdNotificationsActive className="mx-auto -mb-4 hidden lg:block text-white" /><li className="font-bold lg:text-white"><Link to='/notification'><MdNotificationsActive className="lg:hidden -mr-2" />Notification</Link></li></span>
-
-    {
-      user?.uid ?
-
+  const menuItems = (
+    <React.Fragment>
+      {user?.uid ? (
         <>
           <span className="">
             <RiHomeHeartFill className="mx-auto -mb-4 hidden lg:block text-white" />
@@ -195,18 +186,8 @@ const Navbar = () => {
           </div> */}
         </div>
         {
-<<<<<<< HEAD
-          user?.uid && <Link to="userProfile" className="mr-6 mt-3">
-
-<div className="relative flex-shrink-0">
-			<span className="absolute bottom-0 right-0 w-4 h-4 dark:bg-green-600 border rounded-full dark:text-gray-100 dark:border-gray-900"></span>
-			<img src="" alt="" className="w-12 h-12 border rounded-full dark:bg-gray-500 dark:border-gray-700" />
-		</div>
-        </Link> 
-=======
           user?.uid && <Link to='/userProfile'><img alt="" className="w-12 h-12 rounded-full ring-2 ring-offset-4 dark:bg-gray-500 ring-violet-400 ring-offset-gray-800" src={currentUserDetails?.profileImage} /></Link>
           
->>>>>>> d552d972a02773dfa218f26503bc276608e73d1c
         }
       </div>
     </div>
