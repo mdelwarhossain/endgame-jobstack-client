@@ -12,12 +12,44 @@ const AddJob = () => {
         const image = data.logo[0];
         console.log(image)
 
+
+        const jobPost = {
+            name: user.name,
+            logo: user.logo,
+            email: user.email,
+            title: data.title,
+            location: data.location,
+            jobType: data.jobType,
+            category: data.category,
+            homeOffice: data.homeOffice,
+            availability: data.availability,
+            skills: data.skills,
+            aboutUs: data.aboutUs,
+            task: data.task,
+            profile: data.profile,
+            offer: data.offer,
+            vacancy: data.vacancy,
+            url: data.url,
+            salary: data.salary,
+            postedOn: new Date()
+        }
+        console.log(jobPost);
+
+        // save product to the database
+        fetch('https://jobstack-server.vercel.app/addajob', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+                authorization: `bearer ${localStorage.getItem('accessToken')}`
+            },
+            body: JSON.stringify(jobPost)
         const formData = new FormData();
         formData.append("image", image);
         const url = `https://api.imgbb.com/1/upload?key=${imageHostKey}`;
         fetch(url, {
             method: "POST",
             body: formData,
+
         })
             .then((res) => res.json())
             .then((imgData) => {

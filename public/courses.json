@@ -1,0 +1,58 @@
+[
+    {
+        "id": "1",
+        "name": "Java",
+        "authority": "Salah",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKESS01D7LLFWEvjeB627bweYjvgdNktBA8g&usqp=CAU",
+        "Video": "https://www.youtube.com/embed/eIrMbAQSU34"
+    },
+    {
+        "id": "2",
+        "name": "JavaScript",
+        "authority": "Meherab",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQu4tng3LhHwPWngjpjHcVSPq1h6c_ne6GV-g&usqp=CAU",
+        "Video": "https://www.youtube.com/embed/qe9k1se3bSQ"
+    },
+    {
+        "id": "3",
+        "name": "Typescript",
+        "authority": " Ania",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnEWa5-IfKmyZz4p_F__XUxMenNBgXEy2wnA&usqp=CAU",
+        "Video": "https://www.youtube.com/embed/d56mG7DezGs"
+    },
+    {
+        "id": "4",
+        "name": "C and C++ ",
+        "authority": "John",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0PR7aAXKitR0oHAmqXFy8Gi3xwStgU7vx3w&usqp=CAU",
+        "Video": "https://www.youtube.com/embed/ZzaPdXTrSb8"
+    },
+    {
+        "id": "5",
+        "name": "PHP",
+        "authority": "William",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvaILYc79qfJ8IMwwhMmS83UDuP5KK8Sryvg&usqp=CAU",
+        "Video": "https://www.youtube.com/embed/OK_JCtrrv-c"
+    },
+    {
+        "id": "6",
+        "name": "Go.",
+        "authority": "Lucas",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTD01QEieycFkKVgX6ATFSQCzaH1S4NNxehwg&usqp=CAU",
+        "Video": "https://www.youtube.com/embed/YS4e4q9oBaU"
+    },
+    {
+        "id": "7",
+        "name": "Python",
+        "authority": "Noah",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREx8oE08zNFbST_jQLFzotqDeReBj93EL0Ow&usqp=CAU",
+        "Video": "https://www.youtube.com/embed/kqtD5dpn9C8"
+    },
+    {
+        "id": "8",
+        "name": " Swift ",
+        "authority": "Liam",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSas9NPt8R6sadtFvAQcxy4xlphrh6YIsifgg&usqp=CAU",
+        "Video": "https://www.youtube.com/embed/Ulp1Kimblg0"
+    }
+]

@@ -1,22 +1,14 @@
 import React from 'react';
-// import { BsFillBriefcaseFill } from 'react-icons/bs';
-// import { SiReactivex } from 'react-icons/si';
-// import { GrBookmark } from 'react-icons/gr';
-// import enfusion from '../../../assest/images/enfusion.jpg'
-// import hirewell from '../../../assest/images/hire.png'
-// import timego from '../../../assest/images/timego.jpg'
-// import Vietnam from '../../../assest/images/vietnam.jpg'
-// import wipro from '../../../assest/images/wipro.png'
-// import optimizely from '../../../assest/images/optimizely.png'
 import './RightSideCard.css'
 import { Link } from 'react-router-dom';
 import { FaExclamation } from 'react-icons/fa';
 
 const RightSideCard = () => {
     return (
-        <div className='shadow-xl my-5 px-2 py-10 bg-gray-200'>
+        <div className='shadow-xl my-5 px-2 py-5'>
             <div className='flex items-center justify-between'>
-                <h2 className='ml-2'>Add to your feed</h2>
+                {/* <h2 className='ml-2 font-bold'>Add to your feed</h2> */}
+                <p className='font-bold mb-2'>Add to Your Feed</p>
                 <FaExclamation className='text-sm' />
             </div>
             <div className='mt-6'>

@@ -32,7 +32,7 @@ const Hire = ({ myPost, setMyPost, refetch }) => {
         console.log(data);
 
         // edit post to the database
-        fetch('http://localhost:5000/editajob', {
+        fetch('https://jobstack-server.vercel.app/editajob', {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',

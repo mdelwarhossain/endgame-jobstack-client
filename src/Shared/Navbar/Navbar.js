@@ -8,23 +8,28 @@ import { MdGroups } from "react-icons/md";
 import { BiNetworkChart } from "react-icons/bi";
 import { MdNotificationsActive } from "react-icons/md";
 import { FaSignOutAlt, FaUser } from "react-icons/fa";
-import { useQuery } from "@tanstack/react-query";
-import { useEffect } from "react";
-import pp from '../../assest/images/pp.jpg'
+
+import { GiTeacher } from "react-icons/gi";
+
 
 const Navbar = () => {
   const { logOut, user } = useContext(AuthContext);
-  // const [isMenuOpen, setIsMenuOpen] = useState(false);
-  
+
+  // const [loading,setLoading] = useState(false)
+
   const [currentUserDetails, setCurrentUserDetails] = useState()
   const waitTime = 1000;
 
   useEffect(() =>{
+    // setLoading(true)
     const id = setInterval(() => {
 
-      fetch(`http://localhost:5000/usersQueryEmail?email=${user?.email}`)
+      fetch(`https://jobstack-server.vercel.app/usersQueryEmail?email=${user?.email}`)
       .then(res => res.json())
-      .then(data => setCurrentUserDetails(data))
+      .then(data => {
+        setCurrentUserDetails(data[0])
+        // setLoading(false)
+      })
       .catch(err =>{
         console.log(err)
       })
@@ -38,9 +43,19 @@ const Navbar = () => {
       .then(() => {})
       .catch((error) => console.log(error));
   };
-  const menuItems = (
-    <React.Fragment>
-      {user?.uid ? (
+
+  const menuItems = <React.Fragment>
+    <span className=""><RiHomeHeartFill className="mx-auto -mb-4 hidden lg:block text-white" /><li className="font-bold lg:text-white"><Link to='/newsfeed'><RiHomeHeartFill className="lg:hidden -mr-2" />Newsfeed</Link></li></span>
+    <span className=""><BsFillBagPlusFill className="mx-auto -mb-4 hidden lg:block text-white" /><li className="font-bold lg:text-white"><Link to='/jobs'><BsFillBagPlusFill className="lg:hidden -mr-2" />Jobs</Link></li></span>
+    <span className=""><BsFillBagPlusFill className="mx-auto -mb-4 hidden lg:block text-white" /><li className="font-bold lg:text-white"><Link to='/hire'><BsFillBagPlusFill className="lg:hidden -mr-2" />Hire</Link></li></span>
+    <span className=""><GiTeacher className="mx-auto -mb-4 hidden lg:block text-white" /><li className="font-bold lg:text-white"><Link to='/courses'><GiTeacher className="lg:hidden -mr-2" />Courses</Link></li></span>
+    <span className=""><FaBlog className="mx-auto -mb-4 hidden lg:block text-white" /><li className="font-bold lg:text-white"><Link to='/'><FaBlog className="lg:hidden -mr-2" />Blogs</Link></li></span>
+    <span className=""><BiNetworkChart className="mx-auto -mb-4 hidden lg:block text-white" /><li className="font-bold lg:text-white"><Link to='/network'><BiNetworkChart className="lg:hidden -mr-2" />Network</Link></li></span>
+    <span className=""><MdNotificationsActive className="mx-auto -mb-4 hidden lg:block text-white" /><li className="font-bold lg:text-white"><Link to='/notification'><MdNotificationsActive className="lg:hidden -mr-2" />Notification</Link></li></span>
+
+    {
+      user?.uid ?
+
         <>
           <span className="">
             <RiHomeHeartFill className="mx-auto -mb-4 hidden lg:block text-white" />
@@ -179,8 +194,8 @@ const Navbar = () => {
             </div>
           </div> */}
         </div>
-        
         {
+<<<<<<< HEAD
           user?.uid && <Link to="userProfile" className="mr-6 mt-3">
 
 <div className="relative flex-shrink-0">
@@ -188,9 +203,16 @@ const Navbar = () => {
 			<img src="" alt="" className="w-12 h-12 border rounded-full dark:bg-gray-500 dark:border-gray-700" />
 		</div>
         </Link> 
+=======
+          user?.uid && <Link to='/userProfile'><img alt="" className="w-12 h-12 rounded-full ring-2 ring-offset-4 dark:bg-gray-500 ring-violet-400 ring-offset-gray-800" src={currentUserDetails?.profileImage} /></Link>
+          
+>>>>>>> d552d972a02773dfa218f26503bc276608e73d1c
         }
       </div>
     </div>
+
+
+
 
     // <div className="bg-gray-400">
     //   <div className="mx-auto px-4 py-4 sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">

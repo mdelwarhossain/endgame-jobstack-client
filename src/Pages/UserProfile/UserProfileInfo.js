@@ -16,9 +16,13 @@ import EducationModal from "./EducationModal/EducationModal";
 import SkillsModal from "./SkillsModal/SkillsModal";
 import UserProjects from "./UserProjects/UserProjects";
 import DisplayProjects from "./DisplayProjects/DisplayProjects";
+import Loading from "../../Shared/LoadingPage/LoadingPage";
 
 const UserProfileInfo = () => {
   const [userDetails, setUserDetails] = useState();
+  // const [projects, setProjects] = useState()
+  // const [projects, setProjects] = useState()
+  // const [projects, setProjects] = useState()
   // const [projects, setProjects] = useState()
   
 
@@ -32,7 +36,7 @@ const UserProfileInfo = () => {
     queryKey: ["userData", user?.email],
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:5000/usersQueryEmail?email=${user?.email}`
+        `https://jobstack-server.vercel.app/usersQueryEmail?email=${user?.email}`
       );
       const data = await res.json();
       setUserDetails(data);
@@ -45,11 +49,15 @@ console.log(userDetails);
 
 
   return (
-    <div className="my-5 py-10">
+    <div className="my-5">
+      {
+        isLoading ? <Loading></Loading> :
+
+        <div>
       {userDetails?.map((currentDetails) => (
         <div
           key={currentDetails._id}
-          className="max-w-full rounded-md bg-gray-200 relative"
+          className="max-w-full rounded-md relative"
         >
           <div className="relative">
             {currentDetails?.bannerImage ? (
@@ -81,7 +89,7 @@ console.log(userDetails);
             {/* basic modal user background */}
           </div>
 
-          <div className="flex flex-col justify-between p-6 space-y-8">
+          <div className="flex flex-col justify-between  space-y-8">
 
             <label htmlFor="pro-img-modal">
               {
@@ -109,7 +117,7 @@ console.log(userDetails);
               <div className="space-y-2">
                 <div className="flex items-center justify-between mb-4">
                   <h2 className="text-2xl font-bold tracking-wide">
-                    {currentDetails.name}
+                    {currentDetails?.name}
                   </h2>
                   <label htmlFor="my-modal-3">
                     <FaEdit className="text-2xl cursor-pointer" />
@@ -229,6 +237,8 @@ console.log(userDetails);
           </div>
         </div>
       ))}
+      </div>
+      }
     </div>
   );
 };
