@@ -25,7 +25,7 @@ const Jobs = () => {
         });
         const data = await res.json();
         return data;
-      } catch (error) {}
+      } catch (error) { }
     },
   });
   console.log(jobs);
@@ -33,29 +33,29 @@ const Jobs = () => {
   const { data: singleUser } = useQuery({
     queryKey: ['user'],
     queryFn: async () => {
-        try {
-            const res = await fetch(`https://jobstack-server.vercel.app/user/${user?.email}`, {
-                headers: {
-                    authorization: `bearer ${localStorage.getItem('accessToken')}`
-                }
-            });
-            const data = await res.json();
-            return data;
-        }
-        catch (error) {
+      try {
+        const res = await fetch(`https://jobstack-server.vercel.app/user/${user?.email}`, {
+          headers: {
+            authorization: `bearer ${localStorage.getItem('accessToken')}`
+          }
+        });
+        const data = await res.json();
+        return data;
+      }
+      catch (error) {
 
-        }
+      }
     }
-});
-console.log(singleUser);
+  });
+  console.log(singleUser);
 
-if (isLoading) {
+  if (isLoading) {
     return <Loading></Loading>
-}
+  }
 
   const handleSignout = () => {
     logOut()
-      .then(() => {})
+      .then(() => { })
       .catch((error) => console.log(error));
   };
 
@@ -66,9 +66,9 @@ if (isLoading) {
           {
             user &&
             <div className="flex gap-4 ml-2 mt-2">
-            <img className="h-10 w-10 rounded-full" src={singleUser?.profileImage} alt="" />
-            <span className="flex gap-2 mt-2"> {singleUser?.name}</span>
-          </div>}
+              <img className="h-10 w-10 rounded-full" src={singleUser?.profileImage} alt="" />
+              <span className="flex gap-2 mt-2"> {singleUser?.name}</span>
+            </div>}
           <div className="flex flex-col gap-2 my-5">
             {/* <Link
               to={`/jobs/${user?.email}`}
@@ -93,10 +93,10 @@ if (isLoading) {
         </div>
       </div>
       <div className="col-span-4 shadow-2xl my-5">
-        <div className="p-8">
+        <div className="p-8 bg-slate-500">
           <label className="label">
             {" "}
-            <span className="label-text text-xl font-bold text-green-600">
+            <span className="label-text text-xl font-bold text-white">
               Search your desire job here...
             </span>
           </label>
@@ -112,20 +112,22 @@ if (isLoading) {
         {/* {jobs?.map((job) => (
           <JobCard key={job._id} job={job}></JobCard>
         ))} */}
-        {jobs
-          .filter((job) => {
-            if (searchTerm == "") {
-              return job;
-            } else if (
-              job.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-              job.location.toLowerCase().includes(searchTerm.toLowerCase())
-            ) {
-              return job;
-            }
-          })
-          .map((job) => (
-            <JobCard key={job._id} job={job}></JobCard>
-          ))}
+        <div className="bg-slate-100">
+          {jobs
+            .filter((job) => {
+              if (searchTerm == "") {
+                return job;
+              } else if (
+                job.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                job.location.toLowerCase().includes(searchTerm.toLowerCase())
+              ) {
+                return job;
+              }
+            })
+            .map((job) => (
+              <JobCard key={job._id} job={job}></JobCard>
+            ))}
+        </div>
       </div>
       <div className="col-span-2">
         <JobGuidence></JobGuidence>
