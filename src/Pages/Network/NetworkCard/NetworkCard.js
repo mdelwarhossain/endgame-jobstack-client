@@ -71,7 +71,7 @@ const NetworkCard = () => {
           }}
         />
       </div> */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mr-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mr-5">
         {usersCollection
           .filter((dbuser) => {
             if (searchTerm == "") {
@@ -83,14 +83,16 @@ const NetworkCard = () => {
             }
           })
           .map((dbuser) => (
-            <div key={dbuser?._id} className="my-5 bg-base-100 shadow-xl">
+            <div key={dbuser?._id} className="my-5 bg-white shadow-xl rounded-lg">
               <figure>
-                <img className="w-full h-32" src={dbuser?.image} alt="Shoes" />
+                <img className="w-full h-40" src={dbuser?.image} alt="Shoes" />
+                <hr />
               </figure>
               <div className="p-2 m-2">
-                <h2 className="text-xl font-semibold">{dbuser?.name}</h2>
-                <p>Mern Stack Developer</p>
-                <p className="text-green-600">2 mutual connections</p>
+                <h2 className="text-xl font-bold">{dbuser?.name}</h2>
+                <p className="font-semibold text-sm">Mern Stack Developer</p>
+                <p className="text-orange-600 text-sm">2 mutual connections</p>
+                <button className="btn btn-sm mt-3">Click here</button>
               </div>
             </div>
           ))}

@@ -6,12 +6,14 @@ import NetworkCard from './NetworkCard/NetworkCard';
 
 const Network = () => {
   return (
-    <div className="px-4 grid grid-cols-1 md:grid-cols-8 gap-4">
+    <div className="px-4 grid grid-cols-1 md:grid-cols-8 gap-4 bg-gray-100">
       <div className="col-span-2 mt-5">
         <LeftSide></LeftSide>
         <div className="divider"></div>
-        <Sponsored></Sponsored>
-        <Link to="/jobs" className='text-center text-green-600 btn btn-outline btn-primary ml-5 mb-5'>See Who Is Hiring</Link>
+        <div className='hidden md:block'>
+          <Sponsored></Sponsored>
+        </div>
+        <Link to="/jobs" className='text-center text-green-600 btn btn-outline btn-primary md:ml-5 mb-5'>See Who Is Hiring</Link>
       </div>
       <div className="col-span-6">
         <NetworkCard></NetworkCard>
