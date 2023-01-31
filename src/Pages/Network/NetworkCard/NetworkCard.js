@@ -9,7 +9,7 @@ const NetworkCard = () => {
 
   const { user } = useContext(AuthContext);
   const [usersCollection,setUsersCollection] = useState([])
-
+  console.log(user);
   // const { data, isLoading } = useQuery({
   //   queryKey: ["users"],
   //   queryFn: async () => {
@@ -28,30 +28,36 @@ const NetworkCard = () => {
     .then(data => setUsersCollection(data))
   },[])
 
+console.log(usersCollection);
+  const handleConnect = (dbuser) => {
+    const data = {
+       filterEmail: dbuser?.email,
+       filterEmail2: user.email,
+      received: {
+        name: user.displayName,
+        email: user.email
+      },
+      sent: {
+        name: dbuser.name,
+        email: dbuser.email
+      },
+    };
 
-  // const handleConnect = (dbuser) => {
-  //   const connection = {
-  //     name: dbuser?.name,
-  //     email: user?.email,
-  //     url: dbuser?.image,
-  //     connectedOn: new Date(),
-  //   };
-
-  //   // save connections to the database
-  //   fetch("https://jobstack-server.vercel.app/connection", {
-  //     method: "POST",
-  //     headers: {
-  //       "content-type": "application/json",
-  //     },
-  //     body: JSON.stringify(connection),
-  //   })
-  //     .then((res) => res.json())
-  //     .then((result) => {
-  //       console.log(result);
-  //       toast.success(`Your are following ${user?.name}`);
-  //       // navigate('/posts')
-  //     });
-  // };
+    // save connections to the database
+    fetch("http://localhost:5000/connection", {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        console.log(result);
+        toast.success(`Your request has been sent to ${user?.displayName}`);
+        // navigate('/posts')
+      });
+  };
 
   return (
     <div>
@@ -91,6 +97,11 @@ const NetworkCard = () => {
                 <h2 className="text-xl font-semibold">{dbuser?.name}</h2>
                 <p>Mern Stack Developer</p>
                 <p className="text-green-600">2 mutual connections</p>
+              </div>
+              <div className="flex justify-around mb-2">
+                <p className="btn btn-outline btn-primary">Follow</p>
+                <p onClick={() => handleConnect(dbuser)} className="btn btn-outline btn-primary">Connect</p>
+                {/* <p className="btn btn-outline btn-primary">Message</p> */}
               </div>
             </div>
           ))}
