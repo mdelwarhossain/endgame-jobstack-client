@@ -5,8 +5,14 @@ import {
 import Lottie from "lottie-react";
 import groovyWalkAnimation from "./banner.json";
 import banner from '../../../assest/images/Banner.jpg'
+import { useContext } from 'react';
+import { InfoContext } from '../../../contexts/UserInfoProvider';
 
 const Banner = () => {
+
+  const {userDetails} = useContext(InfoContext)
+  console.log(userDetails)
+
   return (
     <div style={{ backgroundImage: `url(${banner})`, backgroundSize: "cover" }}>
       <div className="hero py-16 hero-overlay bg-opacity-70">
