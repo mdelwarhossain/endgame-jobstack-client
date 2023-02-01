@@ -25,6 +25,7 @@ import PrivateRoute from '../Routes/PrivateRoute'
 import CandidateProfile from '../Pages/Hire/CandidateProfile/CandidateProfile'
 
 import Quiz from "../Pages/Quiz/Quiz";
+import SingleCourse from "../Pages/Courses/SingleCourse";
 
 import FriendRequest from "../Pages/Network/FriendRequest/FriendRequest";
 import FriendRequestDetails from "../Pages/Network/FriendRequistDetails/FriendRequestDetails";
@@ -76,7 +77,14 @@ const router = createBrowserRouter([
       {
         path: "/course",
         element: <Courses></Courses>,
+        loader: () => fetch(`courses.json`)
       },
+      // {
+      //   path: "/smallSingleCourse",
+      //   element:<SingleCourse></SingleCourse>,
+      //   // loader: () => fetch(`courses.json`)
+      //   loader: ({ params }) => fetch(`https://assignment-10-server-indol.vercel.app/smallSingleCourse/${params.id}`)
+      // },
       {
         path: "/quiz",
         element: <Quiz></Quiz>,
