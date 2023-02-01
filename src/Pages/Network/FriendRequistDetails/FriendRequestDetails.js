@@ -1,18 +1,45 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
+import { toast } from 'react-hot-toast';
 import { FaFileDownload } from 'react-icons/fa';
 import { useLoaderData } from 'react-router-dom';
+import { AuthContext } from '../../../contexts/AuthProvider';
 
 const CandidateProfile = () => {
+    const {user} = useContext(AuthContext); 
+    const [clicked, setClicked] = useState(false);
+    const [accepted, setAccepted] = useState(false);
 
     const data = useLoaderData();
     console.log(data);
 
     const handleAccept = () => {
-
+        setClicked(true)
+        setAccepted(true)
+        toast.success('request accepted')
     }
 
-    const handleDecline = () => {
-
+    const handleDecline = (data) => {
+        const request = {
+            name: data?.name,
+            email: data?.email
+        }; 
+        console.log(request);
+        // save connections to the database
+    fetch(`http://localhost:5000/requestdeclined/${user?.email}`, {
+        method: "PUT",
+        headers: {
+            "content-type": "application/json",
+            authorization: `bearer ${localStorage.getItem('accessToken')}`
+          },
+          body: JSON.stringify(request),
+      })
+        .then((res) => res.json())
+        .then((result) => {
+          console.log(result);
+          setClicked(true)
+          toast.error('request declined')
+          // navigate('/posts')
+        });
     }
 
     return (
@@ -26,13 +53,24 @@ const CandidateProfile = () => {
                 </div>
             </div>
             <div className='my-10 m-5 py-5'>
+                <div className='flex justify-between'>
                 <p className='mb-1 text-2xl font-bold'>{data.name}</p>
-                <p className='mb-7'>{data.headline}</p>
-                <p>{data.about}</p>
-                <div className='my-5 flex justify-center'>
-                    <p onClick={handleAccept} className="btn btn-outline btn-primary mr-5">Accept</p>
-                    <p onClick={handleDecline} className="btn btn-outline btn-primary">Decline</p>
+                {
+                                accepted && <div>
+                                    <p className="btn btn-outline btn-primary mr-5">Friend</p>
+                                <p className="btn btn-outline btn-primary mr-5">message</p>
+                                </div>
+                            }
                 </div>
+                <p className='mb-7'>{data.headline}</p>
+                {
+                    !clicked &&
+                        <div className='my-5 flex justify-center'>
+                            <p onClick={handleAccept} className="btn btn-outline btn-primary mr-5">Accept</p>
+                            <p onClick={() => handleDecline(data)} className="btn btn-outline btn-primary">Decline</p>
+                        </div>
+                }
+
             </div>
         </div>
     );
