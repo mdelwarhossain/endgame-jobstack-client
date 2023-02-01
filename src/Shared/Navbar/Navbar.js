@@ -78,9 +78,18 @@ const Navbar = () => {
           <span className="">
             <FaBlog className="mx-auto -mb-4 hidden lg:block text-white" />
             <li className="font-bold lg:text-white">
-              <Link to="/">
+              <Link to="/course">
                 <FaBlog className="lg:hidden -mr-2" />
-                Blogs
+                Course
+              </Link>
+            </li>
+          </span>
+          <span className="">
+            <FaBlog className="mx-auto -mb-4 hidden lg:block text-white" />
+            <li className="font-bold lg:text-white">
+              <Link to="/quiz">
+                <FaBlog className="lg:hidden -mr-2" />
+                quiz
               </Link>
             </li>
           </span>
