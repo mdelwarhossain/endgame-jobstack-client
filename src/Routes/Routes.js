@@ -23,8 +23,12 @@ import MyJobPost from "../Pages/Hire/MyJobPost/MyJobPost";
 import Courses from "../Pages/Courses/Courses";
 import PrivateRoute from '../Routes/PrivateRoute'
 import CandidateProfile from '../Pages/Hire/CandidateProfile/CandidateProfile'
+
+import Quiz from "../Pages/Quiz/Quiz";
+
 import FriendRequest from "../Pages/Network/FriendRequest/FriendRequest";
 import FriendRequestDetails from "../Pages/Network/FriendRequistDetails/FriendRequestDetails";
+
 
 
 
@@ -70,8 +74,12 @@ const router = createBrowserRouter([
         loader: ({ params }) => fetch(`https://jobstack-server.vercel.app/candidate/${params.id}`)
       },
       {
-        path: "/courses",
+        path: "/course",
         element: <Courses></Courses>,
+      },
+      {
+        path: "/quiz",
+        element: <Quiz></Quiz>,
       },
       {
         path: "/addajob",
