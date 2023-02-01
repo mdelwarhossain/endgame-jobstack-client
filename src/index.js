@@ -9,6 +9,7 @@ import {
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query'
+import UserInfoProvider from './contexts/UserInfoProvider';
 
 const queryClient = new QueryClient()
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -16,8 +17,15 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
+      {/* <UserInfoProvider>
       <AuthProvider>
         <App />
+      </AuthProvider>
+      </UserInfoProvider> */}
+      <AuthProvider>
+        <UserInfoProvider>
+          <App></App>
+        </UserInfoProvider>
       </AuthProvider>
     </QueryClientProvider>
   </React.StrictMode>

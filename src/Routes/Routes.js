@@ -23,7 +23,12 @@ import MyJobPost from "../Pages/Hire/MyJobPost/MyJobPost";
 import Courses from "../Pages/Courses/Courses";
 import PrivateRoute from '../Routes/PrivateRoute'
 import CandidateProfile from '../Pages/Hire/CandidateProfile/CandidateProfile'
+
 import Quiz from "../Pages/Quiz/Quiz";
+
+import FriendRequest from "../Pages/Network/FriendRequest/FriendRequest";
+import FriendRequestDetails from "../Pages/Network/FriendRequistDetails/FriendRequestDetails";
+
 
 
 
@@ -95,6 +100,15 @@ const router = createBrowserRouter([
       {
         path: "/network",
         element: <PrivateRoute><Network></Network></PrivateRoute>,
+      },
+      {
+        path: "/friendrequest",
+        element: <PrivateRoute><FriendRequest></FriendRequest></PrivateRoute>,
+      },
+      {
+        path: "/receivedrequest/:email",
+        element: <PrivateRoute><FriendRequestDetails></FriendRequestDetails></PrivateRoute>,
+        loader: ({ params }) => fetch(`http://localhost:5000/receivedrequest/${params.email}`)
       },
       {
         path: "/notification",

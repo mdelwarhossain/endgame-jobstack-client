@@ -76,16 +76,16 @@ const Jobs = () => {
             >
               My Applications
             </Link> */}
-            <Link to={`/candidate/${singleUser?._id}`} className="btn btn-outline btn-primary">
+            <Link to={`/candidate/${singleUser?._id}`} className="btn btn-outline btn-primary shadow-md">
               My Resume
             </Link>
-            <Link to="/antifraudtips" className="btn btn-outline btn-primary">
+            <Link to="/antifraudtips" className="btn btn-outline btn-primary shadow-md">
               Anti Fraud Tips
             </Link>
             <Link
               onClick={handleSignout}
               to=""
-              className="btn btn-outline btn-primary"
+              className="btn btn-outline btn-primary shadow-md"
             >
               LogOut
             </Link>
