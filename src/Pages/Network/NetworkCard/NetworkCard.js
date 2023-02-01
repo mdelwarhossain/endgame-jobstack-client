@@ -59,6 +59,21 @@ console.log(usersCollection);
       });
   };
 
+  // const handleDelete = (id) => {
+  //   fetch(`http://localhost:5000/delete/${id}`, {
+  //     method: "delete",
+  //     headers: {
+  //       "content-type": "application/json",
+  //     },
+  //   })
+  //     .then((res) => res.json())
+  //     .then((result) => {
+  //       console.log(result);
+  //       toast.success('deleted');
+  //       // navigate('/posts')
+  //     });
+  // }
+
   return (
     <div>
       {/* <div className="pt-5 pb-5">
