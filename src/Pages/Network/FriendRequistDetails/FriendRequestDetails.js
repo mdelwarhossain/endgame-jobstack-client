@@ -7,10 +7,18 @@ const CandidateProfile = () => {
     const data = useLoaderData();
     console.log(data);
 
+    const handleAccept = () => {
+
+    }
+
+    const handleDecline = () => {
+
+    }
+
     return (
-        <div className='md:w-2/3 mx-auto my-10 bg-purple-100 rounded-2xl shadow-2xl'>
-            <div className='relative '>
-                <img className='w-full ' src={data.bannerImage} alt="" />
+        <div className='md:w-2/3 mx-auto my-10 bg-slate-200'>
+            <div className='relative'>
+                <img className='w-full' src={data.bannerImage} alt="" />
                 <div className="avatar">
                     <div className="w-24 h-24 rounded-full absolute ml-5 -mt-14">
                         <img src={data.profileImage} alt='' />
@@ -22,8 +30,8 @@ const CandidateProfile = () => {
                 <p className='mb-7'>{data.headline}</p>
                 <p>{data.about}</p>
                 <div className='my-5 flex justify-center'>
-                    <p className='btn  btn-secondary'><span className='mr-5'>resume</span> <FaFileDownload className='text-2xl'></FaFileDownload></p>
-                    <p className='btn  btn-primary ml-5'>contact</p>
+                    <p onClick={handleAccept} className="btn btn-outline btn-primary mr-5">Accept</p>
+                    <p onClick={handleDecline} className="btn btn-outline btn-primary">Decline</p>
                 </div>
             </div>
         </div>
