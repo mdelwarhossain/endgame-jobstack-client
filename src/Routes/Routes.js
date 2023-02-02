@@ -29,6 +29,7 @@ import SingleCourse from "../Pages/Courses/SingleCourse";
 
 import FriendRequest from "../Pages/Network/FriendRequest/FriendRequest";
 import FriendRequestDetails from "../Pages/Network/FriendRequistDetails/FriendRequestDetails";
+import Question from "../Pages/Question/Question";
 
 
 
@@ -46,7 +47,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/newsfeed",
-        element:<PrivateRoute><NewsFeed></NewsFeed></PrivateRoute>,
+        element: <PrivateRoute><NewsFeed></NewsFeed></PrivateRoute>,
       },
       {
         path: "/jobs",
@@ -87,7 +88,17 @@ const router = createBrowserRouter([
       // },
       {
         path: "/quiz",
+        loader: async () => {
+          return fetch(' https://openapi.programming-hero.com/api/quiz')
+        },
         element: <Quiz></Quiz>,
+      },
+      {
+        path: '/post/:postId',
+        loader: async ({ params }) => {
+          return fetch(`https://openapi.programming-hero.com/api/quiz/${params.postId}`)
+        },
+        element: <Question></Question>
       },
       {
         path: "/addajob",
@@ -141,8 +152,8 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path:"*",
-    element:<ErrorPage></ErrorPage>
+    path: "*",
+    element: <ErrorPage></ErrorPage>
   }
 ]);
 export default router;
