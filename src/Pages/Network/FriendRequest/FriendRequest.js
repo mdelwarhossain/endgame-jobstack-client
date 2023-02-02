@@ -36,7 +36,7 @@ const FriendRequest = () => {
                 data?.requestReceived.length  ?
                 data?.requestReceived?.map(friend => <div key={friend?._id} className="card my-5 bg-base-100 shadow-xl">
                 <figure>
-                  <img className="w-full h-36" src={data?.profileImage} alt="Shoes" />
+                  <img className="w-full h-36" src={friend?.received?.profileImage} alt="Shoes" />
                 </figure>
                 <div className="p-2 m-2">
                   <h2 className="text-xl font-semibold">{friend?.received.name}</h2>

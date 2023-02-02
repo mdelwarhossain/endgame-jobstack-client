@@ -35,12 +35,12 @@ const CandidateProfile = () => {
              setClicked(true)
              setAccepted(true)
              // navigate('/posts')
-             handleDelete()
+             handleDelete(data)
            });
     }
 
     const handleDecline = (data) => {
-        handleDelete()
+        handleDelete(data)
         setClicked(true)
           toast.error('request declined')
           navigate('/friendrequest')

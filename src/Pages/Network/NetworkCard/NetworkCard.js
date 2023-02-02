@@ -35,7 +35,8 @@ console.log(usersCollection);
        filterEmail2: user.email,
       received: {
         name: user.displayName,
-        email: user.email
+        email: user.email,
+        profileImage: user.profileImage
       },
       sent: {
         name: dbuser.name,
