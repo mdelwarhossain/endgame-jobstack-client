@@ -8,6 +8,10 @@ import { MdGroups } from "react-icons/md";
 import { BiNetworkChart } from "react-icons/bi";
 import { MdNotificationsActive } from "react-icons/md";
 import { FaSignOutAlt, FaUser } from "react-icons/fa";
+import {
+  MdOutlineQuiz, MdQuiz
+} from "react-icons/md";
+
 import { useQuery } from "@tanstack/react-query";
 import { useEffect } from "react";
 import pp from '../../assest/images/pp.jpg'
@@ -21,27 +25,27 @@ const Navbar = () => {
   const [currentUserDetails, setCurrentUserDetails] = useState()
   const waitTime = 1000;
 
-  useEffect(() =>{
+  useEffect(() => {
     // setLoading(true)
     const id = setInterval(() => {
 
       fetch(`https://jobstack-server.vercel.app/usersQueryEmail?email=${user?.email}`)
-      .then(res => res.json())
-      .then(data => {
-        setCurrentUserDetails(data[0])
-        // setLoading(false)
-      })
-      .catch(err =>{
-        console.log(err)
-      })
+        .then(res => res.json())
+        .then(data => {
+          setCurrentUserDetails(data[0])
+          // setLoading(false)
+        })
+        .catch(err => {
+          console.log(err)
+        })
     }, waitTime);
     return () => clearInterval(id);
-  },[user?.email]);
+  }, [user?.email]);
 
 
   const handleSignout = () => {
     logOut()
-      .then(() => {})
+      .then(() => { })
       .catch((error) => console.log(error));
   };
   const menuItems = (
@@ -85,10 +89,12 @@ const Navbar = () => {
             </li>
           </span>
           <span className="">
-            <FaBlog className="mx-auto -mb-4 hidden lg:block text-white" />
+            <MdQuiz
+              className="mx-auto -mb-4 hidden lg:block text-white" />
             <li className="font-bold lg:text-white">
-              <Link to="/quiz">
-                <FaBlog className="lg:hidden -mr-2" />
+
+              <Link to="/quiz"><MdQuiz
+                className="lg:hidden -mr-2" />
                 quiz
               </Link>
             </li>
@@ -97,12 +103,15 @@ const Navbar = () => {
             <BiNetworkChart className="mx-auto -mb-4 hidden lg:block text-white" />
             <li className="font-bold lg:text-white">
               <Link to="/network">
+
                 <BiNetworkChart className="lg:hidden -mr-2" />
                 Network
               </Link>
+
             </li>
           </span>
           <span className="">
+
             <MdNotificationsActive className="mx-auto -mb-4 hidden lg:block text-white" />
             <li className="font-bold lg:text-white">
               <Link to="/notification">
