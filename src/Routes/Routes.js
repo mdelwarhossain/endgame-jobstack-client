@@ -25,6 +25,7 @@ import PrivateRoute from '../Routes/PrivateRoute'
 import CandidateProfile from '../Pages/Hire/CandidateProfile/CandidateProfile'
 import FriendRequest from "../Pages/Network/FriendRequest/FriendRequest";
 import FriendRequestDetails from "../Pages/Network/FriendRequistDetails/FriendRequestDetails";
+import Friend from "../Pages/Network/Friend/Friend";
 
 
 
@@ -109,6 +110,11 @@ const router = createBrowserRouter([
       {
         path: "/myconnections",
         element: <PrivateRoute><MyConnections></MyConnections></PrivateRoute>,
+      },
+      {
+        path: "/myfriend/:id",
+        element: <PrivateRoute><Friend></Friend></PrivateRoute>,
+        loader: ({ params }) => fetch(`http://localhost:5000/myfriend/${params.id}`)
       },
       // {
       //   path: "/*",

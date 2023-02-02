@@ -6,7 +6,7 @@ import Loading from '../../../Shared/LoadingPage/LoadingPage';
 
 const FriendRequest = () => {
     const {user} = useContext(AuthContext); 
-    
+    console.log(user?.email);
     const { data, isLoading } = useQuery({
         queryKey: [''],
         queryFn: async () => {
@@ -31,12 +31,12 @@ const FriendRequest = () => {
       }
 
     return (
-        <div>
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-12 md:w-4/5 mx-auto'>
             {
                 data?.requestReceived.length  ?
                 data?.requestReceived?.map(friend => <div key={friend?._id} className="card my-5 bg-base-100 shadow-xl">
                 <figure>
-                  <img className="w-full h-32" src={data?.profileImage} alt="Shoes" />
+                  <img className="w-full h-36" src={data?.profileImage} alt="Shoes" />
                 </figure>
                 <div className="p-2 m-2">
                   <h2 className="text-xl font-semibold">{friend?.received.name}</h2>
@@ -50,7 +50,7 @@ const FriendRequest = () => {
                 </div>
           </div>)
             : 
-            <p className='w-2/3 mx-auto my-10 bg-slate-200 p-5'>You have no friend request to show</p>
+            <p className='my-10 bg-slate-200 p-5'>You have no friend request to show</p>
             }
         </div>
     );

@@ -54,7 +54,7 @@ console.log(usersCollection);
       .then((res) => res.json())
       .then((result) => {
         console.log(result);
-        toast.success(`Your request has been sent to ${user?.displayName}`);
+        toast.success(`Your request has been sent to ${dbuser?.name}`);
         // navigate('/posts')
       });
   };
@@ -116,7 +116,6 @@ console.log(usersCollection);
               <div className="flex justify-around mb-2">
                 <p className="btn btn-outline btn-primary">Follow</p>
                 <p onClick={() => handleConnect(dbuser)} className="btn btn-outline btn-primary">Connect</p>
-                {/* <p className="btn btn-outline btn-primary">Message</p> */}
               </div>
             </div>
           ))}
