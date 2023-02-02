@@ -29,6 +29,7 @@ import SingleCourse from "../Pages/Courses/SingleCourse";
 
 import FriendRequest from "../Pages/Network/FriendRequest/FriendRequest";
 import FriendRequestDetails from "../Pages/Network/FriendRequistDetails/FriendRequestDetails";
+import Friend from "../Pages/Network/Friend/Friend";
 
 import DasBoardLayout from "../Outlet/DasBoardLayout";
 import Jobseeker from "../Pages/Dashboard/Jobseeker/Jobseeker";
@@ -201,6 +202,11 @@ const router = createBrowserRouter([
             <MyConnections></MyConnections>
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/myfriend/:id",
+        element: <PrivateRoute><Friend></Friend></PrivateRoute>,
+        loader: ({ params }) => fetch(`http://localhost:5000/myfriend/${params.id}`)
       },
       // {
       //   path: "/*",

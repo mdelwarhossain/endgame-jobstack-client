@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { FaFileDownload } from 'react-icons/fa';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider';
 
 const CandidateProfile = () => {
@@ -9,16 +9,44 @@ const CandidateProfile = () => {
     const [clicked, setClicked] = useState(false);
     const [accepted, setAccepted] = useState(false);
 
+    const navigate = useNavigate(); 
+
     const data = useLoaderData();
     console.log(data);
 
-    const handleAccept = () => {
-        setClicked(true)
-        setAccepted(true)
-        toast.success('request accepted')
+    const handleAccept = (data) => {
+        const friend = {
+            name: data?.name,
+            email: data?.email
+        };
+     
+         // save friend to the database
+         fetch(`http://localhost:5000/friend/${user?.email}`, {
+           method: "PUT",
+           headers: {
+             "content-type": "application/json",
+           },
+           body: JSON.stringify(friend),
+         })
+           .then((res) => res.json())
+           .then((result) => {
+             console.log(result);
+             toast.success('You are now friends');
+             setClicked(true)
+             setAccepted(true)
+             // navigate('/posts')
+             handleDelete()
+           });
     }
 
     const handleDecline = (data) => {
+        handleDelete()
+        setClicked(true)
+          toast.error('request declined')
+          navigate('/friendrequest')
+    }
+
+    const handleDelete = (data) => {
         const request = {
             name: data?.name,
             email: data?.email
@@ -36,9 +64,7 @@ const CandidateProfile = () => {
         .then((res) => res.json())
         .then((result) => {
           console.log(result);
-          setClicked(true)
-          toast.error('request declined')
-          // navigate('/posts')
+          
         });
     }
 
@@ -66,7 +92,7 @@ const CandidateProfile = () => {
                 {
                     !clicked &&
                         <div className='my-5 flex justify-center'>
-                            <p onClick={handleAccept} className="btn btn-outline btn-primary mr-5">Accept</p>
+                            <p onClick={()=>handleAccept(data)} className="btn btn-outline btn-primary mr-5">Accept</p>
                             <p onClick={() => handleDecline(data)} className="btn btn-outline btn-primary">Decline</p>
                         </div>
                 }
