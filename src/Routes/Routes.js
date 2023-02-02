@@ -21,14 +21,20 @@ import Pictures from "../Pictures/Pictures";
 import Photo from "../Pages/SignUp/Animation/Photo/Photo";
 import MyJobPost from "../Pages/Hire/MyJobPost/MyJobPost";
 import Courses from "../Pages/Courses/Courses";
-import PrivateRoute from '../Routes/PrivateRoute'
-import CandidateProfile from '../Pages/Hire/CandidateProfile/CandidateProfile'
+import PrivateRoute from "../Routes/PrivateRoute";
+import CandidateProfile from "../Pages/Hire/CandidateProfile/CandidateProfile";
 
 import Quiz from "../Pages/Quiz/Quiz";
 import SingleCourse from "../Pages/Courses/SingleCourse";
 
 import FriendRequest from "../Pages/Network/FriendRequest/FriendRequest";
 import FriendRequestDetails from "../Pages/Network/FriendRequistDetails/FriendRequestDetails";
+
+import DasBoardLayout from "../Outlet/DasBoardLayout";
+import Jobseeker from "../Pages/Dashboard/Jobseeker/Jobseeker";
+import Recruiter from "../Pages/Dashboard/Recruiter/Recruiter";
+import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
+=======
 import Question from "../Pages/Question/Question";
 
 
@@ -47,38 +53,68 @@ const router = createBrowserRouter([
       },
       {
         path: "/newsfeed",
-        element: <PrivateRoute><NewsFeed></NewsFeed></PrivateRoute>,
+
+        element: (
+          <PrivateRoute>
+            <NewsFeed></NewsFeed>
+          </PrivateRoute>
+        ),
+
+        
+
       },
       {
         path: "/jobs",
-        element: <PrivateRoute><Jobs></Jobs></PrivateRoute>,
+        element: (
+          <PrivateRoute>
+            <Jobs></Jobs>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/job/:id",
-        element: <PrivateRoute><JobDetails></JobDetails></PrivateRoute>,
-        loader: ({ params }) => fetch(`https://jobstack-server.vercel.app/job/${params.id}`)
+        element: (
+          <PrivateRoute>
+            <JobDetails></JobDetails>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`https://jobstack-server.vercel.app/job/${params.id}`),
       },
       {
         path: "/jobs/:email",
-        element: <PrivateRoute><MyJobPost></MyJobPost></PrivateRoute>,
+        element: (
+          <PrivateRoute>
+            <MyJobPost></MyJobPost>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/antifraudtips",
-        element: <PrivateRoute><AntiFraudTips></AntiFraudTips></PrivateRoute>,
+        element: (
+          <PrivateRoute>
+            <AntiFraudTips></AntiFraudTips>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/hire",
-        element: <PrivateRoute><Hire></Hire></PrivateRoute>,
+        element: (
+          <PrivateRoute>
+            <Hire></Hire>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/candidate/:id",
         element: <CandidateProfile></CandidateProfile>,
-        loader: ({ params }) => fetch(`https://jobstack-server.vercel.app/candidate/${params.id}`)
+        loader: ({ params }) =>
+          fetch(`https://jobstack-server.vercel.app/candidate/${params.id}`),
       },
       {
         path: "/course",
         element: <Courses></Courses>,
-        loader: () => fetch(`courses.json`)
+        loader: () => fetch(`courses.json`),
       },
       // {
       //   path: "/smallSingleCourse",
@@ -102,11 +138,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/addajob",
-        element: <PrivateRoute><AddJob></AddJob></PrivateRoute>,
+        element: (
+          <PrivateRoute>
+            <AddJob></AddJob>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/userprofile",
-        element: <PrivateRoute><UserProfile></UserProfile></PrivateRoute>,
+        element: (
+          <PrivateRoute>
+            <UserProfile></UserProfile>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/login",
@@ -118,42 +162,94 @@ const router = createBrowserRouter([
       },
       {
         path: "/network",
-        element: <PrivateRoute><Network></Network></PrivateRoute>,
+        element: (
+          <PrivateRoute>
+            <Network></Network>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/friendrequest",
-        element: <PrivateRoute><FriendRequest></FriendRequest></PrivateRoute>,
+        element: (
+          <PrivateRoute>
+            <FriendRequest></FriendRequest>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/receivedrequest/:email",
-        element: <PrivateRoute><FriendRequestDetails></FriendRequestDetails></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/receivedrequest/${params.email}`)
+        element: (
+          <PrivateRoute>
+            <FriendRequestDetails></FriendRequestDetails>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/receivedrequest/${params.email}`),
       },
       {
         path: "/notification",
-        element: <PrivateRoute><Notification></Notification></PrivateRoute>,
+        element: (
+          <PrivateRoute>
+            <Notification></Notification>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/myconnections",
-        element: <PrivateRoute><MyConnections></MyConnections></PrivateRoute>,
+        element: (
+          <PrivateRoute>
+            <MyConnections></MyConnections>
+          </PrivateRoute>
+        ),
       },
       // {
       //   path: "/*",
       //   element: <Pictures></Pictures>
       // },
       {
-        path: '/animation',
-        element: <PrivateRoute><Animation></Animation></PrivateRoute>
+        path: "/animation",
+        element: (
+          <PrivateRoute>
+            <Animation></Animation>
+          </PrivateRoute>
+        ),
       },
       {
-        path: '/photo',
-        element: <Photo></Photo>
+        path: "/photo",
+        element: <Photo></Photo>,
       },
     ],
   },
   {
     path: "*",
+
+    element: <ErrorPage></ErrorPage>,
+  },
+  {
+    path: "/dashboard",
+    element: <DasBoardLayout></DasBoardLayout>,
+    children: [
+      {
+        path: "/dashboard",
+        element: <AllUsers></AllUsers>,
+      },
+      {
+        path: "/dashboard/jobSeeker/:id",
+        element: <Jobseeker></Jobseeker>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/buyerseller/${params.id}`),
+      },
+      {
+        path: "/dashboard/recruiter/:id",
+        element: <Recruiter></Recruiter>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/buyerseller/${params.id}`),
+      },
+    ],
+  },
+
     element: <ErrorPage></ErrorPage>
   }
+
 ]);
 export default router;

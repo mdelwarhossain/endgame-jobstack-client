@@ -26,7 +26,7 @@ const SignUp = () => {
         console.log(user);
 
         updateUser({ displayName: data.name, photoURL: data.image })
-          .then(() => { })
+          .then(() => {})
           .catch((err) => {
             console.log(err);
           });
@@ -36,7 +36,8 @@ const SignUp = () => {
           data.number,
           data.country,
           data.image,
-          data.password
+          data.password,
+          data.role
         );
       })
       .catch((error) => {
@@ -44,8 +45,8 @@ const SignUp = () => {
         setSignUPError(error.message);
       });
   };
-  const saveUser = (name, email, number, country, image, password) => {
-    const user = { name, email, number, country, image, password };
+  const saveUser = (name, email, number, country, image, password, role) => {
+    const user = { name, email, number, country, image, password, role };
 
     fetch("https://jobstack-server.vercel.app/users", {
       method: "POST",
@@ -58,7 +59,7 @@ const SignUp = () => {
       .then((data) => {
         console.log("save user", data);
         toast.success("please login with email and password");
-        navigate('/userProfile');
+        navigate("/userProfile");
       });
   };
   const googleProvider = new GoogleAuthProvider();
@@ -74,7 +75,6 @@ const SignUp = () => {
   };
 
   return (
-
     <div className="flex justify-around bg-pink-50">
       <div className="mt-20 ">
         <Animation></Animation>
@@ -195,7 +195,10 @@ const SignUp = () => {
               <label className="label">
                 <span className="label-text">Role</span>
               </label>
-              <select {...register("role")} className="select select-bordered  w-full max-w-xs">
+              <select
+                {...register("role")}
+                className="select select-bordered  w-full max-w-xs"
+              >
                 {/* <option disabled selected>
                 Pick your Role
               </option> */}
@@ -217,13 +220,15 @@ const SignUp = () => {
             </Link>
           </p>
           <div className="divider">OR</div>
-          <button onClick={handleGoogleSignIn} className="btn btn-outline btn-success w-full">
+          <button
+            onClick={handleGoogleSignIn}
+            className="btn btn-outline btn-success w-full"
+          >
             CONTINUE WITH GOOGLE
           </button>
         </div>
       </div>
     </div>
-  
   );
 };
 
