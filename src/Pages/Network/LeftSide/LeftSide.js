@@ -2,9 +2,12 @@ import React, { useContext } from 'react';
 import { FaUserFriends, FaPhotoVideo } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider';
+import { InfoContext } from '../../../contexts/UserInfoProvider';
 
 const LeftSide = ({currentUser}) => {
     const { user, logOut } = useContext(AuthContext);
+    const { userDetails } = useContext(InfoContext);
+  console.log(userDetails);
     const navigate = useNavigate();
 
     const handleLogOut = () => {
@@ -19,8 +22,8 @@ const LeftSide = ({currentUser}) => {
     return (
         <div className="">
             <div className='flex gap-4 ml-2 mt-2'>
-                <img className='h-10 w-10 rounded-full' src={currentUser?.image} alt="" />
-                <span className='flex gap-2 mt-2'> {user?.displayName}</span>
+                <img className='h-10 w-10 rounded-full' src={userDetails?.profileImage} alt="" />
+                <span className='flex gap-2 mt-2'> {userDetails?.name}</span>
             </div>
             <div className='flex flex-col justify-center'>
                 <button className='flex gap-4 btn-ghost px-4 py-2'><FaUserFriends></FaUserFriends><Link to='/myconnections'>Connections</Link></button>

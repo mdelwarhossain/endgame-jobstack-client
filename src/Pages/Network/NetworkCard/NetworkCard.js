@@ -3,11 +3,15 @@ import React, { useContext, useState } from "react";
 import { useEffect } from "react";
 import { toast } from "react-hot-toast";
 import { AuthContext } from "../../../contexts/AuthProvider";
+import { InfoContext } from "../../../contexts/UserInfoProvider";
 
 const NetworkCard = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const { user } = useContext(AuthContext);
+  const { userDetails } = useContext(InfoContext);
+  console.log(userDetails);
+  
   const [usersCollection,setUsersCollection] = useState([])
   console.log(user);
   // const { data, isLoading } = useQuery({
@@ -35,7 +39,8 @@ console.log(usersCollection);
        filterEmail2: user.email,
       received: {
         name: user.displayName,
-        email: user.email
+        email: user.email,
+        profileImage: user.profileImage
       },
       sent: {
         name: dbuser.name,
@@ -92,7 +97,7 @@ console.log(usersCollection);
           }}
         />
       </div> */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mr-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mr-5">
         {usersCollection
           .filter((dbuser) => {
             if (searchTerm == "") {
@@ -104,16 +109,14 @@ console.log(usersCollection);
             }
           })
           .map((dbuser) => (
-            <div key={dbuser?._id} className="my-5 bg-white shadow-xl rounded-lg">
+            <div key={dbuser?._id} className="my-5 bg-base-100 shadow-xl">
               <figure>
-                <img className="w-full h-40" src={dbuser?.image} alt="Shoes" />
-                <hr />
+                <img className="w-full h-32" src={dbuser?.image} alt="Shoes" />
               </figure>
               <div className="p-2 m-2">
-                <h2 className="text-xl font-bold">{dbuser?.name}</h2>
-                <p className="font-semibold text-sm">Mern Stack Developer</p>
-                <p className="text-orange-600 text-sm">2 mutual connections</p>
-                <button className="btn btn-sm mt-3">Click here</button>
+                <h2 className="text-xl font-semibold">{dbuser?.name}</h2>
+                <p>Mern Stack Developer</p>
+                <p className="text-green-600">2 mutual connections</p>
               </div>
               <div className="flex justify-around mb-2">
                 <p className="btn btn-outline btn-primary">Follow</p>
