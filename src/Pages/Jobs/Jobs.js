@@ -10,10 +10,13 @@ import Loading from "../../Shared/LoadingPage/LoadingPage";
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
+import { InfoContext } from "../../contexts/UserInfoProvider";
 
 const Jobs = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const { user, logOut } = useContext(AuthContext);
+  const { userDetails } = useContext(InfoContext);
+  console.log(userDetails);
   const { data: jobs = [], isLoading } = useQuery({
     queryKey: ["jobs"],
     queryFn: async () => {
@@ -66,8 +69,8 @@ const Jobs = () => {
           {
             user &&
             <div className="flex gap-4 ml-2 mt-2">
-              <img className="h-10 w-10 rounded-full" src={singleUser?.profileImage} alt="" />
-              <span className="flex gap-2 mt-2"> {singleUser?.name}</span>
+              <img className="h-10 w-10 rounded-full" src={userDetails?.profileImage} alt="" />
+              <span className="flex gap-2 mt-2"> {userDetails?.name}</span>
             </div>}
           <div className="flex flex-col gap-2 my-5">
             {/* <Link
