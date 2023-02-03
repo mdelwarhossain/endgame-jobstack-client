@@ -35,7 +35,6 @@ import DasBoardLayout from "../Outlet/DasBoardLayout";
 import Jobseeker from "../Pages/Dashboard/Jobseeker/Jobseeker";
 import Recruiter from "../Pages/Dashboard/Recruiter/Recruiter";
 import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
-=======
 import Question from "../Pages/Question/Question";
 
 
@@ -254,8 +253,7 @@ const router = createBrowserRouter([
     ],
   },
 
-    element: <ErrorPage></ErrorPage>
-  }
+ 
 
 ]);
 export default router;
