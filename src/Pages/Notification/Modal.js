@@ -6,14 +6,14 @@ const Modal = () => {
         <div>
             <input type="checkbox" id="notification-modal" className="modal-toggle" />
             <label htmlFor="notification-modal" className="modal cursor-pointer">
-                <label className="modal-box relative" htmlFor="">
+                <label className="modal-box relative py-6" htmlFor="">
                     <div className='flex gap-5'>
-                        <p className='text-2xl font-bold'>X</p>
-                        <p className="">Delete this notification</p>
+                        <p className='text-2xl font-bold text-red-600'>X</p>
+                        <p className="text-center ml-2">Delete this notification</p>
                     </div>
-                    <div className='flex gap-5 py-4'>
-                        <p className='text-2xl'><FaBellSlash></FaBellSlash></p>
-                        <p className="">Turn off noication like this</p>
+                    <div className='flex gap-5 pt-2'>
+                        <p className='text-2xl text-blue-500'><FaBellSlash></FaBellSlash></p>
+                        <p className="text-center ">Turn off noication like this</p>
                     </div>
                 </label>
             </label>
