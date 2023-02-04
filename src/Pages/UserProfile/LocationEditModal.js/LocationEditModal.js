@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 
 const LocationEditModal = ({ userDetails, userData, isLoading, refetch }) => {
-    const userEmail = userData[0]?.email;
+    const userEmail = userDetails?.email;
 
     const {
         register,
@@ -21,7 +21,7 @@ const LocationEditModal = ({ userDetails, userData, isLoading, refetch }) => {
        }
        console.log(updatedInfo)
   
-       fetch(`https://jobstack-server.vercel.app/usersQueryEmail?email=${userEmail}`, {
+       fetch(`http://localhost:5000/user/${userEmail}`, {
               method: "PUT",
               headers: {
                 "content-type": "application/json",
@@ -46,15 +46,13 @@ const LocationEditModal = ({ userDetails, userData, isLoading, refetch }) => {
   <div className="modal-box relative">
     <label htmlFor="location-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
     <h3 className="text-lg font-bold text-center my-5">Add Your Location</h3>
-    {
-            userDetails?.map((details) =>
-            <form onSubmit={handleSubmit(handleInfoUpdate)}>
+    <form onSubmit={handleSubmit(handleInfoUpdate)}>
                 <label className="label">
                   {" "}
                   <span className="label-text font-extrabold">Country/Region</span>
                 </label>
                 <input
-                defaultValue={details.country}
+                defaultValue={userDetails?.country}
                   type="text"
                   {...register("country", {
                   })}
@@ -65,15 +63,14 @@ const LocationEditModal = ({ userDetails, userData, isLoading, refetch }) => {
                   <span className="label-text font-extrabold">City</span>
                 </label>
                 <input
-                defaultValue={details.city}
+                defaultValue={userDetails?.city}
                   type="text"
                   {...register("city", {
                   })}
                   className="input input-bordered w-full "
                 />
                 <input type="submit" className="btn btn-outline btn-info w-full mt-5" value="Update" />
-            </form>)
-          }
+            </form>
   </div>
 </div>
     </div>

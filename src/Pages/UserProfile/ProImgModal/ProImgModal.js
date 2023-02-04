@@ -4,7 +4,7 @@ import { toast } from "react-hot-toast";
 import { FaImages } from "react-icons/fa";
 
 const ProImgModal = ({ userDetails, userData, isLoading, refetch }) => {
-  const userEmail = userData[0]?.email;
+  const userEmail = userDetails?.email;
   const imageHostKey = "c8246134e51fb0e0cbdc4f35b003ee74";
 
   const {
@@ -33,7 +33,7 @@ const ProImgModal = ({ userDetails, userData, isLoading, refetch }) => {
             profileImage: imgData.data.url,
           };
 
-          fetch(`https://jobstack-server.vercel.app/usersQueryEmail?email=${userEmail}`, {
+          fetch(`http://localhost:5000/user/${userEmail}`, {
             method: "PUT",
             headers: {
               "content-type": "application/json",

@@ -10,6 +10,7 @@ const DisplayProjects = () => {
 
     const [userProjects, setUserProjects] = useState()
     const {user} = useContext(AuthContext)
+    
 
     const {
         data: projects= [],
@@ -20,7 +21,7 @@ const DisplayProjects = () => {
         queryKey: ["projects", user?.email],
         queryFn: async () => {
           const res = await fetch(
-            `https://jobstack-server.vercel.app/projects?email=${user?.email}`
+            `http://localhost:5000/projects/${user?.email}`
           );
           const data = await res.json();
           setUserProjects(data)

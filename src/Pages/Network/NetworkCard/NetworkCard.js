@@ -18,7 +18,7 @@ const NetworkCard = () => {
   //   queryKey: ["users"],
   //   queryFn: async () => {
   //     try {
-  //       const res = await fetch("https://jobstack-server.vercel.app/users", {
+  //       const res = await fetch("http://localhost:5000/users", {
   //       });
   //       const data = await res.json();
   //       console.log(data)
@@ -27,7 +27,7 @@ const NetworkCard = () => {
   //   },
   // });
   useEffect(() =>{
-    fetch('https://jobstack-server.vercel.app/users')
+    fetch('http://localhost:5000/users')
     .then(res => res.json())
     .then(data => setUsersCollection(data))
   },[])

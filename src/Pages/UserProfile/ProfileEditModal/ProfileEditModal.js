@@ -5,7 +5,7 @@ import { AuthContext } from "../../../contexts/AuthProvider";
 
 const ProfileEditModal = ({ userDetails, userData, isLoading, refetch }) => {
   console.log(userData)
-  const userEmail = userData[0]?.email;
+  const userEmail = userDetails?.email;
     // console.log(user)
 
     //modal submit button
@@ -25,7 +25,7 @@ const ProfileEditModal = ({ userDetails, userData, isLoading, refetch }) => {
      }
      console.log(updatedInfo)
 
-     fetch(`https://jobstack-server.vercel.app/usersQueryEmail?email=${userEmail}`, {
+     fetch(`http://localhost:5000/user/${userEmail}`, {
             method: "PUT",
             headers: {
               "content-type": "application/json",
@@ -57,15 +57,13 @@ const ProfileEditModal = ({ userDetails, userData, isLoading, refetch }) => {
           <h3 className="text-lg font-bold">
            Edit Your Profile
           </h3>
-          {
-            userDetails?.map((details) =>
-            <form onSubmit={handleSubmit(handleInfoUpdate)}>
+          <form onSubmit={handleSubmit(handleInfoUpdate)}>
             <label className="label">
                   {" "}
                   <span className="label-text font-extrabold">Full Name</span>
                 </label>
                 <input
-                defaultValue={details.name}
+                defaultValue={userDetails?.name}
                   type="text"
                   {...register("name", {
                   })}
@@ -87,15 +85,14 @@ const ProfileEditModal = ({ userDetails, userData, isLoading, refetch }) => {
                   <span className="label-text font-extrabold">Headline</span>
                 </label>
                 <input
-                defaultValue={details.headline}
+                defaultValue={userDetails?.headline}
                   type="text"
                   {...register("headline", {
                   })}
                   className="input input-bordered w-full"
                 />
                 <input type="submit" className="btn btn-outline btn-info w-full mt-5" value="Update" />
-            </form>)
-          }
+            </form>
           
         </div>
       </div>

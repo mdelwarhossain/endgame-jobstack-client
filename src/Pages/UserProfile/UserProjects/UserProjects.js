@@ -36,7 +36,7 @@ const UserProjects = ({refetch}) => {
 
         console.log(projectDetails)
 
-        fetch("https://jobstack-server.vercel.app/projects", {
+        fetch("http://localhost:5000/projects", {
       method: "POST",
       headers: {
         "content-type": "application/json",
