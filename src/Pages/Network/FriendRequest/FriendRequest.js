@@ -50,7 +50,10 @@ const FriendRequest = () => {
                 </div>
           </div>)
             : 
-            <p className='my-10 bg-slate-200 p-5'>You have no friend request to show</p>
+            <div>
+              <p className='my-10 bg-slate-200 p-5'>You have no friend request to show</p>
+            <Link to='/network' className='btn btn-outline btn-primary px-8'>Back</Link>
+            </div>
             }
         </div>
     );

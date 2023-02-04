@@ -4,10 +4,9 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider';
 import { InfoContext } from '../../../contexts/UserInfoProvider';
 
-const LeftSide = ({currentUser}) => {
-    const { user, logOut } = useContext(AuthContext);
-    const { userDetails } = useContext(InfoContext);
-  console.log(userDetails);
+const LeftSide = () => {
+    const { logOut } = useContext(AuthContext);
+    const {userDetails} = useContext(InfoContext)
     const navigate = useNavigate();
 
     const handleLogOut = () => {
