@@ -69,8 +69,8 @@ const Jobs = () => {
           {
             user &&
             <div className="flex gap-4 ml-2 mt-2">
-              <img className="h-10 w-10 rounded-full" src={userDetails?.profileImage} alt="" />
-              <span className="flex gap-2 mt-2"> {userDetails?.name}</span>
+              <img className="h-10 w-10 rounded-full" src={singleUser?.profileImage} alt="" />
+              <span className="flex gap-2 mt-2"> {singleUser?.name}</span>
             </div>}
           <div className="flex flex-col gap-2 my-5">
             {/* <Link

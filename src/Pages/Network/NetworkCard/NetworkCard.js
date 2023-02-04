@@ -116,10 +116,8 @@ console.log(usersCollection);
               <div className="p-2 m-2">
                 <h2 className="text-xl font-semibold">{dbuser?.name}</h2>
                 <p>Mern Stack Developer</p>
-                <p className="text-green-600">2 mutual connections</p>
               </div>
-              <div className="flex justify-around mb-2">
-                <p className="btn btn-outline btn-primary">Follow</p>
+              <div className="flex justify-center mb-2">
                 <p onClick={() => handleConnect(dbuser)} className="btn btn-outline btn-primary">Connect</p>
               </div>
             </div>
