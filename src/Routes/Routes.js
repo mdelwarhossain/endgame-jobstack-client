@@ -79,7 +79,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`https://jobstack-server.vercel.app/job/${params.id}`),
+          fetch(`http://localhost:5000/job/${params.id}`),
       },
       {
         path: "/jobs/:email",
@@ -109,7 +109,7 @@ const router = createBrowserRouter([
         path: "/candidate/:id",
         element: <CandidateProfile></CandidateProfile>,
         loader: ({ params }) =>
-          fetch(`https://jobstack-server.vercel.app/candidate/${params.id}`),
+          fetch(`http://localhost:5000/candidate/${params.id}`),
       },
       {
         path: "/course",

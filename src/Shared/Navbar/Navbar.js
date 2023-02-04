@@ -26,17 +26,12 @@ const Navbar = () => {
   const waitTime = 1000;
 
   useEffect(() => {
-    // setLoading(true)
     const id = setInterval(() => {
-
-      fetch(`https://jobstack-server.vercel.app/usersQueryEmail?email=${user?.email}`)
+      
+        fetch(`http://localhost:5000/user/${user?.email}`)
         .then(res => res.json())
         .then(data => {
-          setCurrentUserDetails(data[0])
-          // setLoading(false)
-        })
-        .catch(err => {
-          console.log(err)
+          setCurrentUserDetails(data)
         })
     }, waitTime);
     return () => clearInterval(id);

@@ -23,7 +23,7 @@ const RealPostCard = ({ post }) => {
   const likeObject = {
     like,
   };
-  fetch(`https://jobstack-server.vercel.app/updatelike/${post._id}`, {
+  fetch(`http://localhost:5000/updatelike/${post._id}`, {
     method: "PUT",
     headers: {
       "content-type": "application/json",
@@ -51,7 +51,7 @@ const RealPostCard = ({ post }) => {
       status: post.status,
     };
     console.log(commentInfo);
-    fetch("https://jobstack-server.vercel.app/comments", {
+    fetch("http://localhost:5000/comments", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -66,7 +66,7 @@ const RealPostCard = ({ post }) => {
         refetch();
       });
   };
-  const url = `https://jobstack-server.vercel.app/comment?post_id=${post._id}`;
+  const url = `http://localhost:5000/comment?post_id=${post._id}`;
 
   const { data: comments = [], refetch } = useQuery({
     queryKey: ["comments", post._id],

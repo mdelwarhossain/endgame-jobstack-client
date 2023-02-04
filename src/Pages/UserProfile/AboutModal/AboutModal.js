@@ -4,7 +4,7 @@ import { toast } from 'react-hot-toast';
 
 const AboutModal = ({ userDetails, userData, isLoading, refetch }) => {
 
-    const userEmail = userData[0]?.email;
+    const userEmail = userDetails?.email;
 
     const {
         register,
@@ -20,7 +20,7 @@ const AboutModal = ({ userDetails, userData, isLoading, refetch }) => {
        }
        console.log(updatedInfo)
   
-       fetch(`https://jobstack-server.vercel.app/usersQueryEmail?email=${userEmail}`, {
+       fetch(`http://localhost:5000/user/${userEmail}`, {
               method: "PUT",
               headers: {
                 "content-type": "application/json",
@@ -45,9 +45,7 @@ const AboutModal = ({ userDetails, userData, isLoading, refetch }) => {
   <div className="modal-box relative">
     <label htmlFor="about-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
     <h3 className="text-lg font-bold text-center my-5">Add Your About</h3>
-    {
-            userDetails?.map((details) =>
-            <form onSubmit={handleSubmit(handleInfoUpdate)}>
+    <form onSubmit={handleSubmit(handleInfoUpdate)}>
 
                 {/* <input
                 defaultValue={details.location}
@@ -57,13 +55,12 @@ const AboutModal = ({ userDetails, userData, isLoading, refetch }) => {
                   className="input input-bordered w-full "
                 /> */}
                 <textarea 
-                defaultValue={details.about}
+                defaultValue={userDetails?.about}
                 {...register("about", {
                 })}
                 className="textarea textarea-bordered textarea-lg w-full" ></textarea>
                 <input type="submit" className="btn btn-outline btn-info w-full mt-5" value="Update" />
-            </form>)
-          }
+            </form>
   </div>
 </div>
     </div>

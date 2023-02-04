@@ -2,19 +2,16 @@ import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
-import { InfoContext } from '../../contexts/UserInfoProvider';
 import Loading from '../../Shared/LoadingPage/LoadingPage';
 import Candidate from './Candidate/Candidate';
 
 const Hire = () => {
     const { user } = useContext(AuthContext);
-    const { userDetails } = useContext(InfoContext);
-    console.log(userDetails);
     const { data = [], isLoading } = useQuery({
         queryKey: ['alluser'],
         queryFn: async () => {
             try {
-                const res = await fetch('https://jobstack-server.vercel.app/alluser', {
+                const res = await fetch('http://localhost:5000/alluser', {
                     headers: {
                         authorization: `bearer ${localStorage.getItem('accessToken')}`
                     }
@@ -33,7 +30,7 @@ const Hire = () => {
         queryKey: ['user'],
         queryFn: async () => {
             try {
-                const res = await fetch(`https://jobstack-server.vercel.app/user/${user?.email}`, {
+                const res = await fetch(`http://localhost:5000/user/${user?.email}`, {
                     headers: {
                         authorization: `bearer ${localStorage.getItem('accessToken')}`
                     }
@@ -57,8 +54,8 @@ const Hire = () => {
             <div className="col-span-2 mt-5 ">
                 <div className="">
                     <div className='flex gap-4 ml-2 mt-2'>
-                        <img className='h-10 w-10 rounded-full' src={userDetails?.profileImage} alt="" />
-                        <span className='flex gap-2 mt-2'> {userDetails?.name}</span>
+                        <img className='h-10 w-10 rounded-full' src={singleUser?.profileImage} alt="" />
+                        <span className='flex gap-2 mt-2'> {singleUser?.name}</span>
                     </div>
                     <div className='flex flex-col gap-2 my-5'>
                         <Link to={`/jobs/${user?.email}`} className='btn btn-outline btn-primary shadow-md'>My Posts</Link>

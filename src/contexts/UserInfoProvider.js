@@ -8,29 +8,17 @@ export const InfoContext = createContext();
 const UserInfoProvider = ({children}) => {
 
     const { user } = useContext(AuthContext);
+    console.log(user)
     const [userDetails, setUserDetails] = useState();
 
 
-  // console.log(user)
 
 
-  const {
-    data: userData = [],
-    isLoading,
-  } = useQuery({
-    queryKey: ["userData", user?.email],
-    queryFn: async () => {
-      const res = await fetch(
-        `https://jobstack-server.vercel.app/usersQueryEmail?email=${user?.email}`
-      );
-      const data = await res.json();
-      setUserDetails(data[0]);
-      
-      return data;
-    },
-  });
-
-  console.log(userDetails)
+//   useEffect(() =>{
+//     fetch(`http://localhost:5000/user/${user?.email}`)
+//     .then(res => res.json())
+//     .then(data => setUserDetails(data))
+//   },[user?.email])
 
 
 

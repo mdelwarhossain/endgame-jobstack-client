@@ -12,7 +12,7 @@ const RealPost = () => {
 
   const imageHostKey = "c8246134e51fb0e0cbdc4f35b003ee74";
 
-  const url = `https://jobstack-server.vercel.app/userimg?email=${user?.email}`;
+  const url = `http://localhost:5000/userimg?email=${user?.email}`;
 
   // const { data: img = [] } = useQuery({
   //   queryKey: ["img", user?.email],
@@ -48,7 +48,7 @@ const RealPost = () => {
             likes: 0,
           };
           console.log(post);
-          fetch("https://jobstack-server.vercel.app/posts", {
+          fetch("http://localhost:5000/posts", {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -73,14 +73,14 @@ const RealPost = () => {
   // const { data: posts = [], refetch } = useQuery({
   //   queryKey: ["posts"],
   //   queryFn: () =>
-  //     fetch("https://jobstack-server.vercel.app/allposts").then((res) => res.json()),
+  //     fetch("http://localhost:5000/allposts").then((res) => res.json()),
   // });
   const [postss, setpost] = useState([]);
 
   const { data: posts = [], refetch } = useQuery({
     queryKey: ["posts"],
     queryFn: async () => {
-      const res = await fetch("https://jobstack-server.vercel.app/allposts");
+      const res = await fetch("http://localhost:5000/allposts");
       const data = await res.json();
       setpost(data);
       // console.log(data);
@@ -90,7 +90,7 @@ const RealPost = () => {
 
   // const [posts, setposts] = useState([]);
   // useEffect(() => {
-  //   fetch("https://jobstack-server.vercel.app/allposts")
+  //   fetch("http://localhost:5000/allposts")
   //     .then((res) => res.json())
   //     .then((data) => {
   //       setposts(data);

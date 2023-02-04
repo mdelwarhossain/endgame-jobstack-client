@@ -17,14 +17,11 @@ const LeftSideCard = () => {
     setLoading(true)
     const id = setInterval(() => {
 
-      fetch(`https://jobstack-server.vercel.app/usersQueryEmail?email=${user?.email}`)
+      fetch(`http://localhost:5000/user/${user?.email}`)
         .then(res => res.json())
         .then(data => {
-          setCurrentUserDetails(data[0])
+          setCurrentUserDetails(data)
           setLoading(false)
-        })
-        .catch(err => {
-          console.log(err)
         })
     }, waitTime);
     return () => clearInterval(id);

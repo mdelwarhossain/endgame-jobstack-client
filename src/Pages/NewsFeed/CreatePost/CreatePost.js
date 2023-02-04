@@ -11,7 +11,7 @@ const CreatePost = () => {
 
   const imageHostKey = "c8246134e51fb0e0cbdc4f35b003ee74";
 
-  const url = `https://jobstack-server.vercel.app/userimg?email=${user?.email}`;
+  const url = `http://localhost:5000/userimg?email=${user?.email}`;
 
   const { data: img = [], refetch } = useQuery({
     queryKey: ["img", user?.email],
@@ -48,7 +48,7 @@ const CreatePost = () => {
             likes: 0,
           };
           console.log(post);
-          fetch("https://jobstack-server.vercel.app/posts", {
+          fetch("http://localhost:5000/posts", {
             method: "POST",
             headers: {
               "content-type": "application/json",
