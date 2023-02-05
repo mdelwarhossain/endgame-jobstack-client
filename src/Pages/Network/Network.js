@@ -9,7 +9,6 @@ const Network = () => {
     <div className="px-4 grid grid-cols-1 md:grid-cols-8 gap-4 bg-gray-100">
       <div className="col-span-2 mt-5">
         <LeftSide></LeftSide>
-        <div className="divider"></div>
         <div className='hidden md:block'>
           <Sponsored></Sponsored>
         </div>

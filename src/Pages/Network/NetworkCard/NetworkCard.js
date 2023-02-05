@@ -36,15 +36,15 @@ console.log(usersCollection);
   const handleConnect = (dbuser) => {
     const data = {
        filterEmail: dbuser?.email,
-       filterEmail2: user.email,
+       filterEmail2: user?.email,
       received: {
-        name: user.displayName,
-        email: user.email,
-        profileImage: user.profileImage
+        name: user?.displayName,
+        email: user?.email,
+        profileImage: userDetails?.profileImage
       },
       sent: {
-        name: dbuser.name,
-        email: dbuser.email
+        name: dbuser?.name,
+        email: dbuser?.email
       },
     };
 
@@ -111,7 +111,7 @@ console.log(usersCollection);
           .map((dbuser) => (
             <div key={dbuser?._id} className="my-5 bg-base-100 shadow-xl">
               <figure>
-                <img className="w-full h-32" src={dbuser?.image} alt="Shoes" />
+                <img className="w-full h-32" src={dbuser?.profileImage} alt="Shoes" />
               </figure>
               <div className="p-2 m-2">
                 <h2 className="text-xl font-semibold">{dbuser?.name}</h2>
