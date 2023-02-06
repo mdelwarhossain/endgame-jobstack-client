@@ -69,7 +69,8 @@ const CandidateProfile = () => {
     const handleDelete = (data) => {
         const request = {
             name: data?.name,
-            email: data?.email
+            email: data?.email,
+            profileImage: data?.profileImage
         };
         console.log(request);
         // save connections to the database
