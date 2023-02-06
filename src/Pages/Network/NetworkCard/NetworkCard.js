@@ -4,35 +4,25 @@ import { useEffect } from "react";
 import { toast } from "react-hot-toast";
 import { AuthContext } from "../../../contexts/AuthProvider";
 import { InfoContext } from "../../../contexts/UserInfoProvider";
+import Loading from "../../../Shared/LoadingPage/LoadingPage";
 
-const NetworkCard = () => {
+const NetworkCard = ({dbuser, isLoading, refetch }) => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const { user } = useContext(AuthContext);
   const { userDetails } = useContext(InfoContext);
   console.log(userDetails);
   
-  const [usersCollection,setUsersCollection] = useState([])
+  // const [usersCollection,setUsersCollection] = useState([])
   console.log(user);
-  // const { data, isLoading } = useQuery({
-  //   queryKey: ["users"],
-  //   queryFn: async () => {
-  //     try {
-  //       const res = await fetch("http://localhost:5000/users", {
-  //       });
-  //       const data = await res.json();
-  //       console.log(data)
-  //       return data;
-  //     } catch (error) {}
-  //   },
-  // });
-  useEffect(() =>{
-    fetch('http://localhost:5000/users')
-    .then(res => res.json())
-    .then(data => setUsersCollection(data))
-  },[])
+  
+  // useEffect(() =>{
+  //   fetch('http://localhost:5000/users')
+  //   .then(res => res.json())
+  //   .then(data => setUsersCollection(data))
+  // },[])
 
-console.log(usersCollection);
+
   const handleConnect = (dbuser) => {
     const data = {
        filterEmail: dbuser?.email,
@@ -58,9 +48,23 @@ console.log(usersCollection);
     })
       .then((res) => res.json())
       .then((result) => {
+        refetch()
         console.log(result);
-        toast.success(`Your request has been sent to ${dbuser?.name}`);
-        // navigate('/posts')
+    //     const sentEmail = dbuser?.email; 
+    //     // save sent status to the database
+    // fetch("http://localhost:5000/sentstatus", {
+    //   method: "PUT",
+    //   headers: {
+    //     "content-type": "application/json",
+    //   },
+    //   body: JSON.stringify(sentEmail),
+    // })
+    //   .then((res) => res.json())
+    //   .then((result) => {
+    //     console.log(result);
+    //   });
+    //     toast.success(`Your request has been sent to ${dbuser?.name}`);
+    //     // navigate('/posts')
       });
   };
 
@@ -78,6 +82,10 @@ console.log(usersCollection);
   //       // navigate('/posts')
   //     });
   // }
+
+  if(isLoading){
+    return <Loading></Loading>
+  }
 
   return (
     <div>
@@ -97,8 +105,8 @@ console.log(usersCollection);
           }}
         />
       </div> */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mr-5">
-        {usersCollection
+      <div>
+        {/* {usersCollection
           .filter((dbuser) => {
             if (searchTerm == "") {
               return dbuser;
@@ -108,8 +116,8 @@ console.log(usersCollection);
               return dbuser;
             }
           })
-          .map((dbuser) => (
-            <div key={dbuser?._id} className="my-5 bg-base-100 shadow-xl">
+          .map((dbuser) => ( */}
+            <div className="my-5 bg-base-100 shadow-xl">
               <figure>
                 <img className="w-full h-32" src={dbuser?.profileImage} alt="Shoes" />
               </figure>
@@ -118,10 +126,14 @@ console.log(usersCollection);
                 <p>Mern Stack Developer</p>
               </div>
               <div className="flex justify-center mb-2">
-                <p onClick={() => handleConnect(dbuser)} className="btn btn-outline btn-primary">Connect</p>
+                {
+                  !dbuser?.sentStatus ?
+                  <p onClick={() => handleConnect(dbuser)} className="btn btn-outline btn-primary my-5">Connect</p>
+                : 
+                <p className="btn btn-outline btn-primary my-5">Request sent</p>
+                }
               </div>
             </div>
-          ))}
       </div>
     </div>
   );
