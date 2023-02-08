@@ -12,7 +12,8 @@ const Courses = () => {
     },[])
     
     const [courseData, setCourseData] = useState(null)
-    
+
+   
     return (
         <div>
             <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-14 my-14 px-24'>
