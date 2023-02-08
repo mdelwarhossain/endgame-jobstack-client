@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import {
   TypeAnimation
 } from 'react-type-animation';
@@ -13,10 +12,11 @@ const Banner = () => {
   console.log(userDetails)
 
   return (
-    <div style={{ backgroundImage: `url(${banner})`, backgroundSize: "cover" }}>
-      <div className="hero py-16 hero-overlay bg-opacity-70">
+    <div data-theme="night">
+      {/* style={{ backgroundImage: `url(${banner})`, backgroundSize: "cover", backgroundPosition: 'center center' }} */}
+      <div className="hero py-28 hero-overlay bg-opacity-20">
         <div className="hero-content flex-col lg:flex-row">
-          <img data-aos="fade-right" data-aos-duration='2000' alt="" className="h-[480px] w-[400px] rounded-lg shadow-2xl lg:mr-12 ring-2 ring-offset-4 dark:bg-gray-500 ring-violet-400 ring-offset-gray-800" src='https://i.ibb.co/VTL7FbY/p.jpg' />
+          <img data-aos="fade-right" data-aos-duration='2000' alt="" className="h-[480px] w-[400px] mt-10 rounded-lg shadow-2xl lg:mr-12 ring-2 ring-offset-4 dark:bg-gray-500 ring-violet-400 ring-offset-gray-800" src='https://i.ibb.co/VTL7FbY/p.jpg' />
           <div>
             <h2 className='text-5xl mt-14 text-white'>Wellcome To Jobstack Platform</h2>
             <div className='text-orange-400 mt-4'>
@@ -36,11 +36,8 @@ const Banner = () => {
                 repeat={Infinity} // Repeat this Animation Sequence infinitely
               />
             </div>
-            <div className='md:w-[550px] mt-10 text-white'>
-              <p>I am a web developer with an amazing ability to develop websites that are both functional and aesthetically pleasing. I have a strong under-standing of web standards and best practices, and I am passionate about creating websites that users will find easy to use and visually appealing.</p>
-            </div>
-            <div className='mt-6'>
-              <button className='btn btn-outline btn-warning'><Link to='/contact'>Contact me</Link></button>
+            <div className='md:w-[550px] mt-6 text-white'>
+              <p>I am a web developer with an amazing ability to develop websites that are both functional and aesthetically pleasing. I have a strong under-standing of web standards and best practices.</p>
             </div>
           </div>
         </div>

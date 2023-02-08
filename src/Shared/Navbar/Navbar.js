@@ -27,8 +27,8 @@ const Navbar = () => {
 
   useEffect(() => {
     const id = setInterval(() => {
-      
-        fetch(`http://localhost:5000/user/${user?.email}`)
+
+      fetch(`http://localhost:5000/user/${user?.email}`)
         .then(res => res.json())
         .then(data => {
           setCurrentUserDetails(data)
@@ -45,7 +45,7 @@ const Navbar = () => {
   };
   const menuItems = (
     <React.Fragment>
-      {user?.uid ? (
+      {user?.uid && (
         <>
           <span className="">
             <RiHomeHeartFill className="mx-auto -mb-4 hidden lg:block text-white" />
@@ -125,62 +125,64 @@ const Navbar = () => {
             </li>
           </span>
         </>
-      ) : (
-        <>
-          <span>
-            <FaUser className="mx-auto -mb-4 hidden lg:block text-white" />
-            <li className="font-bold lg:text-white">
-              <Link to="/login">
-                <FaUser className="lg:hidden -mr-2" />
-                Login
-              </Link>
-            </li>
-          </span>
-        </>
       )}
     </React.Fragment>
   );
   return (
-    <div className="navbar py-4 flex items-center" data-theme="night">
-      <div className="navbar-start">
-        <div className="dropdown">
-          <label tabIndex={0} className="btn btn-ghost lg:hidden">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
+    <div className="relative">
+      <div className="navbar py-2 flex items-center fixed z-30" data-theme="night">
+        {/* style={{backgroundColor:'#0077c9'}} */}
+        <div className="navbar-start">
+          <div className="dropdown">
+            <label tabIndex={0} className="btn btn-ghost lg:hidden">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h8m-8 6h16"
+                />
+              </svg>
+            </label>
+            <ul
+              tabIndex={0}
+              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h8m-8 6h16"
-              />
-            </svg>
-          </label>
-          <ul
-            tabIndex={0}
-            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+              {menuItems}
+            </ul>
+          </div>
+          <Link
+            to="/"
+            className="btn btn-ghost normal-case text-xl font-bold text-white"
           >
-            {menuItems}
-          </ul>
+            Jobstack
+          </Link>
         </div>
-        <Link
-          to="/"
-          className="btn btn-ghost normal-case text-xl font-bold text-white"
-        >
-          Jobstack
-        </Link>
-      </div>
-      <div className="navbar-center hidden lg:flex mt-4">
-        <ul className="menu menu-horizontal px-1">{menuItems}</ul>
-      </div>
-      <div className="navbar-end flex items-center">
-        {
-          user?.uid && <Link to='/userProfile'><img alt="" className="w-12 h-12 rounded-full ring-2 ring-offset-4 dark:bg-gray-500 ring-violet-400 ring-offset-gray-800 mr-4" src={currentUserDetails?.profileImage} /></Link>
-        }
+        <div className="navbar-center hidden lg:flex mt-4">
+          <ul className="menu menu-horizontal px-1">{menuItems}</ul>
+        </div>
+        <div className="navbar-end flex items-center">
+          {
+            user?.uid ? <Link to='/userProfile'><img alt="" className="w-11 h-11 rounded-full ring-2 ring-offset-4 dark:bg-gray-500 ring-violet-400 ring-offset-gray-800 mr-4" src={currentUserDetails?.profileImage} /></Link>
+              :
+              <>
+                <span className="flex items-center mr-6">
+                  <FaUser className=" text-white mr-2" />
+                  <li className="font-bold lg:text-white list-none">
+                    <Link to="/login">
+                      Login
+                    </Link>
+                  </li>
+                </span>
+              </>
+          }
+        </div>
       </div>
     </div>
 
