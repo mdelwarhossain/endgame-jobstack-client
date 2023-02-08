@@ -6,6 +6,7 @@ import SingleCourse from './SingleCourse';
 const Courses = () => {
     const [courseData, setCourseData] = useState(null)
     const AllData = useLoaderData();
+    console.log(AllData)
     return (
         <div>
             <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-14 my-14 px-24'>
