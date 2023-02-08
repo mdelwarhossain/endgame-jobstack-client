@@ -1,11 +1,18 @@
 import React from 'react';
+import { useEffect } from 'react';
 import { useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
 import SingleCourse from './SingleCourse';
 
 const Courses = () => {
+    const [AllData, setAllData] = useState([])
+    useEffect(()=>{
+        fetch(`http://localhost:5000/Course`)
+        .then(res=>res.json())
+        .then(data=> setAllData(data))
+    },[])
+    
     const [courseData, setCourseData] = useState(null)
-    const AllData = useLoaderData();
+    
     return (
         <div>
             <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-14 my-14 px-24'>
