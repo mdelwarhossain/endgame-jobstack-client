@@ -141,7 +141,7 @@ const Navbar = () => {
     </React.Fragment>
   );
   return (
-    <div className="navbar py-4 bg-gray-400 flex items-center">
+    <div className="navbar py-4 flex items-center" data-theme="night">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
