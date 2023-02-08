@@ -114,14 +114,9 @@ const router = createBrowserRouter([
       {
         path: "/course",
         element: <Courses></Courses>,
-        loader: () => fetch(`http://localhost:5000/Course`),
+        // loader: () => fetch(`http://localhost:5000/Course`),
       },
-      // {
-      //   path: "/smallSingleCourse",
-      //   element:<SingleCourse></SingleCourse>,
-      //   // loader: () => fetch(`courses.json`)
-      //   loader: ({ params }) => fetch(`https://assignment-10-server-indol.vercel.app/smallSingleCourse/${params.id}`)
-      // },
+      
       {
         path: "/quiz",
         loader: async () => {
