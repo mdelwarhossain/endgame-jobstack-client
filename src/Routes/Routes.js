@@ -114,7 +114,7 @@ const router = createBrowserRouter([
       {
         path: "/course",
         element: <Courses></Courses>,
-        loader: () => fetch(`courses.json`),
+        loader: () => fetch(`http://localhost:5000/Course`),
       },
       // {
       //   path: "/smallSingleCourse",
