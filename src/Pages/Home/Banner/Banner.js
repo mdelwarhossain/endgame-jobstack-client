@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import {
   TypeAnimation
 } from 'react-type-animation';
-import banner from '../../../assest/images/Banner.jpg'
+import banner from '../../../assest/images/header_bg.png'
 import { useContext } from 'react';
 import { InfoContext } from '../../../contexts/UserInfoProvider';
 
