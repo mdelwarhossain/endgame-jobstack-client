@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaFileDownload } from 'react-icons/fa';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 
 const CandidateProfile = () => {
 
@@ -23,7 +23,7 @@ const CandidateProfile = () => {
                 <p>{data.about}</p>
                 <div className='my-5 flex justify-center'>
                     <p className='btn  btn-secondary'><span className='mr-5'>resume</span> <FaFileDownload className='text-2xl'></FaFileDownload></p>
-                    <p className='btn  btn-primary ml-5'>contact</p>
+                    <Link to='/messenger'><p className='btn  btn-primary ml-5'>contact</p></Link>
                 </div>
             </div>
         </div>
