@@ -17,6 +17,7 @@ const Courses = ({course,isCourseLoading}) => {
         <p className="badge badge-info font-bold p-3">Free</p>
         </div>
       </div>
+
     </div>
     </Link>
   );

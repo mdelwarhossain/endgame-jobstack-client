@@ -43,12 +43,12 @@ const Login = () => {
         console.log(user);
       })
       .catch((error) => console.error(error));
-      toast.success("please login");
-      navigate("/newsfeed");
+    toast.success("please login");
+    navigate("/newsfeed");
   };
 
   return (
-    <div className="flex justify-around bg-pink-50">
+    <div className="flex justify-around " data-theme="night">
       <div className="mt-20 ">
         <Animation></Animation>
       </div>
