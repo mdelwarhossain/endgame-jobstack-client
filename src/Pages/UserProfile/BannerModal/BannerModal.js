@@ -6,6 +6,8 @@ import { FaImages } from "react-icons/fa";
 
 const BannerModal = ({ userDetails, userData, isLoading, refetch }) => {
 
+  // const [isBtnLoading, setIsBtnLoading] = useState(false);
+
 
     // const userEmail = userData[0]?.email;
     const userEmail = userDetails?.email
@@ -20,6 +22,9 @@ const BannerModal = ({ userDetails, userData, isLoading, refetch }) => {
 
       const handleSub = (data) => {
         console.log(data)
+        // setIsBtnLoading(true)
+
+        
 
 
         
@@ -59,6 +64,12 @@ const BannerModal = ({ userDetails, userData, isLoading, refetch }) => {
                 });
             };
           });
+
+          // setTimeout(() => {
+          //   setIsBtnLoading(false);
+          // }, 2000);
+
+          
       };
   return (
     <div>
