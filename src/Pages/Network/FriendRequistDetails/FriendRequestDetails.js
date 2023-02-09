@@ -37,7 +37,8 @@ const CandidateProfile = () => {
     const handleAccept = (data) => {
         const friend = {
             name: data?.name,
-            email: data?.email
+            email: data?.email,
+            profileImage: data?.profileImage
         };
 
         // save friend to the database
