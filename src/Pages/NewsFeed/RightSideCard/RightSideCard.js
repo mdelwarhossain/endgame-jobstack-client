@@ -57,6 +57,7 @@ const RightSideCard = () => {
                 </div>
 
             </div>
+            <Link to="/network"><button className="btn  btn-primary">See More</button></Link>
             <Link to='/myconnections'>
                 <h3 className='ml-3 underline mt-4 text-blue-500'>View All recommendations <span className='font-bold'> &#8594; </span></h3>
             </Link>

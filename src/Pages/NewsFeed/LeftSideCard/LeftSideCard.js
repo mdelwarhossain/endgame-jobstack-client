@@ -31,16 +31,17 @@ const LeftSideCard = () => {
       {
         loading ? <Loading></Loading> :
 
-          <div className="max-w-xs drop-shadow-lg rounded-md shadow-md bg-lime-50  relative">
+          <div className="max-w-xs drop-shadow-lg rounded-md shadow-md bg-lime-50  relative ">
             {
-              currentUserDetails?.bannerImage ? <img src={currentUserDetails.bannerImage} /> :
-                <img src={cp} alt="" className="object-cover object-center w-full rounded-t-md h-20 bg-gray-500" />
+              currentUserDetails?.bannerImage ?
+                <img src={currentUserDetails.bannerImage} className=" h-48" /> :
+                <img src={cp} alt="" className="object-cover object-center w-full rounded-t-md h-48 bg-gray-500" />
             }
-            <div className="flex flex-col justify-between p-6 space-y-8">
+            <div className="flex flex-col justify-between p-6 space-y-8 ">
               {
-                currentUserDetails?.profileImage ? <img alt="Profile" className="absolute top-11 left-2/4 -ml-8  w-16 h-16 rounded-full ring-2 ring-offset-4 bg-gray-500 ring-violet-400 ring-offset-gray-800" src={currentUserDetails.profileImage} /> :
+                currentUserDetails?.profileImage ? <img alt="Profile" className="absolute top-36 left-2/4 -ml-8  w-16 h-16 rounded-full ring-2 ring-offset-4 bg-gray-500 ring-violet-400 ring-offset-gray-800" src={currentUserDetails.profileImage} /> :
 
-                  <img alt="Profile" className="absolute top-11 left-2/4 -ml-8  w-16 h-16 rounded-full ring-2 ring-offset-4 bg-gray-500 ring-violet-400 ring-offset-gray-800" src={pp} />
+                  <img alt="Profile" className="absolute top-36 left-2/4 -ml-8  w-16 h-16 rounded-full ring-2 ring-offset-4 bg-gray-500 ring-violet-400 ring-offset-gray-800" src={pp} />
               }
               <div className="space-y-2 text-center">
                 <Link to='/userProfile'><h2 className="text-sky-600 text-2xl font-semibold tracking-wide">{currentUserDetails?.name}</h2></Link>
@@ -48,7 +49,7 @@ const LeftSideCard = () => {
                   {
                     currentUserDetails?.headline ? <p className="text-yellow-700 text-md">{currentUserDetails?.headline}</p> :
 
-                      <p className="text-red-700 text-md">Add A Headline</p>
+                      <p className="text-red-700 text-md ">Add A Headline</p>
                   }
                 </div>
               </div>
