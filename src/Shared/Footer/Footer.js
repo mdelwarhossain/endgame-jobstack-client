@@ -5,9 +5,8 @@ const Footer = () => {
   return (
 
     // eslint-disable-next-line react/style-prop-object
-    <div className=''>
-
-      <div className="bg-gray-400 mt-">
+    <div data-theme="night">
+      <div>
         <div className="px-4 pt-8 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
           <div className="grid row-gap-10 mb-8 lg:grid-cols-6">
             <div className="grid grid-cols-2 gap-5 row-gap-8 lg:col-span-4 md:grid-cols-4">

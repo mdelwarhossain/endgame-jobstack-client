@@ -36,6 +36,8 @@ import Jobseeker from "../Pages/Dashboard/Jobseeker/Jobseeker";
 import Recruiter from "../Pages/Dashboard/Recruiter/Recruiter";
 import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
 import Question from "../Pages/Question/Question";
+import Messenger from "../Pages/Messenger/Messenger";
+
 
 
 
@@ -114,14 +116,8 @@ const router = createBrowserRouter([
       {
         path: "/course",
         element: <Courses></Courses>,
-        loader: () => fetch(`courses.json`),
       },
-      // {
-      //   path: "/smallSingleCourse",
-      //   element:<SingleCourse></SingleCourse>,
-      //   // loader: () => fetch(`courses.json`)
-      //   loader: ({ params }) => fetch(`https://assignment-10-server-indol.vercel.app/smallSingleCourse/${params.id}`)
-      // },
+      
       {
         path: "/quiz",
         loader: async () => {
@@ -191,6 +187,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <Notification></Notification>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/messenger",
+        element: (
+          <PrivateRoute>
+            <Messenger></Messenger>
           </PrivateRoute>
         ),
       },

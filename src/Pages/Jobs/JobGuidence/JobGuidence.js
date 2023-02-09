@@ -11,7 +11,7 @@ const JobGuidence = () => {
             <div className="my-5">
                 <Link className="justify-between">
                     <p className="underline mb-2">I want to improve my resume</p>
-                    <img src={resumeImg} alt="" />
+                    <img className='h-36' src={resumeImg} alt="" />
                 </Link>
             </div>
             <p className="mb-3">

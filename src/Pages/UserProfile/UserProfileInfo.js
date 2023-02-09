@@ -20,31 +20,13 @@ import Loading from "../../Shared/LoadingPage/LoadingPage";
 
 const UserProfileInfo = () => {
   const [userDetails, setUserDetails] = useState();
-  // const [projects, setProjects] = useState()
-  // const [projects, setProjects] = useState()
-  // const [projects, setProjects] = useState()
-  // const [projects, setProjects] = useState()
+  
   
 
   const { user } = useContext(AuthContext);
   console.log(user.email)
 
-  // const {
-  //   data: userData = [],
-  //   refetch,
-  //   isLoading,
-  // } = useQuery({
-  //   queryKey: ["userData", user?.email],
-  //   queryFn: async () => {
-  //     const res = await fetch(
-  //       `http://localhost:5000/user/${user?.email}`
-  //     );
-  //     const data = await res.json();
-  //     setUserDetails(data);
-  //     console.log(data);
-  //     return data;
-  //   },
-  // });
+
 
   const { data: userData = {},
      refetch ,isLoading} = useQuery({

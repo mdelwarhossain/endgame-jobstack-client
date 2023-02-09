@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { FaImages } from "react-icons/fa";
 
 
 const BannerModal = ({ userDetails, userData, isLoading, refetch }) => {
+
+  // const [isBtnLoading, setIsBtnLoading] = useState(false);
+
 
     // const userEmail = userData[0]?.email;
     const userEmail = userDetails?.email
@@ -19,6 +22,9 @@ const BannerModal = ({ userDetails, userData, isLoading, refetch }) => {
 
       const handleSub = (data) => {
         console.log(data)
+        // setIsBtnLoading(true)
+
+        
 
 
         
@@ -52,13 +58,18 @@ const BannerModal = ({ userDetails, userData, isLoading, refetch }) => {
                 .then((res) => res.json())
                 .then((data) => {
                   if (data.modifiedCount) {
-                    
                     refetch()
                     toast.success("Cover photo added");
                   }
                 });
             };
           });
+
+          // setTimeout(() => {
+          //   setIsBtnLoading(false);
+          // }, 2000);
+
+          
       };
   return (
     <div>
@@ -79,7 +90,8 @@ const BannerModal = ({ userDetails, userData, isLoading, refetch }) => {
           type="file"
           style={{ display: "none" }}
         />
-        <input type="submit" className="btn btn-outline btn-info" value='Upload'/>
+        <input 
+        type="submit" className="btn btn-outline btn-info" value='Upload'/>
     </form>
   </div>
 </div>

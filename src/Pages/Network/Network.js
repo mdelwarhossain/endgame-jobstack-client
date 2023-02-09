@@ -31,7 +31,7 @@ const Network = () => {
         <Link to="/jobs" className='text-center text-green-600 btn btn-outline btn-primary md:ml-5 mb-5'>See Who Is Hiring</Link>
       </div>
       <div className="col-span-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mr-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {
             usersCollection?.map(dbuser => <NetworkCard
               key={dbuser._id}
