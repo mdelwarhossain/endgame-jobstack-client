@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Courses from "../NewsFeed/LeftSideCard/Courses/Courses";
 import LeftSideCard from "../NewsFeed/LeftSideCard/LeftSideCard";
 import Sponsored from "../NewsFeed/LeftSideCard/Sponsored/Sponsored";
@@ -11,11 +11,14 @@ import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
 import { InfoContext } from "../../contexts/UserInfoProvider";
+import { GiCandlebright } from "react-icons/gi";
 
 const Jobs = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const { user, logOut } = useContext(AuthContext);
   const { userDetails } = useContext(InfoContext);
+  const [courses, setCourses] = useState([]);
+  const [isCourseLoading, setIsCourseLoading] = useState(false);
   console.log(userDetails);
   const { data: jobs = [], isLoading } = useQuery({
     queryKey: ["jobs"],
@@ -28,37 +31,46 @@ const Jobs = () => {
         });
         const data = await res.json();
         return data;
-      } catch (error) { }
+      } catch (error) {}
     },
   });
   console.log(jobs);
 
+  useEffect(() => {
+    setIsCourseLoading(true);
+    fetch("http://localhost:5000/limitCourse")
+      .then((res) => res.json())
+      .then((data) => {
+        setCourses(data);
+        setIsCourseLoading(false);
+      });
+  }, []);
+
+  console.log(courses);
+
   const { data: singleUser } = useQuery({
-    queryKey: ['user'],
+    queryKey: ["user"],
     queryFn: async () => {
       try {
         const res = await fetch(`http://localhost:5000/user/${user?.email}`, {
           headers: {
-            authorization: `bearer ${localStorage.getItem('accessToken')}`
-          }
+            authorization: `bearer ${localStorage.getItem("accessToken")}`,
+          },
         });
         const data = await res.json();
         return data;
-      }
-      catch (error) {
-
-      }
-    }
+      } catch (error) {}
+    },
   });
   console.log(singleUser);
 
   if (isLoading) {
-    return <Loading></Loading>
+    return <Loading></Loading>;
   }
 
   const handleSignout = () => {
     logOut()
-      .then(() => { })
+      .then(() => {})
       .catch((error) => console.log(error));
   };
 
@@ -66,36 +78,42 @@ const Jobs = () => {
     <div className="px-4 grid grid-cols-1 md:grid-cols-8 gap-4">
       <div className="col-span-2 mt-5">
         <div className="">
-          {
-            user &&
+          {user && (
             <div className="flex gap-4 ml-2 mt-2">
-              <img className="h-10 w-10 rounded-full" src={singleUser?.profileImage} alt="" />
+              <img
+                className="h-10 w-10 rounded-full"
+                src={singleUser?.profileImage}
+                alt=""
+              />
               <span className="flex gap-2 mt-2"> {singleUser?.name}</span>
-            </div>}
-          <div className="flex flex-col gap-2 my-5">
+            </div>
+          )}
+          <div>
             {/* <Link
               to={`/jobs/${user?.email}`}
               className="btn btn-outline btn-primary"
             >
               My Applications
             </Link> */}
-            <Link to={`/candidate/${singleUser?._id}`} className="btn btn-outline btn-primary shadow-md">
-              My Resume
-            </Link>
-            <Link to="/antifraudtips" className="btn btn-outline btn-primary shadow-md">
-              Anti Fraud Tips
-            </Link>
-            <Link
-              onClick={handleSignout}
-              to=""
-              className="btn btn-outline btn-primary shadow-md"
-            >
-              LogOut
-            </Link>
+        
+
+            <div>
+              <p className="font-extrabold shadow-lg rounded-md text-cyan-900 text-center py-2 text-xl mx-auto mb-2 bg-gradient-to-r from-green-300 to-blue-300 ">
+                Popular Courses <GiCandlebright className="inline" />
+              </p>
+
+              {courses.map((course) => (
+                <Courses
+                  key={course._id}
+                  course={course}
+                  isCourseLoading={isCourseLoading}
+                ></Courses>
+              ))}
+            </div>
           </div>
         </div>
       </div>
-      <div className="col-span-4 shadow-2xl my-5">
+      <div className="col-span-4 shadow-2xl mt-5">
         <div className="p-8 bg-slate-500">
           <label className="label">
             {" "}
@@ -132,9 +150,29 @@ const Jobs = () => {
             ))}
         </div>
       </div>
-      <div className="col-span-2">
+      <div className="col-span-2 mt-5">
+      <div  className="flex flex-col gap-2 my-5">
+      <Link
+              to={`/candidate/${singleUser?._id}`}
+              className="btn btn-outline btn-primary shadow-md"
+            >
+              My Resume
+            </Link>
+            <Link
+              to="/antifraudtips"
+              className="btn btn-outline btn-primary shadow-md"
+            >
+              Anti Fraud Tips
+            </Link>
+            <Link
+              onClick={handleSignout}
+              to=""
+              className="btn btn-outline btn-primary shadow-md"
+            >
+              LogOut
+            </Link>
+      </div>
         <JobGuidence></JobGuidence>
-        <Courses></Courses>
       </div>
     </div>
   );

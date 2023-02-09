@@ -2,25 +2,23 @@ import React from "react";
 import js from '../../../../assest/images/js.png'
 import react from '../../../../assest/images/react.png'
 import { GiCandlebright } from 'react-icons/gi';
+import { Link } from "react-router-dom";
 
-const Courses = () => {
+const Courses = ({course,isCourseLoading}) => {
+  console.log(course)
   return (
-    <div className="mt-5  ">
-      <p className="font-extrabold shadow-lg rounded-md text-cyan-900 text-center py-2 text-xl mx-auto mb-2 bg-gradient-to-r from-green-300 to-blue-300 ">Popular Courses <GiCandlebright className="inline" /></p>
+    <Link to='/course'>
+    <div className=" cursor-pointer  ">
+      <div className="mb-5 shadow-xl rounded-2xl p-5">
+        <img className="rounded-xl" style={{height:"200px"}} src={course?.image} alt="" />
 
-      <div className="mb-5 p-5 shadow-xl rounded-2xl bg-slate-100">
-        <img className="rounded-xl" src={react} alt="" />
-
-        <p className="font-bold mt-2 text-cyan-900">Javascript Online Video Course </p>
-        <button className="btn btn-warning btn-sm font-bold ">Free</button>
+        <div className="flex justify-between mt-5 items-center">
+        <p className="font-extrabold ">{course?.name}</p>
+        <p className="badge badge-info font-bold p-3">Free</p>
+        </div>
       </div>
-
-      <div className="my-5 p-5 shadow-2xl rounded-2xl bg-slate-100">
-        <img className="rounded-xl" src={js} alt="" />
-        <p className="mt-2 font-bold text-cyan-900">React Online Video Course <button className="btn btn-warning btn-sm font-bold ">Premium</button></p>
-      </div>
-
     </div>
+    </Link>
   );
 };
 
