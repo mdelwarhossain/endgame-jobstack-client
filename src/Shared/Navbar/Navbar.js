@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
 import { RiHomeHeartFill } from "react-icons/ri";
-import { BsFillBagPlusFill } from "react-icons/bs";
+import { BsChatFill, BsFillBagPlusFill } from "react-icons/bs";
 import { FaBlog, FaSearch } from "react-icons/fa";
 import { MdGroups } from "react-icons/md";
 import { BiNetworkChart } from "react-icons/bi";
@@ -112,6 +112,16 @@ const Navbar = () => {
               <Link to="/notification">
                 <MdNotificationsActive className="lg:hidden -mr-2" />
                 Notification
+              </Link>
+            </li>
+          </span>
+          <span className="">
+
+            <BsChatFill className="mx-auto -mb-4 hidden lg:block text-white" />
+            <li className="font-bold lg:text-white">
+              <Link to="/messenger">
+                <BsChatFill className="lg:hidden -mr-2" />
+                Messages
               </Link>
             </li>
           </span>

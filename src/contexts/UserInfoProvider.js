@@ -27,6 +27,7 @@ const details = {
     userDetails,
 
 }
+console.log(userDetails)
 
     return (
         <InfoContext.Provider value={details}>
