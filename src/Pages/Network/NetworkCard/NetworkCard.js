@@ -28,7 +28,7 @@ const NetworkCard = ({ dbuser, isLoading, refetch }) => {
       filterEmail: dbuser?.email,
       filterEmail2: user?.email,
       received: {
-        name: user?.displayName,
+        name: userDetails.name,
         email: user?.email,
         profileImage: userDetails?.profileImage
       },
