@@ -88,7 +88,7 @@ const NetworkCard = ({ dbuser, isLoading, refetch }) => {
   }
 
   return (
-    <div className="">
+    <div className="my-10">
       {/* <div className="pt-5 pb-5">
         <label className="label">
           {" "}
@@ -119,7 +119,7 @@ const NetworkCard = ({ dbuser, isLoading, refetch }) => {
           .map((dbuser) => ( */}
         <div className=" bg-base-100 shadow-xl h-72">
           <figure>
-            <img className="w-full h-32" src={dbuser?.profileImage} alt="Image" />
+            <img className="w-full h-32" src={dbuser?.profileImage} alt="Img" />
           </figure>
           <div className=" my-4 ml-2">
             <h2 className="text-xl font-semibold text-cyan-900">{dbuser?.name}</h2>
