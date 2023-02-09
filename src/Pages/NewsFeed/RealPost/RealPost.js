@@ -12,7 +12,19 @@ const RealPost = () => {
 
   const imageHostKey = "c8246134e51fb0e0cbdc4f35b003ee74";
 
-  const url = `http://localhost:5000/userimg?email=${user?.email}`;
+  const [currentUserDetails, setCurrentUserDetails] = useState();
+  const waitTime = 1000;
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      fetch(`http://localhost:5000/user/${user?.email}`)
+        .then((res) => res.json())
+        .then((data) => {
+          setCurrentUserDetails(data);
+        });
+    }, waitTime);
+    return () => clearInterval(id);
+  }, [user?.email]);
 
   // const { data: img = [] } = useQuery({
   //   queryKey: ["img", user?.email],
@@ -106,8 +118,8 @@ const RealPost = () => {
         <form className="flex items-center" onSubmit={handleSubmit(handleSub)}>
           <img
             alt=""
-            className="hidden md:block w-12 h-12 mr-3 rounded-full ring-2 ring-offset-4 dark:bg-gray-500 ring-violet-400 ring-offset-gray-800"
-            src="https://i.ibb.co/dgCyQGV/photo-1499996860823-5214fcc65f8f-crop-faces-edges-cs-tinysrgb-fit-crop-fm-jpg-ixid-Mnwx-Mj-A3f-DB8-M.jpg"
+            className="w-11 h-11 rounded-full ring-2 ring-offset-4 dark:bg-gray-500 ring-violet-400 ring-offset-gray-800 mr-4"
+            src={currentUserDetails?.profileImage}
           />
           <input
             type="text"

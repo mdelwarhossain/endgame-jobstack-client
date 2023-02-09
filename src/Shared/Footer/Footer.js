@@ -1,9 +1,7 @@
-import React from 'react'
-
+import React from "react";
 
 const Footer = () => {
   return (
-
     // eslint-disable-next-line react/style-prop-object
     <div data-theme="night">
       <div>
@@ -50,7 +48,9 @@ const Footer = () => {
                 </ul>
               </div>
               <div>
-                <p className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400 text-xl">Technology</p>
+                <p className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400 text-xl">
+                  Technology
+                </p>
                 <ul className="mt-2 space-y-2">
                   <li>
                     <a
@@ -84,11 +84,12 @@ const Footer = () => {
                       MongoDB
                     </a>
                   </li>
-
                 </ul>
               </div>
               <div>
-                <p className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400 text-xl">Jobs</p>
+                <p className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400 text-xl">
+                  Jobs
+                </p>
                 <ul className="mt-2 space-y-2">
                   <li>
                     <a
@@ -191,13 +192,16 @@ const Footer = () => {
                 </button>
               </form>
               <p className="mt-4 text-sm text-black-100">
-                If you subscribe to something, you sign up to receive it regularly. If you subscribe to the New York Times, it's delivered to your door every morning or you ..
+                If you subscribe to something, you sign up to receive it
+                regularly. If you subscribe to the New York Times, it's
+                delivered to your door every morning or you ..
               </p>
             </div>
           </div>
           <div className="flex flex-col justify-between pt-5 pb-10 border-t border-gray-800 sm:flex-row ">
             <p className="text-sm text-black-500">
-              © Copyright 2023 company name All rights reserved Team PH-Warriors.
+              © Copyright 2023 company name All rights reserved Team
+              PH-Warriors.
             </p>
             <div className="flex items-center mt-4 space-x-4 sm:mt-0">
               <a
@@ -230,7 +234,7 @@ const Footer = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

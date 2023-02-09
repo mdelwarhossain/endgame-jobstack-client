@@ -8,13 +8,11 @@ import { MdGroups } from "react-icons/md";
 import { BiNetworkChart } from "react-icons/bi";
 import { MdNotificationsActive } from "react-icons/md";
 import { FaSignOutAlt, FaUser } from "react-icons/fa";
-import {
-  MdOutlineQuiz, MdQuiz
-} from "react-icons/md";
+import { MdOutlineQuiz, MdQuiz } from "react-icons/md";
 
 import { useQuery } from "@tanstack/react-query";
 import { useEffect } from "react";
-import pp from '../../assest/images/pp.jpg'
+import pp from "../../assest/images/pp.jpg";
 import DisplayAvatar from "./DisplayAvatar/DisplayAvatar";
 
 const Navbar = () => {
@@ -22,25 +20,23 @@ const Navbar = () => {
 
   // const [loading,setLoading] = useState(false)
 
-  const [currentUserDetails, setCurrentUserDetails] = useState()
+  const [currentUserDetails, setCurrentUserDetails] = useState();
   const waitTime = 1000;
 
   useEffect(() => {
     const id = setInterval(() => {
-
       fetch(`http://localhost:5000/user/${user?.email}`)
-        .then(res => res.json())
-        .then(data => {
-          setCurrentUserDetails(data)
-        })
+        .then((res) => res.json())
+        .then((data) => {
+          setCurrentUserDetails(data);
+        });
     }, waitTime);
     return () => clearInterval(id);
   }, [user?.email]);
 
-
   const handleSignout = () => {
     logOut()
-      .then(() => { })
+      .then(() => {})
       .catch((error) => console.log(error));
   };
   const menuItems = (
@@ -84,12 +80,10 @@ const Navbar = () => {
             </li>
           </span>
           <span className="">
-            <MdQuiz
-              className="mx-auto -mb-4 hidden lg:block text-white" />
+            <MdQuiz className="mx-auto -mb-4 hidden lg:block text-white" />
             <li className="font-bold lg:text-white">
-
-              <Link to="/quiz"><MdQuiz
-                className="lg:hidden -mr-2" />
+              <Link to="/quiz">
+                <MdQuiz className="lg:hidden -mr-2" />
                 quiz
               </Link>
             </li>
@@ -98,15 +92,12 @@ const Navbar = () => {
             <BiNetworkChart className="mx-auto -mb-4 hidden lg:block text-white" />
             <li className="font-bold lg:text-white">
               <Link to="/network">
-
                 <BiNetworkChart className="lg:hidden -mr-2" />
                 Network
               </Link>
-
             </li>
           </span>
           <span className="">
-
             <MdNotificationsActive className="mx-auto -mb-4 hidden lg:block text-white" />
             <li className="font-bold lg:text-white">
               <Link to="/notification">
@@ -140,7 +131,7 @@ const Navbar = () => {
   );
   return (
     <div className="relative">
-      <div className="navbar py-2 flex items-center fixed z-30" data-theme="night">
+      <div className="navbar py-2 flex items-center" data-theme="night">
         {/* style={{backgroundColor:'#0077c9'}} */}
         <div className="navbar-start">
           <div className="dropdown">
@@ -178,24 +169,27 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{menuItems}</ul>
         </div>
         <div className="navbar-end flex items-center">
-          {
-            user?.uid ? <Link to='/userProfile'><img alt="" className="w-11 h-11 rounded-full ring-2 ring-offset-4 dark:bg-gray-500 ring-violet-400 ring-offset-gray-800 mr-4" src={currentUserDetails?.profileImage} /></Link>
-              :
-              <>
-                <span className="flex items-center mr-6">
-                  <FaUser className=" text-white mr-2" />
-                  <li className="font-bold lg:text-white list-none">
-                    <Link to="/login">
-                      Login
-                    </Link>
-                  </li>
-                </span>
-              </>
-          }
+          {user?.uid ? (
+            <Link to="/userProfile">
+              <img
+                alt=""
+                className="w-11 h-11 rounded-full ring-2 ring-offset-4 dark:bg-gray-500 ring-violet-400 ring-offset-gray-800 mr-4"
+                src={currentUserDetails?.profileImage}
+              />
+            </Link>
+          ) : (
+            <>
+              <span className="flex items-center mr-6">
+                <FaUser className=" text-white mr-2" />
+                <li className="font-bold lg:text-white list-none">
+                  <Link to="/login">Login</Link>
+                </li>
+              </span>
+            </>
+          )}
         </div>
       </div>
     </div>
-
   );
 };
 

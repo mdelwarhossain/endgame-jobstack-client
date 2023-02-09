@@ -1,32 +1,31 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { AuthContext } from '../../../contexts/AuthProvider';
-import pp from '../../../assest/images/pp.jpg'
-import cp from '../../../assest/images/cp.jpg'
-import Loading from '../../../Shared/LoadingPage/LoadingPage';
+import React, { useContext, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { AuthContext } from "../../../contexts/AuthProvider";
+import pp from "../../../assest/images/pp.jpg";
+import cp from "../../../assest/images/cp.jpg";
+import Loading from "../../../Shared/LoadingPage/LoadingPage";
 
 const LeftSideCard = () => {
+  const { user } = useContext(AuthContext);
+  const [loading, setLoading] = useState(false);
 
-  const { user } = useContext(AuthContext)
-  const [loading, setLoading] = useState(false)
-
-  const [currentUserDetails, setCurrentUserDetails] = useState()
+  const [currentUserDetails, setCurrentUserDetails] = useState();
   const waitTime = 1000;
 
   useEffect(() => {
-    setLoading(true)
+    setLoading(true);
     const id = setInterval(() => {
-
       fetch(`http://localhost:5000/user/${user?.email}`)
-        .then(res => res.json())
-        .then(data => {
-          setCurrentUserDetails(data)
-          setLoading(false)
-        })
+        .then((res) => res.json())
+        .then((data) => {
+          setCurrentUserDetails(data);
+          setLoading(false);
+        });
     }, waitTime);
     return () => clearInterval(id);
   }, [user?.email]);
   return (
+
     <div className='my-5'>
       {
         loading ? <Loading></Loading> :
@@ -65,12 +64,39 @@ const LeftSideCard = () => {
                   </div>
                 </Link>
               </div>
+
               <div>
-                <p className='text-sm text-cyan-900'>Access exclusive tools & insights</p>
+                {currentUserDetails?.headline ? (
+                  <p className="text-yellow-700 text-md">
+                    {currentUserDetails?.headline}
+                  </p>
+                ) : (
+                  <p className="text-red-700 text-md">Add A Headline</p>
+                )}
               </div>
             </div>
+            <hr />
+            <div className="hover:bg-gray-200 rounded-md">
+              <Link to="#">
+                <div>
+                  <div className="flex items-center justify-between text-sm">
+                    <h3 className="text-cyan-900">Connection</h3>
+                    <p className="text-blue-400 font-bold">21</p>
+                  </div>
+                  <h2 className="text-md font-bold text-cyan-900">
+                    Grow Your Network
+                  </h2>
+                </div>
+              </Link>
+            </div>
+            <div>
+              <p className="text-sm text-cyan-900">
+                Access exclusive tools & insights
+              </p>
+            </div>
           </div>
-      }
+        </div>
+      )}
     </div>
   );
 };
