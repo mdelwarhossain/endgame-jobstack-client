@@ -38,33 +38,33 @@ const MyConnections = () => {
             <div className="hidden shadow-2xl drop-shadow-md md:block col-span-6 py-6">
                 {
                     data?.length ?
-                <div className='m-5'>
-                    <p className='text-2xl text-center font-bold text-slate-600 mb-3'>You have {data?.length} {data?.length > 1 ? 'connections' : 'connection' }</p>
-                    <div className=''>
-                        <p className='flex justify-between'><span className='mt-3 font-bold text-lg text-red-500 '>Filter:</span> <select className="border-cyan-500 rounded-xl border-2 select w-1/2 max-w-xs">
-                            <option className='bg-red-200'>Recently Added</option>
-                            <option className='bg-cyan-200'>Last Name</option>
-                            <option className='bg-lime-200 '>First Name</option>
-                        </select>
-                            <input type="text" placeholder="search" className="input border-cyan-500 border-2 input-bordered w-1/2 max-w-s rounded-xl" />
-                        </p>
-                        <div className="divider"></div>
-                    </div>
-                    <div>
-                    {
-                        data?.map(friend => <MyConnectionsCard
-                            key={friend._id}
-                            friend={friend}
-                        ></MyConnectionsCard>)
-                    }
-                    </div>
-                </div>
-                : 
-                <div>
-              <p className='my-10 bg-slate-200 p-5'>You have no friend request to show</p>
-            <Link to='/network' className='btn btn-outline btn-primary px-8'>Back</Link>
-            </div>    
-            }
+                        <div className='m-5'>
+                            <p className='text-2xl text-center font-bold text-slate-600 mb-3'>You have {data?.length} {data?.length > 1 ? 'connections' : 'connection'}</p>
+                            <div className=''>
+                                <p className='flex justify-between'><span className='mt-3 font-bold text-lg text-red-500 '>Filter:</span> <select className="border-cyan-500 rounded-xl border-2 select w-1/2 max-w-xs">
+                                    <option className='bg-red-200'>Recently Added</option>
+                                    <option className='bg-cyan-200'>Last Name</option>
+                                    <option className='bg-lime-200 '>First Name</option>
+                                </select>
+                                    <input type="text" placeholder="search" className="input border-cyan-500 border-2 input-bordered w-1/2 max-w-s rounded-xl" />
+                                </p>
+                                <div className="divider"></div>
+                            </div>
+                            <div>
+                                {
+                                    data?.map(friend => <MyConnectionsCard
+                                        key={friend._id}
+                                        friend={friend}
+                                    ></MyConnectionsCard>)
+                                }
+                            </div>
+                        </div>
+                        :
+                        <div className='ml-5'>
+                            <p className='my-10 bg-slate-200 p-5'>You have no friend request to show</p>
+                            <Link to='/network' className='btn btn-outline btn-primary px-8'>Back</Link>
+                        </div>
+                }
             </div>
             <div className="hidden p-1 shadow-xl md:block col-span-2">
                 <RightSideCard></RightSideCard>

@@ -26,7 +26,7 @@ const LeftSide = () => {
             </div>
             <div className='flex flex-col justify-center'>
                 <button className='flex gap-4 btn-ghost px-4 py-2'><FaUserFriends></FaUserFriends><Link to='/myconnections'>Connections</Link></button>
-                <button className='flex gap-4 btn-ghost px-4 py-2'><FaUserFriends></FaUserFriends><Link to='/friendrequest'>Friend Request {userDetails?.requestReceived?.length}</Link></button>
+                <button className='flex gap-4 btn-ghost px-4 py-2'><FaUserFriends></FaUserFriends><Link to='/friendrequest'>Friend Request {userDetails?.requestReceived?.length ? <span className='text-success font-semibold'>{userDetails?.requestReceived?.length}</span> : <span>{userDetails?.requestReceived?.length}</span>}</Link></button>
                 <button className='flex gap-4 btn-ghost px-4 py-2'><FaUserFriends></FaUserFriends><Link to='/following'>Following</Link></button>
                 <button className='flex gap-4 btn-ghost px-4 py-2'><FaUserFriends></FaUserFriends><Link to='/followers'>Followers</Link></button>
                 <button className='flex gap-4 btn-ghost px-4 py-2'><FaUserFriends></FaUserFriends> Groups</button>

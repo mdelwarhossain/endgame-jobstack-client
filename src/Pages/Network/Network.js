@@ -1,17 +1,18 @@
 import { useQuery } from '@tanstack/react-query';
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthProvider';
 import Sponsored from '../NewsFeed/LeftSideCard/Sponsored/Sponsored';
 import LeftSide from './LeftSide/LeftSide';
 import NetworkCard from './NetworkCard/NetworkCard';
 
 const Network = () => {
-
+  const {user} = useContext(AuthContext); 
   const { data: usersCollection = [], isLoading, refetch } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
       try {
-        const res = await fetch("http://localhost:5000/users", {
+        const res = await fetch(`http://localhost:5000/recommendedusers/${user?.email}`, {
         });
         const data = await res.json();
         console.log(data)
