@@ -6,7 +6,7 @@ import SingleCourse from './SingleCourse';
 const Courses = () => {
     const [AllData, setAllData] = useState([])
     useEffect(()=>{
-        fetch(`http://localhost:5000/Course`)
+        fetch(`https://endgame-jobstack-server.vercel.app/Course`)
         .then(res=>res.json())
         .then(data=> setAllData(data))
     },[])
@@ -15,8 +15,12 @@ const Courses = () => {
 
    
     return (
-        <div>
-            <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-14 my-14 px-24'>
+        <div className='allContainer'>
+           <div>
+             <div className='py-6 '>
+             <h1 className='text-xl font-bold text-center'>Courses We Provide</h1>
+             </div>
+            <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 py-5 gap-14 px-24'>
                 {AllData?.map(data => <div
                     key={data._id}
                     class=" grid place-items-center font-mono">
@@ -43,6 +47,7 @@ const Courses = () => {
             <SingleCourse
                 courseData={courseData}
             ></SingleCourse>
+           </div>
         </div>
     );
 };

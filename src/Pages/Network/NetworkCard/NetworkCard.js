@@ -17,7 +17,7 @@ const NetworkCard = ({ dbuser, isLoading, refetch }) => {
   console.log(user);
 
   // useEffect(() =>{
-  //   fetch('http://localhost:5000/users')
+  //   fetch('https://endgame-jobstack-server.vercel.app/users')
   //   .then(res => res.json())
   //   .then(data => setUsersCollection(data))
   // },[])
@@ -39,7 +39,7 @@ const NetworkCard = ({ dbuser, isLoading, refetch }) => {
     };
 
     // save connections to the database
-    fetch("http://localhost:5000/connection", {
+    fetch("https://endgame-jobstack-server.vercel.app/connection", {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -52,7 +52,7 @@ const NetworkCard = ({ dbuser, isLoading, refetch }) => {
         console.log(result);
         //     const sentEmail = dbuser?.email; 
         //     // save sent status to the database
-        // fetch("http://localhost:5000/sentstatus", {
+        // fetch("https://endgame-jobstack-server.vercel.app/sentstatus", {
         //   method: "PUT",
         //   headers: {
         //     "content-type": "application/json",
@@ -69,7 +69,7 @@ const NetworkCard = ({ dbuser, isLoading, refetch }) => {
   };
 
   // const handleDelete = (id) => {
-  //   fetch(`http://localhost:5000/delete/${id}`, {
+  //   fetch(`https://endgame-jobstack-server.vercel.app/delete/${id}`, {
   //     method: "delete",
   //     headers: {
   //       "content-type": "application/json",

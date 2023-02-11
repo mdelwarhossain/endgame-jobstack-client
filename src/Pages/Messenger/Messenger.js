@@ -24,7 +24,7 @@ const Messenger = () => {
   
 
   useEffect(() =>{
-    fetch(`http://localhost:5000/chatUser/${user?.email}`)
+    fetch(`https://endgame-jobstack-server.vercel.app/chatUser/${user?.email}`)
     .then(res => res.json())
     .then(data =>setAllUsers(data) )
 
@@ -52,7 +52,7 @@ const Messenger = () => {
     }
     console.log(data)
 
-    fetch("http://localhost:5000/messages", {
+    fetch("https://endgame-jobstack-server.vercel.app/messages", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -73,7 +73,7 @@ const Messenger = () => {
   console.log(currentFriend?._id)
 
   useEffect(() =>{
-    fetch(`http://localhost:5000/user/${user?.email}`)
+    fetch(`https://endgame-jobstack-server.vercel.app/user/${user?.email}`)
     .then(res => res.json())
     .then(data => setUserDetails(data))
   },[user?.email])
@@ -86,7 +86,7 @@ const Messenger = () => {
   refetch ,isLoading} = useQuery({
  queryKey: ["userData",currentFriend?._id, userDetails?._id],
  queryFn: async () => {
-   const res = await fetch(`http://localhost:5000/messages/displayMessaages/${currentFriend?._id}&${userDetails?._id}`);
+   const res = await fetch(`https://endgame-jobstack-server.vercel.app/messages/displayMessaages/${currentFriend?._id}&${userDetails?._id}`);
    const data = await res.json();
    setCurrentMessage(data)
    // console.log(data);
@@ -100,7 +100,7 @@ console.log(currentMessage)
 
 
     return (
-        <div className="messenger   px-4 grid grid-cols-1 md:grid-cols-8 gap-4 ">
+        <div className="messenger allContainer   px-4 grid grid-cols-1 md:grid-cols-8 gap-4 ">
       <div className="hidden message-show   md:block col-span-2">
 
         {/* LeftBarMessenger starts */}

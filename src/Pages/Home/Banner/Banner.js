@@ -9,9 +9,9 @@ const Banner = () => {
   console.log(userDetails);
 
   return (
-    <div data-theme="night">
+    <div  data-theme="night">
       {/* style={{ backgroundImage: `url(${banner})`, backgroundSize: "cover", backgroundPosition: 'center center' }} */}
-      <div className="hero py-28 hero-overlay bg-opacity-20">
+      <div className="hero  py-28 hero-overlay bg-opacity-20">
         <div className="hero-content flex-col lg:flex-row">
           <img
             data-aos="fade-right"

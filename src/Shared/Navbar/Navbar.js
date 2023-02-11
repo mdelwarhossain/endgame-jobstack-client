@@ -14,6 +14,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useEffect } from "react";
 import pp from "../../assest/images/pp.jpg";
 import DisplayAvatar from "./DisplayAvatar/DisplayAvatar";
+import './header.css'
 
 const Navbar = () => {
   const { logOut, user } = useContext(AuthContext);
@@ -25,7 +26,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const id = setInterval(() => {
-      fetch(`http://localhost:5000/user/${user?.email}`)
+      fetch(`https://endgame-jobstack-server.vercel.app/user/${user?.email}`)
         .then((res) => res.json())
         .then((data) => {
           setCurrentUserDetails(data);
@@ -130,7 +131,7 @@ const Navbar = () => {
     </React.Fragment>
   );
   return (
-    <div className="relative">
+    <div className="relative header">
       <div className="navbar py-2 flex items-center" data-theme="night">
         {/* style={{backgroundColor:'#0077c9'}} */}
         <div className="navbar-start">
