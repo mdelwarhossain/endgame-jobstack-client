@@ -2,11 +2,14 @@ import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
+import { InfoContext } from '../../contexts/UserInfoProvider';
 import Sponsored from '../NewsFeed/LeftSideCard/Sponsored/Sponsored';
 import LeftSide from './LeftSide/LeftSide';
 import NetworkCard from './NetworkCard/NetworkCard';
 
 const Network = () => {
+  
+  const {userDetails} = useContext(InfoContext)
   const {user} = useContext(AuthContext); 
   const { data: usersCollection = [], isLoading, refetch } = useQuery({
     queryKey: ["users"],
@@ -24,7 +27,10 @@ const Network = () => {
   return (
     <div className="px-4 allContainer grid grid-cols-1 md:grid-cols-8 gap-4 bg-gray-100">
       <div className="col-span-2 mt-5">
-        <LeftSide></LeftSide>
+        <LeftSide
+          userDetails={userDetails}
+          refetch={refetch}
+        ></LeftSide>
         <div className='hidden md:block'>
           <Sponsored></Sponsored>
         </div>

@@ -107,7 +107,7 @@ const CandidateProfile = () => {
                         {
                             accepted && <div>
                                 <p className="btn btn-outline btn-primary mr-5">Friend</p>
-                                <p className="btn btn-outline btn-primary mr-5">message</p>
+                                <Link to='/messenger'><p className="btn btn-outline btn-primary mr-5">message</p></Link>
                             </div>
                         }
                     </div>

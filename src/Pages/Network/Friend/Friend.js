@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { FaFileDownload } from 'react-icons/fa';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider';
 
 const CandidateProfile = () => {
@@ -25,7 +25,7 @@ const CandidateProfile = () => {
                     <p className='mb-1 text-2xl font-bold'>{data.name}</p>
                     <div>
                         <p className="btn btn-outline btn-primary mr-5">Friend</p>
-                        <p className="btn btn-outline btn-primary mr-5">message</p>
+                        <Link to='/messenger'><p className="btn btn-outline btn-primary mr-5">message</p></Link>
                     </div>
                 </div>
             </div>
