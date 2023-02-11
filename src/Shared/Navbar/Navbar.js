@@ -14,10 +14,16 @@ import { useQuery } from "@tanstack/react-query";
 import { useEffect } from "react";
 import pp from "../../assest/images/pp.jpg";
 import DisplayAvatar from "./DisplayAvatar/DisplayAvatar";
-import './header.css'
+import "./header.css";
+import LeftSideCard from "../../Pages/NewsFeed/LeftSideCard/LeftSideCard";
 
 const Navbar = () => {
   const { logOut, user } = useContext(AuthContext);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleToggle = () => {
+    setIsOpen(!isOpen);
+  };
 
   // const [loading,setLoading] = useState(false)
 
@@ -108,7 +114,6 @@ const Navbar = () => {
             </li>
           </span>
           <span className="">
-
             <BsChatFill className="mx-auto -mb-4 hidden lg:block text-white" />
             <li className="font-bold lg:text-white">
               <Link to="/messenger">
@@ -117,7 +122,7 @@ const Navbar = () => {
               </Link>
             </li>
           </span>
-          <span className="">
+          {/* <span className="">
             <FaSignOutAlt className="mx-auto -mb-4 hidden lg:block text-white" />
             <li className="font-bold lg:text-white">
               <button onClick={handleSignout}>
@@ -125,7 +130,7 @@ const Navbar = () => {
                 Sign Out
               </button>
             </li>
-          </span>
+          </span> */}
         </>
       )}
     </React.Fragment>
@@ -171,13 +176,90 @@ const Navbar = () => {
         </div>
         <div className="navbar-end flex items-center">
           {user?.uid ? (
-            <Link to="/userProfile">
-              <img
-                alt=""
-                className="w-11 h-11 rounded-full ring-2 ring-offset-4 dark:bg-gray-500 ring-violet-400 ring-offset-gray-800 mr-4"
-                src={currentUserDetails?.profileImage}
-              />
+            <div>
+              <div className="relative">
+                <button onClick={handleToggle}>
+                  {/* <img
+                    alt=""
+                    className="w-7 h-7 rounded-full ring-2 ring-offset-4 dark:bg-gray-500 ring-violet-400 ring-offset-gray-800 mr-4"
+                    src={currentUserDetails?.profileImage}
+                  /> */}
+                  {
+                        currentUserDetails?.profileImage? <img
+                        alt=""
+                        className="w-7 h-7 rounded-full ring-2 ring-offset-4 dark:bg-gray-500 ring-violet-400 ring-offset-gray-800 mr-4"
+                        src={currentUserDetails?.profileImage}
+                      /> : <img
+                      alt=""
+                      className="w-7 h-7 rounded-full ring-2 ring-offset-4 dark:bg-gray-500 ring-violet-400 ring-offset-gray-800 mr-4"
+                      src={pp}
+                    />
+                      }
+                 
+                </button>
+                {isOpen && (
+                  <ul  className="absolute  top-100 right-0 z-10">
+                    <div className="rounded-full h-72 w-72">
+                     
+                   {/* card */}
+
+                   <div class="profile-container ">
+          <div class="profile-image">
+            {currentUserDetails?.profileImage ? (
+              <img src={currentUserDetails?.profileImage} alt="" />
+            ) : (
+              <img src={pp} alt="" />
+            )}
+          </div>
+          <div class="profile-details  text-black">
+            <Link to='/userProfile' className="hover:underline">
+            <p className="font-extrabold">
+              <small>{currentUserDetails?.name}</small>
+            </p>
             </Link>
+            <p className="font-bold">
+              <small>{currentUserDetails?.email}</small>
+            </p>
+            <hr
+              style={{
+                marginTop:"12px",
+                color: "#000000",
+                backgroundColor: "#000000",
+                height: 0.5,
+                borderColor: "#000000",
+              }}
+            />
+            {currentUserDetails?.headline && (
+              <p>
+                <small>{currentUserDetails?.headline}</small>
+              </p>
+            )}
+
+            {/* others */}
+            <div >
+              <div className="mt-5">
+                <div className="flex items-center justify-between ">
+                  <h3 className=" font-extrabold">Connection </h3>
+                  <p className="font-bold text-blue-600 mt-1">21</p>
+                </div>
+
+                <button className="btn btn-outline btn-info mt-2 w-full" onClick={handleSignout}>
+                Sign Out
+              </button>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+                    </div>
+                  </ul>
+                )}
+              </div>
+             </div>
+
+
+
+           
           ) : (
             <>
               <span className="flex items-center mr-6">
