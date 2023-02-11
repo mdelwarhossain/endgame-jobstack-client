@@ -1,5 +1,5 @@
 import React from "react";
-import Courses from "../NewsFeed/LeftSideCard/Courses/Courses";
+import Courses from "../NewsFeed/LeftSideCard/Courses/LimitCourses";
 import LeftSideCard from "../NewsFeed/LeftSideCard/LeftSideCard";
 import Sponsored from "../NewsFeed/LeftSideCard/Sponsored/Sponsored";
 import Modal from "./Modal";
@@ -17,7 +17,7 @@ import RightSideCard from "../NewsFeed/RightSideCard/RightSideCard";
 
 const Notification = () => {
   return (
-    <div className="newsFeed px-4 grid grid-cols-1 md:grid-cols-8 gap-2">
+    <div className="allContainer px-4 grid grid-cols-1 md:grid-cols-8 gap-2">
       <div className="hidden md:block col-span-2">
         <LeftSideCard></LeftSideCard>
         <Courses></Courses>

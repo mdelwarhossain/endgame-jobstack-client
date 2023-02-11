@@ -17,7 +17,7 @@ const RealPost = () => {
 
   useEffect(() => {
     const id = setInterval(() => {
-      fetch(`http://localhost:5000/user/${user?.email}`)
+      fetch(`https://endgame-jobstack-server.vercel.app/user/${user?.email}`)
         .then((res) => res.json())
         .then((data) => {
           setCurrentUserDetails(data);
@@ -60,7 +60,7 @@ const RealPost = () => {
             likes: 0,
           };
           console.log(post);
-          fetch("http://localhost:5000/posts", {
+          fetch("https://endgame-jobstack-server.vercel.app/posts", {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -85,14 +85,14 @@ const RealPost = () => {
   // const { data: posts = [], refetch } = useQuery({
   //   queryKey: ["posts"],
   //   queryFn: () =>
-  //     fetch("http://localhost:5000/allposts").then((res) => res.json()),
+  //     fetch("https://endgame-jobstack-server.vercel.app/allposts").then((res) => res.json()),
   // });
   const [postss, setpost] = useState([]);
 
   const { data: posts = [], refetch } = useQuery({
     queryKey: ["posts"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/allposts");
+      const res = await fetch("https://endgame-jobstack-server.vercel.app/allposts");
       const data = await res.json();
       setpost(data);
       // console.log(data);
@@ -102,7 +102,7 @@ const RealPost = () => {
 
   // const [posts, setposts] = useState([]);
   // useEffect(() => {
-  //   fetch("http://localhost:5000/allposts")
+  //   fetch("https://endgame-jobstack-server.vercel.app/allposts")
   //     .then((res) => res.json())
   //     .then((data) => {
   //       setposts(data);

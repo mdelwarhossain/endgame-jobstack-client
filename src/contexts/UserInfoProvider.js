@@ -15,7 +15,7 @@ const UserInfoProvider = ({children}) => {
 
 
   useEffect(() =>{
-    fetch(`http://localhost:5000/user/${user?.email}`)
+    fetch(`https://endgame-jobstack-server.vercel.app/user/${user?.email}`)
     .then(res => res.json())
     .then(data => setUserDetails(data))
   },[user?.email])

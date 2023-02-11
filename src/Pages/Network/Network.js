@@ -15,7 +15,7 @@ const Network = () => {
     queryKey: ["users"],
     queryFn: async () => {
       try {
-        const res = await fetch(`http://localhost:5000/recommendedusers/${user?.email}`, {
+        const res = await fetch(`https://endgame-jobstack-server.vercel.app/recommendedusers/${user?.email}`, {
         });
         const data = await res.json();
         console.log(data)
@@ -25,7 +25,7 @@ const Network = () => {
   });
 
   return (
-    <div className="px-4 grid grid-cols-1 md:grid-cols-8 gap-4 bg-gray-100">
+    <div className="px-4 allContainer grid grid-cols-1 md:grid-cols-8 gap-4 bg-gray-100">
       <div className="col-span-2 mt-5">
         <LeftSide
           userDetails={userDetails}
@@ -36,7 +36,7 @@ const Network = () => {
         </div>
         <Link to="/jobs" className='text-center text-green-600 btn btn-outline btn-primary md:ml-5 mb-5'>See Who Is Hiring</Link>
       </div>
-      <div className="col-span-6">
+      <div className=" mt-5 col-span-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {
             usersCollection?.map(dbuser => <NetworkCard

@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import Courses from "../NewsFeed/LeftSideCard/Courses/Courses";
+import Courses from "../NewsFeed/LeftSideCard/Courses/LimitCourses";
 import LeftSideCard from "../NewsFeed/LeftSideCard/LeftSideCard";
 import Sponsored from "../NewsFeed/LeftSideCard/Sponsored/Sponsored";
 import hire from "../../assest/images/hire.jpg";
@@ -12,6 +12,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
 import { InfoContext } from "../../contexts/UserInfoProvider";
 import { GiCandlebright } from "react-icons/gi";
+import LimitCourses from "../NewsFeed/LeftSideCard/Courses/LimitCourses";
 
 const Jobs = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -23,7 +24,7 @@ const Jobs = () => {
     queryKey: ["jobs"],
     queryFn: async () => {
       try {
-        const res = await fetch("http://localhost:5000/jobs", {
+        const res = await fetch("https://endgame-jobstack-server.vercel.app/jobs", {
           headers: {
             authorization: `bearer ${localStorage.getItem("accessToken")}`,
           },
@@ -36,7 +37,7 @@ const Jobs = () => {
   console.log(jobs);
 
   useEffect(() =>{
-    fetch('http://localhost:5000/limitCourse')
+    fetch('https://endgame-jobstack-server.vercel.app/limitCourse')
     .then(res => res.json())
     .then(data => setLimitCourse(data))
   },[])
@@ -45,7 +46,7 @@ const Jobs = () => {
     queryKey: ['user'],
     queryFn: async () => {
       try {
-        const res = await fetch(`http://localhost:5000/user/${user?.email}`, {
+        const res = await fetch(`https://endgame-jobstack-server.vercel.app/user/${user?.email}`, {
           headers: {
             authorization: `bearer ${localStorage.getItem('accessToken')}`
           }
@@ -71,7 +72,7 @@ const Jobs = () => {
   };
 
   return (
-    <div className="px-4 grid grid-cols-1 md:grid-cols-8 gap-4">
+    <div className="px-4 allContainer grid grid-cols-1 md:grid-cols-8 gap-4">
       <div className="col-span-2 mt-5">
         <div className="">
           {/* {
@@ -81,21 +82,16 @@ const Jobs = () => {
               <span className="flex gap-2 mt-2"> {singleUser?.name}</span>
             </div>} */}
           <div>
-            {/* <Link
-              to={`/jobs/${user?.email}`}
-              className="btn btn-outline btn-primary"
-            >
-              My Applications
-            </Link> */}
+           
              <p className="font-extrabold shadow-lg rounded-md text-cyan-900 text-center py-2 text-xl mx-auto mb-2 bg-gradient-to-r from-green-300 to-blue-300 ">
                 Popular Courses <GiCandlebright className="inline" />
               </p>
            <div>
             {
-              limitCourse.map(course =><Courses
+              limitCourse.map(course =><LimitCourses
               key={course._id}
               course={course}
-              ></Courses>)
+              ></LimitCourses>)
             }
            </div>
             

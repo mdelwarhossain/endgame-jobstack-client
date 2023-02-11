@@ -4,7 +4,7 @@ import react from '../../../../assest/images/react.png'
 import { GiCandlebright } from 'react-icons/gi';
 import { Link } from "react-router-dom";
 
-const Courses = ({course,isCourseLoading}) => {
+const LimitCourses = ({course,isCourseLoading}) => {
   console.log(course)
   return (
     <Link to='/course'>
@@ -23,4 +23,4 @@ const Courses = ({course,isCourseLoading}) => {
   );
 };
 
-export default Courses;
+export default LimitCourses;

@@ -1,4 +1,5 @@
-.newsFeed {
-    display: grid;
-    grid-template-columns: 3fr 6fr 3fr;
+
+
+.allContainer {
+    padding-top: 60px;
 }

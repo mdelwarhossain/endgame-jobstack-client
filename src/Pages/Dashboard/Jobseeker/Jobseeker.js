@@ -5,7 +5,7 @@ import { toast } from "react-hot-toast";
 import { useLoaderData } from "react-router-dom";
 
 const Jobseeker = () => {
-  const url = `http://localhost:5000/users`;
+  const url = `https://endgame-jobstack-server.vercel.app/users`;
   const { data: users = [], refetch } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
@@ -18,7 +18,7 @@ const Jobseeker = () => {
   const [displayrecruiters, setDisplayrecruiters] = useState(recruiters);
 
   const handleMakeAdmin = (id) => {
-    fetch(`http://localhost:5000/users/admin/${id}`, {
+    fetch(`https://endgame-jobstack-server.vercel.app/users/admin/${id}`, {
       method: "PUT",
     })
       .then((res) => res.json())
@@ -31,7 +31,7 @@ const Jobseeker = () => {
       });
   };
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/deleteusers/${id}`, {
+    fetch(`https://endgame-jobstack-server.vercel.app/deleteusers/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
