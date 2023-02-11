@@ -179,11 +179,6 @@ const Navbar = () => {
             <div>
               <div className="relative">
                 <button onClick={handleToggle}>
-                  {/* <img
-                    alt=""
-                    className="w-7 h-7 rounded-full ring-2 ring-offset-4 dark:bg-gray-500 ring-violet-400 ring-offset-gray-800 mr-4"
-                    src={currentUserDetails?.profileImage}
-                  /> */}
                   {
                         currentUserDetails?.profileImage? <img
                         alt=""
