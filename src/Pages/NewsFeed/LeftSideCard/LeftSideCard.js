@@ -78,7 +78,7 @@ const LeftSideCard = () => {
                   <p className="font-bold text-blue-600 mt-1">21</p>
                 </div>
                 <Link to='/network'>
-                <div className="hover:underline flex justify-between">
+                <div className="hover:underline flex items-center justify-between">
                 <h2 className=" mt-1 font-bold ">
                  <small> Grow Your Network</small>
                 </h2>
