@@ -1,12 +1,13 @@
-import React from 'react';
+import React from "react";
+import "./LoadingPage.css";
 
-const Loading = () => {
-    return (
-        <div className='flex items-center justify-center'>
-            <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin
-         border-violet-400"></div>
-        </div>
-    );
+const LoadingPage = () => {
+  return (
+    <div>
+      <div class="loading loading--full-height"></div>
+      <div class="loading-2 loading-2--full-height"></div>
+    </div>
+  );
 };
 
-export default Loading;
+export default LoadingPage;

@@ -16,6 +16,8 @@ import pp from "../../assest/images/pp.jpg";
 import DisplayAvatar from "./DisplayAvatar/DisplayAvatar";
 import "./header.css";
 import LeftSideCard from "../../Pages/NewsFeed/LeftSideCard/LeftSideCard";
+import Loading from "../LoadingPage/LoadingPage";
+import CardLoader from "../LoadingPage/CardLoader/CardLoader";
 
 const Navbar = () => {
   const { logOut, user } = useContext(AuthContext);
@@ -25,17 +27,19 @@ const Navbar = () => {
     setIsOpen(!isOpen);
   };
 
-  // const [loading,setLoading] = useState(false)
+  const [loading,setLoading] = useState(false)
 
   const [currentUserDetails, setCurrentUserDetails] = useState();
   const waitTime = 1000;
 
   useEffect(() => {
+    setLoading(true)
     const id = setInterval(() => {
       fetch(`https://endgame-jobstack-server.vercel.app/user/${user?.email}`)
         .then((res) => res.json())
         .then((data) => {
           setCurrentUserDetails(data);
+          setLoading(false)
         });
     }, waitTime);
     return () => clearInterval(id);
@@ -198,54 +202,60 @@ const Navbar = () => {
                      
                    {/* card */}
 
-                   <div class="profile-container ">
-          <div class="profile-image">
-            {currentUserDetails?.profileImage ? (
-              <img src={currentUserDetails?.profileImage} alt="" />
-            ) : (
-              <img src={pp} alt="" />
-            )}
-          </div>
-          <div class="profile-details  text-black">
-            <Link to='/userProfile' className="hover:underline">
-            <p className="font-extrabold">
-              <small>{currentUserDetails?.name}</small>
-            </p>
-            </Link>
-            <p className="font-bold">
-              <small>{currentUserDetails?.email}</small>
-            </p>
-            <hr
-              style={{
-                marginTop:"12px",
-                color: "#000000",
-                backgroundColor: "#000000",
-                height: 0.5,
-                borderColor: "#000000",
-              }}
-            />
-            {currentUserDetails?.headline && (
-              <p>
-                <small>{currentUserDetails?.headline}</small>
-              </p>
-            )}
+                  {
+                    loading? <CardLoader></CardLoader> :
 
-            {/* others */}
-            <div >
-              <div className="mt-5">
-                <div className="flex items-center justify-between ">
-                  <h3 className=" font-extrabold">Connection </h3>
-                  <p className="font-bold text-blue-600 mt-1">21</p>
-                </div>
-
-                <button className="btn btn-outline btn-info mt-2 w-full" onClick={handleSignout}>
-                Sign Out
-              </button>
-                
-              </div>
-            </div>
-          </div>
-        </div>
+                    <div class="profile-container ">
+                    <Link to="/userProfile">
+                    <div class="profile-image">
+                      {currentUserDetails?.profileImage ? (
+                        <img src={currentUserDetails?.profileImage} alt="" />
+                      ) : (
+                        <img src={pp} alt="" />
+                      )}
+                    </div>
+                    </Link>
+                    <div class="profile-details  text-black">
+                      <Link to='/userProfile ' >
+                      <p className="font-extrabold hover:underline ">
+                        <small>{currentUserDetails?.name}</small>
+                      </p>
+                      </Link>
+                      <p className="font-bold">
+                        <small>{currentUserDetails?.email}</small>
+                      </p>
+                      <hr
+                        style={{
+                          marginTop:"12px",
+                          color: "#000000",
+                          backgroundColor: "#000000",
+                          height: 0.5,
+                          borderColor: "#000000",
+                        }}
+                      />
+                      {currentUserDetails?.headline && (
+                        <p>
+                          <small>{currentUserDetails?.headline}</small>
+                        </p>
+                      )}
+          
+                      {/* others */}
+                      <div >
+                        <div className="mt-5">
+                          <div className="flex items-center justify-between ">
+                            <h3 className=" font-extrabold ">Connection </h3>
+                            <p className="font-bold text-blue-600 mt-1">21</p>
+                          </div>
+          
+                          <button className="btn btn-outline btn-info mt-2 w-full" onClick={handleSignout}>
+                          Sign Out
+                        </button>
+                          
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  }
                     </div>
                   </ul>
                 )}

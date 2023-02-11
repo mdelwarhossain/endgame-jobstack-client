@@ -6,6 +6,7 @@ import Loading from "../../Shared/LoadingPage/LoadingPage";
 import Candidate from "./Candidate/Candidate";
 import pp from "../../assest/images/pp.jpg";
 import cp from "../../assest/images/cp.jpg";
+import CardLoader from "../../Shared/LoadingPage/CardLoader/CardLoader";
 
 const Hire = () => {
   const { user } = useContext(AuthContext);
@@ -66,7 +67,7 @@ const Hire = () => {
   console.log(data);
 
   if (isLoading) {
-    return <Loading></Loading>;
+    return <CardLoader></CardLoader>;
   }
 
   return (
@@ -79,7 +80,7 @@ const Hire = () => {
             ) : (
               <div className="max-w-xs drop-shadow-lg rounded-md shadow-md bg-lime-50  relative">
                 {currentUserDetails?.bannerImage ? (
-                  <img src={currentUserDetails.bannerImage} />
+                  <img src={currentUserDetails.bannerImage} alt=""/>
                 ) : (
                   <img
                     src={cp}

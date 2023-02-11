@@ -16,10 +16,12 @@ import EducationModal from "./EducationModal/EducationModal";
 import SkillsModal from "./SkillsModal/SkillsModal";
 import UserProjects from "./UserProjects/UserProjects";
 import DisplayProjects from "./DisplayProjects/DisplayProjects";
-import Loading from "../../Shared/LoadingPage/LoadingPage";
+import LoadingPage from "../../Shared/LoadingPage/LoadingPage";
+import CardLoader from "../../Shared/LoadingPage/CardLoader/CardLoader";
 
 const UserProfileInfo = () => {
   const [userDetails, setUserDetails] = useState();
+ 
   
   
 
@@ -46,7 +48,7 @@ console.log(userDetails);
   return (
     <div className="my-5">
       {
-        isLoading ? <Loading></Loading> :
+        isLoading ? <CardLoader></CardLoader> :
 
         <div
         className="max-w-full rounded-md relative"

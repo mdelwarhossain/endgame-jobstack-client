@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { useContext } from "react";
 import { AuthContext } from "../../../contexts/AuthProvider";
+import CardLoader from "../../../Shared/LoadingPage/CardLoader/CardLoader";
 
 const RealPost = () => {
   const { user } = useContext(AuthContext);
@@ -13,6 +14,7 @@ const RealPost = () => {
   const imageHostKey = "c8246134e51fb0e0cbdc4f35b003ee74";
 
   const [currentUserDetails, setCurrentUserDetails] = useState();
+  const [isBtnLoading,setIsBtnLoading] = useState(false)
   const waitTime = 1000;
 
   useEffect(() => {
@@ -41,6 +43,7 @@ const RealPost = () => {
     reset,
   } = useForm();
   const handleSub = (data) => {
+    setIsBtnLoading(true)
     const image = data.image[0];
     const formData = new FormData();
     formData.append("image", image);
@@ -72,24 +75,26 @@ const RealPost = () => {
               console.log(result);
               if (result.acknowledged) {
                 refetch();
+                setIsBtnLoading(false)
                 toast.success("post uploaded");
 
-                reset();
+                // reset();
               }
             });
         }
       });
   };
 
-  //old code
-  // const { data: posts = [], refetch } = useQuery({
-  //   queryKey: ["posts"],
-  //   queryFn: () =>
-  //     fetch("https://endgame-jobstack-server.vercel.app/allposts").then((res) => res.json()),
-  // });
+
+  useEffect(() =>{
+    if(!isBtnLoading){
+      reset()
+    }
+  },[isBtnLoading,reset])
+
   const [postss, setpost] = useState([]);
 
-  const { data: posts = [], refetch } = useQuery({
+  const { data: posts = [], refetch,isLoading } = useQuery({
     queryKey: ["posts"],
     queryFn: async () => {
       const res = await fetch("https://endgame-jobstack-server.vercel.app/allposts");
@@ -100,18 +105,11 @@ const RealPost = () => {
     },
   });
 
-  // const [posts, setposts] = useState([]);
-  // useEffect(() => {
-  //   fetch("https://endgame-jobstack-server.vercel.app/allposts")
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       setposts(data);
-  //       if (data.acknowledged) {
-  //         refetch();
-  //       }
-  //     })
-  //     .catch((error) => console.error(error));
-  // }, [refetch]);
+  if (isLoading) {
+    return <CardLoader></CardLoader>
+  }
+
+
   return (
     <div>
       <div className="mx-6 my-6">
@@ -139,17 +137,25 @@ const RealPost = () => {
             type="file"
             style={{ display: "none" }}
           />
-          <input
-            type="submit"
-            value="submit"
-            className="btn btn-primary btn-sm md:btn-md ml-1"
-          />
+         {!isBtnLoading ? (
+              <input
+                type="submit"
+                className="btn block  btn-outline btn-info"
+                value="upload"
+              />
+            ) : (
+              <input
+                type="submit"
+                className="btn block  btn-outline btn-info animated infinite pulse"
+                value="Uploading..."
+              />
+            )}
         </form>
       </div>
       {/* //post 2  */}
       <div>
         {postss.map((post) => (
-          <RealPostCard key={post._id} post={post}></RealPostCard>
+          <RealPostCard key={post._id}  post={post}></RealPostCard>
         ))}
       </div>
     </div>

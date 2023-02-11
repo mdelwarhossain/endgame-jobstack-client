@@ -6,6 +6,8 @@ import TopicsCard from '../TopicsCard/TopicsCard';
 
 const Quiz = () => {
 
+    const [loading, setLoading] = useState(true);
+
     const loaderData = useLoaderData()
     const quizData = loaderData.data;
     return (

@@ -13,6 +13,7 @@ import { AuthContext } from "../../contexts/AuthProvider";
 import { InfoContext } from "../../contexts/UserInfoProvider";
 import { GiCandlebright } from "react-icons/gi";
 import LimitCourses from "../NewsFeed/LeftSideCard/Courses/LimitCourses";
+import CardLoader from "../../Shared/LoadingPage/CardLoader/CardLoader";
 
 const Jobs = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -62,7 +63,7 @@ const Jobs = () => {
   console.log(singleUser);
 
   if (isLoading) {
-    return <Loading></Loading>
+    return <CardLoader></CardLoader>
   }
 
   const handleSignout = () => {
