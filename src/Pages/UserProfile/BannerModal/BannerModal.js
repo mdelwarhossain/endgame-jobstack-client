@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { FaImages } from "react-icons/fa";
@@ -6,7 +6,7 @@ import { FaImages } from "react-icons/fa";
 
 const BannerModal = ({ userDetails, userData, isLoading, refetch }) => {
 
-  // const [isBtnLoading, setIsBtnLoading] = useState(false);
+  const [isBtnLoading, setIsBtnLoading] = useState(false);
 
 
     // const userEmail = userData[0]?.email;
@@ -22,7 +22,7 @@ const BannerModal = ({ userDetails, userData, isLoading, refetch }) => {
 
       const handleSub = (data) => {
         console.log(data)
-        // setIsBtnLoading(true)
+        setIsBtnLoading(true)
 
         
 
@@ -59,18 +59,23 @@ const BannerModal = ({ userDetails, userData, isLoading, refetch }) => {
                 .then((data) => {
                   if (data.modifiedCount) {
                     refetch()
+                    setIsBtnLoading(false);
                     toast.success("Cover photo added");
+
                   }
                 });
             };
           });
 
-          // setTimeout(() => {
-          //   setIsBtnLoading(false);
-          // }, 2000);
-
-          
       };
+
+      useEffect(() => {
+        if (!isBtnLoading) {
+          reset();
+        }
+      }, [isBtnLoading, reset]);
+    
+
   return (
     <div>
       <input type="checkbox" id="banner-modal" className="modal-toggle" />
@@ -90,8 +95,19 @@ const BannerModal = ({ userDetails, userData, isLoading, refetch }) => {
           type="file"
           style={{ display: "none" }}
         />
-        <input 
-        type="submit" className="btn btn-outline btn-info" value='Upload'/>
+        {!isBtnLoading ? (
+              <input
+                type="submit"
+                className="btn block mt-5 btn-outline btn-info"
+                value="upload"
+              />
+            ) : (
+              <input
+                type="submit"
+                className="btn block mt-5 btn-outline btn-info animated infinite pulse"
+                value="Uploading..."
+              />
+            )}
     </form>
   </div>
 </div>

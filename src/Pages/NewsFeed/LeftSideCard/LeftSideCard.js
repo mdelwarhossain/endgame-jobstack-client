@@ -5,6 +5,8 @@ import pp from "../../../assest/images/pp.jpg";
 import cp from "../../../assest/images/cp.jpg";
 import Loading from "../../../Shared/LoadingPage/LoadingPage";
 import { FaHandPointRight } from 'react-icons/fa';
+import CardLoader from "../../../Shared/LoadingPage/CardLoader/CardLoader";
+import LoadingPage from "../../../Shared/LoadingPage/LoadingPage";
 
 const LeftSideCard = () => {
   const { user } = useContext(AuthContext);
@@ -28,7 +30,9 @@ const LeftSideCard = () => {
   return (
     <div className="my-5 ">
       {loading ? (
-        <Loading></Loading>
+       <div>
+       <LoadingPage></LoadingPage>
+       </div>
       ) : (
 
         <div class="profile-container">

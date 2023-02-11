@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { FaImages } from "react-icons/fa";
@@ -6,6 +6,8 @@ import { FaImages } from "react-icons/fa";
 const ProImgModal = ({ userDetails, userData, isLoading, refetch }) => {
   const userEmail = userDetails?.email;
   const imageHostKey = "c8246134e51fb0e0cbdc4f35b003ee74";
+
+  const [isBtnLoading, setIsBtnLoading] = useState(false);
 
   const {
     register,
@@ -15,6 +17,7 @@ const ProImgModal = ({ userDetails, userData, isLoading, refetch }) => {
   } = useForm();
 
   const handleUpload = (data) => {
+    setIsBtnLoading(true);
     console.log(data);
     const image = data.image[0];
     console.log(image);
@@ -33,23 +36,33 @@ const ProImgModal = ({ userDetails, userData, isLoading, refetch }) => {
             profileImage: imgData.data.url,
           };
 
-          fetch(`https://endgame-jobstack-server.vercel.app/user/${userEmail}`, {
-            method: "PUT",
-            headers: {
-              "content-type": "application/json",
-            },
-            body: JSON.stringify(update),
-          })
+          fetch(
+            `https://endgame-jobstack-server.vercel.app/user/${userEmail}`,
+            {
+              method: "PUT",
+              headers: {
+                "content-type": "application/json",
+              },
+              body: JSON.stringify(update),
+            }
+          )
             .then((res) => res.json())
             .then((data) => {
               if (data.modifiedCount) {
                 refetch();
+                setIsBtnLoading(false);
                 toast.success("Profile Picture added");
               }
             });
         }
       });
   };
+
+  useEffect(() => {
+    if (!isBtnLoading) {
+      reset();
+    }
+  }, [isBtnLoading, reset]);
 
   return (
     <div>
@@ -65,11 +78,20 @@ const ProImgModal = ({ userDetails, userData, isLoading, refetch }) => {
           <h3 className="text-lg mb-5 font-bold">Upload a Profile Picture</h3>
           <form onSubmit={handleSubmit(handleUpload)}>
             <input type="file" name="image" {...register("image")} />
-            <input
-              type="submit"
-              className="btn block mt-5 btn-outline btn-info"
-              value="Upload"
-            />
+            {!isBtnLoading ? (
+              <input
+                type="submit"
+                className="btn block mt-5 btn-outline btn-info"
+                value="upload"
+              />
+            ) : (
+              <input
+                loading
+                type="submit"
+                className="btn block mt-5 btn-outline btn-info animated infinite pulse"
+                value="Uploading..."
+              />
+            )}
           </form>
         </div>
       </div>

@@ -6,6 +6,8 @@ import { AuthContext } from "../../../contexts/AuthProvider";
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import CreatePost from "../CreatePost/CreatePost";
+import LoadingPage from "../../../Shared/LoadingPage/LoadingPage";
+import CardLoader from "../../../Shared/LoadingPage/CardLoader/CardLoader";
 
 const RealPostCard = ({ post }) => {
   const { user } = useContext(AuthContext);
@@ -79,7 +81,7 @@ const RealPostCard = ({ post }) => {
 
   return (
     <div>
-      <div className="rounded-md shadow-md max-w-full bg-gray-200  my-5 mx-12">
+     <div className="rounded-md shadow-md max-w-full bg-gray-200  my-5 mx-12">
         <div className="flex items-center justify-between p-3">
           <div className="flex items-center space-x-2">
             {/* will work on it next later */}

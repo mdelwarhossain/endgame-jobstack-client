@@ -1,14 +1,20 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import CardLoader from '../../Shared/LoadingPage/CardLoader/CardLoader';
 import SingleCourse from './SingleCourse';
 
 const Courses = () => {
     const [AllData, setAllData] = useState([])
+    const [isLoading,setIsLoading]  = useState(false)
     useEffect(()=>{
+        setIsLoading(true)
         fetch(`https://endgame-jobstack-server.vercel.app/Course`)
         .then(res=>res.json())
-        .then(data=> setAllData(data))
+        .then(data=> {
+            setAllData(data)
+            setIsLoading(false)
+        })
     },[])
     
     const [courseData, setCourseData] = useState(null)
@@ -16,7 +22,10 @@ const Courses = () => {
    
     return (
         <div className='allContainer'>
-           <div>
+           {
+            isLoading? <CardLoader></CardLoader> :
+
+            <div>
              <div className='py-6 '>
              <h1 className='text-xl font-bold text-center'>Courses We Provide</h1>
              </div>
@@ -48,6 +57,7 @@ const Courses = () => {
                 courseData={courseData}
             ></SingleCourse>
            </div>
+           }
         </div>
     );
 };
