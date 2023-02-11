@@ -26,11 +26,11 @@ const LeftSideCard = () => {
     return () => clearInterval(id);
   }, [user?.email]);
   return (
-    <div className="my-5">
+    <div className="my-5 ">
       {loading ? (
         <Loading></Loading>
       ) : (
-        
+
         <div class="profile-container">
           <div class="banner-image">
             {currentUserDetails?.bannerImage ? (
