@@ -42,7 +42,7 @@ const CandidateProfile = () => {
         };
 
         // save friend to the database
-        fetch(`https://endgame-jobstack-server.vercel.app/friend/${user?.email}`, {
+        fetch(`http://localhost:5000/friend/${user?.email}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json",
