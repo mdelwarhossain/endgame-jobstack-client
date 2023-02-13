@@ -71,7 +71,7 @@ const MyJobPost = () => {
                     </div>
                 </div>
       </div> */}
-      <div className="px-4 grid grid-cols-1 md:w-2/3 mx-auto my-10 gap-4">
+      <div className="px-4 grid allContainer grid-cols-1 md:w-2/3 mx-auto my-10 gap-4">
       <div className="">
         {
           data?.map(post => <JobPostCard

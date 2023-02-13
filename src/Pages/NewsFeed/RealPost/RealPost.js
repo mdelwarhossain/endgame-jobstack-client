@@ -7,6 +7,7 @@ import { toast } from "react-hot-toast";
 import { useContext } from "react";
 import { AuthContext } from "../../../contexts/AuthProvider";
 import CardLoader from "../../../Shared/LoadingPage/CardLoader/CardLoader";
+import LoadingPage from "../../../Shared/LoadingPage/LoadingPage";
 
 const RealPost = () => {
   const { user } = useContext(AuthContext);
@@ -105,9 +106,9 @@ const RealPost = () => {
     },
   });
 
-  if (isLoading) {
-    return <CardLoader></CardLoader>
-  }
+  // if (isLoading) {
+  //   return <CardLoader></CardLoader>
+  // }
 
 
   return (
@@ -153,11 +154,15 @@ const RealPost = () => {
         </form>
       </div>
       {/* //post 2  */}
+     {
+      isLoading? <CardLoader></CardLoader> :
+
       <div>
-        {postss.map((post) => (
-          <RealPostCard key={post._id}  post={post}></RealPostCard>
-        ))}
-      </div>
+      {postss.map((post) => (
+        <RealPostCard key={post._id}   post={post}></RealPostCard>
+      ))}
+    </div>
+     }
     </div>
   );
 };
