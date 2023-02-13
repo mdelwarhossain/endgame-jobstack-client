@@ -14,7 +14,7 @@ const MyConnections = () => {
         queryKey: ['friends'],
         queryFn: async () => {
             try {
-                const res = await fetch(`https://endgame-jobstack-server.vercel.app/friends/${user?.email}`, {
+                const res = await fetch(`http://localhost:5000/friends/${user?.email}`, {
                     headers: {
                         authorization: `bearer ${localStorage.getItem('accessToken')}`
                     }
@@ -53,7 +53,7 @@ const MyConnections = () => {
                             <div>
                                 {
                                     data?.map(friend => <MyConnectionsCard
-                                        key={friend._id}
+                                        // key={friend._id}
                                         friend={friend}
                                     ></MyConnectionsCard>)
                                 }
