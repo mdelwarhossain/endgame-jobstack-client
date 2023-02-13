@@ -24,7 +24,7 @@ const Messenger = () => {
   
 
   useEffect(() =>{
-    fetch(`https://endgame-jobstack-server.vercel.app/chatUser/${user?.email}`)
+    fetch(`http://localhost:5000/friends/${user?.email}`)
     .then(res => res.json())
     .then(data =>setAllUsers(data) )
 
