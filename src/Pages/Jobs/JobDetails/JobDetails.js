@@ -5,7 +5,7 @@ const JobDetails = () => {
     const data = useLoaderData();
     console.log(data);
     return (
-        <div className='md:w-1/2 mx-auto my-5'>
+        <div className='md:w-1/2 allContainer mx-auto my-5'>
             <div>
                 <div className='grid grid-cols-8'>
                     <div className="avatar col-span-1 mx-4 mt-4">

@@ -37,6 +37,7 @@ import Recruiter from "../Pages/Dashboard/Recruiter/Recruiter";
 import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
 import Question from "../Pages/Question/Question";
 import Messenger from "../Pages/Messenger/Messenger";
+import PostDetails from "../Pages/UserProfile/MyProfile/PostDetails";
 
 
 
@@ -146,6 +147,15 @@ const router = createBrowserRouter([
           <PrivateRoute>
             <UserProfile></UserProfile>
           </PrivateRoute>
+        ),
+      },
+      {
+        path: "/postDetails/:id",
+        element: (
+          <PrivateRoute>
+           <PostDetails></PostDetails>
+          </PrivateRoute>
+          
         ),
       },
       {

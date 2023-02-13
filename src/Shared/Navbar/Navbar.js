@@ -18,6 +18,7 @@ import "./header.css";
 import LeftSideCard from "../../Pages/NewsFeed/LeftSideCard/LeftSideCard";
 import Loading from "../LoadingPage/LoadingPage";
 import CardLoader from "../LoadingPage/CardLoader/CardLoader";
+import LoadingPage from "../LoadingPage/LoadingPage";
 
 const Navbar = () => {
   const { logOut, user } = useContext(AuthContext);
@@ -203,7 +204,7 @@ const Navbar = () => {
                    {/* card */}
 
                   {
-                    loading? <CardLoader></CardLoader> :
+                    loading? <LoadingPage></LoadingPage> :
 
                     <div class="profile-container ">
                     <Link to="/userProfile">
