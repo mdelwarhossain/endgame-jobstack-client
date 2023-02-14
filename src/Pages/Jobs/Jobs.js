@@ -20,7 +20,7 @@ const Jobs = () => {
   const { user, logOut } = useContext(AuthContext);
   const { userDetails } = useContext(InfoContext);
   const [limitCourse,setLimitCourse] = useState([])
-  console.log(userDetails);
+  // console.log(userDetails);
   const { data: jobs = [], isLoading } = useQuery({
     queryKey: ["jobs"],
     queryFn: async () => {
@@ -35,7 +35,7 @@ const Jobs = () => {
       } catch (error) { }
     },
   });
-  console.log(jobs);
+  // console.log(jobs);
 
   useEffect(() =>{
     fetch('https://endgame-jobstack-server.vercel.app/limitCourse')
@@ -60,7 +60,7 @@ const Jobs = () => {
       }
     }
   });
-  console.log(singleUser);
+  // console.log(singleUser);
 
   if (isLoading) {
     return <CardLoader></CardLoader>
@@ -100,7 +100,7 @@ const Jobs = () => {
         </div>
       </div>
       <div className="col-span-4 shadow-2xl my-5">
-        <div className="p-8 bg-slate-500">
+        <div className="p-8 bg-green-700">
           <label className="label">
             {" "}
             <span className="label-text text-xl font-bold text-white">
@@ -119,7 +119,7 @@ const Jobs = () => {
         {/* {jobs?.map((job) => (
           <JobCard key={job._id} job={job}></JobCard>
         ))} */}
-        <div className="bg-slate-100">
+        <div>
           {jobs
             .filter((job) => {
               if (searchTerm == "") {

@@ -5,22 +5,22 @@ import "./RightbarMessage.css";
 
 const RighBarMessenger = ({ currentFriend }) => {
   return (
-    <div class="profile-container">
-      <div class="banner-image">
+    <div className="profile-container">
+      <div className="banner-image">
         {currentFriend?.bannerImage ? (
           <img src={currentFriend?.bannerImage} alt="" />
         ) : (
           <img src={cp} alt="" />
         )}
       </div>
-      <div class="profile-image">
+      <div className="profile-image">
         {currentFriend?.profileImage ? (
           <img src={currentFriend?.profileImage} alt="" />
         ) : (
           <img src={pp} alt="" />
         )}
       </div>
-      <div class="profile-details">
+      <div className="profile-details">
         <p className="font-bold">
           <small>{currentFriend?.name}</small>
         </p>

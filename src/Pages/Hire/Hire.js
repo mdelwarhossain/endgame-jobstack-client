@@ -45,7 +45,7 @@ const Hire = () => {
       } catch (error) {}
     },
   });
-  console.log(data);
+  // console.log(data);
 
   const { data: singleUser } = useQuery({
     queryKey: ["user"],
@@ -64,7 +64,7 @@ const Hire = () => {
       } catch (error) {}
     },
   });
-  console.log(data);
+  // console.log(data);
 
   if (isLoading) {
     return <CardLoader></CardLoader>;

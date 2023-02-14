@@ -22,8 +22,8 @@ const CandidateProfile = () => {
                 <p className='mb-7'>{data.headline}</p>
                 <p>{data.about}</p>
                 <div className='my-5 flex justify-center'>
-                    <p className='btn  btn-secondary'><span className='mr-5'>resume</span> <FaFileDownload className='text-2xl'></FaFileDownload></p>
-                    <Link to='/messenger'><p className='btn  btn-primary ml-5'>contact</p></Link>
+                    <p className='btn  bg-green-700 hover:bg-green-500 text-white font-bold py-2 px-4 rounded'><span className='mr-5'>resume</span> <FaFileDownload className='text-2xl'></FaFileDownload></p>
+                    <Link to='/messenger'><p className='btn bg-green-700 hover:bg-green-500 text-white font-bold py-2 px-4 rounded ml-5'>contact</p></Link>
                 </div>
             </div>
         </div>
