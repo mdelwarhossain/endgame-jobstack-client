@@ -79,7 +79,7 @@ const Hire = () => {
                     </div>
                 </div>
             </div> */}
-            <div className="">
+            <div className="allContainer">
                 <div className='p-7'>
                     <h2 className="text-4xl my-10 bg-gray-200 p-2">Looking for qualified candidate?</h2>
                     <p className='text-4xl font-bold mb-10 text-primary'>Simply Post Your Job</p>

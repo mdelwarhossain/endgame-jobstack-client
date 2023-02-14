@@ -37,6 +37,7 @@ import Recruiter from "../Pages/Dashboard/Recruiter/Recruiter";
 import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
 import Question from "../Pages/Question/Question";
 import Messenger from "../Pages/Messenger/Messenger";
+import PostDetails from "../Pages/UserProfile/MyProfile/PostDetails";
 
 
 
@@ -125,13 +126,24 @@ const router = createBrowserRouter([
         },
         element: <Quiz></Quiz>,
       },
+      // {
+      //   path: '/post/:postId',
+      //   loader: async ({ params }) => {
+      //     return fetch(`https://openapi.programming-hero.com/api/quiz/${params.postId}`)
+      //   },
+      //   element: <Question></Question>
+      // },
+
       {
         path: '/post/:postId',
         loader: async ({ params }) => {
-          return fetch(`https://openapi.programming-hero.com/api/quiz/${params.postId}`)
+          return fetch(`https://openapi.programming-hero.com/api/quiz/${params.postId}`, {
+            mode: 'no-cors'
+          });
         },
-        element: <Question></Question>
+        element: <Question />
       },
+      
       {
         path: "/addajob",
         element: (
@@ -146,6 +158,15 @@ const router = createBrowserRouter([
           <PrivateRoute>
             <UserProfile></UserProfile>
           </PrivateRoute>
+        ),
+      },
+      {
+        path: "/postDetails/:id",
+        element: (
+          <PrivateRoute>
+           <PostDetails></PostDetails>
+          </PrivateRoute>
+          
         ),
       },
       {

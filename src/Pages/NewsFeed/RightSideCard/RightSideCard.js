@@ -20,7 +20,7 @@ const RightSideCard = () => {
                             <h3 className='text-sm'>Hr Professional</h3>
                         </Link>
                         <Link to='#'>
-                            <button className='btn btn-outline btn-info btn-sm mt-2'>
+                            <button className='bg-[#2E8B57] mt-2 hover:bg-green-900 text-white font-bold btn-sm'>
                                 + Fllow
                             </button>
                         </Link>
@@ -35,7 +35,7 @@ const RightSideCard = () => {
                             <h3 className='text-sm'>Coach Professional</h3>
                         </Link>
                         <Link to='#'>
-                            <button className='btn btn-outline btn-info btn-sm mt-2'>
+                            <button className='bg-[#2E8B57] mt-2 hover:bg-green-900 text-white font-bold btn-sm'>
                                 + Fllow
                             </button>
                         </Link>
@@ -49,7 +49,7 @@ const RightSideCard = () => {
                             <h3 className='text-sm'>Football Professional</h3>
                         </Link>
                         <Link to='#'>
-                            <button className='btn btn-outline btn-info btn-sm mt-2'>
+                            <button className='bg-[#2E8B57] mt-2 hover:bg-green-900 text-white font-bold btn-sm'>
                                 + Fllow
                             </button>
                         </Link>
@@ -57,7 +57,7 @@ const RightSideCard = () => {
                 </div>
 
             </div>
-            <Link to="/network"><button className="btn  btn-primary">See More</button></Link>
+            <Link to="/network"><button className="bg-green-700 hover:bg-green-500 text-white font-bold py-2 px-4 rounded">See More</button></Link>
             <Link to='/myconnections'>
                 <h3 className='ml-3 underline mt-4 text-blue-500'>View All recommendations <span className='font-bold'> &#8594; </span></h3>
             </Link>

@@ -3,9 +3,9 @@ import "./CardLoader.css"
 
 const CardLoader = () => {
   return (
-    <div class="loadContainer">
-    <div class="circle">
-      <div class="square">
+    <div className="loadContainer">
+    <div className="circle">
+      <div className="square">
       </div>
   </div>
 </div>

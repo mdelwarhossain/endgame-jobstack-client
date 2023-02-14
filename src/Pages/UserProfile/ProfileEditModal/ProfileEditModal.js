@@ -23,7 +23,7 @@ const ProfileEditModal = ({ userDetails, userData, isLoading, refetch }) => {
       name:data.name,
       headline: data.headline,
      }
-     console.log(updatedInfo)
+    //  console.log(updatedInfo)
 
      fetch(`https://endgame-jobstack-server.vercel.app/user/${userEmail}`, {
             method: "PUT",

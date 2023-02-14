@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import LoadingPage from "../../../../Shared/LoadingPage/LoadingPage";
 
 const LimitCourses = ({course}) => {
-  console.log(course)
+  // console.log(course)
  
   return (
     
@@ -18,7 +18,7 @@ const LimitCourses = ({course}) => {
 
         <div className="flex justify-between mt-5 items-center">
         <p className="font-extrabold ">{course?.name}</p>
-        <p className="badge badge-info font-bold p-3">Free</p>
+        <p className="badge bg-green-700 text-white font-bold p-3">Free</p>
         </div>
       </div>
 

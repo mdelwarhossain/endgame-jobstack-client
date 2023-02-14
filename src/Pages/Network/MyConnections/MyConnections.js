@@ -53,7 +53,7 @@ const MyConnections = () => {
                             <div>
                                 {
                                     data?.map(friend => <MyConnectionsCard
-                                        key={friend._id}
+                                        // key={friend._id}
                                         friend={friend}
                                     ></MyConnectionsCard>)
                                 }

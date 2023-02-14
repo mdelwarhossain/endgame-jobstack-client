@@ -13,6 +13,7 @@ const RealPostCard = ({ post }) => {
   const { user } = useContext(AuthContext);
   const [like, setlike] = useState(post.likes);
   const [isActive, setIsActive] = useState(false);
+  // console.log(post)
 
   // console.log(user?.name);
   const handleLike = () => {
@@ -78,6 +79,10 @@ const RealPostCard = ({ post }) => {
       return data;
     },
   });
+
+  //  if (isLoading) {
+  //   return <CardLoader></CardLoader>
+  // }
 
   return (
     <div>

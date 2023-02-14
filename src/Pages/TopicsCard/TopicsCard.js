@@ -13,17 +13,17 @@ const TopicsCard = ({ quiz }) => {
 
             <div className='grid place-items-center font-mono'>
 
-                <div class="bg-amber-50 h-84 rounded-md shadow-2xl">
-                    <div class="flex justify-center items-center leading-none">
+                <div className="bg-amber-50 h-84 rounded-md shadow-2xl">
+                    <div className="flex justify-center items-center leading-none">
                         <img
                             src={quiz.logo}
                             alt="pic"
-                            class="h-40 bg-blue-400  rounded-md shadow-2xl mt-6 transform -translate-y-10 hover:-translate-y-4 transition duration-700"
+                            className="h-40 bg-blue-400  rounded-md shadow-2xl mt-6 transform -translate-y-10 hover:-translate-y-4 transition duration-700"
                         />
                     </div>
-                    <div class="p-3">
-                        <p class="block mb-1 text-2xl font-bold  text-cyan-900"> Name:{quiz.name}</p>
-                        <p class="text-md font-semibold tracking-tighter  text-cyan-900">
+                    <div className="p-3">
+                        <p className="block mb-1 text-2xl font-bold  text-cyan-900"> Name:{quiz.name}</p>
+                        <p className="text-md font-semibold tracking-tighter  text-cyan-900">
                             Total quiz :: {quiz.total}
                         </p>
                     </div>
