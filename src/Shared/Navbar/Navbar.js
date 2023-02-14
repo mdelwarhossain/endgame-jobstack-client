@@ -31,20 +31,47 @@ const Navbar = () => {
   const [loading,setLoading] = useState(false)
 
   const [currentUserDetails, setCurrentUserDetails] = useState();
-  const waitTime = 1000;
+  // const waitTime = 1000;
 
-  useEffect(() => {
-    setLoading(true)
-    const id = setInterval(() => {
-      fetch(`http://localhost:5000/user/${user?.email}`)
-        .then((res) => res.json())
-        .then((data) => {
-          setCurrentUserDetails(data);
-          setLoading(false)
-        });
-    }, waitTime);
-    return () => clearInterval(id);
-  }, [user?.email]);
+  // useEffect(() => {
+  //   setLoading(true)
+  //   const id = setInterval(() => {
+  //     fetch(`https://endgame-jobstack-server.vercel.app/user/${user?.email}`)
+  //       .then((res) => res.json())
+  //       .then((data) => {
+  //         setCurrentUserDetails(data);
+  //         setLoading(false)
+  //       });
+  //   }, waitTime);
+  //   return () => clearInterval(id);
+  // }, [user?.email]);
+
+
+  const waitTime = 5000;
+
+useEffect(() => {
+  setLoading(true)
+  const id = setInterval(() => {
+    fetch(`https://endgame-jobstack-server.vercel.app/user/${user?.email}`)
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        } else {
+          throw new Error('Something went wrong with the fetch request');
+        }
+      })
+      .then((data) => {
+        setCurrentUserDetails(data);
+        setLoading(false)
+      })
+      .catch((error) => {
+        // console.error(error);
+        setLoading(false);
+      });
+  }, waitTime);
+  return () => clearInterval(id);
+}, [user?.email]);
+
 
   const handleSignout = () => {
     logOut()
@@ -206,9 +233,9 @@ const Navbar = () => {
                   {
                     loading? <LoadingPage></LoadingPage> :
 
-                    <div class="profile-container ">
+                    <div className="profile-container ">
                     <Link to="/userProfile">
-                    <div class="profile-image">
+                    <div className="profile-image">
                       {currentUserDetails?.profileImage ? (
                         <img src={currentUserDetails?.profileImage} alt="" />
                       ) : (
@@ -216,7 +243,7 @@ const Navbar = () => {
                       )}
                     </div>
                     </Link>
-                    <div class="profile-details  text-black">
+                    <div className="profile-details  text-black">
                       <Link to='/userProfile ' >
                       <p className="font-extrabold hover:underline ">
                         <small>{currentUserDetails?.name}</small>
@@ -248,7 +275,7 @@ const Navbar = () => {
                             <p className="font-bold text-blue-600 mt-1">21</p>
                           </div>
           
-                          <button className="btn btn-outline btn-info mt-2 w-full" onClick={handleSignout}>
+                          <button className="bg-green-700 hover:bg-green-500 text-white font-bold py-2 px-4 rounded" onClick={handleSignout}>
                           Sign Out
                         </button>
                           

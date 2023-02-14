@@ -35,22 +35,22 @@ const LeftSideCard = () => {
        </div>
       ) : (
 
-        <div class="profile-container">
-          <div class="banner-image">
+        <div className="profile-container">
+          <div className="banner-image">
             {currentUserDetails?.bannerImage ? (
               <img src={currentUserDetails?.bannerImage} alt="" />
             ) : (
               <img src={cp} alt="" />
             )}
           </div>
-          <div class="profile-image">
+          <div className="profile-image">
             {currentUserDetails?.profileImage ? (
               <img src={currentUserDetails?.profileImage} alt="" />
             ) : (
               <img src={pp} alt="" />
             )}
           </div>
-          <div class="profile-details">
+          <div className="profile-details">
             <Link to='/userProfile' className="hover:underline">
             <p className="font-extrabold">
               <small>{currentUserDetails?.name}</small>

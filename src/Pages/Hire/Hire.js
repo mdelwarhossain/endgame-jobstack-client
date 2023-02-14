@@ -29,9 +29,27 @@ const Hire = () => {
       } catch (error) {}
     },
   });
-  console.log(data);
+  // console.log(data);
 
 
+  const { data: singleUser } = useQuery({
+    queryKey: ["user"],
+    queryFn: async () => {
+      try {
+        const res = await fetch(
+          `https://endgame-jobstack-server.vercel.app/user/${user?.email}`,
+          {
+            headers: {
+              authorization: `bearer ${localStorage.getItem("accessToken")}`,
+            },
+          }
+        );
+        const data = await res.json();
+        return data;
+      } catch (error) {}
+    },
+  });
+  // console.log(data);
 
   if (isLoading) {
     return <CardLoader></CardLoader>;

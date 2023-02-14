@@ -133,13 +133,24 @@ const router = createBrowserRouter([
         },
         element: <Quiz></Quiz>,
       },
+      // {
+      //   path: '/post/:postId',
+      //   loader: async ({ params }) => {
+      //     return fetch(`https://openapi.programming-hero.com/api/quiz/${params.postId}`)
+      //   },
+      //   element: <Question></Question>
+      // },
+
       {
         path: '/post/:postId',
         loader: async ({ params }) => {
-          return fetch(`https://openapi.programming-hero.com/api/quiz/${params.postId}`)
+          return fetch(`https://openapi.programming-hero.com/api/quiz/${params.postId}`, {
+            mode: 'no-cors'
+          });
         },
-        element: <Question></Question>
+        element: <Question />
       },
+      
       {
         path: "/addajob",
         element: (

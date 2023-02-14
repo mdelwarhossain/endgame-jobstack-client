@@ -5,7 +5,7 @@ import { toast } from "react-hot-toast";
 
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
-import Animation from "./Animation/Animation";
+import image from "../../../src/assest/images/login_image.png";
 
 const SignUp = () => {
   const {
@@ -75,50 +75,52 @@ const SignUp = () => {
   };
 
   return (
-    <div className="flex justify-around " data-theme="night">
-      <div className="mt-20 ">
-        <Animation></Animation>
-      </div>
-      {/* form */}
-      <div className="border-solid border-2 border-sky-200 ... rounded-md shadow-2xl shadow-slate-400 my-16">
-        <div className="h-[800px] flex mt-10">
-          <div className="w-96 p-7 ">
-            <h2 className="text-xl text-center">Sign Up</h2>
-            <form onSubmit={handleSubmit(handleSignUp)}>
-              <div className="form-control w-full max-w-xs">
-                <label className="label">
-                  {" "}
-                  <span className="label-text">Name</span>
-                </label>
-                <input
-                  placeholder="Full Name"
-                  type="text"
-                  {...register("name", {
-                    required: "Name is Required",
-                  })}
-                  className="input input-bordered w-full max-w-xs"
-                />
-                {errors.name && (
-                  <p className="text-red-500">{errors.name.message}</p>
-                )}
-              </div>
-              <div className="form-control w-full max-w-xs">
-                <label className="label">
-                  {" "}
-                  <span className="label-text">Email</span>
-                </label>
-                <input
-                  type="email"
-                  {...register("email", {
-                    required: true,
-                  })}
-                  className="input input-bordered w-full max-w-xs"
-                />
-                {errors.email && (
-                  <p className="text-red-500">{errors.email.message}</p>
-                )}
-              </div>
-              {/* <div className="form-control w-full max-w-xs">
+    <section className="py-20" data-theme="night">
+      <hr />
+      <div className="flex justify-around mt-7" >
+        <div className="hidden md:block">
+          <img src={image} alt="img" style={{ height: '500px', width: '550px' }} />
+        </div>
+        <div className="w-96 p-7 mx-4 border-solid border-2 border-sky-200 ... rounded-md shadow-md shadow-slate-400">
+          <div className="">
+            <div className="">
+              <h2 className="text-2xl text-center font-bold text-white">Sign Up</h2>
+              <form onSubmit={handleSubmit(handleSignUp)}>
+                <div className="form-control w-full max-w-xs">
+                  <label className="label">
+                    {" "}
+                    <span className="label-text text-white">Name</span>
+                  </label>
+                  <input
+                    placeholder="Enter your name"
+                    type="text"
+                    {...register("name", {
+                      required: "Name is Required",
+                    })}
+                    className="input input-bordered input-success w-full max-w-xs"
+                  />
+                  {errors.name && (
+                    <p className="text-red-500">{errors.name.message}</p>
+                  )}
+                </div>
+                <div className="form-control w-full max-w-xs">
+                  <label className="label">
+                    {" "}
+                    <span className="label-text text-white">Email</span>
+                  </label>
+                  <input
+                    type="email"
+                    placeholder="Enter your email"
+                    {...register("email", {
+                      required: true,
+                    })}
+                    className="input input-bordered input-success w-full max-w-xs"
+                  />
+                  {errors.email && (
+                    <p className="text-red-500">{errors.email.message}</p>
+                  )}
+                </div>
+                {/* <div className="form-control w-full max-w-xs">
 
             <label className="label">
               {" "}
@@ -167,71 +169,73 @@ const SignUp = () => {
               <p className="text-red-500">{errors.image.message}</p>
             )}
           </div> */}
-              <div className="form-control w-full max-w-xs">
-                <label className="label">
-                  {" "}
-                  <span className="label-text">Password</span>
-                </label>
-                <input
-                  type="password"
-                  {...register("password", {
-                    required: "Password is required",
-                    minLength: {
-                      value: 6,
-                      message: "Password must be 6 characters long",
-                    },
-                    pattern: {
-                      value: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])/,
-                      message:
-                        "Password must have uppercase, number and special characters",
-                    },
-                  })}
-                  className="input input-bordered w-full max-w-xs"
-                />
-                {errors.password && (
-                  <p className="text-red-500">{errors.password.message}</p>
-                )}
-              </div>
-              <div className="form-control w-full max-w-xs">
-                <label className="label">
-                  <span className="label-text">Role</span>
-                </label>
-                <select
-                  {...register("role")}
-                  className="select select-bordered  w-full max-w-xs"
-                >
-                  {/* <option disabled selected>
+                <div className="form-control w-full max-w-xs">
+                  <label className="label">
+                    {" "}
+                    <span className="label-text text-white">Password</span>
+                  </label>
+                  <input
+                    type="password"
+                    placeholder="Enter your password"
+                    {...register("password", {
+                      required: "Password is required",
+                      minLength: {
+                        value: 6,
+                        message: "Password must be 6 characters long",
+                      },
+                      pattern: {
+                        value: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])/,
+                        message:
+                          "Password must have uppercase, number and special characters",
+                      },
+                    })}
+                    className="input input-bordered input-success w-full max-w-xs"
+                  />
+                  {errors.password && (
+                    <p className="text-red-500">{errors.password.message}</p>
+                  )}
+                </div>
+                <div className="form-control w-full max-w-xs">
+                  <label className="label">
+                    <span className="label-text text-white">Role</span>
+                  </label>
+                  <select
+                    {...register("role")}
+                    className="select select-bordered select-success select-sm w-full max-w-xs"
+                  >
+                    {/* <option disabled selected>
                 Pick your Role
               </option> */}
-                  <option>JobSeeker</option>
-                  <option>Recruiter</option>
-                </select>
-              </div>
-              <input
-                className="btn btn-accent w-full mt-4"
-                value="Sign Up"
-                type="submit"
-              />
-              {signUpError && <p className="text-red-600">{signUpError}</p>}
-            </form>
-            <p>
-              Already have an account{" "}
-              <Link className="text-orange-500" to="/login">
-                Please Login
-              </Link>
-            </p>
-            <div className="divider">OR</div>
-            <button
-              onClick={handleGoogleSignIn}
-              className="btn btn-outline btn-success w-full"
-            >
-              CONTINUE WITH GOOGLE
-            </button>
+                    <option>JobSeeker</option>
+                    <option>Recruiter</option>
+                  </select>
+                </div>
+                <input
+                  className="btn btn-md btn-primary w-full mt-4 max-w-xs"
+                  value="Sign Up"
+                  type="submit"
+                />
+                {signUpError && <p className="text-red-600">{signUpError}</p>}
+              </form>
+              <p className="text-white mt-1 text-sm">
+                Already have an account{" "}
+                <Link className="text-orange-400 ml-1" to="/login">
+                  Please Login
+                </Link>
+              </p>
+              <div className="divider text-white">OR</div>
+              <button
+                onClick={handleGoogleSignIn}
+                className="btn btn-outline btn-success w-full max-w-xs"
+              >
+                CONTINUE WITH GOOGLE
+              </button>
+            </div>
           </div>
         </div>
-      </div>
 
-    </div>
+      </div>
+    </section>
   );
 };
 

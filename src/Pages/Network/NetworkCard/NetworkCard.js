@@ -11,10 +11,10 @@ const NetworkCard = ({ dbuser, isLoading, refetch }) => {
 
   const { user } = useContext(AuthContext);
   const { userDetails } = useContext(InfoContext);
-  console.log(userDetails);
+  // console.log(userDetails);
 
   // const [usersCollection,setUsersCollection] = useState([])
-  console.log(user);
+  // console.log(user);
 
   // useEffect(() =>{
   //   fetch('http://localhost:5000/users')
@@ -128,9 +128,9 @@ const NetworkCard = ({ dbuser, isLoading, refetch }) => {
           <div className="  flex justify-center ">
             {
               !dbuser?.sentStatus ?
-                <p onClick={() => handleConnect(dbuser)} className="btn btn-outline btn-primary">Connect</p>
+                <p onClick={() => handleConnect(dbuser)} className="btn bg-green-700 hover:bg-green-500 text-white font-bold py-2 px-4 rounded">Connect</p>
                 :
-                <p className="btn btn-outline btn-primary ">Request sent</p>
+                <p className="btn bg-green-700 hover:bg-green-500 text-white font-bold py-2 px-4 rounded ">Request sent</p>
             }
           </div>
         </div>

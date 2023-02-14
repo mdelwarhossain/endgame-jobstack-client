@@ -9,18 +9,18 @@ const LeftSide = () => {
     const navigate = useNavigate();
 
     const [currentUserDetails, setCurrentUserDetails] = useState();
-    const waitTime = 1000;
+    // const waitTime = 1000;
 
-    useEffect(() => {
-        const id = setInterval(() => {
-            fetch(`http://localhost:5000/user/${user?.email}`)
-                .then((res) => res.json())
-                .then((data) => {
-                    setCurrentUserDetails(data);
-                });
-        }, waitTime);
-        return () => clearInterval(id);
-    }, [user?.email]);
+    // useEffect(() => {
+    //     const id = setInterval(() => {
+    //         fetch(`https://endgame-jobstack-server.vercel.app/user/${user?.email}`)
+    //             .then((res) => res.json())
+    //             .then((data) => {
+    //                 setCurrentUserDetails(data);
+    //             });
+    //     }, waitTime);
+    //     return () => clearInterval(id);
+    // }, [user?.email]);
 
     const handleLogOut = () => {
         logOut()

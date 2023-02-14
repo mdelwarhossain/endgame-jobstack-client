@@ -24,7 +24,7 @@ const Messenger = () => {
   
 
   useEffect(() =>{
-    fetch(`http://localhost:5000/friends/${user?.email}`)
+    fetch(`https://endgame-jobstack-server.vercel.app/friends/${user?.email}`)
     .then(res => res.json())
     .then(data =>setAllUsers(data) )
 
@@ -104,7 +104,7 @@ console.log(currentMessage)
       <div className="hidden message-show   md:block col-span-2">
 
         {/* LeftBarMessenger starts */}
-        <div className="p-2 bg-slate-500">
+        <div className="p-2 bg-green-700">
           <label className="label">
             {" "}
             {/* <span className="label-text text-xl font-bold text-white">

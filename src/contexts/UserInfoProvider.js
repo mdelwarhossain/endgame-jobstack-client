@@ -8,15 +8,21 @@ export const InfoContext = createContext();
 const UserInfoProvider = ({children}) => {
 
     const { user } = useContext(AuthContext);
-    console.log(user)
+    // console.log(user)
     const [userDetails, setUserDetails] = useState();
 
 
 
 
   useEffect(() =>{
-    fetch(`http://localhost:5000/user/${user?.email}`)
-    .then(res => res.json())
+
+    fetch(`https://endgame-jobstack-server.vercel.app/user/${user?.email}`)
+    .then((res)=>{
+        if (!res.ok) {
+            throw new Error(res.statusText);
+          }
+          return res.json();
+    } )
     .then(data => setUserDetails(data))
   },[user?.email])
 
@@ -27,7 +33,7 @@ const details = {
     userDetails,
 
 }
-console.log(userDetails)
+// console.log(userDetails)
 
     return (
         <InfoContext.Provider value={details}>
