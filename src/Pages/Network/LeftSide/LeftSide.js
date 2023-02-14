@@ -3,7 +3,7 @@ import { FaUserFriends, FaPhotoVideo } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider';
 
-const LeftSide = ({ userDetails }) => {
+const LeftSide = () => {
 
     const { logOut, user } = useContext(AuthContext);
     const navigate = useNavigate();

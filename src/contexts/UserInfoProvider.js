@@ -15,6 +15,7 @@ const UserInfoProvider = ({children}) => {
 
 
   useEffect(() =>{
+
     fetch(`https://endgame-jobstack-server.vercel.app/user/${user?.email}`)
     .then((res)=>{
         if (!res.ok) {

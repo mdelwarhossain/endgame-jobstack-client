@@ -17,7 +17,7 @@ const NetworkCard = ({ dbuser, isLoading, refetch }) => {
   // console.log(user);
 
   // useEffect(() =>{
-  //   fetch('https://endgame-jobstack-server.vercel.app/users')
+  //   fetch('http://localhost:5000/users')
   //   .then(res => res.json())
   //   .then(data => setUsersCollection(data))
   // },[])
@@ -39,7 +39,7 @@ const NetworkCard = ({ dbuser, isLoading, refetch }) => {
     };
 
     // save connections to the database
-    fetch("https://endgame-jobstack-server.vercel.app/connection", {
+    fetch("http://localhost:5000/connection", {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -52,7 +52,7 @@ const NetworkCard = ({ dbuser, isLoading, refetch }) => {
         console.log(result);
         //     const sentEmail = dbuser?.email; 
         //     // save sent status to the database
-        // fetch("https://endgame-jobstack-server.vercel.app/sentstatus", {
+        // fetch("http://localhost:5000/sentstatus", {
         //   method: "PUT",
         //   headers: {
         //     "content-type": "application/json",
@@ -69,7 +69,7 @@ const NetworkCard = ({ dbuser, isLoading, refetch }) => {
   };
 
   // const handleDelete = (id) => {
-  //   fetch(`https://endgame-jobstack-server.vercel.app/delete/${id}`, {
+  //   fetch(`http://localhost:5000/delete/${id}`, {
   //     method: "delete",
   //     headers: {
   //       "content-type": "application/json",
@@ -123,7 +123,7 @@ const NetworkCard = ({ dbuser, isLoading, refetch }) => {
           </figure>
           <div className=" my-4 ml-2">
             <h2 className="text-xl font-semibold text-cyan-900">{dbuser?.name}</h2>
-            <p className="text-cyan-900">Mern Stack Developer</p>
+            <p className="text-cyan-900">{dbuser?.headline}</p>
           </div>
           <div className="  flex justify-center ">
             {
