@@ -53,7 +53,7 @@ const Login = () => {
         <div className="hidden md:block">
           <img src={image} alt="img" style={{ height: '500px', width: '540px' }} />
         </div>
-        <div className="w-96 p-7 mx-4 border-solid border-2 border-sky-100 ... rounded-md shadow-2xl shadow-slate-400">
+        <div className="w-96 p-7 mx-4 border-solid border-2 border-sky-100 ... rounded-md shadow-md shadow-slate-400">
           <div className="">
             <h2 className="text-2xl font-bold text-white text-center">Login</h2>
             <form onSubmit={handleSubmit(handleLogin)}>

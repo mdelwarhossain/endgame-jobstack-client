@@ -81,7 +81,7 @@ const SignUp = () => {
         <div className="hidden md:block">
           <img src={image} alt="img" style={{ height: '500px', width: '550px' }} />
         </div>
-        <div className="w-96 p-7 mx-4 border-solid border-2 border-sky-200 ... rounded-md shadow-2xl shadow-slate-400">
+        <div className="w-96 p-7 mx-4 border-solid border-2 border-sky-200 ... rounded-md shadow-md shadow-slate-400">
           <div className="">
             <div className="">
               <h2 className="text-2xl text-center font-bold text-white">Sign Up</h2>
