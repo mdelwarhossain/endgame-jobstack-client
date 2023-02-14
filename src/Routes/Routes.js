@@ -17,7 +17,6 @@ import AddJob from "../Pages/Hire/AddJob/AddJob";
 import AntiFraudTips from "../Pages/Jobs/AntiFraudTips/AntiFraudTips";
 import UserProfile from "../Pages/UserProfile/UserProfile";
 import Animation from "../Pages/SignUp/Animation/Animation";
-import Pictures from "../Pictures/Pictures";
 import Photo from "../Pages/SignUp/Animation/Photo/Photo";
 import MyJobPost from "../Pages/Hire/MyJobPost/MyJobPost";
 import Courses from "../Pages/Courses/Courses";
@@ -38,6 +37,7 @@ import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
 import Question from "../Pages/Question/Question";
 import Messenger from "../Pages/Messenger/Messenger";
 import PostDetails from "../Pages/UserProfile/MyProfile/PostDetails";
+import CreateResume from "../Pages/CreateResume/CreateResume";
 
 
 
@@ -63,7 +63,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
 
-        
+
 
       },
       {
@@ -118,7 +118,11 @@ const router = createBrowserRouter([
         path: "/course",
         element: <Courses></Courses>,
       },
-      
+      {
+        path: "/resume",
+        element: <CreateResume></CreateResume>,
+      },
+
       {
         path: "/quiz",
         loader: async () => {
@@ -126,14 +130,6 @@ const router = createBrowserRouter([
         },
         element: <Quiz></Quiz>,
       },
-      // {
-      //   path: '/post/:postId',
-      //   loader: async ({ params }) => {
-      //     return fetch(`https://openapi.programming-hero.com/api/quiz/${params.postId}`)
-      //   },
-      //   element: <Question></Question>
-      // },
-
       {
         path: '/post/:postId',
         loader: async ({ params }) => {
@@ -143,7 +139,7 @@ const router = createBrowserRouter([
         },
         element: <Question />
       },
-      
+
       {
         path: "/addajob",
         element: (
@@ -164,9 +160,9 @@ const router = createBrowserRouter([
         path: "/postDetails/:id",
         element: (
           <PrivateRoute>
-           <PostDetails></PostDetails>
+            <PostDetails></PostDetails>
           </PrivateRoute>
-          
+
         ),
       },
       {
@@ -278,7 +274,7 @@ const router = createBrowserRouter([
     ],
   },
 
- 
+
 
 ]);
 export default router;
