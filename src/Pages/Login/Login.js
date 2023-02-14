@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
-import Animation from "../SignUp/Animation/Animation";
+import image from "../../../src/assest/images/login_image.png";
 
 const Login = () => {
   const {
@@ -26,7 +26,6 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
-        // navigate(from, { replace: true });
         toast.success("successfully login");
         navigate("/newsfeed");
       })
@@ -48,41 +47,41 @@ const Login = () => {
   };
 
   return (
-    <div className="flex justify-around " data-theme="night">
-      <div className="mt-20 ">
-        <Animation></Animation>
-      </div>
-      {/* form */}
-      <div className="border-solid border-2 border-sky-100 ... rounded-md shadow-2xl shadow-slate-400 my-16">
-
-        <div className="h-[500px] flex mt-8">
-          {/* <div className="h-[800px] flex justify-center items-center"> */}
-          <div className="w-96 p-7">
-            <h2 className="text-xl text-center">Login</h2>
+    <section className="py-20" data-theme="night">
+      <hr />
+      <div className="flex justify-around mt-12">
+        <div className="hidden md:block">
+          <img src={image} alt="img" style={{ height: '500px', width: '540px' }} />
+        </div>
+        <div className="w-96 p-7 mx-4 border-solid border-2 border-sky-100 ... rounded-md shadow-2xl shadow-slate-400">
+          <div className="">
+            <h2 className="text-2xl font-bold text-white text-center">Login</h2>
             <form onSubmit={handleSubmit(handleLogin)}>
               <div className="form-control w-full max-w-xs">
                 <label className="label">
                   {" "}
-                  <span className="label-text">Email</span>
+                  <span className="label-text text-white">Email</span>
                 </label>
                 <input
                   type="text"
+                  placeholder="Enter your email"
                   {...register("email", {
                     required: "Email Address is required",
                   })}
-                  className="input input-bordered w-full max-w-xs"
+                  className="input input-bordered input-success w-full max-w-xs"
                 />
                 {errors.email && (
                   <p className="text-red-600">{errors.email?.message}</p>
                 )}
               </div>
-              <div className="form-control w-full max-w-xs">
+              <div className="form-control w-full max-w-xs my-2">
                 <label className="label">
                   {" "}
-                  <span className="label-text">Password</span>
+                  <span className="label-text text-white">Password</span>
                 </label>
                 <input
                   type="password"
+                  placeholder="Enter your password"
                   {...register("password", {
                     required: "Password is required",
                     minLength: {
@@ -90,18 +89,18 @@ const Login = () => {
                       message: "Password must be 6 characters or longer",
                     },
                   })}
-                  className="input input-bordered w-full max-w-xs"
+                  className="input input-bordered input-success w-full max-w-xs"
                 />
                 <label className="label">
                   {" "}
-                  <span className="label-text">Forget Password?</span>
+                  <span className="label-text italic">Forget Password?</span>
                 </label>
                 {errors.password && (
                   <p className="text-red-600">{errors.password?.message}</p>
                 )}
               </div>
               <input
-                className="btn btn-accent w-full"
+                className="btn btn-active btn-md btn-primary w-full max-w-xs"
                 value="Login"
                 type="submit"
               />
@@ -109,20 +108,20 @@ const Login = () => {
                 {loginError && <p className="text-red-600">{loginError}</p>}
               </div>
             </form>
-            <p>
-              New to Jobstack{" "}
-              <Link className="text-orange-500" to="/signup">
+            <p className="text-white mt-1 text-sm">
+              New to Jobstack
+              <Link className="text-orange-400 ml-2" to="/signup">
                 Create new Account
               </Link>
             </p>
             <div className="divider">OR</div>
-            <button onClick={handleGoogleSignIn} className="btn btn-outline btn-success w-full">
+            <button onClick={handleGoogleSignIn} className="btn btn-outline btn-md btn-primary max-w-xs w-full">
               CONTINUE WITH GOOGLE
             </button>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
