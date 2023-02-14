@@ -11,6 +11,7 @@ const Network = () => {
   
   const {userDetails} = useContext(InfoContext)
   const {user} = useContext(AuthContext); 
+  // console.log(userDetails)
   const { data: usersCollection = [], isLoading, refetch } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
@@ -18,7 +19,7 @@ const Network = () => {
         const res = await fetch(`https://endgame-jobstack-server.vercel.app/recommendedusers/${user?.email}`, {
         });
         const data = await res.json();
-        console.log(data)
+        // console.log(data)
         return data;
       } catch (error) { }
     },

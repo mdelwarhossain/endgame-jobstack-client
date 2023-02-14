@@ -56,7 +56,7 @@ const UserProfileInfo = () => {
   } = useQuery({
     queryKey: ["postData", user?.email],
     queryFn: async () => {
-      const res = await fetch(`http://localhost:5000/myPost/${user?.email}`);
+      const res = await fetch(`https://endgame-jobstack-server.vercel.app/myPost/${user?.email}`);
       const data = await res.json();
       setMyPost(data);
       return data;

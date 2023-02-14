@@ -14,10 +14,10 @@ const Candidate = ({ candidate }) => {
                     <p className="text-center text-xl font font-bold">{candidate.name}</p>
                     <p className='text-center font-semibold'>{candidate.headline}</p>
                     <p className='text-center text-md'>{candidate.skills}</p>
-                    <p className="text-center text-orange-600 text-sm">Open To Be Hired</p>
+                    <p className="text-center font-bold text-green-700 text-sm">Open To Be Hired</p>
                 </div>
                 <div className='col-span-10 lg:col-span-2 my-5'>
-                    <Link className='btn btn-outline btn-md bg-orange-400 border-none text-white' to={`/candidate/${candidate._id}`}><button>Profile</button></Link>
+                    <Link className='btn bg-green-700 hover:bg-green-500 text-white font-bold py-2 px-4 rounded' to={`/candidate/${candidate._id}`}><button>Profile</button></Link>
                 </div>
             </div>
             <div className="divider"></div>

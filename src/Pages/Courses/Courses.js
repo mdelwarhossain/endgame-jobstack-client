@@ -32,22 +32,22 @@ const Courses = () => {
             <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 py-5 gap-14 px-24'>
                 {AllData?.map(data => <div
                     key={data._id}
-                    class=" grid place-items-center font-mono">
-                    <div class="bg-white h-84 rounded-md shadow-2xl">
-                        <div class="flex justify-center items-center leading-none">
+                    className=" grid place-items-center font-mono">
+                    <div className="bg-white h-84 rounded-md shadow-2xl">
+                        <div className="flex justify-center items-center leading-none">
                             <img
                                 src={data.image}
                                 alt="pic"
-                                class="h-40  rounded-md shadow-2xl mt-6 transform -translate-y-10 hover:-translate-y-4 transition duration-700"
+                                className="h-40  rounded-md shadow-2xl mt-6 transform -translate-y-10 hover:-translate-y-4 transition duration-700"
                             />
                         </div>
-                        <div class="p-3">
-                            <p class="block mb-1 text-2xl font-bold">{data.name}</p>
-                            <p class="text-md font-semibold tracking-tighter">
+                        <div className="p-3">
+                            <p className="block mb-1 text-2xl font-bold">{data.name}</p>
+                            <p className="text-md font-semibold tracking-tighter">
                                 {data.authority}
                             </p>
                         </div>
-                        <div class="p-2">
+                        <div className="p-2">
                             <label onClick={() => setCourseData(data)} htmlFor="course-modal" className='btn btn-sm'>Start Course</label>
                         </div>
                     </div>

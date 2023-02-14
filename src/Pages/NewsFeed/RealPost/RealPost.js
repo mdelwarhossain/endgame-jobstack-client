@@ -8,6 +8,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../../contexts/AuthProvider";
 import CardLoader from "../../../Shared/LoadingPage/CardLoader/CardLoader";
 import LoadingPage from "../../../Shared/LoadingPage/LoadingPage";
+import pp from '../../../assest/images/pp.jpg'
 
 const RealPost = () => {
   const { user } = useContext(AuthContext);
@@ -16,7 +17,7 @@ const RealPost = () => {
 
   const [currentUserDetails, setCurrentUserDetails] = useState();
   const [isBtnLoading,setIsBtnLoading] = useState(false)
-  const waitTime = 1000;
+  const waitTime = 10000;
 
   useEffect(() => {
     const id = setInterval(() => {
@@ -37,6 +38,15 @@ const RealPost = () => {
   //     return data;
   //   },
   // });
+
+  // useEffect(() =>{
+  //   fetch(`https://endgame-jobstack-server.vercel.app/user/${user?.email}`)
+  //   .then(res => res.json())
+  //   .then(data =>{
+  //     setCurrentUserDetails(data)
+  //   })
+  // },[user?.email])
+
   const {
     register,
     formState: { errors },
@@ -115,11 +125,19 @@ const RealPost = () => {
     <div>
       <div className="mx-6 my-6">
         <form className="flex items-center" onSubmit={handleSubmit(handleSub)}>
-          <img
+          {
+            currentUserDetails?.profileImage? <img
             alt=""
             className="w-11 h-11 rounded-full ring-2 ring-offset-4 dark:bg-gray-500 ring-violet-400 ring-offset-gray-800 mr-4"
             src={currentUserDetails?.profileImage}
+          /> :
+
+          <img
+            alt=""
+            className="w-11 h-11 rounded-full ring-2 ring-offset-4 dark:bg-gray-500 ring-violet-400 ring-offset-gray-800 mr-4"
+            src={pp}
           />
+          }
           <input
             type="text"
             {...register("caption")}
@@ -141,13 +159,13 @@ const RealPost = () => {
          {!isBtnLoading ? (
               <input
                 type="submit"
-                className="btn block  btn-outline btn-info"
-                value="upload"
+                className=" block bg-green-700 hover:bg-green-500 text-white font-bold py-2 px-4 rounded"
+                value="Upload"
               />
             ) : (
               <input
                 type="submit"
-                className="btn block  btn-outline btn-info animated infinite pulse"
+                className="bg-green-700 hover:bg-green-500 text-white font-bold py-2 px-4 rounded block   animated infinite pulse"
                 value="Uploading..."
               />
             )}
