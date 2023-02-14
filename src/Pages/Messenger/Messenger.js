@@ -52,7 +52,7 @@ const Messenger = () => {
     }
     console.log(data)
 
-    fetch("https://endgame-jobstack-server.vercel.app/messages", {
+    fetch("http://localhost:5000/messages", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -73,7 +73,7 @@ const Messenger = () => {
   console.log(currentFriend?._id)
 
   useEffect(() =>{
-    fetch(`https://endgame-jobstack-server.vercel.app/user/${user?.email}`)
+    fetch(`http://localhost:5000/user/${user?.email}`)
     .then(res => res.json())
     .then(data => setUserDetails(data))
   },[user?.email])
@@ -86,7 +86,7 @@ const Messenger = () => {
   refetch ,isLoading} = useQuery({
  queryKey: ["userData",currentFriend?._id, userDetails?._id],
  queryFn: async () => {
-   const res = await fetch(`https://endgame-jobstack-server.vercel.app/messages/displayMessaages/${currentFriend?._id}&${userDetails?._id}`);
+   const res = await fetch(`http://localhost:5000/messages/displayMessaages/${currentFriend?._id}&${userDetails?._id}`);
    const data = await res.json();
    setCurrentMessage(data)
    // console.log(data);

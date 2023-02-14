@@ -37,7 +37,7 @@ const ProImgModal = ({ userDetails, userData, isLoading, refetch }) => {
           };
 
           fetch(
-            `https://endgame-jobstack-server.vercel.app/user/${userEmail}`,
+            `http://localhost:5000/user/${userEmail}`,
             {
               method: "PUT",
               headers: {

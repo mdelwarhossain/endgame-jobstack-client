@@ -18,7 +18,7 @@ const LeftSideCard = () => {
   useEffect(() => {
     setLoading(true);
     const id = setInterval(() => {
-      fetch(`https://endgame-jobstack-server.vercel.app/user/${user?.email}`)
+      fetch(`http://localhost:5000/user/${user?.email}`)
         .then((res) => res.json())
         .then((data) => {
           setCurrentUserDetails(data);

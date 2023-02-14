@@ -9,7 +9,7 @@ const Courses = () => {
     const [isLoading,setIsLoading]  = useState(false)
     useEffect(()=>{
         setIsLoading(true)
-        fetch(`https://endgame-jobstack-server.vercel.app/Course`)
+        fetch(`http://localhost:5000/Course`)
         .then(res=>res.json())
         .then(data=> {
             setAllData(data)
