@@ -151,9 +151,9 @@ const NetworkCard = ({ dbuser, isLoading, refetch }) => {
           <div className="card-actions justify-center ">
             {
               !dbuser?.sentStatus ?
-                <p onClick={() => handleConnect(dbuser)} className="bg-[#2E8B57]  hover:bg-green-900 text-white font-bold btn-sm pt-1">Connect</p>
+                <p onClick={() => handleConnect(dbuser)} className="rounded bg-[#2E8B57]  hover:bg-green-900 text-white font-bold btn-sm pt-1">Connect</p>
                 :
-                <p className="bg-[#2E8B57]  hover:bg-green-900 text-white font-bold btn-sm pt-1">Request sent</p>
+                <p className="bg-[#2E8B57] rounded  hover:bg-green-900 text-white font-bold btn-sm pt-1">Request sent</p>
             }
           </div>
         </div>
