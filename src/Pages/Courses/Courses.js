@@ -48,7 +48,7 @@ const Courses = () => {
                                         </p>
                                     </div>
                                     <div className="p-2">
-                                        <label onClick={() => setCourseData(data)} htmlFor="course-modal" className='btn text-white  bg-[#2E8B57] mt-2 rounded hover:bg-green-900 text-white font-bold btn-sm'>Start Course</label>
+                                        <label onClick={() => setCourseData(data)} htmlFor="course-modal" className='btn   bg-[#2E8B57] mt-2 rounded hover:bg-green-900 text-white font-bold btn-sm'>Start Course</label>
                                     </div>
                                 </div>
                             </div>)}
