@@ -15,7 +15,7 @@ const RealPost = () => {
   const imageHostKey = "c8246134e51fb0e0cbdc4f35b003ee74";
 
   const [currentUserDetails, setCurrentUserDetails] = useState();
-  const [isBtnLoading,setIsBtnLoading] = useState(false)
+  const [isBtnLoading, setIsBtnLoading] = useState(false);
   const waitTime = 1000;
 
   useEffect(() => {
@@ -44,7 +44,7 @@ const RealPost = () => {
     reset,
   } = useForm();
   const handleSub = (data) => {
-    setIsBtnLoading(true)
+    setIsBtnLoading(true);
     const image = data.image[0];
     const formData = new FormData();
     formData.append("image", image);
@@ -62,6 +62,7 @@ const RealPost = () => {
             email: user.email,
             name: user.displayName,
             likes: 0,
+            userImage: currentUserDetails?.profileImage,
           };
           console.log(post);
           fetch("https://endgame-jobstack-server.vercel.app/posts", {
@@ -76,7 +77,7 @@ const RealPost = () => {
               console.log(result);
               if (result.acknowledged) {
                 refetch();
-                setIsBtnLoading(false)
+                setIsBtnLoading(false);
                 toast.success("post uploaded");
 
                 // reset();
@@ -86,19 +87,24 @@ const RealPost = () => {
       });
   };
 
-
-  useEffect(() =>{
-    if(!isBtnLoading){
-      reset()
+  useEffect(() => {
+    if (!isBtnLoading) {
+      reset();
     }
-  },[isBtnLoading,reset])
+  }, [isBtnLoading, reset]);
 
   const [postss, setpost] = useState([]);
 
-  const { data: posts = [], refetch,isLoading } = useQuery({
+  const {
+    data: posts = [],
+    refetch,
+    isLoading,
+  } = useQuery({
     queryKey: ["posts"],
     queryFn: async () => {
-      const res = await fetch("https://endgame-jobstack-server.vercel.app/allposts");
+      const res = await fetch(
+        "https://endgame-jobstack-server.vercel.app/allposts"
+      );
       const data = await res.json();
       setpost(data);
       // console.log(data);
@@ -110,14 +116,13 @@ const RealPost = () => {
   //   return <CardLoader></CardLoader>
   // }
 
-
   return (
     <div>
       <div className="mx-6 my-6">
         <form className="flex items-center" onSubmit={handleSubmit(handleSub)}>
           <img
             alt=""
-            className="w-11 h-11 rounded-full ring-2 ring-offset-4 dark:bg-gray-500 ring-violet-400 ring-offset-gray-800 mr-4"
+            className="w-11 h-11 rounded-full ring-2 ring-offset-4 dark:bg-gray-500 ring-green-500 ring-offset-gray-800 mr-4"
             src={currentUserDetails?.profileImage}
           />
           <input
@@ -138,31 +143,31 @@ const RealPost = () => {
             type="file"
             style={{ display: "none" }}
           />
-         {!isBtnLoading ? (
-              <input
-                type="submit"
-                className="btn block  btn-outline btn-info"
-                value="upload"
-              />
-            ) : (
-              <input
-                type="submit"
-                className="btn block  btn-outline btn-info animated infinite pulse"
-                value="Uploading..."
-              />
-            )}
+          {!isBtnLoading ? (
+            <input
+              type="submit"
+              className="btn block  btn-outline btn-info"
+              value="upload"
+            />
+          ) : (
+            <input
+              type="submit"
+              className="btn block  btn-outline btn-info animated infinite pulse"
+              value="Uploading..."
+            />
+          )}
         </form>
       </div>
       {/* //post 2  */}
-     {
-      isLoading? <CardLoader></CardLoader> :
-
-      <div>
-      {postss.map((post) => (
-        <RealPostCard key={post._id}   post={post}></RealPostCard>
-      ))}
-    </div>
-     }
+      {isLoading ? (
+        <CardLoader></CardLoader>
+      ) : (
+        <div>
+          {postss.map((post) => (
+            <RealPostCard key={post._id} post={post}></RealPostCard>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
