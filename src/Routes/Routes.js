@@ -39,6 +39,7 @@ import Question from "../Pages/Question/Question";
 import Messenger from "../Pages/Messenger/Messenger";
 import PostDetails from "../Pages/UserProfile/MyProfile/PostDetails";
 import Contact from "../Pages/Hire/Contact/Contact";
+import Resume from "../Pages/Resume/Resume";
 
 
 
@@ -125,6 +126,10 @@ const router = createBrowserRouter([
         path: "/course",
         element: <Courses></Courses>,
       },
+      // {
+      //   path: "/resume",
+      //   element: <Resume></Resume>,
+      // },
       
       {
         path: "/quiz",
