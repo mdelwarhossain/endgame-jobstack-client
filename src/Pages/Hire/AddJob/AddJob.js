@@ -46,7 +46,7 @@ const Hire = () => {
                     console.log(jobPost);
 
                     // save product to the database
-                    fetch('https://endgame-jobstack-server.vercel.app/addajob', {
+                    fetch('http://localhost:5000/addajob', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',

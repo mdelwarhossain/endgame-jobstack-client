@@ -4,21 +4,16 @@ import { AuthContext } from "../../contexts/AuthProvider";
 import { RiHomeHeartFill } from "react-icons/ri";
 import { BsChatFill, BsFillBagPlusFill } from "react-icons/bs";
 import { FaBlog, FaSearch } from "react-icons/fa";
-import { MdGroups } from "react-icons/md";
 import { BiNetworkChart } from "react-icons/bi";
 import { MdNotificationsActive } from "react-icons/md";
-import { FaSignOutAlt, FaUser } from "react-icons/fa";
-import { MdOutlineQuiz, MdQuiz } from "react-icons/md";
+import {  FaUser } from "react-icons/fa";
+import {  MdQuiz } from "react-icons/md";
 
-import { useQuery } from "@tanstack/react-query";
 import { useEffect } from "react";
 import pp from "../../assest/images/pp.jpg";
-import DisplayAvatar from "./DisplayAvatar/DisplayAvatar";
 import "./header.css";
-import LeftSideCard from "../../Pages/NewsFeed/LeftSideCard/LeftSideCard";
-import Loading from "../LoadingPage/LoadingPage";
-import CardLoader from "../LoadingPage/CardLoader/CardLoader";
 import LoadingPage from "../LoadingPage/LoadingPage";
+import logo from'../../../src/assest/logo/Carrer Core.png'
 
 const Navbar = () => {
   const { logOut, user } = useContext(AuthContext);
@@ -28,27 +23,39 @@ const Navbar = () => {
     setIsOpen(!isOpen);
   };
 
-  const [loading,setLoading] = useState(false)
+  const [loading, setLoading] = useState(false)
 
   const [currentUserDetails, setCurrentUserDetails] = useState();
-  const waitTime = 1000;
+
+  const waitTime = 5000;
 
   useEffect(() => {
     setLoading(true)
     const id = setInterval(() => {
       fetch(`https://endgame-jobstack-server.vercel.app/user/${user?.email}`)
-        .then((res) => res.json())
+        .then((res) => {
+          if (res.ok) {
+            return res.json();
+          } else {
+            throw new Error('Something went wrong with the fetch request');
+          }
+        })
         .then((data) => {
           setCurrentUserDetails(data);
           setLoading(false)
+        })
+        .catch((error) => {
+          // console.error(error);
+          setLoading(false);
         });
     }, waitTime);
     return () => clearInterval(id);
   }, [user?.email]);
 
+
   const handleSignout = () => {
     logOut()
-      .then(() => {})
+      .then(() => { })
       .catch((error) => console.log(error));
   };
   const menuItems = (
@@ -127,15 +134,15 @@ const Navbar = () => {
               </Link>
             </li>
           </span>
-          {/* <span className="">
-            <FaSignOutAlt className="mx-auto -mb-4 hidden lg:block text-white" />
+          <span className="">
+            <BsChatFill className="mx-auto -mb-4 hidden lg:block text-white" />
             <li className="font-bold lg:text-white">
-              <button onClick={handleSignout}>
-                <FaSignOutAlt className="lg:hidden -mr-2" />
-                Sign Out
-              </button>
+              <Link to="/resume">
+                <BsChatFill className="lg:hidden -mr-2" />
+                Resume
+              </Link>
             </li>
-          </span> */}
+          </span>
         </>
       )}
     </React.Fragment>
@@ -171,9 +178,8 @@ const Navbar = () => {
           </div>
           <Link
             to="/"
-            className="btn btn-ghost normal-case text-xl font-bold text-white"
           >
-            Jobstack
+            <img src={logo} alt="logo" className="w-28 h-16 ml-2" />
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex mt-4">
@@ -185,87 +191,87 @@ const Navbar = () => {
               <div className="relative">
                 <button onClick={handleToggle}>
                   {
-                        currentUserDetails?.profileImage? <img
-                        alt=""
-                        className="w-7 h-7 rounded-full ring-2 ring-offset-4 dark:bg-gray-500 ring-violet-400 ring-offset-gray-800 mr-4"
-                        src={currentUserDetails?.profileImage}
-                      /> : <img
+                    currentUserDetails?.profileImage ? <img
+                      alt=""
+                      className="w-7 h-7 rounded-full ring-2 ring-offset-4 dark:bg-gray-500 ring-violet-400 ring-offset-gray-800 mr-4"
+                      src={currentUserDetails?.profileImage}
+                    /> : <img
                       alt=""
                       className="w-7 h-7 rounded-full ring-2 ring-offset-4 dark:bg-gray-500 ring-violet-400 ring-offset-gray-800 mr-4"
                       src={pp}
                     />
-                      }
-                 
+                  }
+
                 </button>
                 {isOpen && (
-                  <ul  className="absolute  top-100 right-0 z-10">
+                  <ul className="absolute  top-100 right-0 z-10">
                     <div className="rounded-full h-72 w-72">
-                     
-                   {/* card */}
 
-                  {
-                    loading? <LoadingPage></LoadingPage> :
+                      {/* card */}
 
-                    <div class="profile-container ">
-                    <Link to="/userProfile">
-                    <div class="profile-image">
-                      {currentUserDetails?.profileImage ? (
-                        <img src={currentUserDetails?.profileImage} alt="" />
-                      ) : (
-                        <img src={pp} alt="" />
-                      )}
-                    </div>
-                    </Link>
-                    <div class="profile-details  text-black">
-                      <Link to='/userProfile ' >
-                      <p className="font-extrabold hover:underline ">
-                        <small>{currentUserDetails?.name}</small>
-                      </p>
-                      </Link>
-                      <p className="font-bold">
-                        <small>{currentUserDetails?.email}</small>
-                      </p>
-                      <hr
-                        style={{
-                          marginTop:"12px",
-                          color: "#000000",
-                          backgroundColor: "#000000",
-                          height: 0.5,
-                          borderColor: "#000000",
-                        }}
-                      />
-                      {currentUserDetails?.headline && (
-                        <p>
-                          <small>{currentUserDetails?.headline}</small>
-                        </p>
-                      )}
-          
-                      {/* others */}
-                      <div >
-                        <div className="mt-5">
-                          <div className="flex items-center justify-between ">
-                            <h3 className=" font-extrabold ">Connection </h3>
-                            <p className="font-bold text-blue-600 mt-1">21</p>
+                      {
+                        loading ? <LoadingPage></LoadingPage> :
+
+                          <div className="profile-container ">
+                            <Link to="/userProfile">
+                              <div className="profile-image">
+                                {currentUserDetails?.profileImage ? (
+                                  <img src={currentUserDetails?.profileImage} alt="" />
+                                ) : (
+                                  <img src={pp} alt="" />
+                                )}
+                              </div>
+                            </Link>
+                            <div className="profile-details  text-black">
+                              <Link to='/userProfile ' >
+                                <p className="font-extrabold hover:underline ">
+                                  <small>{currentUserDetails?.name}</small>
+                                </p>
+                              </Link>
+                              <p className="font-bold">
+                                <small>{currentUserDetails?.email}</small>
+                              </p>
+                              <hr
+                                style={{
+                                  marginTop: "12px",
+                                  color: "#000000",
+                                  backgroundColor: "#000000",
+                                  height: 0.5,
+                                  borderColor: "#000000",
+                                }}
+                              />
+                              {currentUserDetails?.headline && (
+                                <p>
+                                  <small>{currentUserDetails?.headline}</small>
+                                </p>
+                              )}
+
+                              {/* others */}
+                              <div >
+                                <div className="mt-5">
+                                  <div className="flex items-center justify-between ">
+                                    <h3 className=" font-extrabold ">Connection </h3>
+                                    <p className="font-bold text-blue-600 mt-1">21</p>
+                                  </div>
+
+                                  <button className="bg-green-700 hover:bg-green-500 text-white font-bold py-2 px-4 rounded" onClick={handleSignout}>
+                                    Sign Out
+                                  </button>
+
+                                </div>
+                              </div>
+                            </div>
                           </div>
-          
-                          <button className="btn btn-outline btn-info mt-2 w-full" onClick={handleSignout}>
-                          Sign Out
-                        </button>
-                          
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  }
+                      }
                     </div>
                   </ul>
                 )}
               </div>
-             </div>
+            </div>
 
 
 
-           
+
           ) : (
             <>
               <span className="flex items-center mr-6">

@@ -21,7 +21,7 @@ const EducationModal = ({ userDetails, userData, isLoading, refetch }) => {
        }
        console.log(updatedInfo)
   
-       fetch(`https://endgame-jobstack-server.vercel.app/user/${userEmail}`, {
+       fetch(`http://localhost:5000/user/${userEmail}`, {
               method: "PUT",
               headers: {
                 "content-type": "application/json",

@@ -14,6 +14,7 @@ const RealPostCard = ({ post }) => {
   const { user } = useContext(AuthContext);
   const [like, setlike] = useState(post.likes);
   const [isActive, setIsActive] = useState(false);
+
   console.log(post);
 
   useEffect(() => {
@@ -27,6 +28,9 @@ const RealPostCard = ({ post }) => {
     return () => clearInterval(id);
   }, [user?.email]);
 
+  // console.log(post)
+
+
   // console.log(user?.name);
   const handleLike = () => {
     setlike(isActive ? like - 1 : like + 1);
@@ -38,7 +42,7 @@ const RealPostCard = ({ post }) => {
   const likeObject = {
     like,
   };
-  fetch(`https://endgame-jobstack-server.vercel.app/updatelike/${post._id}`, {
+  fetch(`http://localhost:5000/updatelike/${post._id}`, {
     method: "PUT",
     headers: {
       "content-type": "application/json",
@@ -67,7 +71,7 @@ const RealPostCard = ({ post }) => {
       userImage: currentUserDetails?.profileImage,
     };
     console.log(commentInfo);
-    fetch("https://endgame-jobstack-server.vercel.app/comments", {
+    fetch("http://localhost:5000/comments", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -82,7 +86,7 @@ const RealPostCard = ({ post }) => {
         refetch();
       });
   };
-  const url = `https://endgame-jobstack-server.vercel.app/comment?post_id=${post._id}`;
+  const url = `http://localhost:5000/comment?post_id=${post._id}`;
 
   const { data: comments = [], refetch } = useQuery({
     queryKey: ["comments", post._id],

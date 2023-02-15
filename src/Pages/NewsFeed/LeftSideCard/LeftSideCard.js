@@ -18,7 +18,7 @@ const LeftSideCard = () => {
   useEffect(() => {
     setLoading(true);
     const id = setInterval(() => {
-      fetch(`https://endgame-jobstack-server.vercel.app/user/${user?.email}`)
+      fetch(`http://localhost:5000/user/${user?.email}`)
         .then((res) => res.json())
         .then((data) => {
           setCurrentUserDetails(data);
@@ -30,38 +30,38 @@ const LeftSideCard = () => {
   return (
     <div className="my-5 ">
       {loading ? (
-       <div>
-       <LoadingPage></LoadingPage>
-       </div>
+        <div>
+          <LoadingPage></LoadingPage>
+        </div>
       ) : (
 
-        <div class="profile-container">
-          <div class="banner-image">
+        <div className="profile-container">
+          <div className="banner-image">
             {currentUserDetails?.bannerImage ? (
               <img src={currentUserDetails?.bannerImage} alt="" />
             ) : (
               <img src={cp} alt="" />
             )}
           </div>
-          <div class="profile-image">
+          <div className="profile-image">
             {currentUserDetails?.profileImage ? (
               <img src={currentUserDetails?.profileImage} alt="" />
             ) : (
               <img src={pp} alt="" />
             )}
           </div>
-          <div class="profile-details">
+          <div className="profile-details">
             <Link to='/userProfile' className="hover:underline">
-            <p className="font-extrabold">
-              <small>{currentUserDetails?.name}</small>
-            </p>
+              <p className="font-extrabold">
+                <small>{currentUserDetails?.name}</small>
+              </p>
             </Link>
             <p className="font-bold">
               <small>{currentUserDetails?.email}</small>
             </p>
             <hr
               style={{
-                marginTop:"12px",
+                marginTop: "12px",
                 color: "#000000",
                 backgroundColor: "#000000",
                 height: 0.5,
@@ -82,12 +82,12 @@ const LeftSideCard = () => {
                   <p className="font-bold text-blue-600 mt-1">21</p>
                 </div>
                 <Link to='/network'>
-                <div className="hover:underline flex items-center justify-between">
-                <h2 className=" mt-1 font-bold ">
-                 <small> Grow Your Network</small>
-                </h2>
-                <span><FaHandPointRight className="inline ml-4"></FaHandPointRight></span>
-                </div>
+                  <div className="hover:underline flex items-center justify-between">
+                    <h2 className=" mt-1 font-bold ">
+                      <small> Grow Your Network</small>
+                    </h2>
+                    <span><FaHandPointRight className="inline ml-4"></FaHandPointRight></span>
+                  </div>
                 </Link>
               </div>
             </div>

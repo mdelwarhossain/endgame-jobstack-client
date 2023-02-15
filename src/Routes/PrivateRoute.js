@@ -7,7 +7,7 @@ import LoadingPage from '../Shared/LoadingPage/LoadingPage';
 const PrivateRoute = ({children}) => {
     const { user,loading } = useContext(AuthContext);
     const location = useLocation()
-    console.log(user)
+    // console.log(user)
 
     if(loading){
         return <CardLoader></CardLoader>

@@ -33,11 +33,11 @@ const Notification = () => {
           <div className="col-span-4 ">
             <p className="text-cyan-900 text-lg font-bold text-center">IT Inova recruiting actively.</p>
 
-            <button className=" btn btn-sm btn-outline btn-primary shadow-md ml-28 my-2">Apply Now</button>
+            <button className=" btn-sm bg-green-700 hover:bg-green-500 text-white font-bold  px-4 rounded ml-28 my-2">Apply Now</button>
 
           </div>
           <div className="col-span-1">
-            <p className="text-orange-600 ml-3 ">now</p>
+            <p className="text-green-700 font-bold ml-3 ">now</p>
             <label htmlFor="notification-modal" className="btn btn-ghost  ">
               ...
             </label>
@@ -54,10 +54,10 @@ const Notification = () => {
           </div>
           <div className="col-span-4">
             <p className="text-cyan-900 text-lg font-bold text-center">Creative IT hiring actively.</p>
-            <button className=" btn btn-sm btn-outline btn-primary shadow-md ml-28 my-2">Apply Now</button>
+            <button className=" btn-sm bg-green-700 hover:bg-green-500 text-white font-bold px-4 rounded ml-28 my-2">Apply Now</button>
           </div>
           <div className="col-span-1">
-            <p className="text-orange-600 ml-3">50m</p>
+            <p className="text-green-700 font-bold ml-3">50m</p>
             <label htmlFor="notification-modal" className="btn btn-ghost">
               ...
             </label>
@@ -74,10 +74,10 @@ const Notification = () => {
           </div>
           <div className="col-span-4">
             <p className="text-cyan-900 text-lg font-bold text-center">Your profile showed in 7 serch result</p>
-            <button className=" btn btn-sm btn-outline btn-primary shadow-md ml-28 my-2">Apply Now</button>
+            <button className=" btn-sm bg-green-700 hover:bg-green-500 text-white font-bold  px-4 rounded ml-28 my-2">Apply Now</button>
           </div>
           <div className="col-span-1">
-            <p className="text-orange-600 ml-5">1h</p>
+            <p className="text-green-700 font-bold ml-5">1h</p>
             <label htmlFor="notification-modal" className="btn btn-ghost ml-2">
               ...
             </label>
@@ -94,10 +94,10 @@ const Notification = () => {
           </div>
           <div className="col-span-4">
             <p className="text-cyan-900 text-lg font-bold text-center">Jobstack members are sharing their unpaid intern experience.</p>
-            <button className=" btn btn-sm btn-outline btn-primary shadow-md ml-28 my-2">Apply Now</button>
+            <button className=" btn-sm bg-green-700 hover:bg-green-500 text-white font-bold px-4 rounded ml-28 my-2">Apply Now</button>
           </div>
           <div className="col-span-1">
-            <p className="text-orange-600 ml-3">2h</p>
+            <p className="text-green-700 font-bold ml-3">2h</p>
             <label htmlFor="notification-modal" className="btn btn-ghost ">
               ...
             </label>
@@ -114,10 +114,10 @@ const Notification = () => {
           </div>
           <div className="col-span-4">
             <p className="text-cyan-900 text-lg font-bold text-center">Meionsa is looking for mern stack developer.</p>
-            <button className=" btn btn-sm btn-outline btn-primary shadow-md ml-28 my-2">Apply Now</button>
+            <button className="btn-sm bg-green-700 hover:bg-green-500 text-white font-bold  px-4 rounded ml-28 my-2">Apply Now</button>
           </div>
           <div className="col-span-1">
-            <p className="text-orange-600 ml-3">2h</p>
+            <p className="text-green-700 font-bold ml-3">2h</p>
             <label htmlFor="notification-modal" className="btn btn-ghost">
               ...
             </label>
@@ -134,12 +134,12 @@ const Notification = () => {
           </div>
           <div className="col-span-4">
             <p className="text-cyan-900 text-lg font-bold text-center">To boost your skills attend the courses</p>
-            <button className=" btn btn-sm btn-outline btn-primary shadow-md ml-28 my-2">Visit Courses Now</button>
+            <button className=" btn-sm bg-green-700 hover:bg-green-500 text-white font-bold  px-4 rounded ml-28 my-2">Visit Courses Now</button>
 
 
           </div>
           <div className="col-span-1">
-            <p className="text-orange-600 ml-3">4h</p>
+            <p className="text-green-700 font-bold ml-3">4h</p>
             <label htmlFor="notification-modal" className="btn btn-ghost">
               ...
             </label>
@@ -156,10 +156,10 @@ const Notification = () => {
           </div>
           <div className="col-span-4">
             <p className="text-cyan-900 text-lg font-bold text-center">Job Alert! 15 new job post.</p>
-            <button className=" btn btn-sm btn-outline btn-primary shadow-md ml-28 my-2">Apply Now</button>
+            <button className=" btn-sm bg-green-700 hover:bg-green-500 text-white font-bold  px-4 rounded ml-28 my-2">Apply Now</button>
           </div>
           <div className="col-span-1">
-            <p className="text-orange-600 ml-3">4h</p>
+            <p className="text-green-700 font-bold ml-3">4h</p>
             <label htmlFor="notification-modal" className="btn btn-ghost">
               ...
             </label>
@@ -176,10 +176,10 @@ const Notification = () => {
           </div>
           <div className="col-span-4">
             <p className="text-cyan-900 text-lg font-bold text-center">Corianka is looking for react developer.</p>
-            <button className=" btn btn-sm btn-outline btn-primary shadow-md ml-28 my-2">Apply Now</button>
+            <button className=" btn-sm bg-green-700 hover:bg-green-500 text-white font-bold  px-4 rounded ml-28 my-2">Apply Now</button>
           </div>
           <div className="col-span-1">
-            <p className="text-orange-600 ml-3">5h</p>
+            <p className="text-green-700 font-bold ml-3">5h</p>
             <label htmlFor="notification-modal" className="btn btn-ghost">
               ...
             </label>
@@ -196,10 +196,10 @@ const Notification = () => {
           </div>
           <div className="col-span-4">
             <p className="text-cyan-900 text-lg font-bold text-center">Job Alert! new job post for full stack developer</p>
-            <button className=" btn btn-sm btn-outline btn-primary shadow-md ml-28 my-2">Apply Now</button>
+            <button className="btn-sm bg-green-700 hover:bg-green-500 text-white font-bold  px-4 rounded ml-28 my-2">Apply Now</button>
           </div>
           <div className="col-span-1">
-            <p className="text-orange-600 ml-3">8h</p>
+            <p className="text-green-700 font-bold ml-3">8h</p>
             <label htmlFor="notification-modal" className="btn btn-ghost">
               ...
             </label>
@@ -216,10 +216,10 @@ const Notification = () => {
           </div>
           <div className="col-span-4">
             <p className="text-cyan-900 text-lg font-bold text-center">Aw Group is actively hiring backend developer.</p>
-            <button className=" btn btn-sm btn-outline btn-primary shadow-md ml-28 my-2">Apply Now</button>
+            <button className=" btn-sm bg-green-700 hover:bg-green-500 text-white font-bold  px-4 rounded ml-28 my-2">Apply Now</button>
           </div>
           <div className="col-span-1">
-            <p className="text-orange-600 ml-5">12h</p>
+            <p className=" ml-5">12h</p>
             <label htmlFor="notification-modal" className="btn btn-ghost ml-4">
               ...
             </label>
