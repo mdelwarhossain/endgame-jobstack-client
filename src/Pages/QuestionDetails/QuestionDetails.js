@@ -13,7 +13,7 @@ const QuestionDetails = ({ questionDetails }) => {
 
 
 
-            <div className=" ml-7 mr-7 bg-amber-50 rounded-md shadow-2xl text-primary-content my-5 ">
+            <div className=" mx-52 bg-amber-50 rounded-md shadow-2xl text-primary-content my-5 ">
                 <div className="card-body">
                     <div className='flex justify-between'>
                         <div>
@@ -21,8 +21,8 @@ const QuestionDetails = ({ questionDetails }) => {
 
                         </div>
                         <div>
-                            <button className='btn text-white  bg-[#2E8B57] mt-2 rounded hover:bg-green-900 text-white font-bold btn-sm ' onClick={() => notify(correctAnswer)}>
-                                <BsEyeFill className='' />Correct Answer</button>
+                            <button className='btn text-white  bg-[#2E8B57] mt-2 rounded hover:bg-green-900 font-bold btn-sm ' onClick={() => notify(correctAnswer)}>
+                                Answer</button>
                         </div>
 
                     </div >
