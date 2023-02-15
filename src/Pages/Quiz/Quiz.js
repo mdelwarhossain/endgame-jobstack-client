@@ -11,7 +11,7 @@ const Quiz = () => {
     const loaderData = useLoaderData()
     const quizData = loaderData.data;
     return (
-        <div className='bg-slate-100 allContainer'>
+        <div className=' allContainer'>
 
             <div>
                 <div>

@@ -140,7 +140,7 @@ const NetworkCard = ({ dbuser, isLoading, refetch }) => {
             <img
               src={dbuser?.profileImage}
               alt="pic"
-              className="h-36 w-48 bg-blue-400  rounded-md shadow-2xl mt-4 transform -translate-y-8 hover:-translate-y-2 transition duration-700" />
+              className="h-36 w-48 bg-blue-400  rounded-md shadow-xl mt-4 transform -translate-y-8 hover:-translate-y-2 transition duration-700" />
           </div>
           <div className="">
             <h1 className="block ml-2 mb-1 text-xl font-semibold  text-cyan-900"> {dbuser?.name}</h1>

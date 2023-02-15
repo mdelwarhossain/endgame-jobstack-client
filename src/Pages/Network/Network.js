@@ -8,9 +8,9 @@ import LeftSide from './LeftSide/LeftSide';
 import NetworkCard from './NetworkCard/NetworkCard';
 
 const Network = () => {
-  
-  const {userDetails} = useContext(InfoContext)
-  const {user} = useContext(AuthContext); 
+
+  const { userDetails } = useContext(InfoContext)
+  const { user } = useContext(AuthContext);
   // console.log(userDetails)
   const { data: usersCollection = [], isLoading, refetch } = useQuery({
     queryKey: [""],
@@ -26,7 +26,7 @@ const Network = () => {
   });
 
   return (
-    <div className="px-4 allContainer grid grid-cols-1 md:grid-cols-8 gap-4 bg-gray-100">
+    <div className="px-4 allContainer grid grid-cols-1 md:grid-cols-8 gap-4 ">
       <div className="col-span-2 mt-5">
         <LeftSide
           userDetails={userDetails}
