@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import React from "react";
 
 const AllUsers = () => {
-  const url = `http://localhost:5000/users`;
+  const url = `https://endgame-jobstack-server.vercel.app/users`;
   const { data: users = [] } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {

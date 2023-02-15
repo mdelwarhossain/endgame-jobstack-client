@@ -25,7 +25,7 @@ const Jobs = () => {
     queryKey: ["jobs"],
     queryFn: async () => {
       try {
-        const res = await fetch("http://localhost:5000/jobs", {
+        const res = await fetch("https://endgame-jobstack-server.vercel.app/jobs", {
           headers: {
             authorization: `bearer ${localStorage.getItem("accessToken")}`,
           },
@@ -38,7 +38,7 @@ const Jobs = () => {
   // console.log(jobs);
 
   useEffect(() =>{
-    fetch('http://localhost:5000/limitCourse')
+    fetch('https://endgame-jobstack-server.vercel.app/limitCourse')
     .then(res => res.json())
     .then(data => setLimitCourse(data))
   },[])
@@ -47,7 +47,7 @@ const Jobs = () => {
     queryKey: ['user'],
     queryFn: async () => {
       try {
-        const res = await fetch(`http://localhost:5000/user/${user?.email}`, {
+        const res = await fetch(`https://endgame-jobstack-server.vercel.app/user/${user?.email}`, {
           headers: {
             authorization: `bearer ${localStorage.getItem('accessToken')}`
           }

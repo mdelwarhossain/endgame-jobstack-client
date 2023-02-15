@@ -36,7 +36,7 @@ const UserProfileInfo = () => {
     queryKey: ["userData", user?.email],
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:5000/user/${user?.email}`
+        `https://endgame-jobstack-server.vercel.app/user/${user?.email}`
       );
       const data = await res.json();
       setUserDetails(data);

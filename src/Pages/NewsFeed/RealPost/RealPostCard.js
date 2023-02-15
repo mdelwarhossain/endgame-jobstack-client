@@ -18,17 +18,14 @@ const RealPostCard = ({ post }) => {
   console.log(post);
 
   useEffect(() => {
-    const id = setInterval(() => {
-      fetch(`https://endgame-jobstack-server.vercel.app/user/${user?.email}`)
+    fetch(`https://endgame-jobstack-server.vercel.app/user/${user?.email}`)
         .then((res) => res.json())
         .then((data) => {
           setCurrentUserDetails(data);
         });
-    });
-    return () => clearInterval(id);
   }, [user?.email]);
 
-  // console.log(post)
+  console.log(post)
 
 
   // console.log(user?.name);
@@ -42,7 +39,7 @@ const RealPostCard = ({ post }) => {
   const likeObject = {
     like,
   };
-  fetch(`http://localhost:5000/updatelike/${post._id}`, {
+  fetch(`https://endgame-jobstack-server.vercel.app/updatelike/${post._id}`, {
     method: "PUT",
     headers: {
       "content-type": "application/json",
@@ -71,7 +68,7 @@ const RealPostCard = ({ post }) => {
       userImage: currentUserDetails?.profileImage,
     };
     console.log(commentInfo);
-    fetch("http://localhost:5000/comments", {
+    fetch("https://endgame-jobstack-server.vercel.app/comments", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -86,7 +83,7 @@ const RealPostCard = ({ post }) => {
         refetch();
       });
   };
-  const url = `http://localhost:5000/comment?post_id=${post._id}`;
+  const url = `https://endgame-jobstack-server.vercel.app/comment?post_id=${post._id}`;
 
   const { data: comments = [], refetch } = useQuery({
     queryKey: ["comments", post._id],

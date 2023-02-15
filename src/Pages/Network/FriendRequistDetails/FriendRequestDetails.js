@@ -22,7 +22,7 @@ const CandidateProfile = () => {
         queryKey: ['posts'],
         queryFn: async () => {
             try {
-                const res = await fetch(`http://localhost:5000/posts/${email}`, {
+                const res = await fetch(`https://endgame-jobstack-server.vercel.app/posts/${email}`, {
                     headers: {
                         authorization: `bearer ${localStorage.getItem("accessToken")}`,
                     },
@@ -75,7 +75,7 @@ const CandidateProfile = () => {
         };
         console.log(request);
         // save connections to the database
-        fetch(`http://localhost:5000/requestdeclined/${user?.email}`, {
+        fetch(`https://endgame-jobstack-server.vercel.app/requestdeclined/${user?.email}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json",

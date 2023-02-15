@@ -13,20 +13,30 @@ const LeftSideCard = () => {
   const [loading, setLoading] = useState(false);
 
   const [currentUserDetails, setCurrentUserDetails] = useState();
-  const waitTime = 1000;
 
-  useEffect(() => {
-    setLoading(true);
-    const id = setInterval(() => {
-      fetch(`http://localhost:5000/user/${user?.email}`)
-        .then((res) => res.json())
-        .then((data) => {
-          setCurrentUserDetails(data);
-          setLoading(false);
-        });
-    }, waitTime);
-    return () => clearInterval(id);
-  }, [user?.email]);
+  useEffect(() =>{
+    fetch(`https://endgame-jobstack-server.vercel.app/user/${user?.email}`)
+          .then((res) => res.json())
+          .then((data) => {
+            setCurrentUserDetails(data);
+            setLoading(false);
+          });
+  },[user?.email])
+
+  // const waitTime = 1000;
+
+  // useEffect(() => {
+  //   setLoading(true);
+  //   const id = setInterval(() => {
+  //     fetch(`https://endgame-jobstack-server.vercel.app/user/${user?.email}`)
+  //       .then((res) => res.json())
+  //       .then((data) => {
+  //         setCurrentUserDetails(data);
+  //         setLoading(false);
+  //       });
+  //   }, waitTime);
+  //   return () => clearInterval(id);
+  // }, [user?.email]);
   return (
     <div className="my-5 ">
       {loading ? (
