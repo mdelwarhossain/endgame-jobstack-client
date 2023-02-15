@@ -20,7 +20,7 @@ const SkillsModal = ({ userDetails, userData, isLoading, refetch }) => {
        }
        console.log(updatedInfo)
   
-       fetch(`http://localhost:5000/user/${userEmail}`, {
+       fetch(`https://endgame-jobstack-server.vercel.app/user/${userEmail}`, {
               method: "PUT",
               headers: {
                 "content-type": "application/json",

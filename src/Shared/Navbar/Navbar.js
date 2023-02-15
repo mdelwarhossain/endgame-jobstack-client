@@ -27,30 +27,37 @@ const Navbar = () => {
 
   const [currentUserDetails, setCurrentUserDetails] = useState();
 
-  const waitTime = 5000;
 
-  useEffect(() => {
-    setLoading(true)
-    const id = setInterval(() => {
-      fetch(`https://endgame-jobstack-server.vercel.app/user/${user?.email}`)
-        .then((res) => {
-          if (res.ok) {
-            return res.json();
-          } else {
-            throw new Error('Something went wrong with the fetch request');
-          }
-        })
-        .then((data) => {
-          setCurrentUserDetails(data);
-          setLoading(false)
-        })
-        .catch((error) => {
-          // console.error(error);
-          setLoading(false);
-        });
-    }, waitTime);
-    return () => clearInterval(id);
-  }, [user?.email]);
+  useEffect(() =>{
+    fetch(`https://endgame-jobstack-server.vercel.app/user/${user?.email}`)
+    .then(res =>res.json())
+    .then(data => setCurrentUserDetails(data))
+  },[user?.email])
+
+  // const waitTime = 5000;
+
+  // useEffect(() => {
+  //   setLoading(true)
+  //   const id = setInterval(() => {
+  //     fetch(`https://endgame-jobstack-server.vercel.app/user/${user?.email}`)
+  //       .then((res) => {
+  //         if (res.ok) {
+  //           return res.json();
+  //         } else {
+  //           throw new Error('Something went wrong with the fetch request');
+  //         }
+  //       })
+  //       .then((data) => {
+  //         setCurrentUserDetails(data);
+  //         setLoading(false)
+  //       })
+  //       .catch((error) => {
+  //         // console.error(error);
+  //         setLoading(false);
+  //       });
+  //   }, waitTime);
+  //   return () => clearInterval(id);
+  // }, [user?.email]);
 
 
   const handleSignout = () => {
@@ -137,9 +144,9 @@ const Navbar = () => {
           <span className="">
             <BsChatFill className="mx-auto -mb-4 hidden lg:block text-white" />
             <li className="font-bold lg:text-white">
-              <Link to="/resume">
+              <Link to="/resumeTemplate">
                 <BsChatFill className="lg:hidden -mr-2" />
-                Resume
+                Resume Template
               </Link>
             </li>
           </span>

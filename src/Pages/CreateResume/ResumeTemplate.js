@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CreateResume = () => {
+const ResumeTemplate = () => {
     return (
         <section className='py-20 mx-60'>
             <div className='mt-10'>
@@ -205,4 +205,4 @@ const CreateResume = () => {
     );
 };
 
-export default CreateResume;
+export default ResumeTemplate;

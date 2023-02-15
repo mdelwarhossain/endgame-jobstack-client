@@ -30,7 +30,7 @@ const JobModal = () => {
 
         //sending booking data to db
 
-        fetch("http://localhost:5000/jobs", {
+        fetch("https://endgame-jobstack-server.vercel.app/jobs", {
             method: "POST",
             headers: {
               "content-type": "application/json",

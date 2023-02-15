@@ -22,6 +22,15 @@ const LeftSide = () => {
     //     return () => clearInterval(id);
     // }, [user?.email]);
 
+
+    useEffect(() =>{
+        fetch(`https://endgame-jobstack-server.vercel.app/user/${user?.email}`)
+                .then((res) => res.json())
+                .then((data) => {
+                    setCurrentUserDetails(data);
+                });
+    },[user?.email])
+
     const handleLogOut = () => {
         logOut()
             .then(() => {
