@@ -40,7 +40,9 @@ import PostDetails from "../Pages/UserProfile/MyProfile/PostDetails";
 
 
 import Contact from "../Pages/Hire/Contact/Contact";
+
 import ResumeTemplate from "../Pages/CreateResume/ResumeTemplate";
+
 
 
 
@@ -132,7 +134,6 @@ const router = createBrowserRouter([
         path: "/resumeTemplate",
         element: <ResumeTemplate></ResumeTemplate>,
       },
-
       {
         path: "/quiz",
         loader: async () => {
