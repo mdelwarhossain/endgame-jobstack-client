@@ -17,7 +17,6 @@ import AddJob from "../Pages/Hire/AddJob/AddJob";
 import AntiFraudTips from "../Pages/Jobs/AntiFraudTips/AntiFraudTips";
 import UserProfile from "../Pages/UserProfile/UserProfile";
 import Animation from "../Pages/SignUp/Animation/Animation";
-import Pictures from "../Pictures/Pictures";
 import Photo from "../Pages/SignUp/Animation/Photo/Photo";
 import MyJobPost from "../Pages/Hire/MyJobPost/MyJobPost";
 import Courses from "../Pages/Courses/Courses";
@@ -38,8 +37,13 @@ import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
 import Question from "../Pages/Question/Question";
 import Messenger from "../Pages/Messenger/Messenger";
 import PostDetails from "../Pages/UserProfile/MyProfile/PostDetails";
+
+
 import Contact from "../Pages/Hire/Contact/Contact";
-import Resume from "../Pages/Resume/Resume";
+
+import ResumeTemplate from "../Pages/CreateResume/ResumeTemplate";
+
+
 
 
 
@@ -65,7 +69,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
 
-        
+
 
       },
       {
@@ -84,7 +88,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/job/${params.id}`),
+          fetch(`https://endgame-jobstack-server.vercel.app/job/${params.id}`),
       },
       {
         path: "/jobs/:email",
@@ -114,23 +118,22 @@ const router = createBrowserRouter([
         path: "/candidate/:id",
         element: <CandidateProfile></CandidateProfile>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/candidate/${params.id}`),
+          fetch(`https://endgame-jobstack-server.vercel.app/candidate/${params.id}`),
       },
       {
         path: "/contact/:id",
         element: <Contact></Contact>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/contact/${params.id}`),
+          fetch(`https://endgame-jobstack-server.vercel.app/contact/${params.id}`),
       },
       {
         path: "/course",
         element: <Courses></Courses>,
       },
-      // {
-      //   path: "/resume",
-      //   element: <Resume></Resume>,
-      // },
-      
+      {
+        path: "/resumeTemplate",
+        element: <ResumeTemplate></ResumeTemplate>,
+      },
       {
         path: "/quiz",
         loader: async () => {
@@ -138,24 +141,15 @@ const router = createBrowserRouter([
         },
         element: <Quiz></Quiz>,
       },
-      // {
-      //   path: '/post/:postId',
-      //   loader: async ({ params }) => {
-      //     return fetch(`https://openapi.programming-hero.com/api/quiz/${params.postId}`)
-      //   },
-      //   element: <Question></Question>
-      // },
 
       {
         path: '/post/:postId',
         loader: async ({ params }) => {
-          return fetch(`https://openapi.programming-hero.com/api/quiz/${params.postId}`, {
-            mode: 'no-cors'
-          });
+          return fetch(`https://openapi.programming-hero.com/api/quiz/${params.postId}`)
         },
-        element: <Question />
+        element: <Question></Question>
       },
-      
+
       {
         path: "/addajob",
         element: (
@@ -176,9 +170,9 @@ const router = createBrowserRouter([
         path: "/postDetails/:id",
         element: (
           <PrivateRoute>
-           <PostDetails></PostDetails>
+            <PostDetails></PostDetails>
           </PrivateRoute>
-          
+
         ),
       },
       {
@@ -213,7 +207,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/receivedrequest/${params.email}`),
+          fetch(`https://endgame-jobstack-server.vercel.app/receivedrequest/${params.email}`),
       },
       {
         path: "/notification",
@@ -242,7 +236,7 @@ const router = createBrowserRouter([
       {
         path: "/myfriend/:id",
         element: <PrivateRoute><Friend></Friend></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/myfriend/${params.id}`)
+        loader: ({ params }) => fetch(`https://endgame-jobstack-server.vercel.app/myfriend/${params.id}`)
       },
       // {
       //   path: "/*",
@@ -279,18 +273,18 @@ const router = createBrowserRouter([
         path: "/dashboard/jobSeeker/:id",
         element: <Jobseeker></Jobseeker>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/buyerseller/${params.id}`),
+          fetch(`https://endgame-jobstack-server.vercel.app/buyerseller/${params.id}`),
       },
       {
         path: "/dashboard/recruiter/:id",
         element: <Recruiter></Recruiter>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/buyerseller/${params.id}`),
+          fetch(`https://endgame-jobstack-server.vercel.app/buyerseller/${params.id}`),
       },
     ],
   },
 
- 
+
 
 ]);
 export default router;

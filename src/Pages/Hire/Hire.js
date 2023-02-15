@@ -17,7 +17,7 @@ const Hire = () => {
     queryFn: async () => {
       try {
         const res = await fetch(
-          "http://localhost:5000/alluser",
+          "https://endgame-jobstack-server.vercel.app/alluser",
           {
             headers: {
               authorization: `bearer ${localStorage.getItem("accessToken")}`,

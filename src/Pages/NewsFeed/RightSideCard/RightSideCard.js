@@ -5,14 +5,14 @@ import { FaExclamation } from 'react-icons/fa';
 
 const RightSideCard = () => {
     return (
-        <div className=' my-4 px-2 py-5 bg-amber-50 rounded-md drop-shadow-md'>
+        <div className=' profile-container rounded-md drop-shadow-md'>
             <div className='flex items-center justify-around mt-2 '>
                 {/* <h2 className='ml-2 font-bold'>Add to your feed</h2> */}
                 <p className='font-bold text-cyan-900 text-lg '>Add to Your Feed</p>
                 <FaExclamation className='text-sm text-blue-500' />
             </div>
-            <div className='mt-6'>
-                <div className='flex items-center mb-6 ju'>
+            <div className='mt-3'>
+                <div className='flex items-center mb-3 ju'>
                     <img alt="img" className="w-10 h-10 ml-4 mr-6 rounded-full ring-2 ring-offset-4 dark:bg-gray-500 ring-violet-400 ring-offset-gray-800" src="https://source.unsplash.com/40x40/?portrait?1" />
                     <div>
                         <Link to='#'>
@@ -20,22 +20,22 @@ const RightSideCard = () => {
                             <h3 className='text-sm'>Hr Professional</h3>
                         </Link>
                         <Link to='#'>
-                            <button className='bg-[#2E8B57] mt-2 hover:bg-green-900 text-white font-bold btn-sm'>
+                            <button className='bg-[#2E8B57] mt-2 rounded hover:bg-green-900 text-white font-bold btn-sm'>
                                 + Fllow
                             </button>
                         </Link>
                     </div>
                 </div>
 
-                <div className='flex items-center mb-6'>
+                <div className='flex items-center mb-3'>
                     <img alt="img" className="w-10 h-10 ml-4 mr-6 rounded-full ring-2 ring-offset-4 dark:bg-gray-500 ring-violet-400 ring-offset-gray-800" src="https://source.unsplash.com/40x40/?portrait?1" />
                     <div>
                         <Link to='#'>
-                            <h1 className='text-xl font-bold mt-5'>Zinedine Zidane</h1>
+                            <h1 className='text-xl font-bold mt-5'>Zinedine </h1>
                             <h3 className='text-sm'>Coach Professional</h3>
                         </Link>
                         <Link to='#'>
-                            <button className='bg-[#2E8B57] mt-2 hover:bg-green-900 text-white font-bold btn-sm'>
+                            <button className='bg-[#2E8B57] mt-2 rounded hover:bg-green-900 text-white font-bold btn-sm'>
                                 + Fllow
                             </button>
                         </Link>
@@ -45,11 +45,11 @@ const RightSideCard = () => {
                     <img alt="img" className="w-10 h-10 ml-4 mr-6 rounded-full ring-2 ring-offset-4 dark:bg-gray-500 ring-violet-400 ring-offset-gray-800" src="https://source.unsplash.com/40x40/?portrait?1" />
                     <div>
                         <Link to='#'>
-                            <h1 className='text-xl font-bold mt-4'>Cristiano Ronaldo</h1>
+                            <h1 className='text-xl font-bold mt-4'> Ronaldo</h1>
                             <h3 className='text-sm'>Football Professional</h3>
                         </Link>
                         <Link to='#'>
-                            <button className='bg-[#2E8B57] mt-2 hover:bg-green-900 text-white font-bold btn-sm'>
+                            <button className='bg-[#2E8B57] mt-2 rounded hover:bg-green-900 text-white font-bold btn-sm'>
                                 + Fllow
                             </button>
                         </Link>
@@ -57,7 +57,7 @@ const RightSideCard = () => {
                 </div>
 
             </div>
-            <Link to="/network"><button className="bg-green-700 hover:bg-green-500 text-white font-bold py-2 px-4 rounded">See More</button></Link>
+            <Link to="/network"><button className=" bg-[#2E8B57] mt-2 rounded hover:bg-green-900 text-white font-bold btn-sm">See More</button></Link>
             <Link to='/myconnections'>
                 <h3 className='ml-3 underline mt-4 text-blue-500'>View All recommendations <span className='font-bold'> &#8594; </span></h3>
             </Link>

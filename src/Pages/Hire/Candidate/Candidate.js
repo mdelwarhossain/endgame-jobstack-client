@@ -17,7 +17,7 @@ const Candidate = ({ candidate }) => {
                     <p className="text-center font-bold text-green-700 text-sm">Open To Be Hired</p>
                 </div>
                 <div className='col-span-10 lg:col-span-2 my-5'>
-                    <Link className='btn bg-green-700 hover:bg-green-500 text-white font-bold py-2 px-4 rounded' to={`/candidate/${candidate._id}`}><button>Profile</button></Link>
+                    <Link className='btn-sm bg-green-700 hover:bg-green-500 text-white font-bold py-2 px-4 rounded' to={`/candidate/${candidate._id}`}><button>Profile</button></Link>
                 </div>
             </div>
             <div className="divider"></div>

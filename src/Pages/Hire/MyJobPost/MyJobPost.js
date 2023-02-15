@@ -16,7 +16,7 @@ const MyJobPost = () => {
     queryKey: ['myjobpost'],
     queryFn: async () => {
       try {
-        const res = await fetch(`http://localhost:5000/jobs/${user?.email}`, {
+        const res = await fetch(`https://endgame-jobstack-server.vercel.app/jobs/${user?.email}`, {
           headers: {
             authorization: `bearer ${localStorage.getItem('accessToken')}`
           }
@@ -35,7 +35,7 @@ const MyJobPost = () => {
   const handleDelete = (id) => {
 
     // save connections to the database
-    fetch(`http://localhost:5000/post/${id}`, {
+    fetch(`https://endgame-jobstack-server.vercel.app/post/${id}`, {
 
     
       method: 'Delete',

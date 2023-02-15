@@ -17,7 +17,7 @@ const NetworkCard = ({ dbuser, isLoading, refetch }) => {
   // console.log(user);
 
   // useEffect(() =>{
-  //   fetch('http://localhost:5000/users')
+  //   fetch('https://endgame-jobstack-server.vercel.app/users')
   //   .then(res => res.json())
   //   .then(data => setUsersCollection(data))
   // },[])
@@ -39,7 +39,7 @@ const NetworkCard = ({ dbuser, isLoading, refetch }) => {
     };
 
     // save connections to the database
-    fetch("http://localhost:5000/connection", {
+    fetch("https://endgame-jobstack-server.vercel.app/connection", {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -52,7 +52,7 @@ const NetworkCard = ({ dbuser, isLoading, refetch }) => {
         console.log(result);
         //     const sentEmail = dbuser?.email; 
         //     // save sent status to the database
-        // fetch("http://localhost:5000/sentstatus", {
+        // fetch("https://endgame-jobstack-server.vercel.app/sentstatus", {
         //   method: "PUT",
         //   headers: {
         //     "content-type": "application/json",
@@ -69,7 +69,7 @@ const NetworkCard = ({ dbuser, isLoading, refetch }) => {
   };
 
   // const handleDelete = (id) => {
-  //   fetch(`http://localhost:5000/delete/${id}`, {
+  //   fetch(`https://endgame-jobstack-server.vercel.app/delete/${id}`, {
   //     method: "delete",
   //     headers: {
   //       "content-type": "application/json",
@@ -105,8 +105,8 @@ const NetworkCard = ({ dbuser, isLoading, refetch }) => {
           }}
         />
       </div> */}
-      <div>
-        {/* {usersCollection
+      {/* <div> */}
+      {/* {usersCollection
           .filter((dbuser) => {
             if (searchTerm == "") {
               return dbuser;
@@ -117,7 +117,7 @@ const NetworkCard = ({ dbuser, isLoading, refetch }) => {
             }
           })
           .map((dbuser) => ( */}
-        <div className=" bg-base-100 shadow-xl h-72">
+      {/* <div className=" bg-base-100 shadow-xl h-72">
           <figure>
             <img className="w-full h-32" src={dbuser?.profileImage} alt="Img" />
           </figure>
@@ -133,7 +133,31 @@ const NetworkCard = ({ dbuser, isLoading, refetch }) => {
                 <p className="btn bg-green-700 hover:bg-green-500 text-white font-bold py-2 px-4 rounded ">Request sent</p>
             }
           </div>
+        </div></div> */}
+      <div className='grid  place-items-center font-mono'>
+        <div className="bg-amber-50 h-72 rounded-md shadow-2xl">
+          <div className="flex justify-center items-center leading-none">
+            <img
+              src={dbuser?.profileImage}
+              alt="pic"
+              className="h-36 w-48 bg-blue-400  rounded-md shadow-xl mt-4 transform -translate-y-8 hover:-translate-y-2 transition duration-700" />
+          </div>
+          <div className="">
+            <h1 className="block ml-2 mb-1 text-xl font-semibold  text-cyan-900"> {dbuser?.name}</h1>
+            <p className="text-sm ml-2 my-2 font-semibold tracking-tighter  text-cyan-900">
+              {dbuser?.headline}
+            </p>
+          </div>
+          <div className="card-actions justify-center ">
+            {
+              !dbuser?.sentStatus ?
+                <p onClick={() => handleConnect(dbuser)} className="rounded bg-[#2E8B57]  hover:bg-green-900 text-white font-bold btn-sm pt-1">Connect</p>
+                :
+                <p className="bg-[#2E8B57] rounded  hover:bg-green-900 text-white font-bold btn-sm pt-1">Request sent</p>
+            }
+          </div>
         </div>
+
       </div>
     </div>
   );
