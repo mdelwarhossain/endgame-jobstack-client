@@ -11,15 +11,13 @@ const TopicsCard = ({ quiz }) => {
     return (
         <div>
 
-            <div className='grid place-items-center font-mono'>
-
+            <div className='grid place-items-center font-mono '>
                 <div className="bg-amber-50 h-84 rounded-md shadow-2xl">
                     <div className="flex justify-center items-center leading-none">
                         <img
                             src={quiz.logo}
                             alt="pic"
-                            className="h-40 bg-blue-400  rounded-md shadow-2xl mt-6 transform -translate-y-10 hover:-translate-y-4 transition duration-700"
-                        />
+                            className="h-40 bg-blue-400  rounded-md shadow-2xl mt-6 transform -translate-y-10 hover:-translate-y-4 transition duration-700" />
                     </div>
                     <div className="p-3">
                         <p className="block mb-1 text-2xl font-bold  text-cyan-900"> Name:{quiz.name}</p>
@@ -28,9 +26,9 @@ const TopicsCard = ({ quiz }) => {
                         </p>
                     </div>
                     <div className="card-actions justify-center mb-3">
-                        <button className=" btn btn-sm  btn-primary shadow-xl" onClick={handleNavigate}>Start</button>
-
-
+                        {/* <button className=" btn btn-sm  btn-primary shadow-xl" onClick={handleNavigate}>Start</button> */}
+                        <button className='bg-[#2E8B57] mt-2 rounded hover:bg-green-900 text-white font-bold btn-sm' onClick={handleNavigate}>Start
+                        </button>
                     </div>
                 </div>
 

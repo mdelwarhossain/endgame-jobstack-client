@@ -140,14 +140,13 @@ const router = createBrowserRouter([
         },
         element: <Quiz></Quiz>,
       },
+
       {
         path: '/post/:postId',
         loader: async ({ params }) => {
-          return fetch(`https://openapi.programming-hero.com/api/quiz/${params.postId}`, {
-            mode: 'no-cors'
-          });
+          return fetch(`https://openapi.programming-hero.com/api/quiz/${params.postId}`)
         },
-        element: <Question />
+        element: <Question></Question>
       },
 
       {
