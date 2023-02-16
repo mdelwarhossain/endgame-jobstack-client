@@ -40,8 +40,10 @@ import PostDetails from "../Pages/UserProfile/MyProfile/PostDetails";
 
 
 import Contact from "../Pages/Hire/Contact/Contact";
+
 import ResumeTemplate from "../Pages/CreateResume/ResumeTemplate";
 import CreateResume from "../Pages/CreateResume/CreateResume/CreateResume";
+
 
 
 
@@ -133,6 +135,7 @@ const router = createBrowserRouter([
         path: "/resumeTemplate",
         element: <ResumeTemplate></ResumeTemplate>,
       },
+
       {
         path: "/createResume",
         element:<CreateResume></CreateResume> ,
