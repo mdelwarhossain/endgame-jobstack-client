@@ -38,7 +38,7 @@ const LeftSideCard = () => {
   //   return () => clearInterval(id);
   // }, [user?.email]);
   return (
-    <div className="my-5 ">
+    <div className="my-5 border border-gray-300 rounded-lg ">
       {loading ? (
         <div>
           <LoadingPage></LoadingPage>
