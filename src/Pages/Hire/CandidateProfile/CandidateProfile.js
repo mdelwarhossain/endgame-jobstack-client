@@ -4,14 +4,11 @@ import { set } from 'react-hook-form';
 import { FaFileDownload, FaRegEnvelope } from 'react-icons/fa';
 import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider';
-import { InfoContext } from '../../../contexts/UserInfoProvider';
 
 const CandidateProfile = () => {
     const {user} = useContext(AuthContext); 
     const [activities, setActivities] = useState(false); 
-    const candidate = useLoaderData();
-   const {userDetails} = useContext(InfoContext)
-    console.log(userDetails);
+    const userDetails = useLoaderData();
     const {
         data: posts = [],
         refetch,
@@ -20,7 +17,7 @@ const CandidateProfile = () => {
         queryKey: ["userData", userDetails?.email],
         queryFn: async () => {
           const res = await fetch(
-            `https://endgame-jobstack-server.vercel.app/myPost/${candidate?.email}`
+            `https://endgame-jobstack-server.vercel.app/myPost/${userDetails?.email}`
 
           );
           const data = await res.json();
@@ -45,7 +42,7 @@ console.log(posts);
                     <p className='mb-7'>{userDetails?.headline}</p>
                     <p className='mb-7'>{userDetails?.friends?.length} {userDetails?.friends?.length > 1 ? 'connections': 'connection'}</p>
                     <div className='my-5'>
-                        <p className='btn  btn-primary'><span className='mr-5'>resume</span> <FaFileDownload className='text-2xl'></FaFileDownload></p>
+                        <Link to={`/candidateresume/${userDetails?.email}`} className='btn  btn-primary'><span className='mr-5'>resume</span> <FaFileDownload className='text-2xl'></FaFileDownload></Link>
                         <Link to={`/contact/${userDetails._id}`}
                         ><p className='btn  btn-primary ml-5'>contact <span className='ml-5 text-2xl'><FaRegEnvelope></FaRegEnvelope></span></p></Link>
                     </div>
