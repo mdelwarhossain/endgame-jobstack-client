@@ -1,16 +1,19 @@
 import React from 'react';
+import { useLoaderData } from 'react-router-dom';
 
 const ResumeTemplate = () => {
+    const data = useLoaderData(); 
+    console.log(data);
     return (
         <section className='py-20 mx-60'>
             <div className='mt-10'>
                 {/* header part */}
                 <div className='text-center'>
-                    <h2 className='text-4xl font-bold'>Md mohsin</h2>
-                    <h4 className='text-sm font-semibold text-gray-800'>back end Developer</h4>
+                    <h2 className='text-4xl font-bold'>{data?.name}</h2>
+                    <h4 className='text-sm font-semibold text-gray-800'>{data?.headline}</h4>
                     <div className='flex items-center justify-center my-4'>
-                        <p className='mr-3 text-lg font-semibold'>Chandpur,bangladesh</p>
-                        <p className='mr-3 text-lg font-semibold'>mohsinbd862554@gmail.com</p>
+                        <p className='mr-3 text-lg font-semibold'>{data?.city} {data?.country}</p>
+                        <p className='mr-3 text-lg font-semibold'>{data?.email}</p>
                         <p className='mr-3 text-lg font-semibold'>01845627586</p>
                         <a className='mr-3 text-lg font-semibold' href='/'>Linkdin</a>
                         <a className='text-lg font-semibold' href="/">Portfolio</a>
@@ -168,8 +171,8 @@ const ResumeTemplate = () => {
                     />
 
                     <div>
-                        <p className='text-md'>Sachar High School</p>
-                        <p className='text-md'>Cumilla polytechnic institute</p>
+                        <p className='text-md'>{data?.school}</p>
+                        <p className='text-md'>{data?.university}</p>
                     </div>
                 </div>
 
