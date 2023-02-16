@@ -40,7 +40,11 @@ import PostDetails from "../Pages/UserProfile/MyProfile/PostDetails";
 
 
 import Contact from "../Pages/Hire/Contact/Contact";
+
 import ResumeTemplate from "../Pages/CreateResume/ResumeTemplate";
+import CreateResume from "../Pages/CreateResume/CreateResume/CreateResume";
+import Resume from "../Pages/Resume/Resume";
+
 
 
 
@@ -129,8 +133,19 @@ const router = createBrowserRouter([
         element: <Courses></Courses>,
       },
       {
-        path: "/resumeTemplate",
+        path: "/resume",
+        element: <Resume></Resume>,
+      },
+      {
+        path: "/candidateresume/:email",
         element: <ResumeTemplate></ResumeTemplate>,
+        loader: ({ params }) =>
+        fetch(`http://localhost:5000/candidateresume/${params.email}`),
+      },
+
+      {
+        path: "/createResume",
+        element:<CreateResume></CreateResume> ,
       },
 
       {

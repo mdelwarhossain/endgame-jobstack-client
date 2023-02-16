@@ -1,29 +1,29 @@
-import jsPDF from 'jspdf';
-import React, { useContext } from 'react';
-import { FaEdit } from 'react-icons/fa';
-import { useLoaderData } from 'react-router-dom';
+import { useQuery } from '@tanstack/react-query';
+import React, { useContext} from 'react';
 import { AuthContext } from '../../contexts/AuthProvider';
+import jsPDF from 'jspdf'
+import { useLoaderData } from 'react-router-dom';
 
-const ResumeTemplate = () => {
-    const data = useLoaderData(); 
-    console.log(data);
+const Resume = () => {
     const {user} = useContext(AuthContext); 
 
-    const generatePDF = () => {
-        const doc = new jsPDF("p","pt","a4"); 
-        doc.html(document.querySelector('#content'), {
-          callback: function(pdf){
-            const pageCount = doc.internal.getNumberOfPages(); 
-            // pdf.deletePage(pageCount); 
-            pdf.save('myresume.pdf')
-          }
-  
-        })
-  
-      }
+    const data = useLoaderData(); 
 
+    const generatePDF = () => {
+      const doc = new jsPDF("p","pt","a4"); 
+      doc.html(document.querySelector('#content'), {
+        callback: function(pdf){
+          const pageCount = doc.internal.getNumberOfPages(); 
+          // pdf.deletePage(pageCount); 
+          pdf.save('myresume.pdf')
+        }
+
+      })
+
+    }
+    
     return (
-        <section id='content' className='py-20 mx-60'>
+        <section className='py-20 mx-60'>
             <div className='mt-10'>
                 {/* header part */}
                 <div className='text-center'>
@@ -222,13 +222,65 @@ const ResumeTemplate = () => {
                     </div>
                 </div>
             </div>
-            <button className="btn btn-outline btn-primary shadow-md mt-5 mr-5" onClick={generatePDF} type='primary'>download resume</button>
-            {
-                data?.email === user?.email &&
-                <button className="btn btn-outline btn-primary shadow-md mt-5"><FaEdit></FaEdit>Edit Resume</button>
-            }
+            <button onClick={generatePDF} type='primary'>download resume</button>
         </section>
     );
 };
 
-export default ResumeTemplate;
+export default Resume;
+
+
+// // import React from "react";
+// // import ReactDOM from "react-dom";
+// // import ReactToPdf from "react-to-pdf"
+
+// // import "./Resume.css";
+// // const ref = React.createRef();
+
+// // function Resume() {
+// //   return (
+// //     <div>
+// //     <ReactToPdf targetRef={ref} filename="div-blue.pdf">
+// //         {({toPdf}) => (
+// //             <button onClick={toPdf}>Generate pdf</button>
+// //         )}
+// //     </ReactToPdf>
+// //     <div style={{width: 500, height: 500, background: 'blue'}} ref={ref}/>
+// // </div>
+// //   );
+// // }
+// // export default Resume; 
+// import React from 'react';
+// import { Document, Page, Text, View, StyleSheet } from '@react-pdf/renderer';
+
+// // Create styles
+// const styles = StyleSheet.create({
+//   page: {
+//     flexDirection: 'row',
+//     backgroundColor: '#E4E4E4'
+//   },
+//   section: {
+//     margin: 10,
+//     padding: 10,
+//     flexGrow: 1
+//   }
+// });
+
+// // Create Document Component
+// const Resume = () => (
+//   <div>
+//     <Document>
+//     <Page size="A4" style={styles.page}>
+//       <View style={styles.section}>
+//         <Text>Section #1</Text>
+//       </View>
+//       <View style={styles.section}>
+//         <Text><p className='py-10 md:w-4/5 mx-auto'>
+//         Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo incidunt labore quas placeat accusantium debitis quasi enim. Et veniam reprehenderit quo illum praesentium obcaecati voluptates accusantium unde architecto corporis! Obcaecati. Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo incidunt labore quas placeat accusantium debitis quasi enim. Et veniam reprehenderit quo illum praesentium obcaecati voluptates accusantium unde architecto corporis! Obcaecati. Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo incidunt labore quas placeat accusantium debitis quasi enim. Et veniam reprehenderit quo illum praesentium obcaecati voluptates accusantium unde architecto corporis! Obcaecati.</p></Text>
+//       </View>
+//     </Page>
+//   </Document>
+//   </div>
+// );
+
+// export default Resume; 

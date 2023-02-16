@@ -10,7 +10,6 @@ import Loading from "../../Shared/LoadingPage/LoadingPage";
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
-import { InfoContext } from "../../contexts/UserInfoProvider";
 import { GiCandlebright } from "react-icons/gi";
 import LimitCourses from "../NewsFeed/LeftSideCard/Courses/LimitCourses";
 import CardLoader from "../../Shared/LoadingPage/CardLoader/CardLoader";
@@ -18,7 +17,6 @@ import CardLoader from "../../Shared/LoadingPage/CardLoader/CardLoader";
 const Jobs = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const { user, logOut } = useContext(AuthContext);
-  const { userDetails } = useContext(InfoContext);
   const [limitCourse,setLimitCourse] = useState([])
   // console.log(userDetails);
   const { data: jobs = [], isLoading } = useQuery({
@@ -138,7 +136,7 @@ const Jobs = () => {
       </div>
       <div className="col-span-2">
       <div  className="flex flex-col gap-2 my-5">
-      <Link to={`/candidate/${singleUser?._id}`} className="btn btn-outline btn-primary shadow-md">
+      <Link to={`/candidateresume/${user?.email}`} className="btn btn-outline btn-primary shadow-md">
               My Resume
             </Link>
             <Link to="/antifraudtips" className="btn btn-outline btn-primary shadow-md">

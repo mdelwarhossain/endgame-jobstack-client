@@ -73,7 +73,7 @@ const UserProfileInfo = () => {
         <CardLoader></CardLoader>
       ) : (
         <div className="max-w-full rounded-md relative">
-          <div className="relative">
+          <div className="relative border-l border-r border-t border-gray-300 rounded-lg">
             {userDetails?.bannerImage ? (
               <img
                 src={userDetails.bannerImage}
@@ -126,7 +126,7 @@ const UserProfileInfo = () => {
               isLoading={isLoading}
             ></ProImgModal>
 
-            <div className="shadow-lg p-6 ">
+            <div className="border-l border-r p-5 border-b border-gray-300 rounded-lg">
               <div className="space-y-2">
                 <div className="flex items-center justify-between mb-4">
                   <h2 className="text-2xl font-bold tracking-wide">
@@ -189,13 +189,13 @@ const UserProfileInfo = () => {
             {/* get about */}
 
             {/* myPost */}
-            <div className="p-6">
+            <div className="p-6 border border-gray-300 rounded-lg">
               <h3 className="text-2xl  font-bold mb-3">Activity</h3>
               {/* <MyPost></MyPost> */}
               {myPost.length > 0 ? (
                 <div className="grid gap-3 grid-cols-1 md:grid-cols-2">
                   {myPost.map((mp) => (
-                  <div  key={mp._id} className="flex shadow-xl py-5 justify-between  items-center">
+                  <div  key={mp._id} className="flex  py-5 justify-between  items-center">
                   <img
                     src={mp?.image}
                     alt=""
@@ -216,8 +216,10 @@ const UserProfileInfo = () => {
                 </div>
               )}
             </div>
+            {/* about */}
+            <div className="border border-gray-300 rounded-lg">
             <div>
-              <div className="mt-6 flex justify-between shadow-lg p-6">
+              <div className="mt-6 flex justify-between p-6">
                 <div>
                   <h2 className="text-2xl font-bold">About</h2>
                   <p className="mt-3">
@@ -238,7 +240,7 @@ const UserProfileInfo = () => {
 
             {/* Your Education */}
             <div>
-              <div className="mt-6 flex justify-between shadow-lg p-6">
+              <div className="mt-6 flex justify-between p-6">
                 <div>
                   <h2 className="text-2xl font-bold mb-2">Education</h2>
                   <p>
@@ -264,7 +266,7 @@ const UserProfileInfo = () => {
 
             {/* Your Skills */}
             <div>
-              <div className="mt-6 shadow-lg flex justify-between p-6">
+              <div className="mt-6  flex justify-between p-6">
                 <div>
                   <h2 className="text-2xl font-bold mb-2">Skills</h2>
                   <p>
@@ -290,6 +292,8 @@ const UserProfileInfo = () => {
             <div>
               <DisplayProjects></DisplayProjects>
             </div>
+            </div>
+            {/* projects */}
           </div>
         </div>
       )}

@@ -8,6 +8,17 @@ const BannerModal = ({ userDetails, userData, isLoading, refetch }) => {
 
   const [isBtnLoading, setIsBtnLoading] = useState(false);
 
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const handleModalClose = () => {
+    setModalOpen(false);
+  };
+
+  const handleFormSubmit = () => {
+    handleModalClose();
+    // Handle form submission logic here
+  };
+
 
     // const userEmail = userData[0]?.email;
     const userEmail = userDetails?.email
@@ -60,6 +71,7 @@ const BannerModal = ({ userDetails, userData, isLoading, refetch }) => {
                   if (data.modifiedCount) {
                     refetch()
                     setIsBtnLoading(false);
+                    handleFormSubmit()
                     toast.success("Cover photo added");
 
                   }
@@ -78,12 +90,13 @@ const BannerModal = ({ userDetails, userData, isLoading, refetch }) => {
 
   return (
     <div>
-      <input type="checkbox" id="banner-modal" className="modal-toggle" />
+      <input type="checkbox" id="banner-modal" checked={modalOpen}
+        onChange={() => setModalOpen(!modalOpen)} className="modal-toggle" />
 <div className="modal">
   <div className="modal-box relative">
     <label htmlFor="banner-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
     <h3 className="text-lg font-bold mb-5 text-center">Upload a Cover Photo</h3>
-    <form className="flex items-center" onSubmit={handleSubmit(handleSub)}>
+    <form className="flex items-center"  onSubmit={handleSubmit(handleSub)}>
     <label htmlFor="icon-button-file" className="mx-32">
           <FaImages className="text-sm  md:text-3xl cursor-pointer "></FaImages>
         </label>
