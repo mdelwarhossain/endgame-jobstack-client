@@ -9,6 +9,17 @@ const ProImgModal = ({ userDetails, userData, isLoading, refetch }) => {
 
   const [isBtnLoading, setIsBtnLoading] = useState(false);
 
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const handleModalClose = () => {
+    setModalOpen(false);
+  };
+
+  const handleFormSubmit = () => {
+    handleModalClose();
+    // Handle form submission logic here
+  };
+
   const {
     register,
     formState: { errors },
@@ -51,6 +62,7 @@ const ProImgModal = ({ userDetails, userData, isLoading, refetch }) => {
               if (data.modifiedCount) {
                 refetch();
                 setIsBtnLoading(false);
+                handleFormSubmit()
                 toast.success("Profile Picture added");
               }
             });
@@ -66,7 +78,8 @@ const ProImgModal = ({ userDetails, userData, isLoading, refetch }) => {
 
   return (
     <div>
-      <input type="checkbox" id="pro-img-modal" className="modal-toggle" />
+      <input type="checkbox" checked={modalOpen}
+        onChange={() => setModalOpen(!modalOpen)} id="pro-img-modal" className="modal-toggle" />
       <div className="modal">
         <div className="modal-box relative">
           <label

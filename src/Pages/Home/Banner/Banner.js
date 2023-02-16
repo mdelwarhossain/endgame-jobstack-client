@@ -2,13 +2,11 @@ import React from "react";
 import { TypeAnimation } from "react-type-animation";
 import banner from "../../../assest/images/Devices-pana.png";
 import { useContext } from "react";
-import { InfoContext } from "../../../contexts/UserInfoProvider";
 import banner2 from '../../../assest/images/jobsBanner.jpg'
 import './Banner.css'
 
 const Banner = () => {
-  const { userDetails } = useContext(InfoContext);
-  console.log(userDetails);
+  
 
   return (
     <div data-theme="night" >

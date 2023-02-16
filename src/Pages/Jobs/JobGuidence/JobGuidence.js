@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const JobGuidence = () => {
     return (
-        <div className="hidden p-4 my-5 shadow-xl md:block col-span-2">
+        <div className="hidden p-4 my-5 border border-gray-300 rounded-lg md:block col-span-2">
             <h3 className="text-2xl font-bold">Job seeker guidance</h3>
             <p className="mt-2">Recommended based on your activity</p>
             <div className="my-5">

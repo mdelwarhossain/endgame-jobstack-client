@@ -141,7 +141,7 @@ const Navbar = () => {
               </Link>
             </li>
           </span>
-          <span className="">
+          {/* <span className="">
             <BsChatFill className="mx-auto -mb-4 hidden lg:block text-white" />
             <li className="font-bold lg:text-white">
               <Link to="/resumeTemplate">
@@ -149,7 +149,7 @@ const Navbar = () => {
                 Resume Template
               </Link>
             </li>
-          </span>
+          </span> */}
         </>
       )}
     </React.Fragment>
@@ -260,6 +260,12 @@ const Navbar = () => {
                                     <h3 className=" font-extrabold ">Connection </h3>
                                     <p className="font-bold text-blue-600 mt-1">21</p>
                                   </div>
+
+                                  {/* <Link to='/createResume'>
+                                  <button className="bg-green-700 hover:bg-green-500 text-white font-bold py-2 px-4 rounded">
+                                    Create Resume
+                                  </button>
+                                  </Link> */}
 
                                   <button className="bg-green-700 hover:bg-green-500 text-white font-bold py-2 px-4 rounded" onClick={handleSignout}>
                                     Sign Out

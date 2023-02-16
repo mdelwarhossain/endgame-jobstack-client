@@ -10,7 +10,6 @@ import Loading from "../../Shared/LoadingPage/LoadingPage";
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
-import { InfoContext } from "../../contexts/UserInfoProvider";
 import { GiCandlebright } from "react-icons/gi";
 import LimitCourses from "../NewsFeed/LeftSideCard/Courses/LimitCourses";
 import CardLoader from "../../Shared/LoadingPage/CardLoader/CardLoader";
@@ -18,7 +17,6 @@ import CardLoader from "../../Shared/LoadingPage/CardLoader/CardLoader";
 const Jobs = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const { user, logOut } = useContext(AuthContext);
-  const { userDetails } = useContext(InfoContext);
   const [limitCourse,setLimitCourse] = useState([])
   // console.log(userDetails);
   const { data: jobs = [], isLoading } = useQuery({

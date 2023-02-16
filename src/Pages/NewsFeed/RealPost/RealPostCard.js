@@ -15,7 +15,7 @@ const RealPostCard = ({ post }) => {
   const [like, setlike] = useState(post.likes);
   const [isActive, setIsActive] = useState(false);
 
-  console.log(post);
+  // console.log(post);
 
   useEffect(() => {
     fetch(`https://endgame-jobstack-server.vercel.app/user/${user?.email}`)
@@ -25,7 +25,7 @@ const RealPostCard = ({ post }) => {
         });
   }, [user?.email]);
 
-  console.log(post)
+  // console.log(post)
 
 
   // console.log(user?.name);
@@ -100,7 +100,7 @@ const RealPostCard = ({ post }) => {
 
   return (
     <div>
-      <div className="rounded-md shadow-md max-w-full bg-gray-200  my-5 mx-12">
+      <div className=" max-w-full border border-gray-300 rounded-lg my-5 mx-12">
         <div className="flex items-center justify-between p-3">
           <div className="flex items-center space-x-2">
             {/* will work on it next later */}
@@ -134,7 +134,7 @@ const RealPostCard = ({ post }) => {
         <img
           src={post?.image}
           alt=""
-          className="object-cover object-center w-full h-72 bg-gray-500"
+          className="object-cover object-center border-t border-b border-gray-300 rounded-lg w-full h-72 bg-gray-500"
         />
         <div className="p-3">
           <div className="flex items-center justify-between">
@@ -221,7 +221,7 @@ const RealPostCard = ({ post }) => {
               <h2>{post?.status}</h2>
             </p>
             {comments.map((comment, index) => (
-              <p className="text-sm">
+              <p className="text-sm ">
                 <span key={index} className="text-base font-semibold mr-1">
                   {comment.name}
                 </span>
