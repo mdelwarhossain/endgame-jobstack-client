@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 import Sponsored from '../NewsFeed/LeftSideCard/Sponsored/Sponsored';
@@ -9,20 +9,20 @@ import NetworkCard from './NetworkCard/NetworkCard';
 const Network = () => {
 
   const { user } = useContext(AuthContext);
-  // console.log(userDetails)
-  const { data: usersCollection = [], isLoading, refetch } = useQuery({
+  const [usersCollection, setUsersCollection] = useState(); 
+  const { data, isLoading, refetch } = useQuery({
     queryKey: [""],
     queryFn: async () => {
       try {
         const res = await fetch(`https://endgame-jobstack-server.vercel.app/recommendedusers/${user?.email}`, {
         });
         const data = await res.json();
-        // console.log(data)
+        setUsersCollection(data)
         return data;
       } catch (error) { }
     },
   });
-
+  console.log(data);
   return (
     <div className="px-4 allContainer  grid grid-cols-1 md:grid-cols-8 gap-4 ">
       <div className="col-span-2 mt-5">
