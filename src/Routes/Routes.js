@@ -43,6 +43,7 @@ import Contact from "../Pages/Hire/Contact/Contact";
 
 import ResumeTemplate from "../Pages/CreateResume/ResumeTemplate";
 import CreateResume from "../Pages/CreateResume/CreateResume/CreateResume";
+import Resume from "../Pages/Resume/Resume";
 
 
 
@@ -130,6 +131,10 @@ const router = createBrowserRouter([
       {
         path: "/course",
         element: <Courses></Courses>,
+      },
+      {
+        path: "/resume",
+        element: <Resume></Resume>,
       },
       {
         path: "/candidateresume/:email",

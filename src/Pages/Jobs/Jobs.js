@@ -136,7 +136,7 @@ const Jobs = () => {
       </div>
       <div className="col-span-2">
       <div  className="flex flex-col gap-2 my-5">
-      <Link to={`/candidate/${singleUser?._id}`} className="btn btn-outline btn-primary shadow-md">
+      <Link to={`/candidateresume/${user?.email}`} className="btn btn-outline btn-primary shadow-md">
               My Resume
             </Link>
             <Link to="/antifraudtips" className="btn btn-outline btn-primary shadow-md">

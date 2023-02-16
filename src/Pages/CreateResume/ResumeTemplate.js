@@ -1,11 +1,29 @@
-import React from 'react';
+import jsPDF from 'jspdf';
+import React, { useContext } from 'react';
+import { FaEdit } from 'react-icons/fa';
 import { useLoaderData } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthProvider';
 
 const ResumeTemplate = () => {
     const data = useLoaderData(); 
     console.log(data);
+    const {user} = useContext(AuthContext); 
+
+    const generatePDF = () => {
+        const doc = new jsPDF("p","pt","a4"); 
+        doc.html(document.querySelector('#content'), {
+          callback: function(pdf){
+            const pageCount = doc.internal.getNumberOfPages(); 
+            // pdf.deletePage(pageCount); 
+            pdf.save('myresume.pdf')
+          }
+  
+        })
+  
+      }
+
     return (
-        <section className='py-20 mx-60'>
+        <section id='content' className='py-20 mx-60'>
             <div className='mt-10'>
                 {/* header part */}
                 <div className='text-center'>
@@ -204,6 +222,11 @@ const ResumeTemplate = () => {
                     </div>
                 </div>
             </div>
+            <button className="btn btn-outline btn-primary shadow-md mt-5 mr-5" onClick={generatePDF} type='primary'>download resume</button>
+            {
+                data?.email === user?.email &&
+                <button className="btn btn-outline btn-primary shadow-md mt-5"><FaEdit></FaEdit>Edit Resume</button>
+            }
         </section>
     );
 };
