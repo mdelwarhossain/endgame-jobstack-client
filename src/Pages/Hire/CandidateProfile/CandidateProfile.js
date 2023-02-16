@@ -9,6 +9,7 @@ import { InfoContext } from '../../../contexts/UserInfoProvider';
 const CandidateProfile = () => {
     const {user} = useContext(AuthContext); 
     const [activities, setActivities] = useState(false); 
+    const candidate = useLoaderData();
    const {userDetails} = useContext(InfoContext)
     console.log(userDetails);
     const {
