@@ -8,7 +8,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../../contexts/AuthProvider";
 import CardLoader from "../../../Shared/LoadingPage/CardLoader/CardLoader";
 import LoadingPage from "../../../Shared/LoadingPage/LoadingPage";
-import pp from '../../../assest/images/pp.jpg'
+import pp from "../../../assest/images/pp.jpg";
 
 const RealPost = () => {
   const { user } = useContext(AuthContext);
@@ -17,9 +17,8 @@ const RealPost = () => {
 
   const [currentUserDetails, setCurrentUserDetails] = useState();
 
-  const [isBtnLoading,setIsBtnLoading] = useState(false)
+  const [isBtnLoading, setIsBtnLoading] = useState(false);
   const waitTime = 10000;
-
 
   useEffect(() => {
     const id = setInterval(() => {
@@ -114,8 +113,9 @@ const RealPost = () => {
   } = useQuery({
     queryKey: ["posts"],
     queryFn: async () => {
-
-      const res = await fetch("https://endgame-jobstack-server.vercel.app/allposts");
+      const res = await fetch(
+        "https://endgame-jobstack-server.vercel.app/allposts"
+      );
 
       const data = await res.json();
       setpost(data);
@@ -132,19 +132,19 @@ const RealPost = () => {
     <div>
       <div className="mx-6 my-6">
         <form className="flex items-center" onSubmit={handleSubmit(handleSub)}>
-          {
-            currentUserDetails?.profileImage? <img
-            alt=""
-            className="w-11 h-11 rounded-full ring-2 ring-offset-4 dark:bg-gray-500 ring-green-500 ring-offset-gray-800 mr-4"
-            src={currentUserDetails?.profileImage}
-          /> :
-
-          <img
-            alt=""
-            className="w-11 h-11 rounded-full ring-2 ring-offset-4 dark:bg-gray-500 ring-violet-400 ring-offset-gray-800 mr-4"
-            src={pp}
-          />
-          }
+          {currentUserDetails?.profileImage ? (
+            <img
+              alt=""
+              className="w-11 h-11 rounded-full ring-2 ring-offset-4 dark:bg-gray-500 ring-green-500 ring-offset-gray-800 mr-4"
+              src={currentUserDetails?.profileImage}
+            />
+          ) : (
+            <img
+              alt=""
+              className="w-11 h-11 rounded-full ring-2 ring-offset-4 dark:bg-gray-500 ring-violet-400 ring-offset-gray-800 mr-4"
+              src={pp}
+            />
+          )}
           <input
             type="text"
             {...register("caption")}
@@ -164,20 +164,19 @@ const RealPost = () => {
             style={{ display: "none" }}
           />
 
-         {!isBtnLoading ? (
-              <input
-                type="submit"
-                className=" block bg-green-700 hover:bg-green-500 text-white font-bold py-2 px-4 rounded"
-                value="Upload"
-              />
-            ) : (
-              <input
-                type="submit"
-                className="bg-green-700 hover:bg-green-500 text-white font-bold py-2 px-4 rounded block   animated infinite pulse"
-                value="Uploading..."
-              />
-            )}
-
+          {!isBtnLoading ? (
+            <input
+              type="submit"
+              className=" block bg-green-700 hover:bg-green-500 text-white font-bold py-2 px-4 rounded"
+              value="Upload"
+            />
+          ) : (
+            <input
+              type="submit"
+              className="bg-green-700 hover:bg-green-500 text-white font-bold py-2 px-4 rounded block   animated infinite pulse"
+              value="Uploading..."
+            />
+          )}
         </form>
       </div>
       {/* //post 2  */}
