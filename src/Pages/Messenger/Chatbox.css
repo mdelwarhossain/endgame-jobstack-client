@@ -1,4 +1,4 @@
-.message-show {
+/* .message-show {
     height: 100vh;
     padding: 10px;
     overflow-y: auto;
@@ -32,8 +32,6 @@
 .my-time {
     text-align: end;
     font-size: 13px;
-    /* padding: 0 10px; */
-    /* color: blue; */
 }
 
 .frnd-message {
@@ -86,8 +84,106 @@
     border-radius: 10px;
 }
 .frnd-time {
-    /* padding: 5px 0; */
-    /* color: blue; */
+   
     font-size: 13px;
     text-align: start;
 }
+
+ */
+ /* .message-show {
+    height: 100vh;
+    padding: 10px;
+    overflow-y: auto;
+  
+} */
+
+ .chat-box {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: #f5f5f5;
+    padding: 16px;
+    box-sizing: border-box;
+    height: 500px; /* set the fixed height as per your requirement */
+  overflow-y: auto; /* enable vertical scrolling */
+  }
+  
+
+
+  .chat-header {
+    position: sticky;
+    top: 0;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    z-index: 2;
+    border-bottom: 1px solid #d1d5db;
+  }
+  
+  
+  .avatar {
+    width: 40px;
+    height: 40px;
+    margin-right: 16px;
+  }
+  
+  .avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  
+  .text-xl {
+    font-size: 1.5rem;
+  }
+  
+  .chat-messages-container {
+    flex: 1;
+    overflow-y: auto;
+    
+    
+  }
+  
+  .chat-messages {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .message-box {
+    display: flex;
+    flex-direction: column;
+    max-width: 70%;
+    padding: 8px;
+    border-radius: 8px;
+    
+  }
+  
+  .my-message {
+    align-self: flex-end;
+    background-color: #007aff;
+    color: #fff;
+  }
+  
+  .friend-message {
+    align-self: flex-start;
+    background-color: #e5e5ea;
+  }
+  
+  .message-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  
+  .message-text {
+    font-size: 1rem;
+  }
+  
+  .message-time {
+    font-size: 0.75rem;
+    color: #9b9b9b;
+  }
+  

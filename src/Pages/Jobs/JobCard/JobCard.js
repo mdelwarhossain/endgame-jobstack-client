@@ -6,7 +6,7 @@ const JobCard = ({ job }) => {
 
   return (
     <div>
-      <div className='grid grid-cols-10'>
+      <div className='grid  grid-cols-10'>
         <div className="avatar col-span-3 sm:col-span-3 lg:col-span-2 m-2 mt-4 ml-4">
           <div className="mr-3">
             {/* <img className='w-18 h-18 rounded' src={job?.logo} alt='' /> */}

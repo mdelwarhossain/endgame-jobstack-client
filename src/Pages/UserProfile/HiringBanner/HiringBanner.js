@@ -4,7 +4,7 @@ import hBanner from '../../../assest/images/hiringBanner.jpg'
 import { FaArrowRight } from 'react-icons/fa';
 const HiringBanner = () => {
     return (
-        <div className='shadow-2xl'>
+        <div className='border border-gray-300 rounded-lg'>
             <Link to='/jobs'>
              <img src={hBanner} alt="" />
              <p className='font-bold py-2'>See Who's hiring <FaArrowRight className='inline'/></p>

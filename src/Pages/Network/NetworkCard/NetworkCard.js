@@ -3,24 +3,30 @@ import React, { useContext, useState } from "react";
 import { useEffect } from "react";
 import { toast } from "react-hot-toast";
 import { AuthContext } from "../../../contexts/AuthProvider";
-import { InfoContext } from "../../../contexts/UserInfoProvider";
 import Loading from "../../../Shared/LoadingPage/LoadingPage";
 
 const NetworkCard = ({ dbuser, isLoading, refetch }) => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const { user } = useContext(AuthContext);
-  const { userDetails } = useContext(InfoContext);
-  // console.log(userDetails);
+  const [userDetails,setUserDetails] = useState()
+  
 
-  // const [usersCollection,setUsersCollection] = useState([])
-  // console.log(user);
+  useEffect(() =>{
 
-  // useEffect(() =>{
-  //   fetch('https://endgame-jobstack-server.vercel.app/users')
-  //   .then(res => res.json())
-  //   .then(data => setUsersCollection(data))
-  // },[])
+    fetch(`https://endgame-jobstack-server.vercel.app/user/${user?.email}`)
+    .then((res)=>{
+        if (!res.ok) {
+            throw new Error(res.statusText);
+          }
+          return res.json();
+    } )
+    .then(data => setUserDetails(data))
+  },[user?.email])
+
+  console.log(userDetails)
+
+  
 
 
   const handleConnect = (dbuser) => {

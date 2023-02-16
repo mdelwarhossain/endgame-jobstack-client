@@ -5,7 +5,7 @@ import "./RightbarMessage.css";
 
 const RighBarMessenger = ({ currentFriend }) => {
   return (
-    <div className="profile-container">
+    <div className="profile-container border border-gray-300 rounded-lg">
       <div className="banner-image">
         {currentFriend?.bannerImage ? (
           <img src={currentFriend?.bannerImage} alt="" />
