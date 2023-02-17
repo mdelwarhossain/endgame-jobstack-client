@@ -40,11 +40,11 @@ console.log(posts);
                 <div className='my-10 m-5 py-5'>
                     <p className='mb-1 text-2xl font-bold'>{userDetails?.name}</p>
                     <p className='mb-7'>{userDetails?.headline}</p>
-                    <p className='mb-7'>{userDetails?.friends?.length} {userDetails?.friends?.length > 1 ? 'connections': 'connection'}</p>
+                    <p className='mb-7 text-green-700 font-bold'>{userDetails?.friends?.length} {userDetails?.friends?.length > 1 ? 'connections': 'connection'}</p>
                     <div className='my-5'>
-                        <Link to={`/candidateresume/${userDetails?.email}`} className='btn  btn-primary'><span className='mr-5'>resume</span> <FaFileDownload className='text-2xl'></FaFileDownload></Link>
+                        <Link to={`/candidateresume/${userDetails?.email}`} className='btn  bg-green-700 hover:bg-green-500 text-white font-bold py-2 px-4 rounded'><span className='mr-5'>resume</span> <FaFileDownload className='text-2xl'></FaFileDownload></Link>
                         <Link to={`/contact/${userDetails._id}`}
-                        ><p className='btn  btn-primary ml-5'>contact <span className='ml-5 text-2xl'><FaRegEnvelope></FaRegEnvelope></span></p></Link>
+                        ><p className='btn bg-green-700 hover:bg-green-500 text-white font-bold py-2 px-4 rounded ml-5'>contact <span className='ml-5 text-2xl'><FaRegEnvelope></FaRegEnvelope></span></p></Link>
                     </div>
                 </div>
             </div>

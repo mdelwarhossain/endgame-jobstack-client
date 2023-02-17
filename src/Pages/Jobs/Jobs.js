@@ -72,7 +72,7 @@ const Jobs = () => {
 
   return (
     <div className="px-4 allContainer grid grid-cols-1 md:grid-cols-8 gap-4">
-      <div className="col-span-2 mt-5">
+      <div className="col-span-2 hidden md:block mt-5">
         <div className="">
           {/* {
             user &&
@@ -97,7 +97,7 @@ const Jobs = () => {
           </div>
         </div>
       </div>
-      <div className="col-span-4 shadow-2xl my-5">
+      <div className="col-span-4 border border-gray-300 rounded-lg my-5">
         <div className="p-8 bg-green-700">
           <label className="label">
             {" "}

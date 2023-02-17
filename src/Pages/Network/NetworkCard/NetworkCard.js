@@ -93,55 +93,12 @@ const NetworkCard = ({ dbuser, isLoading, refetch }) => {
     return <Loading></Loading>
   }
 
+
+  console.log(dbuser)
   return (
     <div className="my-10">
-      {/* <div className="pt-5 pb-5">
-        <label className="label">
-          {" "}
-          <span className="label-text text-xl font-bold text-green-600">
-            Search users here
-          </span>
-        </label>
-        <input
-          className="rounded-md input-bordered input-warning  w-3/4  px-6 text-gray-700 leading-tight focus:outline-none px-2 py-5"
-          type="text"
-          placeholder=""
-          onChange={(event) => {
-            setSearchTerm(event.target.value);
-          }}
-        />
-      </div> */}
-      {/* <div> */}
-      {/* {usersCollection
-          .filter((dbuser) => {
-            if (searchTerm == "") {
-              return dbuser;
-            } else if (
-              dbuser.name.toLowerCase().includes(searchTerm.toLowerCase())
-            ) {
-              return dbuser;
-            }
-          })
-          .map((dbuser) => ( */}
-      {/* <div className=" bg-base-100 shadow-xl h-72">
-          <figure>
-            <img className="w-full h-32" src={dbuser?.profileImage} alt="Img" />
-          </figure>
-          <div className=" my-4 ml-2">
-            <h2 className="text-xl font-semibold text-cyan-900">{dbuser?.name}</h2>
-            <p className="text-cyan-900">{dbuser?.headline}</p>
-          </div>
-          <div className="  flex justify-center ">
-            {
-              !dbuser?.sentStatus ?
-                <p onClick={() => handleConnect(dbuser)} className="btn bg-green-700 hover:bg-green-500 text-white font-bold py-2 px-4 rounded">Connect</p>
-                :
-                <p className="btn bg-green-700 hover:bg-green-500 text-white font-bold py-2 px-4 rounded ">Request sent</p>
-            }
-          </div>
-        </div></div> */}
       <div className='grid  place-items-center font-mono'>
-        <div className="bg-amber-50 h-72 rounded-md shadow-2xl">
+        <div className="bg-amber-50 h-72 border border-gray-300 rounded-lg">
           <div className="flex justify-center items-center leading-none">
             <img
               src={dbuser?.profileImage}
@@ -149,9 +106,9 @@ const NetworkCard = ({ dbuser, isLoading, refetch }) => {
               className="h-36 w-48 bg-blue-400  rounded-md shadow-xl mt-4 transform -translate-y-8 hover:-translate-y-2 transition duration-700" />
           </div>
           <div className="">
-            <h1 className="block ml-2 mb-1 text-xl font-semibold  text-cyan-900"> {dbuser?.name}</h1>
-            <p className="text-sm ml-2 my-2 font-semibold tracking-tighter  text-cyan-900">
-              {dbuser?.headline}
+            <h1 style={{fontSize:"18px"}} className="block ml-2 mb-1  font-extrabold"> {dbuser?.name}</h1>
+            <p className="text-sm ml-2 my-2 font-semibold tracking-tighter  ">
+              {dbuser?.headline ? dbuser?.headline.slice(0,25)+'...' : dbuser?.role}
             </p>
           </div>
           <div className="card-actions justify-center ">
