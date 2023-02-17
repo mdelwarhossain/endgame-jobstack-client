@@ -140,7 +140,7 @@ const router = createBrowserRouter([
         path: "/candidateresume/:email",
         element: <ResumeTemplate></ResumeTemplate>,
         loader: ({ params }) =>
-        fetch(`http://localhost:5000/candidateresume/${params.email}`),
+        fetch(`https://endgame-jobstack-server.vercel.app/candidateresume/${params.email}`),
       },
 
       {

@@ -95,7 +95,7 @@ const Messenger = () => {
   console.log(currentMessage);
 
   return (
-    <div className="messenger allContainer mb-52 px-4 grid grid-cols-1 md:grid-cols-8 md:gap-4">
+    <div className="messenger allContainer mb-5 px-4 grid grid-cols-1 md:grid-cols-8 md:gap-4">
      <div className=" message-show w-full  col-span-2">
   {/* LeftBarMessenger starts */}
   <div className="p-2 bg-green-700">
