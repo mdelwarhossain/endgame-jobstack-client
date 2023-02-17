@@ -15,9 +15,7 @@ const RealPostCard = ({ post }) => {
   const [like, setlike] = useState(post.likes);
   const [isActive, setIsActive] = useState(false);
 
-
   // console.log(post);
-
 
   useEffect(() => {
     fetch(`https://endgame-jobstack-server.vercel.app/user/${user?.email}`)
@@ -27,11 +25,7 @@ const RealPostCard = ({ post }) => {
       });
   }, [user?.email]);
 
-
-
   // console.log(post)
-
-
 
   // console.log(user?.name);
   const handleLike = () => {
@@ -225,7 +219,6 @@ const RealPostCard = ({ post }) => {
               <h2>{post?.status}</h2>
             </p>
             {comments.map((comment, index) => (
-
               <div className="flex items-center">
                 <img
                   src={comment?.userImage}
@@ -242,14 +235,6 @@ const RealPostCard = ({ post }) => {
                   {comment.comment}
                 </p>
               </div>
-
-              <p className="text-sm ">
-                <span key={index} className="text-base font-semibold mr-1">
-                  {comment.name}
-                </span>
-                {comment.comment}
-              </p>
-
             ))}
             <form onSubmit={handleSubmit} action="">
               <input

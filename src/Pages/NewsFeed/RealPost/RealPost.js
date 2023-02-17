@@ -132,16 +132,16 @@ const RealPost = () => {
     <div>
       <div className="mx-6 my-6">
         <form className="flex items-center" onSubmit={handleSubmit(handleSub)}>
-          {currentUserDetails?.profileImage ? (
+          {posts?.userImage ? (
             <img
               alt=""
-              className="w-11 h-11 rounded-full ring-2 ring-offset-4 dark:bg-gray-500 ring-green-500 ring-offset-gray-800 mr-4"
-              src={currentUserDetails?.profileImage}
+              className="w-11 h-11 rounded-full ring-2 ring-offset-4 bg-green-500 ring-green-500 ring-offset-gray-800 mr-4"
+              src={posts?.userImage}
             />
           ) : (
             <img
               alt=""
-              className="w-11 h-11 rounded-full ring-2 ring-offset-4 dark:bg-gray-500 ring-violet-400 ring-offset-gray-800 mr-4"
+              className="w-11 h-11 rounded-full ring-2 ring-offset-4 bg-green-500 ring-green-400 ring-offset-gray-800 mr-4"
               src={pp}
             />
           )}
@@ -149,7 +149,7 @@ const RealPost = () => {
             type="text"
             {...register("caption")}
             placeholder="What's in your mind"
-            className="relative input input-bordered input-info w-full input-sm md:input-md"
+            className="relative input input-bordered input-info w-full input-sm md:input-md border-green-500"
           />
           <label htmlFor="icon-button-file" className="mx-4">
             <FaImages className="text-sm md:text-3xl cursor-pointer "></FaImages>
