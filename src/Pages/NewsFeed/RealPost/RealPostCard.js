@@ -19,14 +19,13 @@ const RealPostCard = ({ post }) => {
 
   useEffect(() => {
     fetch(`https://endgame-jobstack-server.vercel.app/user/${user?.email}`)
-        .then((res) => res.json())
-        .then((data) => {
-          setCurrentUserDetails(data);
-        });
+      .then((res) => res.json())
+      .then((data) => {
+        setCurrentUserDetails(data);
+      });
   }, [user?.email]);
 
   // console.log(post)
-
 
   // console.log(user?.name);
   const handleLike = () => {
@@ -103,12 +102,11 @@ const RealPostCard = ({ post }) => {
       <div className=" max-w-full border border-gray-300 rounded-lg my-5 mx-12">
         <div className="flex items-center justify-between p-3">
           <div className="flex items-center space-x-2">
-            {/* will work on it next later */}
-            {/* <img
-              src="https://source.unsplash.com/50x50/?portrait"
+            <img
+              src={post?.userImage}
               alt=""
               className="object-cover object-center w-8 h-8 rounded-full shadow-sm bg-gray-500 border-gray-700"
-            /> */}
+            />
             <div className="-space-y-1">
               <h2 className="text-sm font-semibold leading-none">
                 {post?.name}
@@ -193,7 +191,7 @@ const RealPostCard = ({ post }) => {
           </div>
           <div className="flex flex-wrap items-center pt-3 pb-1">
             <div className="flex items-center space-x-2">
-              <div className="flex -space-x-1">
+              {/* <div className="flex -space-x-1">
                 <img
                   alt=""
                   className="w-5 h-5 border rounded-full bg-gray-500 border-gray-800"
@@ -209,7 +207,7 @@ const RealPostCard = ({ post }) => {
                   className="w-5 h-5 border rounded-full bg-gray-500 border-gray-800"
                   src="https://source.unsplash.com/40x40/?portrait?3"
                 />
-              </div>
+              </div> */}
               {/* <span className="text-sm">
                 Liked by
                 <span className="font-semibold">test2</span>
@@ -221,12 +219,22 @@ const RealPostCard = ({ post }) => {
               <h2>{post?.status}</h2>
             </p>
             {comments.map((comment, index) => (
-              <p className="text-sm ">
-                <span key={index} className="text-base font-semibold mr-1">
-                  {comment.name}
-                </span>
-                {comment.comment}
-              </p>
+              <div className="flex items-center">
+                <img
+                  src={comment?.userImage}
+                  alt=""
+                  className="object-cover object-center w-5 h-5 rounded-full shadow-sm bg-gray-500 border-gray-700 mr-2"
+                />
+                <p className="text-sm flex">
+                  <span
+                    key={index}
+                    className="text-base font-semibold  flex flex-row items-center mr-2"
+                  >
+                    {comment.name}
+                  </span>
+                  {comment.comment}
+                </p>
+              </div>
             ))}
             <form onSubmit={handleSubmit} action="">
               <input

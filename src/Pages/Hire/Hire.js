@@ -11,7 +11,6 @@ import CardLoader from "../../Shared/LoadingPage/CardLoader/CardLoader";
 const Hire = () => {
   const { user } = useContext(AuthContext);
 
-
   const { data = [], isLoading } = useQuery({
     queryKey: ["alluser"],
     queryFn: async () => {
@@ -30,7 +29,6 @@ const Hire = () => {
     },
   });
   // console.log(data);
-
 
   const { data: singleUser } = useQuery({
     queryKey: ["user"],

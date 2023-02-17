@@ -14,7 +14,7 @@ const NetworkCard = ({ dbuser, isLoading, refetch }) => {
 
   useEffect(() =>{
 
-    fetch(`https://endgame-jobstack-server.vercel.app/user/${user?.email}`)
+    fetch(`http://localhost:5000/user/${user?.email}`)
     .then((res)=>{
         if (!res.ok) {
             throw new Error(res.statusText);
@@ -45,7 +45,7 @@ const NetworkCard = ({ dbuser, isLoading, refetch }) => {
     };
 
     // save connections to the database
-    fetch("https://endgame-jobstack-server.vercel.app/connection", {
+    fetch("http://localhost:5000/connection", {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -56,38 +56,12 @@ const NetworkCard = ({ dbuser, isLoading, refetch }) => {
       .then((result) => {
         refetch()
         console.log(result);
-        //     const sentEmail = dbuser?.email; 
-        //     // save sent status to the database
-        // fetch("https://endgame-jobstack-server.vercel.app/sentstatus", {
-        //   method: "PUT",
-        //   headers: {
-        //     "content-type": "application/json",
-        //   },
-        //   body: JSON.stringify(sentEmail),
-        // })
-        //   .then((res) => res.json())
-        //   .then((result) => {
-        //     console.log(result);
-        //   });
-        //     toast.success(`Your request has been sent to ${dbuser?.name}`);
-        //     // navigate('/posts')
+        toast.success(`Your request has been sent to ${dbuser?.name}`);
+        
       });
   };
 
-  // const handleDelete = (id) => {
-  //   fetch(`https://endgame-jobstack-server.vercel.app/delete/${id}`, {
-  //     method: "delete",
-  //     headers: {
-  //       "content-type": "application/json",
-  //     },
-  //   })
-  //     .then((res) => res.json())
-  //     .then((result) => {
-  //       console.log(result);
-  //       toast.success('deleted');
-  //       // navigate('/posts')
-  //     });
-  // }
+  
 
   if (isLoading) {
     return <Loading></Loading>
@@ -113,10 +87,11 @@ const NetworkCard = ({ dbuser, isLoading, refetch }) => {
           </div>
           <div className="card-actions justify-center ">
             {
-              !dbuser?.sentStatus ?
-                <p onClick={() => handleConnect(dbuser)} className="rounded bg-[#2E8B57]  hover:bg-green-900 text-white font-bold btn-sm pt-1">Connect</p>
-                :
+              dbuser?.requests?.includes(user?.email) ?
+                
                 <p className="bg-[#2E8B57] rounded  hover:bg-green-900 text-white font-bold btn-sm pt-1">Request sent</p>
+                :
+                <p onClick={() => handleConnect(dbuser)} className="rounded bg-[#2E8B57]  hover:bg-green-900 text-white font-bold btn-sm pt-1">Connect</p>
             }
           </div>
         </div>
