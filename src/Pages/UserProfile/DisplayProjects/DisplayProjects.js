@@ -31,7 +31,7 @@ const DisplayProjects = () => {
       });
 
     return (
-        <div className='shadow-lg'>
+        <div >
             <div className="mt-6 flex justify-between  p-6">
               <div>
               <h2 className="text-2xl font-bold mb-2">Projects</h2>

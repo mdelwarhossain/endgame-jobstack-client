@@ -5,8 +5,8 @@ import pp from "../../assest/images/pp.jpg";
 
 const LeftbarMessenger = ({friend}) => {
   return (
-    <div>
-      <div className="friend-search">
+    <div >
+      <div className="friend-search border-b border-gray-300 rounded-lg">
         {/* search start here */}
 
         {/* search end here */}
@@ -16,7 +16,7 @@ const LeftbarMessenger = ({friend}) => {
           <div className="avatar ">
             <div className="w-12">
               {
-                friend?.profileImage? <img src={friend?.profileImage} alt="" />:<img src={pp} alt="" />
+                friend?.profileImage? <img src={friend?.profileImage} className='border-2 border-' alt="" />:<img src={pp} alt="" />
               }
             </div>
           </div>
@@ -25,6 +25,8 @@ const LeftbarMessenger = ({friend}) => {
         </div>
       </div>
     </div>
+
+    
   );
 };
 

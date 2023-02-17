@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const AntiFraudTips = () => {
     return (
-        <div className='md:w-2/3 mx-auto flex flex-col gap-5 my-10'>
+        <div className='md:w-2/3 allContainer mx-auto flex flex-col gap-5 my-10'>
             <div className='text-center p-2'>
                 <h1 className='text-4xl font-bold '>How to avoid the <span className='text-error'>fraud</span></h1>
                 <p className='my-3'>At Jobstack, we are committed to making your online experience a safe and reliable one. The following information is designed to help internship/job seekers identify common red flags and avoid fraud.</p>
@@ -42,8 +42,8 @@ Legitimate employers would have had sufficient interaction with you through inte
                 <p className='my-3'>Employers are not allowed to make discriminatory or abusive comments about race, ethnicity, religious affiliation, sexual orientation or gender about any candidate. Any such attempt should be reported immediately.</p>
             </div>
             <div className='flex justify-between'>
-                <Link className='btn btn-outline btn-primary' to='/jobs'>Back to Jobs</Link>
-                <Link className='btn btn-outline btn-primary' to='/jobs'>Contact Us</Link>
+                <Link className='btn bg-green-700 hover:bg-green-500 text-white font-bold py-2 px-4 rounded' to='/jobs'>Back to Jobs</Link>
+                {/* <Link className='btn bg-green-700 hover:bg-green-500 text-white font-bold py-2 px-4 rounded' to='/jobs'>Contact Us</Link> */}
             </div>
         </div>
     );

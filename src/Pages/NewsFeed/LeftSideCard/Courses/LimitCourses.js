@@ -13,7 +13,7 @@ const LimitCourses = ({course}) => {
     <div>
       <Link to='/course'>
     <div className=" cursor-pointer  ">
-      <div className="mb-5 shadow-xl rounded-2xl p-5">
+      <div className="mb-5 border border-gray-300 rounded-lg p-5">
         <img className="rounded-xl" style={{height:"200px"}} src={course?.image} alt="" />
 
         <div className="flex justify-between mt-5 items-center">
