@@ -42,8 +42,8 @@ const DisplayProjects = () => {
                 userProjects?.map(project => <div className="my-5" key={project._id}>
                   {/* <h3 className="text-xl mb-2  font-extrabold">{project.projectName}</h3> */}
                   <p className="mb-2 font-semibold">{project.projectName}</p>
-                  <p className="mb-2 "><span>{project.startDate}</span> - <span>{project.endDate}</span></p>
-                  <a target="_blank" rel="noreferrer" href="https://tailwindcss.com/docs/flex-direction"><button  className="btn btn-outline mb-5 btn-info">Show Project <FaExternalLinkAlt className="ml-2"/></button></a>
+                  <p ><span>{project.startDate}</span> - <span>{project.endDate}</span></p>
+                  <a target="_blank" rel="noreferrer" href="https://tailwindcss.com/docs/flex-direction"><button  className="btn bg-green-700 hover:bg-green-500 my-3 text-white font-bold py-2 px-4 rounded">Show Project <FaExternalLinkAlt className="ml-2"/></button></a>
                   <p>{project.projectDescription}</p>
                 </div>)
               }

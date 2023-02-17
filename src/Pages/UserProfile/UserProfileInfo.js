@@ -203,7 +203,7 @@ const UserProfileInfo = () => {
                   />
                   <div>
                     <p>{mp?.status.slice(0, 8)}...</p>
-                    <label onClick={() => setPostDetails(mp)}  htmlFor="details" className="btn mt-2 btn-outline btn-info btn-sm">See More</label>
+                    <label onClick={() => setPostDetails(mp)}  htmlFor="details" className="btn bg-[#2E8B57] mt-2 rounded hover:bg-green-900 text-white font-bold btn-sm">See More</label>
                   </div> 
                 </div>
                   ))}

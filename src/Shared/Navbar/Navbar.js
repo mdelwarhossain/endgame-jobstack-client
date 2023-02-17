@@ -121,7 +121,7 @@ const Navbar = () => {
               </Link>
             </li>
           </span>
-          <span className="">
+          {/* <span className="">
             <MdNotificationsActive className="mx-auto -mb-4 hidden lg:block text-white" />
             <li className="font-bold lg:text-white">
               <Link to="/notification">
@@ -129,7 +129,7 @@ const Navbar = () => {
                 Notification
               </Link>
             </li>
-          </span>
+          </span> */}
           <span className="">
             <BsChatFill className="mx-auto -mb-4 hidden lg:block text-white" />
             <li className="font-bold lg:text-white">

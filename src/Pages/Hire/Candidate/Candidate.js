@@ -5,9 +5,9 @@ const Candidate = ({ candidate }) => {
     return (
         <div>
             <div className='grid grid-cols-10 mt-3'>
-                <div className=" avatar col-span-3 sm:col-span-3 lg:col-span-2 m-2 mt-4">
-                    <div className="mr-3 flex justify-center items-center">
-                        <img className='w-18 h-18 rounded' src={candidate.profileImage} alt='' />
+                <div className="  col-span-3 sm:col-span-3 lg:col-span-2">
+                    <div >
+                        <img className='h-40 w-40 rounded-xl'  src={candidate.profileImage} alt='' />
                     </div>
                 </div>
                 <div className='col-span-7 sm:col-span-7 lg:col-span-6 mt-4 rounded-md'>

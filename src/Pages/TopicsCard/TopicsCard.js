@@ -12,7 +12,7 @@ const TopicsCard = ({ quiz }) => {
         <div>
 
             <div className='grid place-items-center font-mono '>
-                <div className="bg-amber-50 h-84 rounded-md shadow-2xl">
+                <div className="bg-amber-50 h-84 border border-gray-300 rounded-lg">
                     <div className="flex justify-center items-center leading-none">
                         <img
                             src={quiz.logo}
