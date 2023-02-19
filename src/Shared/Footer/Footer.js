@@ -103,22 +103,25 @@ const Footer = () => {
               </h3>
               <ul className="space-y-1 ">
                 <li>
-                  <a rel="noopener noreferrer" href="#">
+                  <a rel="noopener noreferrer" href="https://www.upwork.com/hire/">
                     Hire Professional
                   </a>
                 </li>
                 <li>
-                  <a rel="noopener noreferrer" href="#">
+                  <a rel="noopener noreferrer" href="https://www.investopedia.com/terms/i/investorrelations.asp">
                     Investor Relations
                   </a>
                 </li>
                 <li>
-                  <a rel="noopener noreferrer" href="#">
+                  <a rel="noopener noreferrer"
+                    href="https://www.astartingpoint.com/static/tos.html?gclid=Cj0KCQiArsefBhCbARIsAP98hXQ7FclpXt-veeRLGlEpni3V888BdOPF5YipJ6SyO7ZFqKmU18_4NgMaApqyEALw_wcB"
+                  >
                     Terms of Service
                   </a>
                 </li>
                 <li>
-                  <a rel="noopener noreferrer" href="#">
+                  <a rel="noopener noreferrer"
+                    href="https://www.impress.press/">
                     Press & Media
                   </a>
                 </li>
