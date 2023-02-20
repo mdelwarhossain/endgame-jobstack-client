@@ -7,7 +7,7 @@ const JobPostCard = ({ post, setId, setMyPost, handleDelete }) => {
       <div className='grid grid-cols-8'>
         <div className="avatar col-span-1 m-2 mt-4">
           <div className="w-16 h-16 rounded">
-            <img src="" alt='' />
+            <img src={post?.logo} alt='' />
           </div>
         </div>
         <div className='col-span-5 mt-4'>

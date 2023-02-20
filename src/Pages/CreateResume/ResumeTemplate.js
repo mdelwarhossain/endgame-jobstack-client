@@ -1,29 +1,50 @@
 import jsPDF from 'jspdf';
-import React, { useContext } from 'react';
+import React, { useContext, useRef } from 'react';
 import { FaEdit } from 'react-icons/fa';
 import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
+import ReactToPrint, { useReactToPrint } from 'react-to-print';
 
 const ResumeTemplate = () => {
     const data = useLoaderData(); 
     console.log(data);
     const {user} = useContext(AuthContext); 
+    const componentRef = useRef(); 
+    const handlePrint = useReactToPrint({
+        content: () => componentRef.current, 
+        documentTitle: 'myresume',
+        onAfterPrint: () => alert('download successfull')
+    })
 
-    const generatePDF = () => {
-        const doc = new jsPDF("p","pt","a4"); 
-        doc.html(document.querySelector('#content'), {
-          callback: function(pdf){
-            const pageCount = doc.internal.getNumberOfPages(); 
-            // pdf.deletePage(pageCount); 
-            pdf.save('myresume.pdf')
-          }
+    // const generatePDF = () => {
+    //     const doc = new jsPDF("p","pt","a4"); 
+    //     doc.html(document.querySelector('#content'), {
+    //       callback: function(pdf){
+    //         const pageCount = doc.internal.getNumberOfPages(); 
+    //         // pdf.deletePage(pageCount); 
+    //         pdf.save('myresume.pdf')
+    //       }
   
-        })
+    //     })
   
-      }
+    //   }
+
+
+
 
     return (
-        <section id='content' className='py-20 mx-60'>
+        <div>
+            {/* <ReactToPrint
+          trigger={() => {
+            // NOTE: could just as easily return <SomeComponent />. Do NOT pass an `onClick` prop
+            // to the root node of the returned component as it will be overwritten.
+            return <button className='btn btn-primary'>Download Resume</button>;
+          }}
+          content={() => this.componentRef}
+          documentTitle='myresume.pdf'
+          pageStyle='print'
+        /> */}
+            <section ref={componentRef}  id='content' className='py-20 mx-60'>
             <div className='mt-10'>
                 {/* header part */}
                 <div className='text-center'>
@@ -222,12 +243,17 @@ const ResumeTemplate = () => {
                     </div>
                 </div>
             </div>
-            <button className="btn btn-outline btn-primary shadow-md mt-5 mr-5" onClick={generatePDF} type='primary'>download resume</button>
+            {/* onclick={generatePDF} */}
+            
+        </section>
+        <div className='mx-60 mb-10'>
+        <button onClick={handlePrint} className="btn btn-outline btn-primary shadow-md mt-5 mr-5 m" type='primary'>download resume</button>
             {
                 data?.email === user?.email &&
                 <button className="btn btn-outline btn-primary shadow-md mt-5"><FaEdit></FaEdit>Edit Resume</button>
             }
-        </section>
+        </div>
+        </div>
     );
 };
 
