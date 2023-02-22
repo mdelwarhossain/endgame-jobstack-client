@@ -126,7 +126,8 @@ const Footer = () => {
                   </a>
                 </li>
                 <li>
-                  <a rel="noopener noreferrer" href="#">
+                  <a rel="noopener noreferrer"
+                    href="https://www.google.com/search?q=Careers&oq=careers&aqs=chrome.0.69i59j0i512l2j69i61j69i60l4.6253j0j7&sourceid=chrome&ie=UTF-8&ibp=htl;jobs&ved=2ahUKEwih2OyWz6X9AhUBpekKHb5MChoQo-8GKAN6BAgIEAg#htitab=&htivrt=jobs&htidocid=74z3VeLPTs0AAAAAAAAAAA%3D%3D&fpstate=tldetail">
                     Careers
                   </a>
                 </li>
