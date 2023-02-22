@@ -8,16 +8,20 @@ import { BiNetworkChart } from "react-icons/bi";
 import { MdNotificationsActive } from "react-icons/md";
 import { FaUser } from "react-icons/fa";
 import { MdQuiz } from "react-icons/md";
+import { BsArrowRight } from 'react-icons/bs';
 
 import { useEffect } from "react";
 import pp from "../../assest/images/pp.jpg";
 import "./header.css";
 import LoadingPage from "../LoadingPage/LoadingPage";
 import logo from "../../../src/assest/logo/grow (1).png";
+import { toast } from "react-hot-toast";
 
 const Navbar = () => {
   const { logOut, user } = useContext(AuthContext);
   const [isOpen, setIsOpen] = useState(false);
+ 
+  // console.log(resumeCreatorEmail)
 
   const handleToggle = () => {
     setIsOpen(!isOpen);
@@ -27,11 +31,40 @@ const Navbar = () => {
 
   const [currentUserDetails, setCurrentUserDetails] = useState();
 
+
+// const handleCreateResume = () =>{
+
+//   const resumeCreatorEmail = {
+//     resumeCreatorEmail: user?.email
+//   }
+
+//   fetch("http://localhost:5000/createResume", {
+//     method: "POST",
+//     headers: {
+//       "content-type": "application/json",
+//     },
+//     body: JSON.stringify(),
+//   })
+//     .then((res) => res.json(resumeCreatorEmail))
+//     .then((data) => {
+//       if (data.acknowledged) {
+//         toast("Create Resume")
+//       }
+//     });
+    
+// }
+ 
+
   useEffect(() => {
     fetch(`https://endgame-jobstack-server.vercel.app/user/${user?.email}`)
       .then((res) => res.json())
       .then((data) => setCurrentUserDetails(data));
   }, [user?.email]);
+
+  // console.log(currentUserDetails);
+
+
+  
 
   // const waitTime = 5000;
 
@@ -76,7 +109,7 @@ const Navbar = () => {
               </Link>
             </li>
           </span>
-          <span className="">
+          {/* <span className="">
             <BsFillBagPlusFill className="mx-auto -mb-4 hidden lg:block text-white" />
             <li className="font-bold lg:text-white">
               <Link to="/jobs">
@@ -84,16 +117,32 @@ const Navbar = () => {
                 Jobs
               </Link>
             </li>
-          </span>
-          <span className="">
-            <BsFillBagPlusFill className="mx-auto -mb-4 hidden lg:block text-white" />
-            <li className="font-bold lg:text-white">
-              <Link to="/hire">
-                <BsFillBagPlusFill className="lg:hidden -mr-2" />
-                Hire
-              </Link>
-            </li>
-          </span>
+          </span> */}
+
+{currentUserDetails?.role === "JobSeeker" && (
+            <span className="">
+              <BsFillBagPlusFill className="mx-auto -mb-4 hidden lg:block text-white" />
+              <li className="font-bold lg:text-white">
+                <Link to="/jobs">
+                  <BsFillBagPlusFill className="lg:hidden -mr-2" />
+                  Jobs
+                </Link>
+              </li>
+            </span>
+          )}
+
+          {currentUserDetails?.role === "Recruiter" && (
+            <span className="">
+              <BsFillBagPlusFill className="mx-auto -mb-4 hidden lg:block text-white" />
+              <li className="font-bold lg:text-white">
+                <Link to="/hire">
+                  <BsFillBagPlusFill className="lg:hidden -mr-2" />
+                  Hire
+                </Link>
+              </li>
+            </span>
+          )}
+
           <span className="">
             <FaBlog className="mx-auto -mb-4 hidden lg:block text-white" />
             <li className="font-bold lg:text-white">
@@ -139,6 +188,19 @@ const Navbar = () => {
               </Link>
             </li>
           </span>
+
+          <div>
+            {currentUserDetails?.rol === "admin" && (
+              <span className="">
+                <li className="font-bold lg:text-white">
+                  <Link to="/dashboard">
+                    <BsChatFill className="lg:hidden -mr-2" />
+                    Dashboard
+                  </Link>
+                </li>
+              </span>
+            )}
+          </div>
           {/* <span className="">
             <BsChatFill className="mx-auto -mb-4 hidden lg:block text-white" />
             <li className="font-bold lg:text-white">
@@ -152,6 +214,9 @@ const Navbar = () => {
       )}
     </React.Fragment>
   );
+
+
+
   return (
     <div className="relative header">
       <div className="navbar py-2 flex items-center" data-theme="night">
@@ -263,15 +328,19 @@ const Navbar = () => {
                                     21
                                   </p>
                                 </div>
+                                <div className="flex justify-between my-3 items-center">
+                                <Link className="font-bold"  to='/createResume'>
+                                 {/* <small className="font-bold"> </small> */}
+                                 Create Resume
+                                  </Link>
 
-                                {/* <Link to='/createResume'>
-                                  <button className="bg-green-700 hover:bg-green-500 text-white font-bold py-2 px-4 rounded">
-                                    Create Resume
-                                  </button>
-                                  </Link> */}
+                                  <BsArrowRight></BsArrowRight>
+
+                                </div>
+
 
                                 <button
-                                  className="bg-green-700 hover:bg-green-500 text-white font-bold py-2 px-4 rounded"
+                                  className="bg-green-700 hover:bg-green-500 text-white font-bold mt-5 py-2 px-4 rounded"
                                   onClick={handleSignout}
                                 >
                                   Sign Out
