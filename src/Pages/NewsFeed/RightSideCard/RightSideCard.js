@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './RightSideCard.css'
 import { Link } from 'react-router-dom';
 import { FaExclamation } from 'react-icons/fa';
+import LimitNetwork from '../LimitNetwork/LimitNetwork';
 
 const RightSideCard = () => {
+    const [limitNetwork, setLimitNetwork] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:5000/limitNetwork')
+            .then(res => res.json())
+            .then(data => setLimitNetwork(data))
+    }, [])
+
     return (
         <div className=' profile-container rounded-md border border-gray-300 rounded-lg'>
             <div className='flex items-center justify-around mt-2 '>
@@ -12,7 +21,8 @@ const RightSideCard = () => {
                 <FaExclamation className='text-sm text-blue-500' />
             </div>
             <div className='mt-3'>
-                <div className='flex items-center mb-3 ju'>
+                {/* hardcode */}
+                {/* <div className='flex items-center mb-3 ju'>
                     <img alt="img" className="w-10 h-10 ml-4 mr-6 rounded-full ring-2 ring-offset-4 dark:bg-gray-500 ring-violet-400 ring-offset-gray-800" src="https://source.unsplash.com/40x40/?portrait?1" />
                     <div>
                         <Link to='#'>
@@ -54,6 +64,15 @@ const RightSideCard = () => {
                             </button>
                         </Link>
                     </div>
+                </div> */}
+                {/* hard code */}
+                <div>
+                    {
+                        limitNetwork.map(network => <LimitNetwork
+                            key={network._id}
+                            network={network}
+                        ></LimitNetwork>)
+                    }
                 </div>
 
             </div>
