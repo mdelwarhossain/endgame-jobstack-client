@@ -10,7 +10,7 @@ const MyConnections = () => {
 
     const { user } = useContext(AuthContext);
 
-    const { data, isLoading } = useQuery({
+    const { data, isLoading, refetch } = useQuery({
         queryKey: ['friends'],
         queryFn: async () => {
             try {
@@ -51,6 +51,7 @@ const MyConnections = () => {
                                     data?.map(friend => <MyConnectionsCard
                                         // key={friend._id}
                                         friend={friend}
+                                        refetch={refetch}
                                     ></MyConnectionsCard>)
                                 }
                             </div>
