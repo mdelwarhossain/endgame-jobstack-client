@@ -228,7 +228,7 @@ const RealPostCard = ({ post }) => {
                 <p className="text-sm flex">
                   <span
                     key={index}
-                    className="text-base font-semibold  flex flex-row items-center mr-2"
+                    className=" flex flex-row items-center mr-2"
                   >
                     {comment.name}
                   </span>

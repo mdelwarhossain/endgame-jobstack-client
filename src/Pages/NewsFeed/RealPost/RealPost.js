@@ -15,20 +15,15 @@ const RealPost = () => {
 
   const imageHostKey = "c8246134e51fb0e0cbdc4f35b003ee74";
 
-  const [currentUserDetails, setCurrentUserDetails] = useState();
 
   const [isBtnLoading, setIsBtnLoading] = useState(false);
-  const waitTime = 10000;
+
+  const [currentUserDetails, setCurrentUserDetails] = useState();
 
   useEffect(() => {
-    const id = setInterval(() => {
-      fetch(`https://endgame-jobstack-server.vercel.app/user/${user?.email}`)
-        .then((res) => res.json())
-        .then((data) => {
-          setCurrentUserDetails(data);
-        });
-    }, waitTime);
-    return () => clearInterval(id);
+    fetch(`https://endgame-jobstack-server.vercel.app/user/${user?.email}`)
+      .then((res) => res.json())
+      .then((data) => setCurrentUserDetails(data));
   }, [user?.email]);
 
   // const { data: img = [] } = useQuery({
@@ -132,11 +127,11 @@ const RealPost = () => {
     <div>
       <div className="mx-6 my-6">
         <form className="flex items-center" onSubmit={handleSubmit(handleSub)}>
-          {posts?.userImage ? (
+          {currentUserDetails?.profileImage ? (
             <img
               alt=""
               className="w-11 h-11 rounded-full ring-2 ring-offset-4 bg-green-500 ring-green-500 ring-offset-gray-800 mr-4"
-              src={posts?.userImage}
+              src={currentUserDetails?.profileImage}
             />
           ) : (
             <img

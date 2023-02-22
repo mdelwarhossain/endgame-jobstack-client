@@ -14,7 +14,7 @@ const NetworkCard = ({ dbuser, isLoading, refetch }) => {
 
   useEffect(() =>{
 
-    fetch(`http://localhost:5000/user/${user?.email}`)
+    fetch(`https://endgame-jobstack-server.vercel.app/user/${user?.email}`)
     .then((res)=>{
         if (!res.ok) {
             throw new Error(res.statusText);
@@ -34,7 +34,7 @@ const NetworkCard = ({ dbuser, isLoading, refetch }) => {
       filterEmail: dbuser?.email,
       filterEmail2: user?.email,
       received: {
-        name: userDetails.name,
+        name: userDetails?.name,
         email: user?.email,
         profileImage: userDetails?.profileImage
       },
@@ -45,7 +45,7 @@ const NetworkCard = ({ dbuser, isLoading, refetch }) => {
     };
 
     // save connections to the database
-    fetch("http://localhost:5000/connection", {
+    fetch("https://endgame-jobstack-server.vercel.app/connection", {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -89,9 +89,9 @@ const NetworkCard = ({ dbuser, isLoading, refetch }) => {
             {
               dbuser?.requests?.includes(user?.email) ?
                 
-                <p className="bg-[#2E8B57] rounded  hover:bg-green-900 text-white font-bold btn-sm pt-1">Request sent</p>
+                <p className="bg-[#2E8B57] rounded cursor-pointer  hover:bg-green-900 text-white font-bold btn-sm pt-1">Request sent</p>
                 :
-                <p onClick={() => handleConnect(dbuser)} className="rounded bg-[#2E8B57]  hover:bg-green-900 text-white font-bold btn-sm pt-1">Connect</p>
+                <p onClick={() => handleConnect(dbuser)} className="rounded cursor-pointer bg-[#2E8B57]  hover:bg-green-900 text-white font-bold btn-sm pt-1">Connect</p>
             }
           </div>
         </div>

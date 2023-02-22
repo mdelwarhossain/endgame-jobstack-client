@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { AuthContext } from "../../../contexts/AuthProvider";
@@ -7,6 +7,18 @@ const ProfileEditModal = ({ userDetails, userData, isLoading, refetch }) => {
   console.log(userData)
   const userEmail = userDetails?.email;
     // console.log(user)
+
+    const [modalOpen, setModalOpen] = useState(false);
+
+  const handleModalClose = () => {
+    setModalOpen(false);
+  };
+
+  const handleFormSubmit = () => {
+    handleModalClose();
+    // Handle form submission logic here
+  };
+
 
     //modal submit button
 
@@ -37,6 +49,7 @@ const ProfileEditModal = ({ userDetails, userData, isLoading, refetch }) => {
               if (data.modifiedCount) {
                 refetch();
                 reset();
+                handleFormSubmit()
                 toast.success("Profile Updated");
               }
             });
@@ -45,7 +58,8 @@ const ProfileEditModal = ({ userDetails, userData, isLoading, refetch }) => {
     }
   return (
     <>
-      <input type="checkbox" id="my-modal-3" className="modal-toggle" />
+      <input type="checkbox" id="my-modal-3" checked={modalOpen}
+        onChange={() => setModalOpen(!modalOpen)} className="modal-toggle" />
       <div className="modal">
         <div className="modal-box relative">
           <label
