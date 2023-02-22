@@ -277,7 +277,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <DasBoardLayout></DasBoardLayout>,
+    element: <PrivateRoute><DasBoardLayout></DasBoardLayout></PrivateRoute>,
     children: [
       {
         path: "/dashboard",

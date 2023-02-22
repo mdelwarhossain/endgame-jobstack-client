@@ -1,10 +1,9 @@
-import React from "react";
-import { useContext } from "react";
-import { useForm } from "react-hook-form";
-import { toast } from "react-hot-toast";
-import { AuthContext } from "../../../contexts/AuthProvider";
+import React, { useContext } from 'react';
+import { useForm } from 'react-hook-form';
+import { toast } from 'react-hot-toast';
+import { AuthContext } from '../../../../contexts/AuthProvider';
 
-const UserProjects = ({refetch,refetchProjects}) => {
+const ResumeProjectsModal = ({refetch}) => {
 
     const {user} = useContext(AuthContext)
 
@@ -17,50 +16,47 @@ const UserProjects = ({refetch,refetchProjects}) => {
 
       const handleProjectAdd = data =>{
         const projectName = data.projectName;
+        const projectLink = data.projectLink;
         const startDate = data.startDate;
         const endDate = data.endDate;
-        const projectLink = data.projectLink;
         const projectDescription= data.projectDescription;
 
 
-        const projectDetails = {
+        const jobDetails = {
 
             projectName,
+            projectLink,
             startDate,
             endDate,
-            projectLink,
             projectDescription,
-            email:user?.email
 
         }
 
-        console.log(projectDetails)
+        console.log(jobDetails)
 
-        fetch("https://endgame-jobstack-server.vercel.app/projects", {
-      method: "POST",
+        fetch(`http://localhost:5000/resumeDetails/${user?.email}`, {
+      method: "PUT",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(projectDetails),
+      body: JSON.stringify(jobDetails),
     })
       .then((res) => res.json())
       .then((data) => {
         if(data.acknowledged){
             refetch()
-            refetchProjects()
             toast.success("Project Added");
             reset()
         }
       });
       }
-
-  return (
-    <div>
-      <input type="checkbox" id="projects-modal" className="modal-toggle" />
+    return (
+        <div>
+      <input type="checkbox" id="resume-projects-modal" className="modal-toggle" />
       <div className="modal">
         <div className="modal-box relative">
           <label
-            htmlFor="projects-modal"
+            htmlFor="resume-projects-modal"
             className="btn btn-sm btn-circle absolute right-2 top-2"
           >
             ✕
@@ -124,7 +120,7 @@ const UserProjects = ({refetch,refetchProjects}) => {
         </div>
       </div>
     </div>
-  );
+    );
 };
 
-export default UserProjects;
+export default ResumeProjectsModal;
