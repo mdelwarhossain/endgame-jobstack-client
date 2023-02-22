@@ -16,7 +16,7 @@ const MyJobPost = () => {
     queryKey: ['myjobpost'],
     queryFn: async () => {
       try {
-        const res = await fetch(`https://endgame-jobstack-server.vercel.app/jobs/${user?.email}`, {
+        const res = await fetch(`http://localhost:5000/jobs/${user?.email}`, {
           headers: {
             authorization: `bearer ${localStorage.getItem('accessToken')}`
           }
