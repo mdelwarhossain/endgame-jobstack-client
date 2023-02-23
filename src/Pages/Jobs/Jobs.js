@@ -133,7 +133,7 @@ const Jobs = () => {
             <div className="search-inner">
               <input
                 type="text"
-                value={searchTerm}
+                // value={searchTerm}
                 onChange={onChange}
                 className="rounded-md  w-full  px-4 text-gray-700 leading-tight focus:outline-none  py-3  mt-1"
               />
