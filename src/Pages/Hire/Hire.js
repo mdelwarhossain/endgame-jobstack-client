@@ -10,6 +10,7 @@ import CardLoader from "../../Shared/LoadingPage/CardLoader/CardLoader";
 
 const Hire = () => {
   const { user } = useContext(AuthContext);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const { data = [], isLoading } = useQuery({
     queryKey: ["alluser"],
@@ -28,7 +29,6 @@ const Hire = () => {
       } catch (error) {}
     },
   });
-  // console.log(data);
 
   const { data: singleUser } = useQuery({
     queryKey: ["user"],
@@ -52,7 +52,7 @@ const Hire = () => {
   if (isLoading) {
     return <CardLoader></CardLoader>;
   }
-
+  console.log(searchTerm);
   return (
     <div className="px-4 allContainer grid grid-cols-1 md:grid-cols-8 gap-4  ">
       <div className="col-span-2 ">
@@ -75,12 +75,67 @@ const Hire = () => {
               Add a job
             </Link>
           </div>
+          <label className="label">
+            {" "}
+            <span className="label-text text-xl font-bold text-green-500">
+              Search your desire candidates
+            </span>
+          </label>
+          <input
+            className="rounded-md  w-full  px-6 text-gray-700 leading-tight focus:outline-none  py-5 mx-auto mt-2"
+            type="text"
+            placeholder="Search your desire candidates here..."
+            onChange={(event) => {
+              setSearchTerm(event.target.value);
+            }}
+          />
         </div>
       </div>
       <div className="col-span-6  py-2 rounded-2xl drop-shadow-xl bg-slate-100 ">
-        {data?.map((candidate) => (
-          <Candidate key={candidate._id} candidate={candidate}></Candidate>
-        ))}
+        {data
+          .filter((candidates) => {
+            if (searchTerm == "") {
+              console.log(candidates.name);
+              return candidates;
+            } else if (
+              (candidates?.name &&
+                candidates.name
+                  .toLowerCase()
+                  .includes(searchTerm.toLowerCase())) ||
+              (candidates?.headline &&
+                candidates.headline
+                  .toLowerCase()
+                  .includes(searchTerm.toLowerCase())) ||
+              (candidates?.skills &&
+                candidates.skills
+                  .toLowerCase()
+                  .includes(searchTerm.toLowerCase()))
+            ) {
+              return candidates;
+            }
+          })
+          .map((candidate) => (
+            <Candidate key={candidate._id} candidate={candidate}></Candidate>
+          ))}
+        {/* {data
+          .filter((candidates) => {
+            if (searchTerm == "") {
+              return candidates;
+            } else if (
+              candidates.name
+                .toLowerCase()
+                .includes(searchTerm.toLowerCase()) ||
+              candidates.headline
+                .toLowerCase()
+                .includes(searchTerm.toLowerCase()) ||
+              candidates.skills.toLowerCase().includes(searchTerm.toLowerCase())
+            ) {
+              return candidates;
+            }
+          })
+          .map((candidate) => (
+            <Candidate key={candidate._id} candidate={candidate}></Candidate>
+          ))} */}
       </div>
     </div>
   );
