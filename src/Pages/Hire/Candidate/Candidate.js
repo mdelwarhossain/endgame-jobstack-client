@@ -12,8 +12,8 @@ const Candidate = ({ candidate }) => {
                 </div>
                 <div className='col-span-7 sm:col-span-7 lg:col-span-6 mt-4 rounded-md'>
                     <p className="text-center text-xl font font-bold">{candidate.name}</p>
-                    <p className='text-center font-semibold'>{candidate.headline}</p>
-                    <p className='text-center text-md'>{candidate.skills}</p>
+                    <p className='text-center font-semibold'>{candidate?.headline?.slice(0,20)+"..."}</p>
+                    <p className='text-center text-md'>{candidate?.skills?.slice(0,40)+"..."}</p>
                     <p className="text-center font-bold text-green-700 text-sm">Open To Be Hired</p>
                 </div>
                 <div className='col-span-10 lg:col-span-2 my-5'>
