@@ -111,9 +111,7 @@ const router = createBrowserRouter([
       {
         path: "/hire",
         element: (
-          <PrivateRoute>
-            <Hire></Hire>
-          </PrivateRoute>
+          <Hire></Hire>
         ),
       },
       {

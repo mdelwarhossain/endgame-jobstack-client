@@ -131,8 +131,10 @@ const Navbar = () => {
             </span>
           )}
 
-          {currentUserDetails?.role === "Recruiter" && (
-            <span className="">
+          {/* {currentUserDetails?.role === "Recruiter" && (
+            
+          )} */}
+          <span className="">
               <BsFillBagPlusFill className="mx-auto -mb-4 hidden lg:block text-white" />
               <li className="font-bold lg:text-white">
                 <Link to="/hire">
@@ -141,7 +143,6 @@ const Navbar = () => {
                 </Link>
               </li>
             </span>
-          )}
 
           <span className="">
             <FaBlog className="mx-auto -mb-4 hidden lg:block text-white" />

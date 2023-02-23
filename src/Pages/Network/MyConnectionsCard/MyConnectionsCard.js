@@ -43,7 +43,7 @@ const MyConnectionsCard = ({friend, refetch}) => {
                         </div>
                         <div className='flex gap-5'>
                         <Link className='mt-3' to={`/myfriend/${friend?._id}`}><p className='col-span-1'>Profile</p></Link>
-                        <button className='text-red-600' onClick={handleDeleteFriend}><p className='col-span-1'>Delete</p></button>
+                        <button className='text-red-600' onClick={handleDeleteFriend}><p className='col-span-1'>Unfriend</p></button>
                         </div>
                     </div>
                     <div className="divider"></div>
