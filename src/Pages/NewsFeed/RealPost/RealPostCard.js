@@ -15,7 +15,8 @@ const RealPostCard = ({ post }) => {
   const [like, setlike] = useState(post.likes);
   const [isActive, setIsActive] = useState(false);
 
-  // console.log(post);
+
+  console.log(post);
 
   useEffect(() => {
     fetch(`https://endgame-jobstack-server.vercel.app/user/${user?.email}`)

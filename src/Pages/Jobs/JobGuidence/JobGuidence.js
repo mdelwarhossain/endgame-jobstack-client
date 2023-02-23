@@ -9,7 +9,7 @@ const JobGuidence = () => {
             <h3 className="text-2xl font-bold">Job seeker guidance</h3>
             <p className="mt-2">Recommended based on your activity</p>
             <div className="my-5">
-                <Link className="justify-between">
+                <Link to='/jobGuide' className="justify-between">
                     <p className="underline mb-2">I want to improve my resume</p>
 
                     <img className="rounded-xl" style={{height:"200px"}} src={resumeImg} alt="" />
@@ -21,7 +21,7 @@ const JobGuidence = () => {
                 improve your resume and grow your network, to help you land your next
                 opportunity.
             </p>
-            <Link>
+            <Link to='/jobGuide'>
                 <p className="font-bold">
                     Show More <BsArrowRightSquareFill className="inline" />
                 </p>

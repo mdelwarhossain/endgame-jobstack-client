@@ -22,7 +22,7 @@ const Banner = () => {
           />
           <div>
             <h2 className="text-4xl font-bold mt-14 ">
-              Empower Your Career with Jobstack
+              Empower Your Career with Career Edge!
             </h2>
             <div className=" text-green-500 mt-4">
               <TypeAnimation
@@ -36,7 +36,7 @@ const Banner = () => {
             </div>
             <div className="md:w-[650px] mt-1 font-medium">
               <p>
-                Jobstack is your ultimate career platform, connecting you with
+                Career Edge is your ultimate career platform, connecting you with
                 job opportunities, professional networks, and the tools you need
                 to grow and succeed in your career. Join our community today and
                 take control of your future.

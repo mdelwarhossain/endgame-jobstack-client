@@ -31,11 +31,11 @@ const FriendRequest = () => {
   }
 
   return (
-    <div>
+    <div className='allContainer '>
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-12 md:w-4/5 mx-auto'>
         {
           data?.requestReceived?.length ?
-            data?.requestReceived?.map(friend => <div key={friend?._id} className="card my-5 bg-base-100 shadow-xl">
+            data?.requestReceived?.map(friend => <div key={friend?._id} className="card my-5">
               <figure>
                 <img className="w-full h-36" src={friend?.received?.profileImage} alt="Shoes" />
               </figure>

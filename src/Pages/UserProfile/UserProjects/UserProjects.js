@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
@@ -7,6 +7,18 @@ import { AuthContext } from "../../../contexts/AuthProvider";
 const UserProjects = ({refetch,refetchProjects}) => {
 
     const {user} = useContext(AuthContext)
+
+    const [modalOpen, setModalOpen] = useState(false);
+
+    const handleModalClose = () => {
+      setModalOpen(false);
+    };
+  
+    const handleFormSubmit = () => {
+      handleModalClose();
+      // Handle form submission logic here
+    };
+  
 
     const {
         register,
@@ -47,7 +59,8 @@ const UserProjects = ({refetch,refetchProjects}) => {
       .then((data) => {
         if(data.acknowledged){
             refetch()
-            refetchProjects()
+            // refetchProjects()
+            handleFormSubmit()
             toast.success("Project Added");
             reset()
         }
@@ -56,7 +69,8 @@ const UserProjects = ({refetch,refetchProjects}) => {
 
   return (
     <div>
-      <input type="checkbox" id="projects-modal" className="modal-toggle" />
+      <input type="checkbox" checked={modalOpen}
+        onChange={() => setModalOpen(!modalOpen)} id="projects-modal" className="modal-toggle" />
       <div className="modal">
         <div className="modal-box relative">
           <label

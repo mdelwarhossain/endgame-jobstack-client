@@ -44,6 +44,7 @@ import Contact from "../Pages/Hire/Contact/Contact";
 import ResumeTemplate from "../Pages/CreateResume/ResumeTemplate";
 import CreateResume from "../Pages/CreateResume/CreateResume/CreateResume";
 import Resume from "../Pages/Resume/Resume";
+import ImproveResume from "../Pages/CreateResume/ImproveResume";
 
 
 
@@ -175,6 +176,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <UserProfile></UserProfile>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/jobGuide",
+        element: (
+          <PrivateRoute>
+           <ImproveResume></ImproveResume>
           </PrivateRoute>
         ),
       },
