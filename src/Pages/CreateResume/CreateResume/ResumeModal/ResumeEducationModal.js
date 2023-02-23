@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
 import { AuthContext } from '../../../../contexts/AuthProvider';
@@ -6,6 +6,17 @@ import { AuthContext } from '../../../../contexts/AuthProvider';
 const ResumeEducationModal = ({resumeDetails,refetch}) => {
 
     const {user} = useContext(AuthContext)
+    
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const handleModalClose = () => {
+    setModalOpen(false);
+  };
+
+  const handleFormSubmit = () => {
+    handleModalClose();
+    // Handle form submission logic here
+  };
 
     const {
         register,
@@ -33,6 +44,7 @@ const ResumeEducationModal = ({resumeDetails,refetch}) => {
               .then((data) => {
                 if (data.modifiedCount) {
                   refetch();
+                  handleFormSubmit()
                   reset();
                   toast.success("Info Added");
                 }
@@ -43,7 +55,8 @@ const ResumeEducationModal = ({resumeDetails,refetch}) => {
       
     return (
         <div>
-            <input type="checkbox" id="resume-education-modal" className="modal-toggle" />
+            <input type="checkbox" checked={modalOpen}
+        onChange={() => setModalOpen(!modalOpen)}  id="resume-education-modal" className="modal-toggle" />
             <div className="modal">
                 <div className="modal-box relative">
                     <label htmlFor="resume-education-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>

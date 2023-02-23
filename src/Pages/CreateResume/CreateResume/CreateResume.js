@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import React, { useContext, useState } from "react";
 import { BsPlusLg } from "react-icons/bs";
 import { FaExternalLinkAlt, FaPen } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthProvider";
 import UserProjects from "../../UserProfile/UserProjects/UserProjects";
 import ResumeEducationModal from "./ResumeModal/ResumeEducationModal";
@@ -65,7 +66,7 @@ const CreateResume = () => {
         <p><small>Add Location</small></p>
        }
       </div>
-      <button className="btn bg-green-700 hover:bg-green-500 text-white font-bold py-2 px-4 rounded btn-sm">Download</button>
+      <Link to='/resume'><button className="btn bg-green-700 hover:bg-green-500 text-white font-bold py-2 px-4 rounded btn-sm">See Resume</button></Link>
       <ResumeNameModal refetch={refetch} resumeDetails={resumeDetails}></ResumeNameModal>
       </div>
 
@@ -122,7 +123,7 @@ const CreateResume = () => {
 
           <div>
             {
-              resumeDetails?.Job.map(j => <div className="mb-5">
+              resumeDetails?.Job?.map(j => <div className="mb-5">
                 <p className="font-extrabold"><small>{j?.Organization}</small></p>
                 <p><small>{j?.Role}</small></p>
                 <p><small><span>{j?.startDate}</span> To <span>{j?.endDate}</span></small></p>
@@ -157,7 +158,7 @@ const CreateResume = () => {
 
           <div>
             {
-              resumeDetails?.Projects.map(p =>  <div className="my-5">
+              resumeDetails?.Projects?.map(p =>  <div className="my-5">
               {/* <h3 className="text-xl mb-2  font-extrabold">{project.projectName}</h3> */}
               <p className="mb-2 font-extrabold"><small>{p?.projectName}</small></p>
               <p><small><span>{p?.startDate}</span> To <span>{p?.endDate}</span></small></p>

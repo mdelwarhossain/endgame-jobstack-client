@@ -1,10 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
 
 const EducationModal = ({ userDetails, userData, isLoading, refetch }) => {
 
     const userEmail = userDetails?.email;
+
+    const [modalOpen, setModalOpen] = useState(false);
+
+  const handleModalClose = () => {
+    setModalOpen(false);
+  };
+
+  const handleFormSubmit = () => {
+    handleModalClose();
+    // Handle form submission logic here
+  };
+
 
     const {
         register,
@@ -32,6 +44,7 @@ const EducationModal = ({ userDetails, userData, isLoading, refetch }) => {
               .then((data) => {
                 if (data.modifiedCount) {
                   refetch();
+                  handleFormSubmit()
                   reset();
                   toast.success("Profile Updated");
                 }
@@ -41,7 +54,8 @@ const EducationModal = ({ userDetails, userData, isLoading, refetch }) => {
       }
     return (
         <div>
-      <input type="checkbox" id="education-modal" className="modal-toggle" />
+      <input type="checkbox" checked={modalOpen}
+        onChange={() => setModalOpen(!modalOpen)} id="education-modal" className="modal-toggle" />
 <div className="modal">
   <div className="modal-box relative">
     <label htmlFor="education-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
