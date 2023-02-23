@@ -15,7 +15,7 @@ const OurTeam = () => {
             data-aos="zoom-out"
             data-aos-offset="300"
             data-aos-easing="ease-in-sine"
-            className="flex flex-col shadow-2xl justify-center w-full px-8 mx-6 my-12 text-center rounded-md md:w-96 lg:w-80 xl:w-64 bg-white text-gray-800"
+            className="flex flex-col shadow-xl justify-center w-full px-8 mx-6 my-12 text-center rounded-md md:w-96 lg:w-80 xl:w-64 bg-white text-gray-800"
           >
             <img
               alt=""
@@ -100,7 +100,7 @@ const OurTeam = () => {
             data-aos="zoom-out"
             data-aos-offset="300"
             data-aos-easing="ease-in-sine"
-            className="flex flex-col justify-center w-full px-8 mx-6 my-12 text-center rounded-md md:w-96 lg:w-80 xl:w-64 bg-white text-gray-800"
+            className="flex flex-col justify-center shadow-xl w-full px-8 mx-6 my-12 text-center rounded-md md:w-96 lg:w-80 xl:w-64 bg-white text-gray-800"
           >
             <img
               alt=""
@@ -183,7 +183,7 @@ const OurTeam = () => {
             data-aos="zoom-out"
             data-aos-offset="300"
             data-aos-easing="ease-in-sine"
-            className="flex flex-col justify-center w-full px-8 mx-6 my-12 text-center rounded-md md:w-96 lg:w-80 xl:w-64 bg-white text-gray-800"
+            className="flex flex-col justify-center shadow-xl w-full px-8 mx-6 my-12 text-center rounded-md md:w-96 lg:w-80 xl:w-64 bg-white text-gray-800"
           >
             <img
               alt=""
@@ -270,7 +270,7 @@ const OurTeam = () => {
             data-aos="zoom-out"
             data-aos-offset="300"
             data-aos-easing="ease-in-sine"
-            className="flex flex-col justify-center w-full px-8 mx-6 my-12 text-center rounded-md md:w-96 lg:w-80 xl:w-64 bg-white text-gray-800"
+            className="flex flex-col justify-center shadow-xl w-full px-8 mx-6 my-12 text-center rounded-md md:w-96 lg:w-80 xl:w-64 bg-white text-gray-800"
           >
             <img
               alt=""
@@ -351,7 +351,7 @@ const OurTeam = () => {
             data-aos="zoom-out"
             data-aos-offset="300"
             data-aos-easing="ease-in-sine"
-            className="flex flex-col justify-center w-full px-8 mx-6 my-12 text-center rounded-md md:w-96 lg:w-80 xl:w-64 bg-white text-gray-800"
+            className="flex flex-col justify-center shadow-xl w-full px-8 mx-6 my-12 text-center rounded-md md:w-96 lg:w-80 xl:w-64 bg-white text-gray-800"
           >
             <img
               alt=""
@@ -435,7 +435,7 @@ const OurTeam = () => {
             data-aos="zoom-out"
             data-aos-offset="300"
             data-aos-easing="ease-in-sine"
-            className="flex flex-col justify-center w-full px-8 mx-6 my-12 text-center rounded-md md:w-96 lg:w-80 xl:w-64 bg-white text-gray-800"
+            className="flex flex-col justify-center w-full shadow-xl px-8 mx-6 my-12 text-center rounded-md md:w-96 lg:w-80 xl:w-64 bg-white text-gray-800"
           >
             <img
               alt=""

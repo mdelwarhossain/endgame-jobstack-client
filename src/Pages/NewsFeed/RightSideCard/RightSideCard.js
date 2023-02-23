@@ -1,71 +1,29 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './RightSideCard.css'
 import { Link } from 'react-router-dom';
 import { FaExclamation } from 'react-icons/fa';
 import LimitNetwork from '../LimitNetwork/LimitNetwork';
+import { AuthContext } from '../../../contexts/AuthProvider';
 
 const RightSideCard = () => {
     const [limitNetwork, setLimitNetwork] = useState([]);
+    const {user} = useContext(AuthContext)
 
     useEffect(() => {
-        fetch('http://localhost:5000/limitNetwork')
+        fetch(`http://localhost:5000/limitNetwork/${user?.email}`)
             .then(res => res.json())
             .then(data => setLimitNetwork(data))
-    }, [])
+    }, [user?.email])
 
     return (
-        <div className=' profile-container rounded-md border border-gray-300 rounded-lg'>
+        <div className=' profile-container r border border-gray-300 rounded-lg'>
             <div className='flex items-center justify-around mt-2 '>
                 {/* <h2 className='ml-2 font-bold'>Add to your feed</h2> */}
                 <p className='font-bold text-cyan-900 text-lg '>Get Connected</p>
-                <FaExclamation className='text-sm text-blue-500' />
+                <FaExclamation className='text-sm text-green-700' />
             </div>
             <div className='mt-3'>
-                {/* hardcode */}
-                {/* <div className='flex items-center mb-3 ju'>
-                    <img alt="img" className="w-10 h-10 ml-4 mr-6 rounded-full ring-2 ring-offset-4 dark:bg-gray-500 ring-violet-400 ring-offset-gray-800" src="https://source.unsplash.com/40x40/?portrait?1" />
-                    <div>
-                        <Link to='#'>
-                            <h1 className='text-xl font-bold mt-4'>Md Mohsin</h1>
-                            <h3 className='text-sm'>Hr Professional</h3>
-                        </Link>
-                        <Link to='#'>
-                            <button className='bg-[#2E8B57] mt-2 rounded hover:bg-green-900 text-white font-bold btn-sm'>
-                                + Fllow
-                            </button>
-                        </Link>
-                    </div>
-                </div>
-
-                <div className='flex items-center mb-3'>
-                    <img alt="img" className="w-10 h-10 ml-4 mr-6 rounded-full ring-2 ring-offset-4 dark:bg-gray-500 ring-violet-400 ring-offset-gray-800" src="https://source.unsplash.com/40x40/?portrait?1" />
-                    <div>
-                        <Link to='#'>
-                            <h1 className='text-xl font-bold mt-5'>Zinedine </h1>
-                            <h3 className='text-sm'>Coach Professional</h3>
-                        </Link>
-                        <Link to='#'>
-                            <button className='bg-[#2E8B57] mt-2 rounded hover:bg-green-900 text-white font-bold btn-sm'>
-                                + Fllow
-                            </button>
-                        </Link>
-                    </div>
-                </div>
-                <div className='flex items-center mb-6'>
-                    <img alt="img" className="w-10 h-10 ml-4 mr-6 rounded-full ring-2 ring-offset-4 dark:bg-gray-500 ring-violet-400 ring-offset-gray-800" src="https://source.unsplash.com/40x40/?portrait?1" />
-                    <div>
-                        <Link to='#'>
-                            <h1 className='text-xl font-bold mt-4'> Ronaldo</h1>
-                            <h3 className='text-sm'>Football Professional</h3>
-                        </Link>
-                        <Link to='#'>
-                            <button className='bg-[#2E8B57] mt-2 rounded hover:bg-green-900 text-white font-bold btn-sm'>
-                                + Fllow
-                            </button>
-                        </Link>
-                    </div>
-                </div> */}
-                {/* hard code */}
+                
                 <div>
                     {
                         limitNetwork.map(network => <LimitNetwork
