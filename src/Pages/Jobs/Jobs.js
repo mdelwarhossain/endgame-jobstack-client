@@ -38,7 +38,7 @@ const Jobs = () => {
     queryFn: async () => {
       try {
         const res = await fetch(
-          "https://endgame-jobstack-server.vercel.app/jobs",
+          "http://localhost:5000/jobs",
           {
             headers: {
               authorization: `bearer ${localStorage.getItem("accessToken")}`,
@@ -91,12 +91,6 @@ const Jobs = () => {
     <div className="px-4 allContainer grid grid-cols-1 md:grid-cols-8 gap-4">
       <div className="col-span-2 hidden md:block mt-5">
         <div className="">
-          {/* {
-            user &&
-            <div className="flex gap-4 ml-2 mt-2">
-              <img className="h-10 w-10 rounded-full" src={singleUser?.profileImage} alt="" />
-              <span className="flex gap-2 mt-2"> {singleUser?.name}</span>
-            </div>} */}
           <div>
             <p className="font-extrabold shadow-lg rounded-md text-cyan-900 text-center py-2 text-xl mx-auto mb-2 bg-gradient-to-r from-green-300 to-blue-300 ">
               Popular Courses <GiCandlebright className="inline" />

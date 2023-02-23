@@ -1,7 +1,7 @@
 import jsPDF from 'jspdf';
 import React, { useContext, useRef } from 'react';
 import { FaEdit } from 'react-icons/fa';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 import ReactToPrint, { useReactToPrint } from 'react-to-print';
 
@@ -250,7 +250,7 @@ const ResumeTemplate = () => {
         <button onClick={handlePrint} className="btn btn-outline btn-primary shadow-md mt-5 mr-5 m" type='primary'>download resume</button>
             {
                 data?.email === user?.email &&
-                <button className="btn btn-outline btn-primary shadow-md mt-5"><FaEdit></FaEdit>Edit Resume</button>
+                <Link to='/createResume'><button className="btn btn-outline btn-primary shadow-md mt-5"><FaEdit></FaEdit>Edit Resume</button></Link>
             }
         </div>
         </div>
