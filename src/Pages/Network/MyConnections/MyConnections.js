@@ -58,7 +58,7 @@ const MyConnections = () => {
                         </div>
                         :
                         <div className='ml-5'>
-                            <p className='my-10 bg-slate-200 p-5'>You have no friend request to show</p>
+                            <p className='my-10 bg-slate-200 p-5'>You have no friend to show</p>
                             <Link to='/network' className='btn btn-outline btn-primary px-8'>Back</Link>
                         </div>
                 }

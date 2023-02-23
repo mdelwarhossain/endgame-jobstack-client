@@ -326,7 +326,7 @@ const Navbar = () => {
                                     Connection{" "}
                                   </h3>
                                   <p className="font-bold text-blue-600 mt-1">
-                                    21
+                                    {currentUserDetails?.friends?.length}
                                   </p>
                                 </div>
                                 <div className="flex justify-between my-3 items-center">
