@@ -74,6 +74,7 @@ const MyJobPost = () => {
       <div className="px-4 grid allContainer grid-cols-1 md:w-2/3 mx-auto my-10 gap-4">
       <div className="">
         {
+          data?.length ?
           data?.map(post => <JobPostCard
             key={post._id}
             post={post}
@@ -81,6 +82,8 @@ const MyJobPost = () => {
             setId={setId}
             handleDelete={handleDelete}
           ></JobPostCard>)
+          : 
+          <p className='my-10 bg-slate-200 p-5'>You have no post to show</p>
         }
       </div>
       <Link to='/hire' className='btn btn-outline btn-primary mb-5 text-center flex items-center md:w-1/4 mx-auto'>back</Link>
